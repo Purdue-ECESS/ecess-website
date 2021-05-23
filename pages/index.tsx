@@ -1,4 +1,6 @@
 import React from "react";
+import Layout from "../components/layout";
+import Head from 'next/head'
 
 interface Props {
     key: any,
@@ -7,8 +9,16 @@ interface Props {
 
 export default function IndexPage(props: Props) {
     return (
-        <div>
-            <p>Hi There</p>
-        </div>
+        <Layout>
+            <>
+                <Head>
+                    <title>ECEA: Home</title>
+                </Head>
+                <p>Mission Statement</p>
+                <p>Picture of Us</p>
+                <p>Link to Discord + Insta</p>
+                <p>Update</p>
+            </>
+        </Layout>
     )
 }
