@@ -18,6 +18,7 @@ export default function IndexPage(props: Props) {
                 <p>Picture of Us</p>
                 <p>Link to Discord + Insta</p>
                 <p>Update</p>
+                <p>{process.env.testKey}</p>
             </>
         </Layout>
     )
