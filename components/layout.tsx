@@ -28,7 +28,7 @@ function ECESSNavBar() {
                     {nav_links.map((item, i) => {
                         return (
                             <Link key={item[0]} href={item[0]} passHref>
-                                <Nav.Link >
+                                <Nav.Link>
                                     {item[1]}
                                 </Nav.Link>
                             </Link>
