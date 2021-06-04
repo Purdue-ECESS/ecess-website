@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ECESSNavBar() {
-    const nav_links = [['/', 'Home'], ['/calendar', 'Calendar'], ['/fun', 'Fun'],
-        ['/projects', 'Projects'], ['/about', 'About']];
+    const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
+        ['/projects', 'Projects'], ['/ambassadors', 'Ambassadors']];
     return (
         <Navbar bg="light" expand="lg">
             <Link href={"/"} passHref>
