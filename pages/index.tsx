@@ -32,7 +32,7 @@ function WelcomeImage(props) {
         <div style={{display: 'block',}}>
             <div style={{
                 borderRadius: "0px 0px 25px 25px",
-                width: "100%", overflow: 'hidden', maxHeight: 450}}>
+                width: "100%", overflow: 'hidden', maxHeight: 450, minHeight: 50}}>
                 <img
                      style={{
                          position: 'relative', width: "100%", minWidth: "500px", marginTop: "-10%"}}
