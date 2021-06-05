@@ -31,7 +31,7 @@ class CalendarApp extends React.Component {
 
 export default function CalendarPage(props: Props) {
     return (
-        <Layout>
+        <Layout maxWidth={1080}>
             <div style={{margin: '10px'}}>
                 <Head>
                     <title>ECEA: Calendar</title>

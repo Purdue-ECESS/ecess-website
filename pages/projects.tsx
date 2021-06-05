@@ -4,11 +4,6 @@ import Head from "next/head";
 import Typography from "@material-ui/core/Typography";
 import {Box, Divider} from "@material-ui/core";
 
-interface Props {
-    key: any,
-    window?: () => Window;
-}
-
 function Projects(props) {
     const {title, author, children} = props;
     return (
@@ -24,21 +19,9 @@ function Projects(props) {
     )
 }
 
-function EEProjects() {
+export default function ProjectPage(props) {
     return (
-        <div>
-            <Typography variant="h6" component="h2">
-                EE Projects
-            </Typography>
-            <Typography variant="body2" component="p">
-            </Typography>
-        </div>
-    )
-}
-
-export default function ProjectPage(props: Props) {
-    return (
-        <Layout>
+        <Layout maxWidth={1080}>
             <div style={{margin: 5}}>
                 <Head>
                     <title>ECEA: Project</title>
@@ -46,7 +29,7 @@ export default function ProjectPage(props: Props) {
 
                 <div style={{margin: '10px 0'}}>
                     <Typography variant="h5" component="h2">
-                        CompE Projects
+                        Computer Engineering Projects
                     </Typography>
                     <Divider light style={{marginTop: 5, marginBottom: 5}}/>
 
@@ -59,7 +42,7 @@ export default function ProjectPage(props: Props) {
 
                 <div style={{margin: '10px 0'}}>
                     <Typography variant="h5" component="h2">
-                        EE Projects
+                        Electrical Engineering Projects
                     </Typography>
                     <Divider light style={{marginTop: 5, marginBottom: 5}}/>
 

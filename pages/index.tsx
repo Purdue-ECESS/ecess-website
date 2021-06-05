@@ -141,7 +141,7 @@ function Updates(props) {
 export default function IndexPage(props: Props) {
     const classes = useStyles();
     return (
-        <Layout>
+        <Layout maxWidth={1080}>
             <>
                 <Head>
                     <title>ECEA: Home</title>

@@ -44,12 +44,12 @@ function ECESSNavBar(props) {
     );
 }
 
-export default function Layout({children}) {
+export default function Layout({children, maxWidth}) {
     return (
         <div style={{margin: 0, height: "100vh", display: "flex", flexDirection: "column"}}>
             <div style={{flex: 1, background: 'lightgoldenrodyellow'}}>
                 <ECESSNavBar className={"sticky-top"}/>
-                <main style={{margin: "0 auto", maxWidth: 1080}}>
+                <main style={{margin: "0 auto", maxWidth: maxWidth}}>
                     <div>
                         {children}
                     </div>
