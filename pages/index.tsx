@@ -57,7 +57,7 @@ function WelcomeImage(props) {
                         Mission Statement
                     </Typography>
                     <Typography variant={'subtitle2'}>
-                        Our purpose is to represent the Electrical and Computer Engineering Department of Purdue University to prospective students, alumni, donors, and the public.
+                        ECE Ambassadors mission is to spread knowledge about Purdue’s ECE program to prospective and current students alike.
                     </Typography>
                 </div>
             </div>
@@ -88,6 +88,14 @@ function SocialMedia(props) {
                     </Typography>
                     <a href={'https://www.instagram.com/purdue_ecea/'}>
                         @purdue_ecea
+                    </a>
+                </div>
+                <div style={{minWidth: 250, flex: 1, margin: 5}}>
+                    <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
+                        EMAIL
+                    </Typography>
+                    <a href={'mailto:eceambassadors@gmail.com'}>
+                        eceambassadors@gmail.com
                     </a>
                 </div>
             </div>
