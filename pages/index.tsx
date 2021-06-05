@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Typography from "@material-ui/core/Typography";
 import {Card, CardContent, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
-import {Nav} from "react-bootstrap";
+import PURDUE_UPDATES from "../data/data_posts";
 
 interface Props {
     key: any,
@@ -44,7 +44,9 @@ function WelcomeImage(props) {
             <div style={{
                 position: 'relative',
                 marginTop: "-50px",
-                width: "100%",
+                width: "90%",
+                marginLeft: 'auto',
+                marginRight: 'auto',
                 textAlign: 'center', zIndex: 100}}>
                 <div
                     style={{display: 'inline-block',
@@ -135,11 +137,6 @@ function Updates(props) {
     )
 
 }
-
-const PURDUE_UPDATES = [
-    // {title: 'Testing 1 2 3', content: 'This is content'},
-]
-
 
 export default function IndexPage(props: Props) {
     const classes = useStyles();
