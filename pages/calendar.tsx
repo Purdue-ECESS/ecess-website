@@ -23,6 +23,7 @@ class CalendarApp extends React.Component {
                     {title: 'event 1', date: '2021-06-05'},
                     {title: 'event 2', date: '2021-06-06'},
                 ]}
+                rerenderDelay={1}
             />
         )
     }
@@ -31,14 +32,12 @@ class CalendarApp extends React.Component {
 export default function CalendarPage(props: Props) {
     return (
         <Layout>
-            <>
+            <div style={{margin: '10px'}}>
                 <Head>
                     <title>ECEA: Calendar</title>
                 </Head>
                 <CalendarApp/>
-                <p>Calendar Page</p>
-                <a href={"https://fullcalendar.io"}>https://fullcalendar.io</a>
-            </>
+            </div>
         </Layout>
     )
 }
