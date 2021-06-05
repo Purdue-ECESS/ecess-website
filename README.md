@@ -1,1 +1,1 @@
-# purdue-ecea-website
+# Purdue ECEA Website

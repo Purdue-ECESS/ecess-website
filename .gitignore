@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# ECEA Untrack Files
+.idea/
+package-lock.json
+yarn.lock
+next-env.d.ts
+out
