@@ -1,12 +1,13 @@
 {
-  "name": "learn-starter",
+  "name": "purdue-ecea-website",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "github": "mkdir -p out/.github/workflows && cp deployment.yml out/.github/workflows"
   },
   "dependencies": {
     "@babel/preset-react": "^7.10.4",

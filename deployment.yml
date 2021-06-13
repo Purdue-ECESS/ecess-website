@@ -1,0 +1,16 @@
+name: Mix Deployment
+on:
+  push:
+    branches: [ecea, ecess, wece]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Run Bash Script
+        run: |
+          ./deployment ${{ secrets.SECRET_ACCESS_TOKEN }}

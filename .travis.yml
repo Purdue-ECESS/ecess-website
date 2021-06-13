@@ -6,13 +6,16 @@ cache:
   - node_modules 
 script:
   - npm run build 
-  - npm run export 
-  - touch out/.nojekyll 
+  - npm run export
+  - npm run github
+  - touch out/.nojekyll
 deploy:
   provider: pages 
   skip_cleanup: true 
   github_token: $github_token 
-  local_dir: out 
+  local_dir: out
+  target_branch: ecea
+  repo: Purdue-ECESS/website
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^(main)$
