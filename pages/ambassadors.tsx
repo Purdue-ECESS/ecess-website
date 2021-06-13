@@ -16,7 +16,7 @@ function AmbassadorView(props) {
             <CardContent>
                 <div style={{display: 'flex'}}>
                     <div style={{maxHeight: 200, maxWidth: 200, overflow: 'hidden'}}>
-                        <img src={'/ecea' + person.picture} alt={'student profile'} height={200}/>
+                        <img src={person.picture} alt={'student profile'} height={200}/>
                     </div>
                     <div style={{flex: 1, marginLeft: 10}}>
                         <Typography variant={'h6'}>

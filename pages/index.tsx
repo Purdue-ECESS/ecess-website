@@ -37,7 +37,7 @@ function WelcomeImage(props) {
                 <img
                     style={{
                         position: 'relative', width: "100%", minWidth: "500px", marginTop: "-10%"}}
-                    src={"/ecea/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                    src={"/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     alt={"ECE Ambassadors"} />
             </div>
 
@@ -52,7 +52,7 @@ function WelcomeImage(props) {
                     style={{display: 'inline-block',
                         borderRadius: '25px',
                         padding: 5,
-                        backgroundColor: 'gold', maxWidth: 550, margin: '0 auto'}}>
+                        backgroundColor: '#CEB888', maxWidth: 550, margin: '0 auto'}}>
                     <Typography variant={'subtitle1'}>
                         Mission Statement
                     </Typography>
@@ -78,7 +78,7 @@ function SocialMedia(props) {
                     <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
                         DISCORD
                     </Typography>
-                    <a href={'https://discord.gg/FaeMRny4F6'}>
+                    <a href={'https://discord.gg/fmwxACFB2T'}>
                         ECE Ambassadors
                     </a>
                 </div>

@@ -45,7 +45,7 @@ export default function FunPage(props: Props) {
                     {HORIZONTAL_MEETINGS.map((item, i) => {
                             return (
                                 <div>
-                                    <img src={"/ecea/static/src/" + item.ref}/>
+                                    <img src={"/static/src/" + item.ref}/>
                                 </div>
                             )
                         }
@@ -56,7 +56,7 @@ export default function FunPage(props: Props) {
                     {VERTICAL_MEETINGS.map((item, i) => {
                             return (
                                 <div>
-                                    <img src={"/ecea/static/src/" + item.ref}/>
+                                    <img src={"/static/src/" + item.ref}/>
                                 </div>
                             )
                         }

@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
                         rel="stylesheet"
                         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
                     />
-                    <link rel="shortcut icon" href={"/ecea/static/ecea_logo.ico"}/>
+                    <link rel="shortcut icon" href={"/static/ecea_logo.ico"}/>
                 </Head>
                 <body>
                 <Main/>
