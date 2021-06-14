@@ -7,6 +7,7 @@ const withTM = require('next-transpile-modules')([
 ])
 
 module.exports = withTM({
+  basePath: '/ecea',
   trailingSlash: true,
   env: {
     testKey: process.env.TEST_KEY

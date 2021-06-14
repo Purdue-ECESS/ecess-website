@@ -37,7 +37,7 @@ function WelcomeImage(props) {
                 <img
                     style={{
                         position: 'relative', width: "100%", minWidth: "500px", marginTop: "-10%"}}
-                    src={"/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                    src={"/ecea/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     alt={"ECE Ambassadors"} />
             </div>
 
