@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Link from 'next/link'
 import Copyright from "../src/Copyright"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 import {Box} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +23,7 @@ function ECESSNavBar(props) {
         <Box boxShadow={3} className={className} style={{padding: 0, margin: 0}}>
             <Navbar bg="light" expand="lg">
                 <Link href={"/"} passHref>
-                    <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
+                    <Navbar.Brand style={{margin: 5}}>Purdue ECE Ambassadors</Navbar.Brand>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
