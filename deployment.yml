@@ -1,7 +1,7 @@
 name: Mix Deployment
 on:
   push:
-    branches: [ecea, ecess, wece]
+    branches: [ecea, ecess, wece, main]
 
 jobs:
   build:

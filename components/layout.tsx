@@ -1,19 +1,9 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
 import Link from 'next/link'
 import Copyright from "../src/Copyright"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 import {Box} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    title: {
-        flexGrow: 1,
-    },
-}));
 
 function ECESSNavBar(props) {
     const {className} = props;
@@ -21,7 +11,7 @@ function ECESSNavBar(props) {
         ['/projects', 'Projects'], ['/ambassadors', 'Ambassadors']];
     return (
         <Box boxShadow={3} className={className} style={{padding: 0, margin: 0}}>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" style={{padding: 5}}>
                 <Link href={"/"} passHref>
                     <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
                 </Link>
