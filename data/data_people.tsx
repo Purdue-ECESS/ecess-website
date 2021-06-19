@@ -2,7 +2,8 @@ const AMBASSADORS = [
     {
         name: 'Sara Hui',
         picture: '/static/people/sarahui.jpg',
-        graduation: 'Electrical Engineering, May 2022',
+        major: 'Electrical Engineering',
+        graduation: 'May 2022',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sara-hui-purdue/'},
         ]
@@ -10,7 +11,8 @@ const AMBASSADORS = [
     {
         name: 'Altay Atik',
         picture: '/static/people/altayatik.jpg',
-        graduation: 'Electrical Engineering, May 2023',
+        major: 'Electrical Engineering',
+        graduation: 'May 2023',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/altayaskinatik/'},
             {'name': 'Personal', 'link': 'http://www.altayatik.com/'}
@@ -19,7 +21,8 @@ const AMBASSADORS = [
     {
         name: 'Alyssa Delouise',
         picture: '/static/people/alyssadelouise.jpg',
-        graduation: 'Computer Engineering, May 2023',
+        major: 'Electrical Engineering',
+        graduation: 'December 2022',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/alyssadelouise/'},
         ]
@@ -27,7 +30,8 @@ const AMBASSADORS = [
     {
         name: 'Denae Galloway',
         picture: '/static/people/denaegalloway.jpg',
-        graduation: 'Computer Engineering, May 2023',
+        major: 'Electrical Engineering',
+        graduation: 'May 2023',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/denae-galloway-981185193/'}
         ]
@@ -35,7 +39,8 @@ const AMBASSADORS = [
     {
         name: 'Justin Zhang',
         picture: '/static/people/justinzhang.jpg',
-        graduation: 'Computer Engineering, December 2021',
+        major: 'Computer Engineering',
+        graduation: 'December 2021',
         links: [
             {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/justin-zhang-purdue/`},
         ]
@@ -43,7 +48,8 @@ const AMBASSADORS = [
     {
         name: 'Michael Worthington',
         picture: '/static/people/michaelworthington.jpg',
-        graduation: 'Electrical Engineering, December 2023',
+        major: 'Electrical Engineering',
+        graduation: 'December 2023',
         links: [
             {'name': 'linkedin', link: 'https://www.linkedin.com/in/j-michael-worthington/'},
         ]
@@ -51,7 +57,8 @@ const AMBASSADORS = [
     {
         name: 'Naveen Vivek',
         picture: '/static/people/naveenvivek.jpg',
-        graduation: 'Electrical Engineering, May 2022',
+        major: 'Electrical Engineering',
+        graduation: 'May 2022',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/naveen-vivek/'},
         ]
@@ -59,9 +66,163 @@ const AMBASSADORS = [
     {
         name: 'Sam Dlott',
         picture: '/static/people/samdlott.jpg',
-        graduation: 'Computer Engineering, May 2023',
+        major: 'Computer Engineering',
+        graduation: 'May 2023',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sdlott/'},
+        ]
+    },
+    {
+        name: 'Grace Ulmer',
+        picture: '/static/people/graceulmer.jpg',
+        major: 'Electrical Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/grace-ulmer-056278179/'},
+        ]
+    },
+    {
+        name: 'Heath Lovell',
+        picture: '/static/people/heathlovell.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2023',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/heath-aaron-lovell/'},
+        ]
+    },
+    {
+        name: 'Jason Chamness',
+        picture: '/static/people/jasonchamness.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/jason-chamness-447b9516b/'},
+        ]
+    },
+    {
+        name: 'Jennifer Gutman',
+        picture: '/static/people/jennifergutman.jpg',
+        major: 'Computer Engineering',
+        graduation: 'December 2021',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/jennifer-gutman-34054a17a/'},
+        ]
+    },
+    {
+        name: 'Juan Carlos G.',
+        picture: '/static/people/juancarlos.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2023',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/juan-carlos-g-9a831012b/'},
+        ]
+    },
+    {
+        name: 'Kobe Martin',
+        picture: '/static/people/kobemartin.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2023',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/kobem/'},
+        ]
+    },
+    {
+        name: 'Yueting Mary Zhao',
+        picture: '/static/people/maryzhao.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2023',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/yueting-mary-zhao/'},
+        ]
+    },
+    {
+        name: 'Mohamed Ibrahim',
+        picture: '/static/people/mohamedibrahim.jpg',
+        major: 'Electrical Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/mohamed-ibrahim-934768177/'},
+        ]
+    },
+    {
+        name: 'Noah Thoma',
+        picture: '/static/people/noahthoma.jpg',
+        major: 'Computer Engineering',
+        graduation: 'December 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/noahthoma/'},
+        ]
+    },
+    {
+        name: 'Ryan Villarreal',
+        picture: '/static/people/ryanvillarreal.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/ryan-villarreal/'},
+        ]
+    },
+    {
+        name: 'Rylee Benes',
+        picture: '/static/people/ryleebenes.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/rylee-benes/'},
+        ]
+    },
+    {
+        name: 'Sihun Kim',
+        picture: '/static/people/sihunkim.jpg',
+        major: 'Electrical Engineering',
+        graduation: 'December 2023',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sihun-kim/'},
+        ]
+    },
+    {
+        name: 'Warren Xiong',
+        picture: '/static/people/warrenxiong.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2024',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/warrenjxiong/'},
+        ]
+    },
+    {
+        name: 'Vikram Srivastava ',
+        picture: '/static/people/vikramsrivastava.jpg',
+        major: 'Computer Engineering',
+        graduation: 'December 2021',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/vikramsrivastava1/'},
+        ]
+    },
+    {
+        name: 'Amita P.',
+        picture: '/static/people/amitap.jpg',
+        major: 'Computer Engineering',
+        graduation: 'December 2021',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/amita-pandey/'},
+        ]
+    },
+    {
+        name: 'Brady Smith',
+        picture: '/static/people/bradysmith.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2023',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sihun-kim/'},
+        ]
+    },
+    {
+        name: 'Elizabeth Thomas',
+        picture: '/static/people/elizabeththomas.jpg',
+        major: 'Electrical Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/elizabeth-thomas-768b0b143/'},
         ]
     },
 ]

@@ -12,16 +12,21 @@ interface Props {
 function AmbassadorView(props) {
     const {person} = props;
     return (
-        <Card style={{background: '#fff', display: 'inline-block', margin: 10}}>
+        <Card style={{background: '#E0EEEA', display: 'inline-block', margin: 40, maxWidth: 300}}>
             <CardContent>
                 <div style={{display: 'flex'}}>
-                    <div style={{maxHeight: 200, maxWidth: 200, overflow: 'hidden'}}>
+                    <div style={{maxHeight: 200, maxWidth: 150, overflow: 'hidden'}}>
                         <img src={'/ecea' + person.picture} alt={'student profile'} height={200}/>
                     </div>
                     <div style={{flex: 1, marginLeft: 10}}>
                         <Typography variant={'h6'}>
                             {person.name}
                         </Typography>
+                        {person.major ?
+                            <Typography variant={"subtitle2"}>
+                                {person.major}
+                            </Typography> : <></>
+                        }
                         {person.graduation ?
                             <Typography variant={"subtitle2"}>
                                 {person.graduation}
