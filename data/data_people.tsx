@@ -166,15 +166,6 @@ const AMBASSADORS = [
         ]
     },
     {
-        name: 'Ryan Villarreal',
-        picture: '/static/people/ryanvillarreal.jpg',
-        major: 'Computer Engineering',
-        graduation: 'May 2022',
-        links: [
-            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/ryan-villarreal/'},
-        ]
-    },
-    {
         name: 'Rylee Benes',
         picture: '/static/people/ryleebenes.jpg',
         major: 'Computer Engineering',
