@@ -166,6 +166,15 @@ const AMBASSADORS = [
         ]
     },
     {
+        name: 'James Donnelly',
+        picture: '/static/people/jamesdonnelly.jpg',
+        major: 'Computer Engineering',
+        graduation: 'May 2022',
+        links: [
+            {'name': 'Linkedin', 'link': 'http://www.linkedin.com/in/jamesfdonnelly'},
+        ]
+    },
+    {
         name: 'Rylee Benes',
         picture: '/static/people/ryleebenes.jpg',
         major: 'Computer Engineering',
