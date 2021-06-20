@@ -46,6 +46,18 @@ const AMBASSADORS = [
         ]
     },
     {
+        name: 'Matthew Wen',
+        picture: '/static/people/matthewwen.jpeg',
+        major: 'Computer Engineering',
+        graduation: 'May 2022',
+        quote: 'I spend around like 200 hours a year on Spotify. Such a great rate of return. ',
+        links: [
+            {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/mattwen89/`},
+            {'name': 'Personal', 'link': `https://www.matthewwen.com`},
+            {'name': 'GitHub', 'link': `https://www.github.com/matthewwen`},
+        ]
+    },
+    {
         name: 'Michael Worthington',
         picture: '/static/people/michaelworthington.jpg',
         major: 'Electrical Engineering',
@@ -199,7 +211,7 @@ const AMBASSADORS = [
         ]
     },
     {
-        name: 'Amita P.',
+        name: 'Amita Pandey',
         picture: '/static/people/amitap.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
