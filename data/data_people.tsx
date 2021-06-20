@@ -166,12 +166,12 @@ const AMBASSADORS = [
         ]
     },
     {
-        name: 'Ryan Villarreal',
-        picture: '/static/people/ryanvillarreal.jpg',
+        name: 'James Donnelly',
+        picture: '/static/people/jamesdonnelly.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
         links: [
-            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/ryan-villarreal/'},
+            {'name': 'Linkedin', 'link': 'http://www.linkedin.com/in/jamesfdonnelly'},
         ]
     },
     {
