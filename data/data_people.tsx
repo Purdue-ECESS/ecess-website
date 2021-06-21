@@ -50,7 +50,7 @@ const AMBASSADORS = [
         picture: '/static/people/matthewwen.jpeg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
-        quote: 'I spend around like 200 hours a year on Spotify. Such a great rate of return. ',
+        quote: 'I spend around like 200 hours a year on Spotify. Such a great rate of return.',
         links: [
             {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/mattwen89/`},
             {'name': 'Personal', 'link': `https://www.matthewwen.com`},
