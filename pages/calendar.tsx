@@ -8,18 +8,25 @@ interface Props {
     window?: () => Window;
 }
 
+// const API_KEY = ""
+
 class CalendarApp extends React.Component {
     render() {
         let calendars = [
             {
                 calendarId: "bg4e1frm2kqlieki1q1tr5j1kg@group.calendar.google.com",
                 color: "#B241D1"
+            },
+            {
+                calendarId: "1t1ggg1uamf194kmrgftse1nk8@group.calendar.google.com",
+                color: "#CEB888"
             }
         ];
         return (
             <div>
-                <Calendar calendars={calendars} />
-                <iframe src={"https://calendar.google.com/calendar/embed?src=bg4e1frm2kqlieki1q1tr5j1kg%40group.calendar.google.com&ctz=America%2FChicago"} style={{width: '100%', height: '100vh'}}/>
+                {/*<Calendar apiKey={API_KEY} calendars={calendars} />*/}
+                <iframe src={"https://calendar.google.com/calendar/embed?src=bg4e1frm2kqlieki1q1tr5j1kg%40group.calendar.google.com&ctz=America%2FChicago"}
+                        style={{width: '100%', height: '100vh'}}/>
             </div>
         )
     }

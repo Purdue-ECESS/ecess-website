@@ -8,10 +8,10 @@ import {Box} from "@material-ui/core";
 function ECESSNavBar(props) {
     const {className} = props;
     const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
-        ['/projects', 'Projects'], ['/ambassadors', 'Ambassadors']];
+        ['/ece', 'Lifestyle'], ['/ambassadors', 'Ambassadors']];
     return (
-        <Box boxShadow={3} className={className} style={{padding: 0, margin: 0}}>
-            <Navbar bg="light" expand="lg" style={{padding: 5}}>
+        <Box boxShadow={3} className={className} style={{padding: 0, margin: 0, backgroundColor: '#E0EEEA'}}>
+            <Navbar expand="lg" style={{padding: 5, backgroundColor: '#E0EEEA'}}>
                 <Link href={"/"} passHref>
                     <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
                 </Link>

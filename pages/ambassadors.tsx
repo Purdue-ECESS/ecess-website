@@ -4,7 +4,8 @@ import Head from "next/head";
 import AMBASSADORS from "../data/data_people";
 import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core";
 
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
+
 interface Props {
     key: any,
     window?: () => Window;
@@ -12,7 +13,7 @@ interface Props {
 
 function AmbassadorView(props) {
     const {person, width} = props;
-    const setWidth = width ? width: 350;
+    const setWidth = width ? width : 350;
     return (
         <Card style={{background: '#E0EEEA', display: 'inline-block', margin: 5}}>
             <CardContent style={{width: setWidth, overflow: 'hidden'}}>
@@ -71,7 +72,7 @@ function useWindowSize() {
             const handleResize = () => {
                 const width = window.innerWidth;
                 setWindowSize({
-                    width: getAmbassadorWidth(width > 1080 ? 1080: width)
+                    width: getAmbassadorWidth(width > 1080 ? 1080 : width)
                 });
             }
             window.addEventListener("resize", handleResize);
@@ -88,8 +89,7 @@ function getAmbassadorWidth(screenWidth) {
     let ambassadorWidth = screenWidth;
     if (numPeople > 1) {
         ambassadorWidth /= numPeople;
-    }
-    else {
+    } else {
         numPeople = 2.8;
     }
     return Math.floor(ambassadorWidth) - Math.floor(10 * numPeople);
@@ -97,6 +97,14 @@ function getAmbassadorWidth(screenWidth) {
 
 export default function AboutPage(props: Props) {
     const size = useWindowSize();
+    AMBASSADORS.sort((a, b) => {
+        if (a.name == "Sara Hui") {
+            return -1;
+        } else if (b.name == "Sara Hui") {
+            return 1;
+        }
+        return a.name.localeCompare(b.name);
+    });
     return (
         <Layout maxWidth={1080}>
             <>
@@ -106,12 +114,15 @@ export default function AboutPage(props: Props) {
 
                 {
                     size.width ?
-                        <div style={{margin: '0 auto', fontSize: 0}}>
-                            {AMBASSADORS.map((item, i) => {
-                                return (
-                                    <AmbassadorView key={i} person={item} width={size.width}/>
-                                )
-                            })}
+                        <div>
+                            <Typography variant={"h5"} style={{marginLeft: 5}}>Ambassadors</Typography>
+                            <div style={{margin: '0 auto', fontSize: 0}}>
+                                {AMBASSADORS.map((item, i) => {
+                                    return (
+                                        <AmbassadorView key={i} person={item} width={size.width}/>
+                                    )
+                                })}
+                            </div>
                         </div>
                         : <></>
                 }

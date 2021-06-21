@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import {Card, CardContent, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import PURDUE_UPDATES from "../data/data_posts";
+import {Discord, Instagram, Gmail} from "@icons-pack/react-simple-icons";
 
 interface Props {
     key: any,
@@ -75,25 +76,34 @@ function SocialMedia(props) {
             <Divider light style={{marginTop: 5, marginBottom: 5}}/>
             <div style={{display: "flex", flexWrap: "wrap"}}>
                 <div style={{minWidth: 250, flex: 1, margin: 5}}>
-                    <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
-                        DISCORD
-                    </Typography>
+                    <div style={{display: "flex"}}>
+                        <Discord size={18} style={{margin: 3}}/>
+                        <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
+                            DISCORD
+                        </Typography>
+                    </div>
                     <a href={'https://discord.gg/fmwxACFB2T'}>
                         ECE Ambassadors
                     </a>
                 </div>
                 <div style={{minWidth: 250, flex: 1, margin: 5}}>
-                    <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
-                        INSTAGRAM
-                    </Typography>
+                    <div style={{display: "flex"}}>
+                        <Instagram size={18} style={{margin: 3}}/>
+                        <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
+                            INSTAGRAM
+                        </Typography>
+                    </div>
                     <a href={'https://www.instagram.com/purdue_ecea/'}>
                         @purdue_ecea
                     </a>
                 </div>
                 <div style={{minWidth: 250, flex: 1, margin: 5}}>
-                    <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
-                        EMAIL
-                    </Typography>
+                    <div style={{display: "flex"}}>
+                        <Gmail size={18} style={{margin: 3}}/>
+                        <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
+                            EMAIL
+                        </Typography>
+                    </div>
                     <a href={'mailto:eceambassadors@gmail.com'}>
                         eceambassadors@gmail.com
                     </a>
