@@ -86,13 +86,12 @@ function useWindowSize() {
 function getAmbassadorWidth(screenWidth) {
     const minWidth = 350;
     let numPeople = Math.floor(screenWidth / minWidth);
-    let ambassadorWidth = screenWidth;
+    let ambassadorWidth = screenWidth - 20;
     if (numPeople > 1) {
+        numPeople = 2;
         ambassadorWidth /= numPeople;
-    } else {
-        numPeople = 2.8;
     }
-    return Math.floor(ambassadorWidth) - Math.floor(10 * numPeople);
+    return Math.floor(ambassadorWidth) - Math.floor(10);
 }
 
 export default function AboutPage(props: Props) {
