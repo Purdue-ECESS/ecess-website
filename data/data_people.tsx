@@ -4,6 +4,7 @@ const AMBASSADORS = [
         picture: '/static/people/sarahui.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
+        quote: 'I exploded my capacitor in 20007. Sad but true.',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sara-hui-purdue/'},
         ]
@@ -13,6 +14,7 @@ const AMBASSADORS = [
         picture: '/static/people/altayatik.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2023',
+        quote: "Brooke Parks taught me to Work Smarter Not Harder.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/altayaskinatik/'},
             {'name': 'Personal', 'link': 'http://www.altayatik.com/'}
@@ -23,6 +25,7 @@ const AMBASSADORS = [
         picture: '/static/people/alyssadelouise.jpg',
         major: 'Electrical Engineering',
         graduation: 'December 2022',
+        quote: "Came for the starting salary. Stayed for the therapy group.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/alyssadelouise/'},
         ]
@@ -41,6 +44,7 @@ const AMBASSADORS = [
         picture: '/static/people/justinzhang.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
+        quote: 'Hold up. I got to take a picture of this. Someone just exploded a capacitor in 20007.',
         links: [
             {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/justin-zhang-purdue/`},
         ]
@@ -71,6 +75,7 @@ const AMBASSADORS = [
         picture: '/static/people/naveenvivek.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
+        quote: "Happiness is having your capacitor never explode in ECE 20007.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/naveen-vivek/'},
         ]
@@ -194,6 +199,7 @@ const AMBASSADORS = [
     },
     {
         name: 'Warren Xiong',
+        quote: 'No one knows you exploded a capacitor in 20007 if you did it online.',
         picture: '/static/people/warrenxiong.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2024',
@@ -212,6 +218,7 @@ const AMBASSADORS = [
     },
     {
         name: 'Amita Pandey',
+        quote: 'Never exploded my capacitor in 20007 and still don\'t know how I didn\'t.',
         picture: '/static/people/amitap.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
