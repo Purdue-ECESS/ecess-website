@@ -17,13 +17,12 @@ Linux: https://git-scm.com/download/linux
 ### Install Purdue ECEA Source Code
 Type these commands inside your window / bash terminal. Installing git allows you to deploy your changes to the website. 
 
-git clone https://github.com/Purdue-ECESS/ecea
-cd ecea
+git clone https://github.com/Purdue-ECESS/ecea-website-source-code
+cd ecea-website-source-code
 
 
-### Installing Next + Required Tools + Running Application
+### Running Application
 npm install
-npm install --save-dev typescript @types/react 
 npm run dev
 
 then open localhost:3000/ecea. If you do not, then your program will not work. 
