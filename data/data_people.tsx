@@ -244,5 +244,14 @@ const AMBASSADORS = [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/elizabeth-thomas-768b0b143/'},
         ]
     },
+    {
+        name: 'Zach Vander Missen',
+        picture: '/static/people/zachvandermissen.jpg',
+        major: 'Electrical Engineering',
+        graduation: 'December 2021',
+        links: [
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/zach-vander-missen-15711256/'},
+        ]
+    },
 ]
 export default AMBASSADORS;
