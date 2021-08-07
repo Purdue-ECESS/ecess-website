@@ -10,6 +10,14 @@ export default function Copyright(props) {
             <MuiLink color="inherit" href="https://engineering.purdue.edu/ece">
                 Purdue ECE Student Society
             </MuiLink>{' '}
+            {' | '}
+            <MuiLink color="inherit" href="https://discord.com/">
+                Discord
+            </MuiLink>{' '}
+            {' | '}
+            <MuiLink color="inherit" href="https://www.instagram.com/">
+                Instgram
+            </MuiLink>{' '}
             {new Date().getFullYear()}
         </Typography>
     );
