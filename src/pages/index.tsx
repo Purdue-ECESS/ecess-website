@@ -1,16 +1,9 @@
 import React from "react";
-import Layout from "../components/layout";
-import Head from 'next/head'
 import Typography from "@material-ui/core/Typography";
 import {Card, CardContent, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import PURDUE_UPDATES from "../data/data_posts";
 import {Discord, Instagram, Gmail} from "@icons-pack/react-simple-icons";
-
-interface Props {
-    key: any,
-    window?: () => Window;
-}
 
 const useStyles = makeStyles({
     root: {
@@ -29,7 +22,7 @@ const useStyles = makeStyles({
     },
 });
 
-function WelcomeImage(props) {
+function WelcomeImage() {
     return (
         <div style={{display: 'block',}}>
             <div style={{
@@ -38,7 +31,7 @@ function WelcomeImage(props) {
                 <img
                     style={{
                         position: 'relative', width: "100%", minWidth: "500px", marginTop: "-10%"}}
-                    src={"/ecea/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                    src={process.env.PUBLIC_URL + "/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     alt={"ECE Ambassadors"} />
             </div>
 
@@ -115,7 +108,7 @@ function SocialMedia(props) {
 
 function Updates(props) {
     const {materialClass, content} = props;
-    if (!content || content.length == 0) {
+    if (!content || content.length === 0) {
         return (
             <div style={{margin: 10}}>
                 <Typography variant="h5" component="h2">
@@ -156,18 +149,15 @@ function Updates(props) {
 
 }
 
-export default function IndexPage(props: Props) {
+export default function IndexPage() {
     const classes = useStyles();
     return (
-        <Layout maxWidth={1080}>
+        <div style={{maxWidth: 1080, margin: '0 auto'}}>
             <>
-                <Head>
-                    <title>ECEA: Home</title>
-                </Head>
                 <WelcomeImage />
                 <SocialMedia materialClass={classes}/>
                 <Updates materialClass={classes} content={PURDUE_UPDATES}/>
             </>
-        </Layout>
+        </div>
     )
 }

@@ -1,7 +1,5 @@
 import React from 'react';
-import Link from 'next/link'
-import Copyright from "../src/Copyright"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Copyright from "./Copyright"
 import {Nav, Navbar} from "react-bootstrap";
 import {Box} from "@material-ui/core";
 
@@ -12,19 +10,19 @@ function ECESSNavBar(props) {
     return (
         <Box boxShadow={3} className={className} style={{padding: 0, margin: 0, backgroundColor: '#E0EEEA'}}>
             <Navbar expand="lg" style={{padding: 5, backgroundColor: '#E0EEEA'}}>
-                <Link href={"/"} passHref>
+                <a href={"/"}>
                     <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
-                </Link>
+                </a>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         {nav_links.map((item, i) => {
                             return (
-                                <Link key={item[0]} href={item[0]} passHref>
+                                <a key={item[0]} href={item[0]}>
                                     <Nav.Link>
                                         {item[1]}
                                     </Nav.Link>
-                                </Link>
+                                </a>
                             )
                         })}
                     </Nav>

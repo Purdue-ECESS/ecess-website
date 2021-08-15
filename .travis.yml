@@ -6,7 +6,6 @@ cache:
   - node_modules 
 script:
   - npm run build 
-  - npm run export
   - npm run github
 deploy:
   provider: pages 

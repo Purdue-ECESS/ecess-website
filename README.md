@@ -10,7 +10,9 @@ Go to https://nodejs.org/en/download. Instructions for Linux, Windows, and Mac s
 
 ### Installing Git
 Windows: https://git-scm.com/download/win
+
 Mac: https://git-scm.com/download/mac
+
 Linux: https://git-scm.com/download/linux
 
 
@@ -25,11 +27,10 @@ $ cd ecea-website-source-code
 ### Running Application
 ```bash
 $ npm install
-$ npm run dev
+$ npm run start
 ```
-then open localhost:3000/ecea. If you do not, then your program will not work. 
+then open localhost:3000. If you do not, then your program will not work. 
 
 
 ### External Links + Resources
-https://nextjs.org/docs
 https://docs.google.com/document/d/181Unrk4GO44B6woG_bWy1T38fqoCAiIO3ENkXunvvvI/edit
