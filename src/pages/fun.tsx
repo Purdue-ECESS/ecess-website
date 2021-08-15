@@ -1,13 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
-import Head from "next/head";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from "react-responsive-carousel"; // requires a loader
-
-interface Props {
-    key: any,
-    window?: () => Window;
-}
 
 const HORIZONTAL_MEETINGS = [
     {'ref': '0bf270e223e98350b6770f4d1893e2f7.jpg'},
@@ -33,19 +26,15 @@ const VERTICAL_MEETINGS = [
     {'ref': 'db3e530d701893f51938d545ac0fb6de.jpg'}
 ]
 
-export default function FunPage(props: Props) {
+export default function FunPage() {
     return (
-        <Layout maxWidth={1080}>
-            <div style={{margin: 10}}>
-                <Head>
-                    <title>ECEA: Fun</title>
-                </Head>
-
+        <div>
+            <div style={{margin: '0 auto', maxWidth: 1080}}>
                 <Carousel>
                     {HORIZONTAL_MEETINGS.map((item, i) => {
                             return (
                                 <div>
-                                    <img src={"/ecea/static/src/" + item.ref}/>
+                                    <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref}/>
                                 </div>
                             )
                         }
@@ -56,14 +45,14 @@ export default function FunPage(props: Props) {
                     {VERTICAL_MEETINGS.map((item, i) => {
                             return (
                                 <div>
-                                    <img src={"/ecea/static/src/" + item.ref}/>
+                                    <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref}/>
                                 </div>
                             )
                         }
                     )}
                 </Carousel>
             </div>
-        </Layout>
+        </div>
     )
 }
 

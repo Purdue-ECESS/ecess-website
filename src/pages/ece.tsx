@@ -1,6 +1,4 @@
 import React from "react";
-import Layout from "../components/layout";
-import Head from "next/head";
 import Typography from "@material-ui/core/Typography";
 import {Box, Divider} from "@material-ui/core";
 
@@ -19,14 +17,10 @@ function Ece(props) {
     )
 }
 
-export default function ECEPage(props) {
+export default function ECEPage() {
     return (
-        <Layout maxWidth={1080}>
-            <div style={{margin: 5}}>
-                <Head>
-                    <title>ECEA: Lifestyle</title>
-                </Head>
-
+        <div>
+            <div style={{margin: '0 auto', maxWidth: 1080}}>
                 <div style={{margin: '10px 0'}}>
                     <Typography variant="h5" component="h2">
                         Fun Fact About Ambassadors
@@ -83,7 +77,7 @@ export default function ECEPage(props) {
                     </Ece>
                 </div>
             </div>
-        </Layout>
+        </div>
     )
 }
 
