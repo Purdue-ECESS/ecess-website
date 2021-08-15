@@ -18,8 +18,8 @@ function App() {
     const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
         ['/ece', 'Lifestyle'], ['/ambassadors', 'Ambassadors']];
     return (
-        <BrowserRouter basename={'/ecea'}>
-            <Router>
+        <BrowserRouter>
+            <Router basename={'/ecea'}>
                 <Box boxShadow={3} className={'sticky-top'} style={{padding: 0, margin: 0, backgroundColor: '#FFFFFF'}}>
                     <Navbar expand={"lg"} style={{padding: 5}}>
                         <Link to={"/"} style={{margin: 5, textDecoration: 'none'}}>
