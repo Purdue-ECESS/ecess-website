@@ -14,7 +14,6 @@ const AMBASSADORS = [
         picture: '/static/people/altayatik.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2023',
-        quote: "Brooke Parks taught me to Work Smarter Not Harder.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/altayaskinatik/'},
             {'name': 'Personal', 'link': 'http://www.altayatik.com/'}
