@@ -34,7 +34,7 @@ export default function FunPage() {
                     {HORIZONTAL_MEETINGS.map((item, i) => {
                             return (
                                 <div>
-                                    <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref}/>
+                                    <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref} alt={'horizontal fun images'}/>
                                 </div>
                             )
                         }
@@ -45,7 +45,7 @@ export default function FunPage() {
                     {VERTICAL_MEETINGS.map((item, i) => {
                             return (
                                 <div>
-                                    <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref}/>
+                                    <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref} alt={'vertical fun images'}/>
                                 </div>
                             )
                         }

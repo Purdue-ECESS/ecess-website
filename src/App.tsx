@@ -30,9 +30,13 @@ function App() {
                             <Nav className="mr-auto">
                                 {nav_links.map((item, i) => {
                                     return (
-                                        <Link to={item[0]}
-                                              style={{margin: 5, textDecoration: 'none'}}
-                                        >{item[1]}</Link>
+                                        <Link
+                                            to={item[0]}
+                                            key={item[0]}
+                                            style={{margin: 5, textDecoration: 'none'}}
+                                        >
+                                            {item[1]}
+                                        </Link>
                                     )
                                 })}
                             </Nav>
