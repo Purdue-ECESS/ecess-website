@@ -8,7 +8,7 @@ function AmbassadorView(props) {
     const {person, width} = props;
     const setWidth = width ? width : 350;
     return (
-        <Card style={{background: '#E0EEEA', display: 'inline-block', margin: 5}}>
+        <Card style={{display: 'inline-block', margin: 5}}>
             <CardContent style={{width: setWidth, overflow: 'hidden'}}>
                 <div style={{display: 'flex'}}>
                     <div style={{maxHeight: 200, maxWidth: 150, overflow: 'hidden'}}>

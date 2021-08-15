@@ -85,6 +85,7 @@ const AMBASSADORS = [
         picture: '/static/people/samdlott.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
+        quote: "My calendar has too many colors. It's kind of pretty.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sdlott/'},
         ]
