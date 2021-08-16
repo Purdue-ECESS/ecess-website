@@ -1,6 +1,6 @@
 import React from "react";
 import AMBASSADORS from "../data/data_people";
-import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core";
+import {Button, Card, CardActions, CardContent, Typography, Chip} from "@material-ui/core";
 
 import {useState, useEffect} from 'react';
 
@@ -35,6 +35,11 @@ function AmbassadorView(props) {
                                 <q>
                                     {person.quote}
                                 </q>
+                            </Typography> : <></>
+                        }
+                        {person.clubs ?
+                            <Typography variant={"subtitle2"}>
+                                {person.clubs}
                             </Typography> : <></>
                         }
                     </div>
