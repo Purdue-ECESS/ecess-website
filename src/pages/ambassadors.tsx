@@ -4,6 +4,22 @@ import {Button, Card, CardActions, CardContent, Typography, Chip} from "@materia
 
 import {useState, useEffect} from 'react';
 
+function hashCode(str) { // java String#hashCode
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+}
+
+function intToRGB(i){
+    let d = (i & 0xFFFFFF) | 0xA0A0A0;
+    let c = d.toString(16).toUpperCase();
+    const response =  "00000".substring(0, 6 - c.length) + c;
+    console.log(response);
+    return response;
+}
+
 function AmbassadorView(props) {
     const {person, width} = props;
     const setWidth = width ? width : 350;
@@ -37,10 +53,13 @@ function AmbassadorView(props) {
                                 </q>
                             </Typography> : <></>
                         }
-                        {person.clubs ?
-                            <Typography variant={"subtitle2"}>
-                                {person.clubs}
-                            </Typography> : <></>
+                        {
+                            (person.clubs || []).map( (item) =>
+                                <Chip key={item} label={item} style={{
+                                    backgroundColor: `\#${intToRGB(hashCode(item))}`,
+                                    margin: 2
+                                }}/>
+                            )
                         }
                     </div>
                 </div>

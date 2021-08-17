@@ -1,5 +1,3 @@
-import Chip from '@material-ui/core/Chip';
-
 const AMBASSADORS = [
     {
         name: 'Sara Hui',
@@ -26,7 +24,7 @@ const AMBASSADORS = [
         picture: '/static/people/alyssadelouise.jpg',
         major: 'Electrical Engineering',
         graduation: 'December 2022',
-        clubs: [<Chip label="Phi Sigma Rho" />, <Chip label="Higher Ground Dance Co." />, <Chip label="Purdue Society of Women Engineers"/>],
+        clubs: ["Phi Sigma Rho" , "Higher Ground Dance Co.", "Purdue Society of Women Engineers"],
         quote: "Came for the starting salary. Stayed for the therapy group.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/alyssadelouise/'},
@@ -78,7 +76,7 @@ const AMBASSADORS = [
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         quote: "Happiness is having your capacitor never explode in ECE 20007.",
-        clubs: [<Chip label="Power Engineering Society" />, <Chip label="Boilermaker Consulting Group" />, <Chip label="CAM2 Research Group"/>],
+        clubs: ["Power Engineering Society" , "Boilermaker Consulting Group", "CAM2 Research Group"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/naveen-vivek/'},
         ]
@@ -89,7 +87,7 @@ const AMBASSADORS = [
         major: 'Computer Engineering',
         graduation: 'May 2023',
         quote: "My calendar has too many colors. It's kind of pretty.",
-        clubs: [<Chip label="Purdue Student Engineering Foundation" />, <Chip label="All-American Marching Band" />, <Chip label="Purdue Jazz Bands"/>, <Chip label="3D Printing Club"/>, <Chip label="Cary Club"/>],
+        clubs: ["Purdue Student Engineering Foundation" , "All-American Marching Band", "Purdue Jazz Bands","3D Printing Club", "Cary Club"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sdlott/'},
         ]
@@ -108,7 +106,7 @@ const AMBASSADORS = [
         picture: '/static/people/heathlovell.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
-        clubs: [<Chip label="Eta Kappa Nu" />, <Chip label="IEEE" />, <Chip label="Intramural Soccer"/>, <Chip label="3D Printing Club"/>],
+        clubs: ["Eta Kappa Nu" , "IEEE", "Intramural Soccer", "3D Printing Club"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/heath-aaron-lovell/'},
         ]
@@ -154,7 +152,7 @@ const AMBASSADORS = [
         picture: '/static/people/maryzhao.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
-        clubs: [<Chip label="Chinese Engineering Student Council" />, <Chip label="Delta Phi Lambda" />],
+        clubs: ["Chinese Engineering Student Council" , "Delta Phi Lambda"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/yueting-mary-zhao/'},
         ]
@@ -164,7 +162,7 @@ const AMBASSADORS = [
         picture: '/static/people/mohamedibrahim.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
-        clubs: [<Chip label="IEEE" />],
+        clubs: ["IEEE" ],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/mohamed-ibrahim-934768177/'},
         ]
@@ -183,7 +181,7 @@ const AMBASSADORS = [
         picture: '/static/people/jamesdonnelly.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
-        clubs: [<Chip label="Eta Kappa Nu" />, <Chip label="IEEE" />, <Chip label="Purdue Jazz Bands"/>],
+        clubs: ["Eta Kappa Nu" , "IEEE" , "Purdue Jazz Bands"],
         links: [
             {'name': 'Linkedin', 'link': 'http://www.linkedin.com/in/jamesfdonnelly'},
         ]
@@ -240,7 +238,7 @@ const AMBASSADORS = [
         picture: '/static/people/bradysmith.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
-        clubs: [<Chip label="Purdue Women in Electrical and Computer Engineering" />],
+        clubs: ["Purdue Women in Electrical and Computer Engineering"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/bradyeesmith/'},
         ]
