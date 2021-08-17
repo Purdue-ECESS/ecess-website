@@ -137,7 +137,7 @@ function Updates(props) {
                                     {item.title}
                                 </Typography>
                                 <Typography variant="body2" component="p">
-                                    {item.content}
+                                    <div dangerouslySetInnerHTML={{__html: item.content}}/>
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -146,7 +146,6 @@ function Updates(props) {
             </div>
         </div>
     )
-
 }
 
 export default function IndexPage() {
