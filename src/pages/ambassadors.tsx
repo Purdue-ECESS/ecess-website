@@ -15,9 +15,7 @@ function hashCode(str) { // java String#hashCode
 function intToRGB(i){
     let d = (i & 0xFFFFFF) | 0xA0A0A0;
     let c = d.toString(16).toUpperCase();
-    const response =  "00000".substring(0, 6 - c.length) + c;
-    console.log(response);
-    return response;
+    return "00000".substring(0, 6 - c.length) + c;
 }
 
 function AmbassadorView(props) {
@@ -126,7 +124,9 @@ export default function AboutPage() {
             {
                 size.width ?
                     <div>
-                        <Typography variant={"h5"} style={{marginLeft: 5}}>Ambassadors</Typography>
+                        <div>
+                            <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>Ambassadors</Typography>
+                        </div>
                         <div style={{margin: '0 auto', fontSize: 0}}>
                             {AMBASSADORS.map((item, i) => {
                                 return (

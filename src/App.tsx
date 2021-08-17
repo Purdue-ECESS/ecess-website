@@ -11,15 +11,28 @@ import FunPage from "./pages/fun";
 import ECEPage from "./pages/ece";
 import AboutPage from "./pages/ambassadors";
 import {Nav, Navbar} from "react-bootstrap";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Box} from "@material-ui/core";
 
 function App() {
     const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
         ['/ece', 'Lifestyle'], ['/ambassadors', 'Ambassadors']];
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        window.onscroll = () => {
+            const tempOffset = window.pageYOffset;
+            if (tempOffset < 10) {
+                setOffset(tempOffset / 10 * 3);
+            }
+            else {
+                setOffset(3);
+            }
+        }
+    }, []);
     return (
         <Router basename={'/ecea'}>
-            <Box boxShadow={3} className={'sticky-top'} style={{padding: 0, margin: 0, backgroundColor: '#FFFFFF'}}>
+            <Box boxShadow={offset} className={'sticky-top'} style={{padding: 0, margin: 0, backgroundColor: '#FFFFFF'}}>
                 <Navbar expand={"lg"} style={{padding: 5}}>
                     <Link to={"/"} style={{margin: 5, textDecoration: 'none'}}>
                         <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
