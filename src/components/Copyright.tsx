@@ -12,11 +12,11 @@ export default function Copyright(props) {
                 Purdue ECE Student Society
             </MuiLink>{' '}
             {' | '}
-            <MuiLink color="inherit" href="https://discord.com/">
+            <MuiLink color="inherit" href="https://discord.com/invite/fmwxACFB2T">
                 Discord
             </MuiLink>{' '}
             {' | '}
-            <MuiLink color="inherit" href="https://www.instagram.com/">
+            <MuiLink color="inherit" href="https://www.instagram.com/purdue_ecea/">
                 Instagram
             </MuiLink>
         </Typography>
