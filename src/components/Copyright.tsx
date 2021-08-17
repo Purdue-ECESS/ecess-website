@@ -7,6 +7,7 @@ export default function Copyright(props) {
     return (
         <Typography variant="body2" color="textSecondary" align="center" style={{padding: 10, ...style}}>
             {'Copyright © '}
+            {`${new Date().getFullYear()} `}
             <MuiLink color="inherit" href="https://engineering.purdue.edu/ece">
                 Purdue ECE Student Society
             </MuiLink>{' '}
@@ -16,9 +17,8 @@ export default function Copyright(props) {
             </MuiLink>{' '}
             {' | '}
             <MuiLink color="inherit" href="https://www.instagram.com/">
-                Instgram
-            </MuiLink>{' '}
-            {new Date().getFullYear()}
+                Instagram
+            </MuiLink>
         </Typography>
     );
 }

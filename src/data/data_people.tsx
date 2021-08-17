@@ -24,6 +24,7 @@ const AMBASSADORS = [
         picture: '/static/people/alyssadelouise.jpg',
         major: 'Electrical Engineering',
         graduation: 'December 2022',
+        clubs: ["Phi Sigma Rho" , "Higher Ground Dance Co.", "Purdue Society of Women Engineers"],
         quote: "Came for the starting salary. Stayed for the therapy group.",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/alyssadelouise/'},
@@ -75,6 +76,7 @@ const AMBASSADORS = [
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         quote: "Happiness is having your capacitor never explode in ECE 20007.",
+        clubs: ["Power Engineering Society" , "Boilermaker Consulting Group", "CAM2 Research Group"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/naveen-vivek/'},
         ]
@@ -85,6 +87,7 @@ const AMBASSADORS = [
         major: 'Computer Engineering',
         graduation: 'May 2023',
         quote: "My calendar has too many colors. It's kind of pretty.",
+        clubs: ["Purdue Student Engineering Foundation" , "All-American Marching Band", "Purdue Jazz Bands","3D Printing Club", "Cary Club"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sdlott/'},
         ]
@@ -103,6 +106,7 @@ const AMBASSADORS = [
         picture: '/static/people/heathlovell.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
+        clubs: ["Eta Kappa Nu" , "IEEE", "Intramural Soccer", "3D Printing Club"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/heath-aaron-lovell/'},
         ]
@@ -148,6 +152,7 @@ const AMBASSADORS = [
         picture: '/static/people/maryzhao.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
+        clubs: ["Chinese Engineering Student Council" , "Delta Phi Lambda"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/yueting-mary-zhao/'},
         ]
@@ -157,6 +162,7 @@ const AMBASSADORS = [
         picture: '/static/people/mohamedibrahim.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
+        clubs: ["IEEE" ],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/mohamed-ibrahim-934768177/'},
         ]
@@ -175,6 +181,7 @@ const AMBASSADORS = [
         picture: '/static/people/jamesdonnelly.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
+        clubs: ["Eta Kappa Nu" , "IEEE" , "Purdue Jazz Bands"],
         links: [
             {'name': 'Linkedin', 'link': 'http://www.linkedin.com/in/jamesfdonnelly'},
         ]
@@ -231,8 +238,9 @@ const AMBASSADORS = [
         picture: '/static/people/bradysmith.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
+        clubs: ["Purdue Women in Electrical and Computer Engineering"],
         links: [
-            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sihun-kim/'},
+            {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/bradyeesmith/'},
         ]
     },
     {
