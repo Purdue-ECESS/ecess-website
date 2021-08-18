@@ -33,7 +33,7 @@ export default function FunPage() {
             <div style={{margin: '0 auto', maxWidth: 1080}}>
                 <div>
                     <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>
-                        About ECE from our Ambassadors
+                        Past Activities and Images from our Ambassadors
                     </Typography>
                 </div>
                 <Carousel>
