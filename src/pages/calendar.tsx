@@ -17,9 +17,6 @@ class CalendarApp extends React.Component {
         ];
         return (
             <div>
-                <div>
-                    <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>Calendar</Typography>
-                </div>
                 {/*<Calendar apiKey={API_KEY} calendars={calendars} />*/}
                 <iframe src={"https://calendar.google.com/calendar/embed?src=bg4e1frm2kqlieki1q1tr5j1kg%40group.calendar.google.com&ctz=America%2FChicago"}
                         style={{width: '100%', height: '100vh'}}/>
@@ -30,9 +27,14 @@ class CalendarApp extends React.Component {
 
 export default function CalendarPage() {
     return (
-        <div style={{margin: '0 auto', maxWidth: 1080}}>
-            <CalendarApp/>
-        </div>
+        <>
+            <div style={{backgroundColor: '#EEEEEE'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</Typography>
+            </div>
+            <div style={{margin: '0 auto', maxWidth: 1080}}>
+                <CalendarApp/>
+            </div>
+        </>
     )
 }
 

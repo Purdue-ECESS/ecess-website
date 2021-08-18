@@ -29,13 +29,13 @@ const VERTICAL_MEETINGS = [
 
 export default function FunPage() {
     return (
-        <div>
-            <div style={{margin: '0 auto', maxWidth: 1080}}>
-                <div>
-                    <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>
-                        Past Activities and Images from our Ambassadors
-                    </Typography>
-                </div>
+        <>
+            <div style={{backgroundColor: '#EEEEEE'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
+                    Past Activities and Images from our Ambassadors
+                </Typography>
+            </div>
+            <div style={{margin: '0 auto', maxWidth: 1080, marginTop: 5}}>
                 <Carousel>
                     {HORIZONTAL_MEETINGS.map((item, i) => {
                             return (
@@ -58,7 +58,7 @@ export default function FunPage() {
                     )}
                 </Carousel>
             </div>
-        </div>
+        </>
     )
 }
 

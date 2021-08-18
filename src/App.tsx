@@ -33,7 +33,7 @@ function App() {
     }, []);
     return (
         <Router basename={'/ecea'}>
-            <Box boxShadow={offset} className={'sticky-top'} style={{padding: 0, margin: 0, backgroundColor: '#FFFFFF'}}>
+            <Box boxShadow={offset} className={'sticky-top'} style={{padding: 0, margin: 0, backgroundColor: '#EEEEEE'}}>
                 <Navbar expand={"lg"} style={{padding: 5}}>
                     <Link to={"/"} style={{margin: 5, textDecoration: 'none'}}>
                         <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
