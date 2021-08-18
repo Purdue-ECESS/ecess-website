@@ -29,6 +29,25 @@ export default function ECEPage() {
                 <div style={{margin: '10px 0'}}>
                     <Typography variant="h5" component="h2">
                         Fun Fact About Ambassadors
+                        <Typography variant={"subtitle2"}>
+                            <p><em>I spend around like 200 hours a year on Spotify. Such a great rate of return.</em> - Matthew Wen<br></br>
+                            <em>I've lived half my life in England and half my life in India.</em> - Naveen Vivek<br></br>
+                            <em>I love playing guitar, bass, and piano.</em> - Michael Worthington<br></br>
+                            <em>I enjoy rock climbing and backpacking.</em> - Noah Thoma</p>
+                            <p><em>I can play 2 games of chess at the same time, blindfolded.</em> - Vikram Srivastava</p>
+                            <p><em>My highest score in a game of bowling is a 246</em> - Sam Dlott</p>
+                            <p><em>I play electric guitar with Purdue Jazz Bands and Boiler Brass</em> - Jason Chamness</p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                            <p><em></em> - </p>
+                        </Typography>
                     </Typography>
                 </div>
 
