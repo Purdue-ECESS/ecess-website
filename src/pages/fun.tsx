@@ -1,6 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import {Carousel} from "react-responsive-carousel"; // requires a loader
+import {Carousel} from "react-responsive-carousel";
+import Typography from "@material-ui/core/Typography"; // requires a loader
 
 const HORIZONTAL_MEETINGS = [
     {'ref': '0bf270e223e98350b6770f4d1893e2f7.jpg'},
@@ -30,6 +31,11 @@ export default function FunPage() {
     return (
         <div>
             <div style={{margin: '0 auto', maxWidth: 1080}}>
+                <div>
+                    <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>
+                        About ECE from our Ambassadors
+                    </Typography>
+                </div>
                 <Carousel>
                     {HORIZONTAL_MEETINGS.map((item, i) => {
                             return (
