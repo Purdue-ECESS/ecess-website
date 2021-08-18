@@ -151,12 +151,14 @@ function Updates(props) {
 export default function IndexPage() {
     const classes = useStyles();
     return (
-        <div style={{maxWidth: 1080, margin: '0 auto'}}>
-            <>
-                <WelcomeImage />
-                <SocialMedia materialClass={classes}/>
-                <Updates materialClass={classes} content={PURDUE_UPDATES}/>
-            </>
-        </div>
+        <>
+            <div style={{maxWidth: 1080, margin: '0 auto'}}>
+                <>
+                    <WelcomeImage />
+                    <SocialMedia materialClass={classes}/>
+                    <Updates materialClass={classes} content={PURDUE_UPDATES}/>
+                </>
+            </div>
+        </>
     )
 }

@@ -20,12 +20,12 @@ function Ece(props) {
 export default function ECEPage() {
     return (
         <div>
+            <div style={{backgroundColor: '#EEEEEE'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
+                    About ECE from our Ambassadors
+                </Typography>
+            </div>
             <div style={{margin: '0 auto', maxWidth: 1080}}>
-                <div>
-                    <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>
-                        About ECE from our Ambassadors
-                    </Typography>
-                </div>
                 <div style={{margin: '10px 0'}}>
                     <Typography variant="h5" component="h2">
                         Fun Fact About Ambassadors

@@ -120,23 +120,25 @@ export default function AboutPage() {
         return a.name.localeCompare(b.name);
     });
     return (
-        <div style={{maxWidth: 1080, margin: '0 auto'}}>
-            {
-                size.width ?
-                    <div>
+        <>
+            <div style={{backgroundColor: '#EEEEEE'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Ambassadors</Typography>
+            </div>
+            <div style={{maxWidth: 1080, margin: '0 auto'}}>
+                {
+                    size.width ?
                         <div>
-                            <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>Ambassadors</Typography>
+                            <div style={{margin: '0 auto', fontSize: 0}}>
+                                {AMBASSADORS.map((item, i) => {
+                                    return (
+                                        <AmbassadorView key={i} person={item} width={size.width}/>
+                                    )
+                                })}
+                            </div>
                         </div>
-                        <div style={{margin: '0 auto', fontSize: 0}}>
-                            {AMBASSADORS.map((item, i) => {
-                                return (
-                                    <AmbassadorView key={i} person={item} width={size.width}/>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    : <></>
-            }
-        </div>
+                        : <></>
+                }
+            </div>
+        </>
     )
 }
