@@ -1,4 +1,5 @@
 import React from "react";
+import {Typography} from "@material-ui/core";
 
 // const API_KEY = ""
 
@@ -16,6 +17,9 @@ class CalendarApp extends React.Component {
         ];
         return (
             <div>
+                <div>
+                    <Typography variant={"h5"} style={{margin: 20, textAlign: 'center'}}>Calendar</Typography>
+                </div>
                 {/*<Calendar apiKey={API_KEY} calendars={calendars} />*/}
                 <iframe src={"https://calendar.google.com/calendar/embed?src=bg4e1frm2kqlieki1q1tr5j1kg%40group.calendar.google.com&ctz=America%2FChicago"}
                         style={{width: '100%', height: '100vh'}}/>
