@@ -31,7 +31,7 @@ function WelcomeImage() {
                 <img
                     style={{
                         position: 'relative', width: "100%", minWidth: "500px", marginTop: "-10%"}}
-                    src={process.env.PUBLIC_URL + "/static/src/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                    src={process.env.PUBLIC_URL + "/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     alt={"ECE Ambassadors"} />
             </div>
 
