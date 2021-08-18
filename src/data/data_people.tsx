@@ -5,6 +5,7 @@ const AMBASSADORS = [
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         quote: 'I exploded my capacitor in 20007. Sad but true.',
+        clubs: ["President of ECEA"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sara-hui-purdue/'},
         ]
@@ -55,6 +56,7 @@ const AMBASSADORS = [
         major: 'Computer Engineering',
         graduation: 'May 2022',
         quote: 'I spend around like 200 hours a year on Spotify. Such a great rate of return.',
+        clubs: ["ECEA Web Dev"],
         links: [
             {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/mattwen89/`},
             {'name': 'Personal', 'link': `https://www.matthewwen.com`},
@@ -181,7 +183,7 @@ const AMBASSADORS = [
         picture: '/static/people/jamesdonnelly.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
-        clubs: ["Eta Kappa Nu" , "IEEE" , "Purdue Jazz Bands"],
+        clubs: ["Eta Kappa Nu" , "IEEE" , "Purdue Jazz Bands", "ECEA Web Dev"],
         links: [
             {'name': 'Linkedin', 'link': 'http://www.linkedin.com/in/jamesfdonnelly'},
         ]
@@ -238,7 +240,7 @@ const AMBASSADORS = [
         picture: '/static/people/bradysmith.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
-        clubs: ["Purdue Women in Electrical and Computer Engineering"],
+        clubs: ["Purdue Women in ECE"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/bradyeesmith/'},
         ]

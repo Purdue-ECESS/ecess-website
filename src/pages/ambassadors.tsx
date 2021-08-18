@@ -16,7 +16,7 @@ function AmbassadorView(props) {
                             <img src={process.env.PUBLIC_URL + person.picture} alt={'student profile'} height={200}/>
                         </div>
                     </div>
-                    <div style={{flex: 1, marginLeft: 10}}>
+                    <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
                         <Typography variant={'h6'}>
                             {person.name}
                         </Typography>
