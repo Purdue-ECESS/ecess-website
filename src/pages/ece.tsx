@@ -1,4 +1,5 @@
 import React from "react";
+import SURVEYDATA from "../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
 import {Box, Divider} from "@material-ui/core";
 
@@ -17,6 +18,101 @@ function Ece(props) {
     )
 }
 
+function FunFact(props) {
+    const {title, author, children} = props;
+    if (author.fun_fact === ''){
+        return null
+    } else {
+        return (
+            <div style={{padding: 5}}>
+                <Typography variant="h6" component="h2">
+                    { title }
+                </Typography>
+                <Typography variant="body2" component="p">
+                    <em>{ author.fun_fact }</em> - { author.name }
+                </Typography>
+                { children }
+            </div>
+        )
+    }
+}
+
+function Advice(props) {
+    const {title, author, children} = props;
+    if (author.advice === ''){
+        return null
+    } else {
+        return (
+            <div style={{padding: 5}}>
+                <Typography variant="h6" component="h2">
+                    { title }
+                </Typography>
+                <Typography variant="body2" component="p">
+                    <em>{ author.advice }</em> - { author.name }
+                </Typography>
+                { children }
+            </div>
+        )
+    }
+}
+
+function FavProject(props) {
+    const {title, author, children} = props;
+    if (author.fav_project === ''){
+        return null
+    } else {
+        return (
+            <div style={{padding: 5}}>
+                <Typography variant="h6" component="h2">
+                    { title }
+                </Typography>
+                <Typography variant="body2" component="p">
+                    <em>{ author.fav_project }</em> - { author.name }
+                </Typography>
+                { children }
+            </div>
+        )
+    }
+}
+
+function FavClass(props) {
+    const {title, author, children} = props;
+    if (author.fav_class === ''){
+        return null
+    } else {
+        return (
+            <div style={{padding: 5}}>
+                <Typography variant="h6" component="h2">
+                    { title }
+                </Typography>
+                <Typography variant="body2" component="p">
+                    <em>{ author.fav_class }</em> - { author.name }
+                </Typography>
+                { children }
+            </div>
+        )
+    }
+}
+
+function WhyEce(props) {
+    const {title, author, children} = props;
+    if (author.why_ece === ''){
+        return null
+    } else {
+        return (
+            <div style={{padding: 5}}>
+                <Typography variant="h6" component="h2">
+                    { title }
+                </Typography>
+                <Typography variant="body2" component="p">
+                    <em>{ author.why_ece }</em> - { author.name }
+                </Typography>
+                { children }
+            </div>
+        )
+    }
+}
+
 export default function ECEPage() {
     return (
         <div>
@@ -26,56 +122,72 @@ export default function ECEPage() {
                 </Typography>
             </div>
             <div style={{margin: '0 auto', maxWidth: 1080}}>
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
                     <Typography variant="h5" component="h2">
                         Fun Fact About Ambassadors
-                        <Typography variant={"subtitle2"}>
-                            <p><em>I spend around like 200 hours a year on Spotify. Such a great rate of return.</em> - Matthew Wen<br></br>
-                            <em>I've lived half my life in England and half my life in India.</em> - Naveen Vivek<br></br>
-                            <em>I love playing guitar, bass, and piano.</em> - Michael Worthington<br></br>
-                            <em>I enjoy rock climbing and backpacking.</em> - Noah Thoma</p>
-                            <p><em>I can play 2 games of chess at the same time, blindfolded.</em> - Vikram Srivastava</p>
-                            <p><em>My highest score in a game of bowling is a 246</em> - Sam Dlott</p>
-                            <p><em>I play electric guitar with Purdue Jazz Bands and Boiler Brass</em> - Jason Chamness</p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                            <p><em></em> - </p>
-                        </Typography>
+                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                            {SURVEYDATA.map((item, i) => {
+                                return (
+                                    <FunFact key={i} author={item}/>
+                                )
+                            })}
+                        </div>
                     </Typography>
                 </div>
 
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
                     <Typography variant="h5" component="h2">
                        Piece of Advice for Incoming ECE Students
+                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                            {SURVEYDATA.map((item, i) => {
+                                return (
+                                    <Advice key={i} author={item}/>
+                                )
+                            })}
+                        </div>
                     </Typography>
                 </div>
 
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
                     <Typography variant="h5" component="h2">
                         Favorite Project in ECE
+                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                            {SURVEYDATA.map((item, i) => {
+                                return (
+                                    <FavProject key={i} author={item}/>
+                                )
+                            })}
+                        </div>
                     </Typography>
                 </div>
 
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
                     <Typography variant="h5" component="h2">
                         Favorite ECE Class
+                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                            {SURVEYDATA.map((item, i) => {
+                                return (
+                                    <FavClass key={i} author={item}/>
+                                )
+                            })}
+                        </div>
                     </Typography>
                 </div>
 
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
                     <Typography variant="h5" component="h2">
                         Why ECE?
+                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                            {SURVEYDATA.map((item, i) => {
+                                return (
+                                    <WhyEce key={i} author={item}/>
+                                )
+                            })}
+                        </div>
                     </Typography>
                 </div>
 
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
                     <Typography variant="h5" component="h2">
                         Computer Engineering Projects
                     </Typography>
@@ -88,7 +200,7 @@ export default function ECEPage() {
                     </Ece>
                 </div>
 
-                <div style={{margin: '10px 0'}}>
+                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
                     <Typography variant="h5" component="h2">
                         Electrical Engineering Projects
                     </Typography>
