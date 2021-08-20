@@ -20,9 +20,7 @@ function Ece(props) {
 
 function FunFact(props) {
     const {title, author, children} = props;
-    if (author.fun_fact === ''){
-        return null
-    } else {
+    if (author.fun_fact){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -34,14 +32,14 @@ function FunFact(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function Advice(props) {
     const {title, author, children} = props;
-    if (author.advice === ''){
-        return null
-    } else {
+    if (author.advice){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -53,14 +51,14 @@ function Advice(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function FavProject(props) {
     const {title, author, children} = props;
-    if (author.fav_project === ''){
-        return null
-    } else {
+    if (author.fav_project){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -72,14 +70,14 @@ function FavProject(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function FavClass(props) {
     const {title, author, children} = props;
-    if (author.fav_class === ''){
-        return null
-    } else {
+    if (author.fav_class){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -91,14 +89,14 @@ function FavClass(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function WhyEce(props) {
     const {title, author, children} = props;
-    if (author.why_ece === ''){
-        return null
-    } else {
+    if (author.why_ece){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -110,6 +108,8 @@ function WhyEce(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
