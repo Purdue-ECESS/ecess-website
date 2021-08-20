@@ -5,11 +5,15 @@ import {useState, useEffect} from 'react';
 import {hashCode, intToRGB} from "../utils";
 
 function AmbassadorView(props) {
-    const {person, width} = props;
-    const setWidth = width ? width : 350;
+    const {person} = props;
+    if (person === undefined) {
+        return (
+            <div style={{flex: 1}} />
+        )
+    }
     return (
-        <Card style={{display: 'inline-block', margin: 5}}>
-            <CardContent style={{width: setWidth, overflow: 'hidden'}}>
+        <Card style={{margin: 5, flex: 1}}>
+            <CardContent style={{overflow: 'hidden'}}>
                 <div style={{display: 'flex'}}>
                     <div style={{maxHeight: 200, maxWidth: 150, overflow: 'hidden'}}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -65,7 +69,7 @@ function AmbassadorView(props) {
 
 function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
-        width: undefined
+        pplPerRow: undefined
     });
 
     useEffect(() => {
@@ -73,7 +77,7 @@ function useWindowSize() {
             const handleResize = () => {
                 const width = window.innerWidth;
                 setWindowSize({
-                    width: getAmbassadorWidth(width > 1080 ? 1080 : width)
+                    pplPerRow: getNumPplPerRow(width > 1080 ? 1080 : width)
                 });
             }
             window.addEventListener("resize", handleResize);
@@ -84,15 +88,40 @@ function useWindowSize() {
     return windowSize;
 }
 
-function getAmbassadorWidth(screenWidth) {
+function getNumPplPerRow(screenWidth) {
     const minWidth = 350;
     let numPeople = Math.floor(screenWidth / minWidth);
-    let ambassadorWidth = screenWidth - 20;
     if (numPeople > 1) {
         numPeople = 2;
-        ambassadorWidth /= numPeople;
     }
-    return Math.floor(ambassadorWidth) - Math.floor(10);
+    return numPeople;
+}
+
+function splitRowPerPerson(people: Array<any>, pplPerRow) {
+    let items = [];
+    for (let i = 0; i < people.length; i += pplPerRow) {
+        let item = [];
+        for (let j = 0; j < pplPerRow; j++) {
+            item.push(people[i + j]);
+        }
+        items.push(item);
+    }
+    console.log(items);
+    return (
+        <>
+            {items.map((item, i) =>
+                (
+                    <div style={{display: 'flex'}}>
+                        {
+                            item.map((person, j) => (
+                                <AmbassadorView key={`person-${i}-${j}`} person={person} />
+                            ))
+                        }
+                    </div>
+                )
+            )};
+        </>
+    )
 }
 
 export default function AboutPage() {
@@ -112,14 +141,12 @@ export default function AboutPage() {
             </div>
             <div style={{maxWidth: 1080, margin: '0 auto'}}>
                 {
-                    size.width ?
+                    size.pplPerRow ?
                         <div>
                             <div style={{margin: '0 auto', fontSize: 0}}>
-                                {AMBASSADORS.map((item, i) => {
-                                    return (
-                                        <AmbassadorView key={i} person={item} width={size.width}/>
-                                    )
-                                })}
+                                {
+                                    splitRowPerPerson(AMBASSADORS, size.pplPerRow)
+                                }
                             </div>
                         </div>
                         : <></>
