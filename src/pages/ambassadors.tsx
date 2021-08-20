@@ -106,7 +106,6 @@ function splitRowPerPerson(people: Array<any>, pplPerRow) {
         }
         items.push(item);
     }
-    console.log(items);
     return (
         <>
             {items.map((item, i) =>
