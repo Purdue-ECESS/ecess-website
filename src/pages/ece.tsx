@@ -121,8 +121,8 @@ export default function ECEPage() {
                     About ECE from our Ambassadors
                 </Typography>
             </div>
-            <div style={{margin: '0 auto', maxWidth: 1080}}>
-                <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
+            <div style={{backgroundColor: '#CEB888'}}>
+                <div style={{ margin: '0 auto', maxWidth: 1080, padding: '10px 0'}}>
                     <Typography variant="h5" component="h2">
                         Fun Fact About Ambassadors
                         <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
@@ -134,8 +134,10 @@ export default function ECEPage() {
                         </div>
                     </Typography>
                 </div>
+            </div>
 
-                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
+            <div style={{backgroundColor: '#EEEEEE'}}>
+                <div style={{margin: '0 auto', maxWidth: 1080}}>
                     <Typography variant="h5" component="h2">
                        Piece of Advice for Incoming ECE Students
                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
