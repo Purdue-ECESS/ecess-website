@@ -2,6 +2,7 @@ import React from "react";
 import SURVEYDATA from "../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
 import {Box, Divider} from "@material-ui/core";
+import {getPictureUrl} from "../data/data_people";
 
 function Ece(props) {
     const {title, author, children} = props;
@@ -20,28 +21,42 @@ function Ece(props) {
 
 function FunFact(props) {
     const {title, author, children} = props;
-    if (author.fun_fact === ''){
-        return null
-    } else {
+    if (author.fun_fact){
+        const profilePicture = getPictureUrl(author.name);
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
                 <Typography variant="body2" component="p">
-                    <em>{ author.fun_fact }</em> - { author.name }
+                    <em>{ author.fun_fact }</em>
                 </Typography>
-                { children }
+
+                <div style={{display: 'flex'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function Advice(props) {
     const {title, author, children} = props;
-    if (author.advice === ''){
-        return null
-    } else {
+    if (author.advice){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -53,14 +68,14 @@ function Advice(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function FavProject(props) {
     const {title, author, children} = props;
-    if (author.fav_project === ''){
-        return null
-    } else {
+    if (author.fav_project){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -72,14 +87,14 @@ function FavProject(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function FavClass(props) {
     const {title, author, children} = props;
-    if (author.fav_class === ''){
-        return null
-    } else {
+    if (author.fav_class){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -91,14 +106,14 @@ function FavClass(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
 function WhyEce(props) {
     const {title, author, children} = props;
-    if (author.why_ece === ''){
-        return null
-    } else {
+    if (author.why_ece){
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
@@ -110,6 +125,8 @@ function WhyEce(props) {
                 { children }
             </div>
         )
+    } else {
+        return <></>
     }
 }
 
@@ -128,7 +145,9 @@ export default function ECEPage() {
                         <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
                             {SURVEYDATA.map((item, i) => {
                                 return (
-                                    <FunFact key={i} author={item}/>
+                                    <FunFact key={i} author={item}>
+                                        hi
+                                    </FunFact>
                                 )
                             })}
                         </div>

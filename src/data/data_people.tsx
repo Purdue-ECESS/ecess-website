@@ -264,4 +264,12 @@ const AMBASSADORS = [
         ]
     },
 ]
+export let AMBASSADOR_MAP = {};
+AMBASSADORS.forEach((item) => {
+    AMBASSADOR_MAP[item.name] = item;
+})
+export function getPictureUrl(name) {
+    const ambassador = AMBASSADOR_MAP[name]
+    return ambassador ? ambassador.picture: undefined;
+}
 export default AMBASSADORS;

@@ -27,25 +27,15 @@ const SURVEYDATA = [
         name: 'Denae Galloway',
         fun_fact: 'I played clarinet for 7 years.',
         advice: 'Never give up, your hard work pays off in the end.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Justin Zhang',
         fun_fact: 'I can do an ollie 15% of the time.',
         advice: 'Just like practicing your ollies, you can only get good at ECE if you practice. You may not like it, but that is what peak success in ECE looks like.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Matthew Wen',
-        fun_fact: 'I spend around like 200 hours a year on Spotify. Such a great rate of return.',
-        advice: 'There are nice people in ECE. Avoid the people with superiority complexes.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
+        advice: 'There are nice people in ECE. Avoid the people with superiority complexes.'
     },
     {
         name: 'Michael Worthington',
@@ -73,16 +63,9 @@ const SURVEYDATA = [
     },
     {
         name: 'Grace Ulmer',
-        fun_fact: '',
-        advice: '',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Heath Lovell',
-        fun_fact: '',
-        advice: '',
         fav_project: 'Making a smart mirror with a Raspberry PI.',
         fav_class: 'ECE 26400 because I enjoy developing programs.',
         why_ece: 'I chose Computer Engineering because I love software along with hardware so it is the best of both worlds!'
@@ -91,49 +74,25 @@ const SURVEYDATA = [
         name: 'Jason Chamness',
         fun_fact: 'I play electric guitar with Purdue Jazz Bands and Boiler Brass.',
         advice: 'Be social! Working on projects with friends makes learning easier and more enjoyable. Reaching out to professors can help build professional relationships for research opportunities and recommendation letters.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Jennifer Gutman',
-        fun_fact: '',
-        advice: '',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Juan Carlos G.',
-        fun_fact: '',
-        advice: '',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Kobe Martin',
         fun_fact: 'I like eggs.',
         advice: 'Enjoy your classes.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Yueting Mary Zhao',
         fun_fact: "I once lived in Florida, but didn't enjoy the beach because I can't swim :(",
         advice: 'If you are not sure about which specific area to study, try joining a club or research, such as taking a VIP course, to find out what you like or not.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Mohamed Ibrahim',
-        fun_fact: '',
-        advice: '',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Noah Thoma',
@@ -171,17 +130,11 @@ const SURVEYDATA = [
         name: 'Warren Xiong',
         fun_fact: 'My left elbow physically cannot bend as much as my right elbow.',
         advice: "Reach out to your professors and TAs, ECE is hard and confusing, don't be ashamed about getting help.",
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Vikram Srivastava ',
         fun_fact: 'I can play 2 games of chess at the same time, blindfolded.',
         advice: 'Develop good study and work habits as soon as possible.',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Amita Pandey',
@@ -201,16 +154,9 @@ const SURVEYDATA = [
     },
     {
         name: 'Elizabeth Thomas',
-        fun_fact: '',
-        advice: '',
-        fav_project: '',
-        fav_class: '',
-        why_ece: ''
     },
     {
         name: 'Zach Vander Missen',
-        fun_fact: '',
-        advice: '',
         fav_project: 'My ECE362 project, a live audio-synced wireless led light show system.',
         fav_class: 'ECE270-ECE362 series because the vertically integrated view from transistor to computer was fascinating and eye-opening.',
         why_ece: 'Because the problems are interesting and challenging and the hands-on aspects appeal to my interests.'
