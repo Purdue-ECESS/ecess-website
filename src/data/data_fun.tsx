@@ -19,7 +19,7 @@ export const FUN = [
             {'ref': '8-18-2021-where-are-they-now/denae_galloway.jpg', col: 1},
             {'ref': '8-18-2021-where-are-they-now/sihun_kim.jpg', col: 1},
             {'ref': '8-18-2021-where-are-they-now/brady_smith.jpg', col: 2},
-            {'ref': '8-18-2021-where-are-they-now/matthew_wen.jpg', col: 2},
+            {'ref': '8-18-2021-where-are-they-now/matthew_wen.jpg', col: 1},
         ]
     },
     {
