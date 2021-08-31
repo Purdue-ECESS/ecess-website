@@ -13,7 +13,7 @@ function AmbassadorView(props) {
     }
     return (
         <Card style={{margin: 5, flex: 1}}>
-            <CardContent style={{overflow: 'hidden'}}>
+            <CardContent>
                 <div style={{display: 'flex'}}>
                     <div style={{maxHeight: 200, maxWidth: 150, overflow: 'hidden'}}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -135,7 +135,7 @@ export default function AboutPage() {
     });
     return (
         <>
-            <div style={{backgroundColor: '#EEEEEE'}}>
+            <div style={{backgroundColor: '#CEB888'}}>
                 <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Ambassadors</Typography>
             </div>
             <div style={{maxWidth: 1080, margin: '0 auto'}}>
