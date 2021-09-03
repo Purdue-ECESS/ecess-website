@@ -57,15 +57,31 @@ function FunFact(props) {
 function Advice(props) {
     const {title, author, children} = props;
     if (author.advice){
+        const profilePicture = getPictureUrl(author.name);
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
                 <Typography variant="body2" component="p">
-                    <em>{ author.advice }</em> - { author.name }
+                    <em>{ author.advice }</em>
                 </Typography>
-                { children }
+
+                <div style={{display: 'flex'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
             </div>
         )
     } else {
@@ -76,15 +92,31 @@ function Advice(props) {
 function FavProject(props) {
     const {title, author, children} = props;
     if (author.fav_project){
+        const profilePicture = getPictureUrl(author.name);
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
                 <Typography variant="body2" component="p">
-                    <em>{ author.fav_project }</em> - { author.name }
+                    <em>{ author.fav_project }</em>
                 </Typography>
-                { children }
+
+                <div style={{display: 'flex'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
             </div>
         )
     } else {
@@ -95,15 +127,31 @@ function FavProject(props) {
 function FavClass(props) {
     const {title, author, children} = props;
     if (author.fav_class){
+        const profilePicture = getPictureUrl(author.name);
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
                 <Typography variant="body2" component="p">
-                    <em>{ author.fav_class }</em> - { author.name }
+                    <em>{ author.fav_class }</em>
                 </Typography>
-                { children }
+
+                <div style={{display: 'flex'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
             </div>
         )
     } else {
@@ -114,15 +162,31 @@ function FavClass(props) {
 function WhyEce(props) {
     const {title, author, children} = props;
     if (author.why_ece){
+        const profilePicture = getPictureUrl(author.name);
         return (
             <div style={{padding: 5}}>
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
                 <Typography variant="body2" component="p">
-                    <em>{ author.why_ece }</em> - { author.name }
+                    <em>{ author.why_ece }</em>
                 </Typography>
-                { children }
+
+                <div style={{display: 'flex'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
             </div>
         )
     } else {
