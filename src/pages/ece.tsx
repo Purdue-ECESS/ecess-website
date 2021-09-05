@@ -28,11 +28,14 @@ function FunFact(props) {
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
-                <Typography variant="body2" component="p">
-                    <em>{ author.fun_fact }</em>
-                </Typography>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
+                    <Typography variant="body2" component="p">
+                        <em>{ author.fun_fact }</em>
+                    </Typography>
+                </div>
+                <div style={{display: 'flex', padding: 0, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, marginBottom: 0, zIndex: 0}}/>
 
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
                     <div style={{flex: 1}} />
                     <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                         { author.name }
@@ -46,6 +49,7 @@ function FunFact(props) {
                         <></>
                     }
                 </div>
+
 
             </div>
         )
@@ -63,11 +67,14 @@ function Advice(props) {
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
-                <Typography variant="body2" component="p">
-                    <em>{ author.advice }</em>
-                </Typography>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
+                    <Typography variant="body2" component="p">
+                        <em>{ author.advice }</em>
+                    </Typography>
+                </div>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
 
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
                     <div style={{flex: 1}} />
                     <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                         { author.name }
@@ -98,11 +105,14 @@ function FavProject(props) {
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
-                <Typography variant="body2" component="p">
-                    <em>{ author.fav_project }</em>
-                </Typography>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
+                    <Typography variant="body2" component="p">
+                        <em>{ author.fav_project }</em>
+                    </Typography>
+                </div>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
 
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
                     <div style={{flex: 1}} />
                     <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                         { author.name }
@@ -133,11 +143,14 @@ function FavClass(props) {
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
-                <Typography variant="body2" component="p">
-                    <em>{ author.fav_class }</em>
-                </Typography>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
+                    <Typography variant="body2" component="p">
+                        <em>{ author.fav_class }</em>
+                    </Typography>
+                </div>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
 
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
                     <div style={{flex: 1}} />
                     <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                         { author.name }
@@ -168,11 +181,14 @@ function WhyEce(props) {
                 <Typography variant="h6" component="h2">
                     { title }
                 </Typography>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
                 <Typography variant="body2" component="p">
                     <em>{ author.why_ece }</em>
                 </Typography>
+                </div>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
 
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
                     <div style={{flex: 1}} />
                     <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                         { author.name }
@@ -234,42 +250,48 @@ export default function ECEPage() {
                 </div>
 
                 <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
-                    <Typography variant="h5" component="h2">
-                        Favorite Project in ECE
-                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                            {SURVEYDATA.map((item, i) => {
-                                return (
-                                    <FavProject key={i} author={item}/>
-                                )
-                            })}
-                        </div>
-                    </Typography>
+                    <div style={{margin: '0 auto', maxWidth: 1080}}>
+                        <Typography variant="h5" component="h2">
+                            Favorite Project in ECE
+                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                                {SURVEYDATA.map((item, i) => {
+                                    return (
+                                        <FavProject key={i} author={item}/>
+                                    )
+                                })}
+                            </div>
+                        </Typography>
+                    </div>
                 </div>
 
                 <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
-                    <Typography variant="h5" component="h2">
-                        Favorite ECE Class
-                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                            {SURVEYDATA.map((item, i) => {
-                                return (
-                                    <FavClass key={i} author={item}/>
-                                )
-                            })}
-                        </div>
-                    </Typography>
+                    <div style={{margin: '0 auto', maxWidth: 1080}}>
+                        <Typography variant="h5" component="h2">
+                            Favorite ECE Class
+                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                                {SURVEYDATA.map((item, i) => {
+                                    return (
+                                        <FavClass key={i} author={item}/>
+                                    )
+                                })}
+                            </div>
+                        </Typography>
+                    </div>
                 </div>
 
                 <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
-                    <Typography variant="h5" component="h2">
-                        Why ECE?
-                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                            {SURVEYDATA.map((item, i) => {
-                                return (
-                                    <WhyEce key={i} author={item}/>
-                                )
-                            })}
-                        </div>
-                    </Typography>
+                    <div style={{margin: '0 auto', maxWidth: 1080}}>
+                        <Typography variant="h5" component="h2">
+                            Why ECE?
+                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
+                                {SURVEYDATA.map((item, i) => {
+                                    return (
+                                        <WhyEce key={i} author={item}/>
+                                    )
+                                })}
+                            </div>
+                        </Typography>
+                    </div>
                 </div>
 
                 <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
