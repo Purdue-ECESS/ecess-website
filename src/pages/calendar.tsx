@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import {Typography} from "@material-ui/core";
 
 // const API_KEY = ""
@@ -17,22 +19,38 @@ class CalendarApp extends React.Component {
         ];
         return (
             <div>
-                {/*<Calendar apiKey={API_KEY} calendars={calendars} />*/}
-                <iframe src={"https://calendar.google.com/calendar/embed?src=bg4e1frm2kqlieki1q1tr5j1kg%40group.calendar.google.com&ctz=America%2FChicago"}
-                        style={{width: '100%', height: '100vh'}}/>
             </div>
         )
     }
 }
 
 export default function CalendarPage() {
+    const [example, setExample] = useState(1);
+    const [value, setValue] = useState(new Date());
     return (
         <>
             <div style={{backgroundColor: '#CEB888'}}>
                 <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</Typography>
             </div>
-            <div style={{margin: '0 auto', maxWidth: 1080}}>
-                <CalendarApp/>
+            <div style={{display: "flex", flexWrap: 'wrap', maxWidth: 1080, margin: '0 auto', padding: 10 }}>
+                <div
+                    style={{maxWidth: '100%', margin: 10}}
+                >
+                    <Calendar
+                        onChange={(param) => {
+                            // do api call with param
+                            setValue(param);
+                        }}
+                        value={value}
+                    />
+                </div>
+                <div style={{flex: 1, marginTop: 10, minWidth: 500, overflow: "scroll"}}>
+                    <div>
+                        { value.toString() }
+                        <Typography>This is where we can put a calendar event</Typography>
+                    </div>
+                </div>
+                {/*<CalendarApp/>*/}
             </div>
         </>
     )
