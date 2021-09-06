@@ -1,20 +1,97 @@
 import React from "react";
+import SURVEY_DATA from "../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
-import {Box, Divider} from "@material-ui/core";
+import {getPictureUrl} from "../data/data_people";
 
-function Ece(props) {
-    const {title, author, children} = props;
-    return (
-        <Box boxShadow={3} style={{padding: 5, background: '#fff', margin: '5px 0' }}>
-            <Typography variant="h6" component="h2">
-                { title }
+function BubbleLayout(author, attribute) {
+    if (author[attribute]){
+        const profilePicture = getPictureUrl(author.name);
+        return (
+            <div style={{padding: 5}}>
+                <div style={{
+                    padding: 10,
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: 15,
+                    marginLeft: 30,
+                    zIndex: 1,
+                    maxWidth: 300,
+                    position: "relative"
+                }}>
+                    <Typography variant="body2" component="p">
+                        <em>{ author[attribute] }</em>
+                    </Typography>
+                </div>
+                <div style={{
+                    display: 'flex',
+                    backgroundColor: '#FFFFFF',
+                    height: 20,
+                    width: 20,
+                    top: -20,
+                    bottom: -20,
+                    position: 'relative',
+                    maxWidth: 300,
+                    marginLeft: 30,
+                    zIndex: 0}}/>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, bottom: -20, position: 'relative'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
+            </div>
+        )
+    } else {
+        return <></>
+    }
+
+}
+
+function FunFact(props) {
+    const {author} = props;
+    return BubbleLayout(author, 'fun_fact');
+}
+
+function Advice(props) {
+    const {author} = props;
+    return BubbleLayout(author, "advice");
+}
+
+function FavProject(props) {
+    const {author} = props;
+    return BubbleLayout(author, "fav_project")
+}
+
+function FavClass(props) {
+    const {author} = props;
+    return BubbleLayout(author, "fav_class");
+}
+
+function WhyEce(props) {
+    const {author} = props;
+    return BubbleLayout(author, "why_ece");
+}
+
+function Section(backgroundColor, title, data) {
+    return (<div style={{backgroundColor}}>
+        <div style={{ margin: '0 auto', maxWidth: 1080, padding: '10px 0'}}>
+            <Typography variant="h5" component="h2">
+                {title}
             </Typography>
-            <Typography variant="body2" component="p">
-                { author }
-            </Typography>
-            { children }
-        </Box>
-    )
+            <div style={{display: "flex", marginLeft: 10, flexWrap: "wrap", justifyContent: "center"}}>
+                {data}
+            </div>
+        </div>
+    </div> )
+
 }
 
 export default function ECEPage() {
@@ -25,63 +102,42 @@ export default function ECEPage() {
                     About ECE from our Ambassadors
                 </Typography>
             </div>
-            <div style={{margin: '0 auto', maxWidth: 1080}}>
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Fun Fact About Ambassadors
-                    </Typography>
-                </div>
 
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                       Piece of Advice for Incoming ECE Students
-                    </Typography>
-                </div>
-
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Favorite Project in ECE
-                    </Typography>
-                </div>
-
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Favorite ECE Class
-                    </Typography>
-                </div>
-
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Why ECE?
-                    </Typography>
-                </div>
-
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Computer Engineering Projects
-                    </Typography>
-                    <Divider light style={{marginTop: 5, marginBottom: 5}}/>
-
-                    <Ece
-                        title={"Example CompE Project"}
-                        author={"Matthew Wen"}>
-                        <p>Hi there</p>
-                    </Ece>
-                </div>
-
-                <div style={{margin: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Electrical Engineering Projects
-                    </Typography>
-                    <Divider light style={{marginTop: 5, marginBottom: 5}}/>
-
-                    <Ece
-                        title={"Example EE Project"}
-                        author={"Sara Hui"}>
-                        <p>Hi there</p>
-                    </Ece>
-                </div>
-            </div>
+            {Section('#EEEEEE', "Fun Fact About Ambassadors",
+                SURVEY_DATA.map((item, i) => {
+                        return (
+                            <FunFact key={i} author={item}/>
+                        )
+                    })
+            )}
+            {Section('#CEB888', "Piece of Advice for Incoming ECE Students",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <Advice key={i} author={item}/>
+                    )
+                })
+            )}
+            {Section('#EEEEEE', "Favorite Project in ECE",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <FavProject key={i} author={item}/>
+                    )
+                })
+            )}
+            {Section("#CEB888", "Favorite ECE Class",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <FavClass key={i} author={item}/>
+                    )
+                })
+            )}
+            {Section("#EEEEEE", "Why ECE?",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <WhyEce key={i} author={item}/>
+                    )
+                })
+            )}
         </div>
     );
 }
