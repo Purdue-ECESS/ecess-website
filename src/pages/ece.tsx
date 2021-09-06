@@ -1,213 +1,69 @@
 import React from "react";
 import SURVEYDATA from "../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
-import {Box, Divider} from "@material-ui/core";
 import {getPictureUrl} from "../data/data_people";
 
-function Ece(props) {
-    const {title, author, children} = props;
-    return (
-        <Box boxShadow={3} style={{padding: 5, background: '#fff', margin: '5px 0' }}>
-            <Typography variant="h6" component="h2">
-                { title }
-            </Typography>
-            <Typography variant="body2" component="p">
-                { author }
-            </Typography>
-            { children }
-        </Box>
-    )
+function BubbleLayout(author, title, attribute) {
+    if (author[attribute]){
+        const profilePicture = getPictureUrl(author.name);
+        return (
+            <div style={{padding: 5}}>
+                <Typography variant="h6" component="h2">
+                    { title }
+                </Typography>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
+                    <Typography variant="body2" component="p">
+                        <em>{ author[attribute] }</em>
+                    </Typography>
+                </div>
+                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
+
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
+                    <div style={{flex: 1}} />
+                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
+                        { author.name }
+                    </Typography>
+                    {profilePicture ?
+                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
+                            </div>
+                        </div> :
+                        <></>
+                    }
+                </div>
+
+            </div>
+        )
+    } else {
+        return <></>
+    }
+
 }
 
 function FunFact(props) {
-    const {title, author, children} = props;
-    if (author.fun_fact){
-        const profilePicture = getPictureUrl(author.name);
-        return (
-            <div style={{padding: 5}}>
-                <Typography variant="h6" component="h2">
-                    { title }
-                </Typography>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
-                    <Typography variant="body2" component="p">
-                        <em>{ author.fun_fact }</em>
-                    </Typography>
-                </div>
-                <div style={{display: 'flex', padding: 0, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, marginBottom: 0, zIndex: 0}}/>
-
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
-                    <div style={{flex: 1}} />
-                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
-                        { author.name }
-                    </Typography>
-                    {profilePicture ?
-                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                            <div style={{justifyContent: 'center', display: 'flex'}}>
-                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
-                            </div>
-                        </div> :
-                        <></>
-                    }
-                </div>
-
-
-            </div>
-        )
-    } else {
-        return <></>
-    }
+    const {title, author} = props;
+    return BubbleLayout(author, title, 'fun_fact');
 }
 
 function Advice(props) {
-    const {title, author, children} = props;
-    if (author.advice){
-        const profilePicture = getPictureUrl(author.name);
-        return (
-            <div style={{padding: 5}}>
-                <Typography variant="h6" component="h2">
-                    { title }
-                </Typography>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
-                    <Typography variant="body2" component="p">
-                        <em>{ author.advice }</em>
-                    </Typography>
-                </div>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
-
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
-                    <div style={{flex: 1}} />
-                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
-                        { author.name }
-                    </Typography>
-                    {profilePicture ?
-                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                            <div style={{justifyContent: 'center', display: 'flex'}}>
-                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
-                            </div>
-                        </div> :
-                        <></>
-                    }
-                </div>
-
-            </div>
-        )
-    } else {
-        return <></>
-    }
+    const {title, author} = props;
+    return BubbleLayout(author, title, "advice");
 }
 
 function FavProject(props) {
-    const {title, author, children} = props;
-    if (author.fav_project){
-        const profilePicture = getPictureUrl(author.name);
-        return (
-            <div style={{padding: 5}}>
-                <Typography variant="h6" component="h2">
-                    { title }
-                </Typography>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
-                    <Typography variant="body2" component="p">
-                        <em>{ author.fav_project }</em>
-                    </Typography>
-                </div>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
-
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
-                    <div style={{flex: 1}} />
-                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
-                        { author.name }
-                    </Typography>
-                    {profilePicture ?
-                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                            <div style={{justifyContent: 'center', display: 'flex'}}>
-                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
-                            </div>
-                        </div> :
-                        <></>
-                    }
-                </div>
-
-            </div>
-        )
-    } else {
-        return <></>
-    }
+    const {title, author} = props;
+    return BubbleLayout(author, title, "fav_project")
 }
 
 function FavClass(props) {
-    const {title, author, children} = props;
-    if (author.fav_class){
-        const profilePicture = getPictureUrl(author.name);
-        return (
-            <div style={{padding: 5}}>
-                <Typography variant="h6" component="h2">
-                    { title }
-                </Typography>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
-                    <Typography variant="body2" component="p">
-                        <em>{ author.fav_class }</em>
-                    </Typography>
-                </div>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
-
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
-                    <div style={{flex: 1}} />
-                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
-                        { author.name }
-                    </Typography>
-                    {profilePicture ?
-                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                            <div style={{justifyContent: 'center', display: 'flex'}}>
-                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
-                            </div>
-                        </div> :
-                        <></>
-                    }
-                </div>
-
-            </div>
-        )
-    } else {
-        return <></>
-    }
+    const {title, author} = props;
+    return BubbleLayout(author, title, "fav_class");
 }
 
 function WhyEce(props) {
-    const {title, author, children} = props;
-    if (author.why_ece){
-        const profilePicture = getPictureUrl(author.name);
-        return (
-            <div style={{padding: 5}}>
-                <Typography variant="h6" component="h2">
-                    { title }
-                </Typography>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
-                <Typography variant="body2" component="p">
-                    <em>{ author.why_ece }</em>
-                </Typography>
-                </div>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
-
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
-                    <div style={{flex: 1}} />
-                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
-                        { author.name }
-                    </Typography>
-                    {profilePicture ?
-                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                            <div style={{justifyContent: 'center', display: 'flex'}}>
-                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
-                            </div>
-                        </div> :
-                        <></>
-                    }
-                </div>
-
-            </div>
-        )
-    } else {
-        return <></>
-    }
+    const {title, author} = props;
+    return BubbleLayout(author, title, "why_ece");
 }
 
 export default function ECEPage() {
@@ -292,32 +148,6 @@ export default function ECEPage() {
                             </div>
                         </Typography>
                     </div>
-                </div>
-
-                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
-                    <Typography variant="h5" component="h2">
-                        Computer Engineering Projects
-                    </Typography>
-                    <Divider light style={{marginTop: 5, marginBottom: 5}}/>
-
-                    <Ece
-                        title={"Example CompE Project"}
-                        author={"Matthew Wen"}>
-                        <p>Hi there</p>
-                    </Ece>
-                </div>
-
-                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
-                    <Typography variant="h5" component="h2">
-                        Electrical Engineering Projects
-                    </Typography>
-                    <Divider light style={{marginTop: 5, marginBottom: 5}}/>
-
-                    <Ece
-                        title={"Example EE Project"}
-                        author={"Sara Hui"}>
-                        <p>Hi there</p>
-                    </Ece>
                 </div>
             </div>
         </div>
