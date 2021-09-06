@@ -16,7 +16,7 @@ import {Box} from "@material-ui/core";
 
 function App() {
     const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
-        // ['/ece', 'Lifestyle'],
+        ['/ece', 'ECE'],
         ['/ambassadors', 'Ambassadors']];
     const [offset, setOffset] = useState(0);
 

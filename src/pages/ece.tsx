@@ -1,24 +1,38 @@
 import React from "react";
-import SURVEYDATA from "../data/data_surveys";
+import SURVEY_DATA from "../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
 import {getPictureUrl} from "../data/data_people";
 
-function BubbleLayout(author, title, attribute) {
+function BubbleLayout(author, attribute) {
     if (author[attribute]){
         const profilePicture = getPictureUrl(author.name);
         return (
             <div style={{padding: 5}}>
-                <Typography variant="h6" component="h2">
-                    { title }
-                </Typography>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', width: 'fit-content', maxWidth: 500, borderRadius: 15, position: 'relative', marginLeft: 30, zIndex: 1}}>
+                <div style={{
+                    padding: 10,
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: 15,
+                    marginLeft: 30,
+                    zIndex: 1,
+                    maxWidth: 300,
+                    position: "relative"
+                }}>
                     <Typography variant="body2" component="p">
                         <em>{ author[attribute] }</em>
                     </Typography>
                 </div>
-                <div style={{display: 'flex', padding: 10, backgroundColor: '#FFFFFF', height: 20, width: 20, top: -20, position: 'relative', marginLeft: 30, zIndex: 0}}/>
-
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, position: 'relative'}}>
+                <div style={{
+                    display: 'flex',
+                    backgroundColor: '#FFFFFF',
+                    height: 20,
+                    width: 20,
+                    top: -20,
+                    bottom: -20,
+                    position: 'relative',
+                    maxWidth: 300,
+                    marginLeft: 30,
+                    zIndex: 0}}/>
+                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, bottom: -20, position: 'relative'}}>
                     <div style={{flex: 1}} />
                     <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                         { author.name }
@@ -42,28 +56,42 @@ function BubbleLayout(author, title, attribute) {
 }
 
 function FunFact(props) {
-    const {title, author} = props;
-    return BubbleLayout(author, title, 'fun_fact');
+    const {author} = props;
+    return BubbleLayout(author, 'fun_fact');
 }
 
 function Advice(props) {
-    const {title, author} = props;
-    return BubbleLayout(author, title, "advice");
+    const {author} = props;
+    return BubbleLayout(author, "advice");
 }
 
 function FavProject(props) {
-    const {title, author} = props;
-    return BubbleLayout(author, title, "fav_project")
+    const {author} = props;
+    return BubbleLayout(author, "fav_project")
 }
 
 function FavClass(props) {
-    const {title, author} = props;
-    return BubbleLayout(author, title, "fav_class");
+    const {author} = props;
+    return BubbleLayout(author, "fav_class");
 }
 
 function WhyEce(props) {
-    const {title, author} = props;
-    return BubbleLayout(author, title, "why_ece");
+    const {author} = props;
+    return BubbleLayout(author, "why_ece");
+}
+
+function Section(backgroundColor, title, data) {
+    return (<div style={{backgroundColor}}>
+        <div style={{ margin: '0 auto', maxWidth: 1080, padding: '10px 0'}}>
+            <Typography variant="h5" component="h2">
+                {title}
+            </Typography>
+            <div style={{display: "flex", marginLeft: 10, flexWrap: "wrap", justifyContent: "center"}}>
+                {data}
+            </div>
+        </div>
+    </div> )
+
 }
 
 export default function ECEPage() {
@@ -74,82 +102,42 @@ export default function ECEPage() {
                     About ECE from our Ambassadors
                 </Typography>
             </div>
-            <div style={{backgroundColor: '#CEB888'}}>
-                <div style={{ margin: '0 auto', maxWidth: 1080, padding: '10px 0'}}>
-                    <Typography variant="h5" component="h2">
-                        Fun Fact About Ambassadors
-                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                            {SURVEYDATA.map((item, i) => {
-                                return (
-                                    <FunFact key={i} author={item}>
-                                        hi
-                                    </FunFact>
-                                )
-                            })}
-                        </div>
-                    </Typography>
-                </div>
-            </div>
 
-            <div style={{backgroundColor: '#EEEEEE'}}>
-                <div style={{margin: '0 auto', maxWidth: 1080}}>
-                    <Typography variant="h5" component="h2">
-                       Piece of Advice for Incoming ECE Students
-                       <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                            {SURVEYDATA.map((item, i) => {
-                                return (
-                                    <Advice key={i} author={item}/>
-                                )
-                            })}
-                        </div>
-                    </Typography>
-                </div>
-
-                <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
-                    <div style={{margin: '0 auto', maxWidth: 1080}}>
-                        <Typography variant="h5" component="h2">
-                            Favorite Project in ECE
-                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                                {SURVEYDATA.map((item, i) => {
-                                    return (
-                                        <FavProject key={i} author={item}/>
-                                    )
-                                })}
-                            </div>
-                        </Typography>
-                    </div>
-                </div>
-
-                <div style={{margin: '10px 0', backgroundColor: '#EEEEEE'}}>
-                    <div style={{margin: '0 auto', maxWidth: 1080}}>
-                        <Typography variant="h5" component="h2">
-                            Favorite ECE Class
-                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                                {SURVEYDATA.map((item, i) => {
-                                    return (
-                                        <FavClass key={i} author={item}/>
-                                    )
-                                })}
-                            </div>
-                        </Typography>
-                    </div>
-                </div>
-
-                <div style={{margin: '10px 0', backgroundColor: '#CEB888'}}>
-                    <div style={{margin: '0 auto', maxWidth: 1080}}>
-                        <Typography variant="h5" component="h2">
-                            Why ECE?
-                        <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
-                                {SURVEYDATA.map((item, i) => {
-                                    return (
-                                        <WhyEce key={i} author={item}/>
-                                    )
-                                })}
-                            </div>
-                        </Typography>
-                    </div>
-                </div>
-            </div>
+            {Section('#EEEEEE', "Fun Fact About Ambassadors",
+                SURVEY_DATA.map((item, i) => {
+                        return (
+                            <FunFact key={i} author={item}/>
+                        )
+                    })
+            )}
+            {Section('#CEB888', "Piece of Advice for Incoming ECE Students",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <Advice key={i} author={item}/>
+                    )
+                })
+            )}
+            {Section('#EEEEEE', "Favorite Project in ECE",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <FavProject key={i} author={item}/>
+                    )
+                })
+            )}
+            {Section("#CEB888", "Favorite ECE Class",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <FavClass key={i} author={item}/>
+                    )
+                })
+            )}
+            {Section("#EEEEEE", "Why ECE?",
+                SURVEY_DATA.map((item, i) => {
+                    return (
+                        <WhyEce key={i} author={item}/>
+                    )
+                })
+            )}
         </div>
     );
 }

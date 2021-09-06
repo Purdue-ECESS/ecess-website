@@ -1,4 +1,4 @@
-const SURVEYDATA = [
+const SURVEY_DATA = [
     {
         name: 'Sara Hui',
         fun_fact: 'From an island, not a good swimmer. iykyk.',
@@ -153,13 +153,10 @@ const SURVEYDATA = [
         why_ece: 'It was definitely not my first choice but after talking to some students in ECE my freshman year, I decided that it would be a good fit. I am not sure what field I want to go into yet but electrical engineers are needed pretty much everywhere.'
     },
     {
-        name: 'Elizabeth Thomas',
-    },
-    {
         name: 'Zach Vander Missen',
         fav_project: 'My ECE362 project, a live audio-synced wireless led light show system.',
         fav_class: 'ECE270-ECE362 series because the vertically integrated view from transistor to computer was fascinating and eye-opening.',
         why_ece: 'Because the problems are interesting and challenging and the hands-on aspects appeal to my interests.'
     },
 ]
-export default SURVEYDATA;
+export default SURVEY_DATA;
