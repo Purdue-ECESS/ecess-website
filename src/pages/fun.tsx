@@ -64,7 +64,7 @@ function EventView(key, i, event) {
 export default function FunPage() {
     return (
         <>
-            <div style={{backgroundColor: '#EEEEEE'}}>
+            <div style={{backgroundColor: '#CEB888'}}>
                 <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
                     Past Activities and Images from our Ambassadors
                 </Typography>

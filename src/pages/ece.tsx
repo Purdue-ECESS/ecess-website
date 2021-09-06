@@ -97,7 +97,7 @@ function Section(backgroundColor, title, data) {
 export default function ECEPage() {
     return (
         <div>
-            <div style={{backgroundColor: '#EEEEEE'}}>
+            <div style={{backgroundColor: '#CEB888'}}>
                 <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
                     About ECE from our Ambassadors
                 </Typography>

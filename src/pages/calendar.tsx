@@ -28,7 +28,7 @@ class CalendarApp extends React.Component {
 export default function CalendarPage() {
     return (
         <>
-            <div style={{backgroundColor: '#EEEEEE'}}>
+            <div style={{backgroundColor: '#CEB888'}}>
                 <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</Typography>
             </div>
             <div style={{margin: '0 auto', maxWidth: 1080}}>

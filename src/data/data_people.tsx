@@ -15,6 +15,8 @@ const AMBASSADORS = [
         picture: '/static/people/altayatik.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2023',
+        quote: 'To be, or not to be',
+        clubs: ["IEEE", "Purdue MIND", "Purdue ARC"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/altayaskinatik/'},
             {'name': 'Personal', 'link': 'http://www.altayatik.com/'}
@@ -193,6 +195,8 @@ const AMBASSADORS = [
         picture: '/static/people/ryleebenes.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
+        quote: "Also exploded my capacitor in ECE 20007",
+        clubs: ["Phi Sigma Rho"],
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/rylee-benes/'},
         ]
