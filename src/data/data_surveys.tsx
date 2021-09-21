@@ -30,7 +30,7 @@ const SURVEY_DATA = [
     },
     {
         name: 'Justin Zhang',
-        fun_fact: 'I can do an ollie 15% of the time.',
+        fun_fact: 'I can do an ollie 100% of the time, 15% of the time.',
         advice: 'Just like practicing your ollies, you can only get good at ECE if you practice. You may not like it, but that is what peak success in ECE looks like.',
     },
     {
