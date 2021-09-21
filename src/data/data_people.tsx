@@ -50,6 +50,7 @@ const AMBASSADORS = [
         quote: 'Hold up. I got to take a picture of this. Someone just exploded a capacitor in 20007.',
         links: [
             {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/justin-zhang-purdue/`},
+            {'name': 'Personal', 'link': 'https://www.purdue-ecess.org/justin'}
         ]
     },
     {
