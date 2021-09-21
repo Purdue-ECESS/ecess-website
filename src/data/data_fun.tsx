@@ -1,5 +1,73 @@
 export const FUN = [
     {
+        title: "WBW: ECE Club/Organization Callouts",
+        date: "8-26-2021",
+        description: `
+            For this WBW (Welcome Back Week) event, we had clubs and organizations come to the MSEE atrium to 
+            talk about sort of the resources they provide to the ECE community. For ambassadors, we had students
+            come over to make mindfulness jars 🧘‍️🧘. 
+        `,
+        'photos': [
+            {"ref": "9-21-2021-welcome-back-week/ecess-callout/IMG_1323.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/ecess-callout/IMG_1326.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/ecess-callout/IMG_1143.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/ecess-callout/IMG_1149.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/club-callout/IMG_1295.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/club-callout/IMG_1296.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/club-callout/IMG_1297.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/club-callout/IMG_1298.JPG", col: 2},
+        ],
+    },
+    {
+        title: "WBW: Grad School Panel",
+        date: "8-25-2021",
+        description: `
+            This is another WBW (Welcome Back Week), where we allowed undergraduate students to ask graduate students about their experience
+            in graduate school at Purdue 📕. Here are some picture of our panel (first picture), as well as students
+            who came to the event.
+        `,
+        'photos': [
+            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1145.JPG", col: 4},
+            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1144.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1146.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1148.JPG"},
+        ],
+    },
+    {
+        title: 'WBW: Lawn Games',
+        date: "8-24-2021",
+        description: `
+        For WBW (Welcome Back Week), we hosted a lawn games, where students get to play baggo while listening to some fire 🔥 tunes
+        provided by the ambassadors. We also served free shaved ice ECE students 🍦.
+        `,
+        'photos': [
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1242.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1256.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1240.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1244.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1245.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1252.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1246.JPG", col: 2},
+        ],
+    },
+    {
+        title: 'WBW: Meet and Greet',
+        date: "8-23-2021",
+        description: `
+            As part of WBW (Welcome Back Week), we hosted a faculty meet and greet event for ECE students and 
+            professors. This gives student the opportunity for them to talk to their \"new\" current professors,
+            or past professors. The ambassadors had a lot of fun hosting the event, as well as talking to 
+            people inside the ECE community at Purdue 🍪🥰!!
+        `,
+        'photos': [
+            {"ref": "9-21-2021-welcome-back-week/meet-and-greet/IMG_1134.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/meet-and-greet/IMG_1135.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/meet-and-greet/IMG_1137.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/meet-and-greet/IMG_1141.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/meet-and-greet/IMG_1138.JPG", col: 2},
+        ],
+    },
+    {
         'title': 'Where are they now Summer 2021',
         'date': 'May 25, 2021 to August 21, 2021',
         'description':
