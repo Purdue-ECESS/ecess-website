@@ -5,7 +5,7 @@ export const FUN = [
         description: `
             For this WBW (Welcome Back Week) event, we had clubs and organizations come to the MSEE atrium to 
             talk about sort of the resources they provide to the ECE community. For ambassadors, we had students
-            come over to make mindfulness jars 🧘‍️🧘. 
+            come over to make mindfulness jars 🧘‍. 
         `,
         'photos': [
             {"ref": "9-21-2021-welcome-back-week/ecess-callout/IMG_1323.JPG", col: 2},
