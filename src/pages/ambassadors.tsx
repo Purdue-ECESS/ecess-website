@@ -44,7 +44,7 @@ function AmbassadorView(props) {
                         {
                             (person.clubs || []).map( (item) =>
                                 <Chip key={item} label={item} style={{
-                                    backgroundColor: `\#${intToRGB(hashCode(item))}`,
+                                    backgroundColor: `#${intToRGB(hashCode(item))}`,
                                     margin: 2
                                 }}/>
                             )
