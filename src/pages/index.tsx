@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import Typography from "@material-ui/core/Typography";
-import {Card, CardContent, Divider} from "@material-ui/core";
+import {CardContent, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
-import PURDUE_UPDATES from "../data/data_posts";
+import { Container, Row, Col } from 'react-grid-system';
 import {Discord, Instagram, Gmail} from "@icons-pack/react-simple-icons";
+import GridLayout from 'react-grid-layout';
 
 const useStyles = makeStyles({
     root: {
@@ -132,22 +133,25 @@ function Updates(props) {
                 Updates
             </Typography>
             <Divider light style={{marginTop: 5, marginBottom: 5}}/>
+            <Container style={{width: "100%"}}>
+                <Row>
+                    {content.map((item, i) => {
+                            return (
+                                <Col sm={4} key={i} style={{minWidth: 250}}>
+                                    <CardContent>
+                                        <Typography variant="h6" component="h2">
+                                            {item.title}
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            <div dangerouslySetInnerHTML={{__html: item.content}}/>
+                                        </Typography>
+                                    </CardContent>
+                                </Col>
+                            )
+                        })}
+                </Row>
+            </Container>
             <div style={{display: 'flex', marginLeft: -5, marginRight: -5, flexWrap: 'wrap'}}>
-                {content.map((item, i) => {
-                    return (
-                        <Card key={i} className={materialClass.root} style={{display: 'inline-block', margin: 5,
-                            maxWidth: 250}}>
-                            <CardContent>
-                                <Typography variant="h6" component="h2">
-                                    {item.title}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    <div dangerouslySetInnerHTML={{__html: item.content}}/>
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    )
-                })}
             </div>
         </div>
     )
@@ -157,18 +161,20 @@ export default function IndexPage() {
     const classes = useStyles();
     const [updates, setUpdates] = useState(undefined);
     useEffect(() => {
-        fetch("https://ecea-api-source-code.herokuapp.com/bot/announcements",
-            {
-                method: 'GET'
-            })
-            .then(res => res.json())
-            .then(response => {
-                setUpdates(response);
-            })
-            .catch(e => {
-                setUpdates([]);
-                console.log(e);
-            });
+        if (updates === undefined) {
+            fetch("https://ecea-api-source-code.herokuapp.com/bot/announcements",
+                {
+                    method: 'GET'
+                })
+                .then(res => res.json())
+                .then(response => {
+                    setUpdates(response);
+                })
+                .catch(e => {
+                    setUpdates([]);
+                    console.log(e);
+                });
+        }
     }, [updates])
     return (
         <>

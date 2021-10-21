@@ -55,7 +55,7 @@ export const FUN = [
         date: "8-23-2021",
         description: `
             As part of WBW (Welcome Back Week), we hosted a faculty meet and greet event for ECE students and 
-            professors. This gives student the opportunity for them to talk to their \"new\" current professors,
+            professors. This gives student the opportunity for them to talk to their "new" current professors,
             or past professors. The ambassadors had a lot of fun hosting the event, as well as talking to 
             people inside the ECE community at Purdue 🍪🥰!!
         `,

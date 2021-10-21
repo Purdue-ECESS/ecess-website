@@ -1,20 +1,18 @@
 import React from "react";
 import {Typography} from "@material-ui/core";
 
-// const API_KEY = ""
-
 class CalendarApp extends React.Component {
     render() {
-        let calendars = [
-            {
-                calendarId: "bg4e1frm2kqlieki1q1tr5j1kg@group.calendar.google.com",
-                color: "#B241D1"
-            },
-            {
-                calendarId: "1t1ggg1uamf194kmrgftse1nk8@group.calendar.google.com",
-                color: "#CEB888"
-            }
-        ];
+        // let calendars = [
+        //     {
+        //         calendarId: "bg4e1frm2kqlieki1q1tr5j1kg@group.calendar.google.com",
+        //         color: "#B241D1"
+        //     },
+        //     {
+        //         calendarId: "1t1ggg1uamf194kmrgftse1nk8@group.calendar.google.com",
+        //         color: "#CEB888"
+        //     }
+        // ];
         return (
             <div>
                 {/*<Calendar apiKey={API_KEY} calendars={calendars} />*/}
