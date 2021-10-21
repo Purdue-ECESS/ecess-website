@@ -2,6 +2,7 @@ import React from "react";
 import SURVEY_DATA from "../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
 import {getPictureUrl} from "../data/data_people";
+import {Author} from "../components/author";
 
 function BubbleLayout(author, attribute) {
     if (author[attribute]){
@@ -32,21 +33,7 @@ function BubbleLayout(author, attribute) {
                     maxWidth: 300,
                     marginLeft: 30,
                     zIndex: 0}}/>
-                <div style={{display: 'flex', flexDirection: 'row-reverse', top: -20, bottom: -20, position: 'relative'}}>
-                    <div style={{flex: 1}} />
-                    <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
-                        { author.name }
-                    </Typography>
-                    {profilePicture ?
-                        <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                            <div style={{justifyContent: 'center', display: 'flex'}}>
-                                <img src={process.env.PUBLIC_URL + '/' + profilePicture} alt={author.name} width={30}/>
-                            </div>
-                        </div> :
-                        <></>
-                    }
-                </div>
-
+                <Author name={author.name} picture={profilePicture} relative={true}/>
             </div>
         )
     } else {

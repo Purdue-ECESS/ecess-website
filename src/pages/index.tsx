@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
 import Typography from "@material-ui/core/Typography";
-import {CardContent, Divider} from "@material-ui/core";
+import {CardContent, Chip, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import { Container, Row, Col } from 'react-grid-system';
 import {Discord, Instagram, Gmail} from "@icons-pack/react-simple-icons";
-import GridLayout from 'react-grid-layout';
+import {Author} from "../components/author";
+import {getPictureUrl} from "../data/data_people";
+import {hashCode, intToRGB} from "../utils";
+import dateformat from "dateformat";
 
 const useStyles = makeStyles({
     root: {
@@ -127,6 +130,7 @@ function Updates(props) {
             </div>
         )
     }
+
     return (
         <div style={{margin: 10}}>
             <Typography variant="h5" component="h2">
@@ -136,19 +140,30 @@ function Updates(props) {
             <Container style={{width: "100%"}}>
                 <Row>
                     {content.map((item, i) => {
-                            return (
-                                <Col sm={4} key={i} style={{minWidth: 250}}>
-                                    <CardContent>
-                                        <Typography variant="h6" component="h2">
-                                            {item.title}
-                                        </Typography>
-                                        <Typography variant="body2" component="p">
-                                            <div dangerouslySetInnerHTML={{__html: item.content}}/>
-                                        </Typography>
-                                    </CardContent>
-                                </Col>
-                            )
-                        })}
+                        let now = new Date(item.date);
+                        const date = dateformat(now, 'dddd, mmmm dS, yyyy h:MM TT');
+                        console.log(item.label);
+                        return (
+                            <Col sm={4} key={i} style={{minWidth: 250}}>
+                                <CardContent>
+                                    {
+                                        item.label ?
+                                            <Chip style={{backgroundColor: `#${intToRGB(hashCode(item.label))}`, marginBottom: 5}} label={item.label}/>: <></>
+                                    }
+                                    <div style={{margin: "5px 0"}}>
+                                        <Author name={item.author} picture={getPictureUrl(item.author)}/>
+                                    </div>
+                                    <Typography variant={"body2"}>{date}</Typography>
+                                    <Typography variant="h6" component="h2" style={{marginTop: 10}}>
+                                        {item.title}
+                                    </Typography>
+                                    <Typography variant={"body2"}>
+                                        <div dangerouslySetInnerHTML={{__html: item.content}}/>
+                                    </Typography>
+                                </CardContent>
+                            </Col>
+                        )
+                    })}
                 </Row>
             </Container>
             <div style={{display: 'flex', marginLeft: -5, marginRight: -5, flexWrap: 'wrap'}}>
