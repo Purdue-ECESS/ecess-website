@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
 import Typography from "@material-ui/core/Typography";
-import {CardContent, Divider} from "@material-ui/core";
+import {CardContent, Chip, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import { Container, Row, Col } from 'react-grid-system';
 import {Discord, Instagram, Gmail} from "@icons-pack/react-simple-icons";
 import GridLayout from 'react-grid-layout';
+import {Author} from "../components/author";
+import {getPictureUrl} from "../data/data_people";
+import {hashCode, intToRGB} from "../utils";
 
 const useStyles = makeStyles({
     root: {
@@ -139,9 +142,16 @@ function Updates(props) {
                             return (
                                 <Col sm={4} key={i} style={{minWidth: 250}}>
                                     <CardContent>
+                                        <div style={{height: 10}}/>
+                                        <Author name={item.author} picture={getPictureUrl(item.author)}/>
                                         <Typography variant="h6" component="h2">
                                             {item.title}
                                         </Typography>
+                                        {
+                                            item.label ?
+                                                <Chip style={{color: intToRGB(hashCode(item.label))}}>{item.label}</Chip>:
+                                                <></>
+                                        }
                                         <Typography variant="body2" component="p">
                                             <div dangerouslySetInnerHTML={{__html: item.content}}/>
                                         </Typography>
