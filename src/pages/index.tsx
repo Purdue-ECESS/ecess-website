@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Typography from "@material-ui/core/Typography";
 import {Card, CardContent, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
@@ -108,7 +108,12 @@ function SocialMedia(props) {
 
 function Updates(props) {
     const {materialClass, content} = props;
-    if (!content || content.length === 0) {
+    if (content === undefined) {
+        return (
+            <></>
+        )
+    }
+    if (content.length === 0) {
         return (
             <div style={{margin: 10}}>
                 <Typography variant="h5" component="h2">
@@ -150,13 +155,28 @@ function Updates(props) {
 
 export default function IndexPage() {
     const classes = useStyles();
+    const [updates, setUpdates] = useState(undefined);
+    useEffect(() => {
+        fetch("https://ecea-api-source-code.herokuapp.com/bot/announcements",
+            {
+                method: 'GET'
+            })
+            .then(res => res.json())
+            .then(response => {
+                setUpdates(response);
+            })
+            .catch(e => {
+                setUpdates([]);
+                console.log(e);
+            });
+    })
     return (
         <>
             <div style={{maxWidth: 1080, margin: '0 auto'}}>
                 <>
                     <WelcomeImage />
                     <SocialMedia materialClass={classes}/>
-                    <Updates materialClass={classes} content={PURDUE_UPDATES}/>
+                    <Updates materialClass={classes} content={updates}/>
                 </>
             </div>
         </>
