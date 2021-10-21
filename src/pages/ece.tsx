@@ -33,7 +33,7 @@ function BubbleLayout(author, attribute) {
                     maxWidth: 300,
                     marginLeft: 30,
                     zIndex: 0}}/>
-                <Author name={author.name} picture={profilePicture}/>
+                <Author name={author.name} picture={profilePicture} relative={true}/>
             </div>
         )
     } else {
