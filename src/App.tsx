@@ -10,13 +10,11 @@ import FunPage from "./pages/fun";
 import ECEPage from "./pages/ece";
 import AboutPage from "./pages/members";
 import React, {useEffect, useState} from "react";
-import {Box} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import {NavBar} from "./components/NavBar";
 
+
 function App() {
-    const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
-        ['/ece', 'ECE'],
-        ['/members', 'Members']];
     const [offset, setOffset] = useState(0);
 
     useEffect(() => {
@@ -33,7 +31,7 @@ function App() {
     return (
         <Router basename={'/ecea'}>
             <Box boxShadow={offset} className={'sticky-top'} >
-                <NavBar navLinks={nav_links}/>
+                <NavBar />
             </Box>
             <Switch>
                 <Route exact path="/">
@@ -54,6 +52,10 @@ function App() {
 
                 <Route path={"/members"}>
                     <AboutPage />
+                </Route>
+
+                <Route>
+                    <Typography style={{textAlign: 'center', margin: 20}}>Sorry, Page is Not Found</Typography>
                 </Route>
             </Switch>
             <Copyright />
