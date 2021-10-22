@@ -111,7 +111,7 @@ function SocialMedia(props) {
 }
 
 function Updates(props) {
-    const {materialClass, content} = props;
+    const {content} = props;
     if (content === undefined) {
         return (
             <></>
@@ -142,7 +142,6 @@ function Updates(props) {
                     {content.map((item, i) => {
                         let now = new Date(item.date);
                         const date = dateformat(now, 'dddd, mmmm dS, yyyy h:MM TT');
-                        console.log(item.label);
                         return (
                             <Col sm={4} key={i} style={{minWidth: 250}}>
                                 <CardContent>
