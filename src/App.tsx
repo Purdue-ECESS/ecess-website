@@ -3,21 +3,20 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from "react-router-dom";
 import Copyright from "./components/Copyright";
 import CalendarPage from "./pages/calendar";
 import FunPage from "./pages/fun";
 import ECEPage from "./pages/ece";
-import AboutPage from "./pages/ambassadors";
-import {Nav, Navbar} from "react-bootstrap";
+import AboutPage from "./pages/members";
 import React, {useEffect, useState} from "react";
 import {Box} from "@material-ui/core";
+import {NavBar} from "./components/NavBar";
 
 function App() {
     const nav_links = [['/calendar', 'Calendar'], ['/fun', 'Fun'],
         ['/ece', 'ECE'],
-        ['/ambassadors', 'Ambassadors']];
+        ['/members', 'Members']];
     const [offset, setOffset] = useState(0);
 
     useEffect(() => {
@@ -33,25 +32,8 @@ function App() {
     }, []);
     return (
         <Router basename={'/ecea'}>
-            <Box boxShadow={offset} className={'sticky-top'} style={{padding: 0, margin: 0, backgroundColor: '#CEB888'}}>
-                <Navbar expand={"lg"} style={{padding: 5}}>
-                    <Link to={"/"} style={{margin: 5, textDecoration: 'none'}}>
-                        <Navbar.Brand>Purdue ECE Ambassadors</Navbar.Brand>
-                    </Link>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            {nav_links.map((item, i) => {
-                                return (
-                                    <Link to={item[0]}
-                                          key={item[0]}
-                                          style={{margin: 5, textDecoration: 'none'}}
-                                    >{item[1]}</Link>
-                                )
-                            })}
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
+            <Box boxShadow={offset} className={'sticky-top'} >
+                <NavBar navLinks={nav_links}/>
             </Box>
             <Switch>
                 <Route exact path="/">
@@ -70,7 +52,7 @@ function App() {
                     <ECEPage/>
                 </Route>
 
-                <Route path={"/ambassadors"}>
+                <Route path={"/members"}>
                     <AboutPage />
                 </Route>
             </Switch>

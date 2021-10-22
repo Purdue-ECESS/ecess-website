@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Card, CardContent, Typography, CircularProgress} from "@material-ui/core";
+import {Typography, CircularProgress} from "@material-ui/core";
 import CalendarEvent from "../components/CalendarEvent";
 
 import Calendar from 'react-calendar';
