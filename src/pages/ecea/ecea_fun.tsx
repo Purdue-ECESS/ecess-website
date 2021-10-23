@@ -2,8 +2,8 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typography from "@material-ui/core/Typography";
 import {ImageList, ImageListItem} from "@material-ui/core"; // requires a loader
-import {FUN} from "../data/data_fun";
-import {hashCode, intToRGB} from "../utils";
+import {FUN} from "../../data/data_fun";
+import {hashCode, intToRGB} from "../../utils";
 
 function ListImageView(key, photos, maxHeight=undefined) {
     const style = {
@@ -61,7 +61,7 @@ function EventView(key, i, event) {
     )
 }
 
-export default function FunPage() {
+export default function ECEAFunPage() {
     return (
         <>
             <div style={{backgroundColor: '#CEB888'}}>

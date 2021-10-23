@@ -4,9 +4,9 @@ import {CardContent, Chip, Divider} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import { Container, Row, Col } from 'react-grid-system';
 import {Discord, Instagram, Gmail} from "@icons-pack/react-simple-icons";
-import {Author} from "../components/author";
-import {getPictureUrl} from "../data/data_people";
-import {hashCode, intToRGB} from "../utils";
+import {Author} from "../../components/author";
+import {getPictureUrl} from "../../data/data_people";
+import {hashCode, intToRGB} from "../../utils";
 import dateformat from "dateformat";
 
 const useStyles = makeStyles({
@@ -171,7 +171,7 @@ function Updates(props) {
     )
 }
 
-export default function IndexPage() {
+export default function ECEAIndexPage() {
     const classes = useStyles();
     const [updates, setUpdates] = useState(undefined);
     useEffect(() => {

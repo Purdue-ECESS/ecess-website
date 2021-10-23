@@ -1,14 +1,14 @@
-import IndexPage from "./pages";
+import ECEAIndexPage from "./pages/ecea/ecea_index";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
 } from "react-router-dom";
 import Copyright from "./components/Copyright";
-import CalendarPage from "./pages/calendar";
-import FunPage from "./pages/fun";
-import ECEPage from "./pages/ece";
-import AboutPage from "./pages/members";
+import ECEACalendarPage from "./pages/ecea/ecea_calendar";
+import ECEAFunPage from "./pages/ecea/ecea_fun";
+import ECEAECEPage from "./pages/ecea/ecea_ece";
+import AboutPage from "./pages/ecea/ecea_members";
 import React, {useEffect, useState} from "react";
 import {Box, Typography} from "@material-ui/core";
 import {NavBar} from "./components/NavBar";
@@ -35,19 +35,19 @@ function App() {
             </Box>
             <Switch>
                 <Route exact path="/">
-                    <IndexPage key={'index-key'} />
+                    <ECEAIndexPage key={'index-key'} />
                 </Route>
 
                 <Route path="/calendar">
-                    <CalendarPage />
+                    <ECEACalendarPage />
                 </Route>
 
                 <Route path="/fun">
-                    <FunPage />
+                    <ECEAFunPage />
                 </Route>
 
                 <Route path={"/ece"}>
-                    <ECEPage/>
+                    <ECEAECEPage/>
                 </Route>
 
                 <Route path={"/members"}>
