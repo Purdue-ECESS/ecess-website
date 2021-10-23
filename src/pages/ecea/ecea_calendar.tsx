@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Typography, CircularProgress} from "@material-ui/core";
-import CalendarEvent from "../components/CalendarEvent";
+import CalendarEvent from "../../components/CalendarEvent";
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import '../styles/calendar.css';
+import '../../styles/calendar.css';
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     let url = "https://ecea-api-source-code.herokuapp.com/calendar/ambassadors/main"
@@ -27,7 +27,7 @@ function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     });
 }
 
-export default function CalendarPage() {
+export default function ECEACalendarPage() {
     const [value, setValue] = useState(new Date());
     const [todayEvents, setTodayEvents] = useState(undefined);
     const [laterEvents, setLaterEvents] = useState(undefined);

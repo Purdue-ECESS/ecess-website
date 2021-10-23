@@ -1,10 +1,10 @@
 import React from "react";
-import AMBASSADORS from "../data/data_people";
+import AMBASSADORS from "../../data/data_people";
 import {Button, Card, CardActions, CardContent, Typography, Chip} from "@material-ui/core";
 import {useState, useEffect} from 'react';
-import {hashCode, intToRGB} from "../utils";
+import {hashCode, intToRGB} from "../../utils";
 
-function AmbassadorView(props) {
+function ECEAMembers(props) {
     const {person} = props;
     if (person === undefined) {
         return (
@@ -113,7 +113,7 @@ function splitRowPerPerson(people: Array<any>, pplPerRow) {
                     <div style={{display: 'flex'}}>
                         {
                             item.map((person, j) => (
-                                <AmbassadorView key={`person-${i}-${j}`} person={person} />
+                                <ECEAMembers key={`person-${i}-${j}`} person={person} />
                             ))
                         }
                     </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import SURVEY_DATA from "../data/data_surveys";
+import SURVEY_DATA from "../../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
-import {getPictureUrl} from "../data/data_people";
-import {Author} from "../components/author";
+import {getPictureUrl} from "../../data/data_people";
+import {Author} from "../../components/author";
 
 function BubbleLayout(author, attribute) {
     if (author[attribute]){
@@ -81,7 +81,7 @@ function Section(backgroundColor, title, data) {
 
 }
 
-export default function ECEPage() {
+export default function ECEAECEPage() {
     return (
         <div>
             <div style={{backgroundColor: '#CEB888'}}>
