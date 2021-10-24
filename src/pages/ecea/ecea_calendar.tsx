@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 import '../../styles/calendar.css';
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
-    let url = "https://ecea-api-source-code.herokuapp.com/calendar/ambassadors/main"
+    let url = "https://ecess-api.matthewwen.com/calendar/ambassadors/main"
     if (date instanceof Date) {
         url += "?day=" + date.toISOString();
     }
