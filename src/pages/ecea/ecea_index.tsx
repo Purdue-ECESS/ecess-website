@@ -176,7 +176,7 @@ export default function ECEAIndexPage() {
     const [updates, setUpdates] = useState(undefined);
     useEffect(() => {
         if (updates === undefined) {
-            fetch("https://ecea-api-source-code.herokuapp.com/bot/announcements",
+            fetch("https://ecess-api.matthewwen.com/bot/announcements",
                 {
                     method: 'GET'
                 })
