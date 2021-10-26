@@ -33,7 +33,7 @@ const ECESS_MEMBERS = [
             },
             "wece": undefined,
             "ECESS": {
-                board_position: "ECE Ambassador - Chair",
+                board_position: "ECE Ambassador Chair",
             }
         },
     },
@@ -464,7 +464,7 @@ const ECESS_MEMBERS = [
         ecess_organization: {
             "ECESS": {
                 fav_class: "ECE 26400",
-                board_position: "Multicultural Affairs - Chair",
+                board_position: "Multicultural Affairs Chair",
                 quote: "The city is flying, we're fighting an army of robots... and I have a bow and arrow. None of this makes sense. - Clint Barton (MCU)"
             }
         },
@@ -484,7 +484,7 @@ const ECESS_MEMBERS = [
             "ECESS": {
                 fav_class: "ECE 264",
                 quote: "Always Max Jump",
-                board_position: "Social-Chair"
+                board_position: "Social Chair"
             }
         },
     },
@@ -497,7 +497,7 @@ const ECESS_MEMBERS = [
         ecess_organization: {
             "ECESS": {
                 fav_class: "ECE 337",
-                board_position: "Community Outreach",
+                board_position: "Community Outreach Chair",
                 quote: "Do or do not. There is no try. -Yoda"
             }
         },
@@ -507,7 +507,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Giselle",
-        picture: '/static/people/Giselle_Bender.png',
+        picture: '/static/people/Giselle_Bender.jpg',
         ecess_organization: {
             "ECESS": {
                 board_position: "Advisor",
