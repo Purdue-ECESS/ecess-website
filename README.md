@@ -1,6 +1,5 @@
-# Purdue ECEA Website
-
-[![Build Status](https://travis-ci.com/Purdue-ECESS/ecea-website-source-code.svg?branch=main)](https://travis-ci.com/Purdue-ECESS/ecea-website-source-code)
+# Purdue ECESS Website
+This is the source code for the ECE Student Society Website at Purdue University. It runs multiple applications for our committees like Ambassadors or Spark. 
 
 ## Installation Guide
 
@@ -16,11 +15,11 @@ Mac: https://git-scm.com/download/mac
 Linux: https://git-scm.com/download/linux
 
 
-### Install Purdue ECEA Source Code
+### Install Purdue ECESS Source Code
 Type these commands inside your window / bash terminal. Installing git allows you to deploy your changes to the website. 
 ```bash
-$ git clone https://github.com/Purdue-ECESS/ecea-website-source-code
-$ cd ecea-website-source-code
+$ git clone https://github.com/Purdue-ECESS/ecess-website-source-code
+$ cd ecess-website-source-code
 ```
 
 
