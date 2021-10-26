@@ -105,7 +105,7 @@ dist
 
 # ECEA Untrack Files
 .idea/
-package-lock.json
 yarn.lock
 next-env.d.ts
 out
+build
