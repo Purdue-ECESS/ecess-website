@@ -428,7 +428,7 @@ const ECESS_MEMBERS = [
         ecess_organization: {
             "ECESS": {
                 fav_class: "ECE 20875",
-                board_position: "WECE Co-chair",
+                board_position: "WECE Co-Chair",
                 quote: "Ask for what you want and be prepared to get it - Maya Angelou",
             },
             "wece": undefined
@@ -446,7 +446,8 @@ const ECESS_MEMBERS = [
         hometown: "Jacksonville, Fl",
         ecess_organization: {
             "ECESS": {
-                quote: "Shoot for the moon and if you miss you’ll end up amongst the stars!"
+                quote: "Shoot for the moon and if you miss you’ll end up amongst the stars!",
+                board_position: "WECE Co-Chair"
             },
             "wece": undefined
         },
