@@ -1,8 +1,8 @@
 {
-  "name": "purdue-ecea-website",
+  "name": "purdue-ecess-website",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://purdue-ecess.org/ecea",
+  "homepage": "https://purdue-ecess.org",
   "dependencies": {
     "@icons-pack/react-simple-icons": "^4.6.1",
     "@material-ui/core": "^4.12.3",
