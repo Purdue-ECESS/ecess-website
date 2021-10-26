@@ -1,5 +1,5 @@
 import React from 'react';
-import Copyright from "./Copyright"
+import Copyright from "./copyright"
 import {Nav, Navbar} from "react-bootstrap";
 import {Box} from "@material-ui/core";
 
