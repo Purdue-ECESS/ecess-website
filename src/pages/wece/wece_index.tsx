@@ -21,7 +21,6 @@ const useStyles = makeStyles({
 
 export function WECEHome(props: any) {
     const classes = useStyles();
-    console.log("hello??");
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
@@ -33,7 +32,7 @@ export function WECEHome(props: any) {
             />
             <SocialMedia
                 materialClass={classes}
-                instagram={"purdue-wece"}
+                instagram={"purduewece"}
                 email={["unger12@purdue.edu", "posth@purdue.edu"]}
                 />
         </div>
