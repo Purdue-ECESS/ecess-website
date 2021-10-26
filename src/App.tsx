@@ -4,14 +4,19 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import Copyright from "./components/Copyright";
-import ECEACalendarPage from "./pages/ecea/ecea_calendar";
+import Copyright from "./components/copyright";
+import ECESSCalendarPage from "./pages/ecess/ecess_calendar";
 import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
 import React, {useEffect, useState} from "react";
 import {Box, Typography} from "@material-ui/core";
-import {NavBar} from "./components/NavBar";
+import {NavBar} from "./components/nav_bar";
+import {ECESSHome} from "./pages/ecess/ecess_index";
+import {WECEHome} from "./pages/wece/wece_index";
+import {WECEMembers} from "./pages/wece/wece_members";
+import {EcessBoard} from "./pages/ecess/ecess_board";
+import {ECESSCommittess} from "./pages/ecess/ecess_committees";
 
 
 function App() {
@@ -29,29 +34,33 @@ function App() {
         }
     }, []);
     return (
-        <Router basename={'/ecea'}>
+        <Router>
             <Box boxShadow={offset} className={'sticky-top'} >
                 <NavBar />
             </Box>
             <Switch>
-                <Route exact path="/">
-                    <ECEAIndexPage key={'index-key'} />
-                </Route>
+                {/*ECESS Pages*/}
+                <Route exact path={"/"} component={ECESSHome}/>
+                <Route path={"/board"} component={EcessBoard}/>
+                <Route path={"/committees"} component={ECESSCommittess}/>
+                <Route path={"/calendar"} component={ECESSCalendarPage}/>
 
-                <Route path="/calendar">
-                    <ECEACalendarPage />
-                </Route>
+                {/*WECE Pages*/}
+                <Route exact path={"/wece"} component={WECEHome}/>
+                <Route path={"/wece/members"} component={WECEMembers}/>
 
-                <Route path="/fun">
-                    <ECEAFunPage />
-                </Route>
+                {/*ECEA Pages*/}
+                <Route exact path={"/ecea"} component={ECEAIndexPage}/>
+                <Route path={"/ecea/fun"} component={ECEAFunPage}/>
+                <Route path={"/ecea/ece"} component={ECEAECEPage}/>
+                <Route path={"/ecea/members"} component={AboutPage}/>
 
-                <Route path={"/ece"}>
-                    <ECEAECEPage/>
-                </Route>
-
-                <Route path={"/members"}>
-                    <AboutPage />
+                {/*Spark Page*/}
+                <Route exact path={"/spark"}>
+                    <div style={{overflow: "hidden"}}>
+                        <iframe src={"https://www.im-creator.com/free/aatik/the_spark_challenge_spring_2021"}
+                                style={{width: '100%', height: 'calc(100vh - 144px)'}}/>
+                    </div>
                 </Route>
 
                 <Route>

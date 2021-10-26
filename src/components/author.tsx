@@ -13,7 +13,7 @@ export function Author(props) {
             {picture ?
                 <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
                     <div style={{justifyContent: 'center', display: 'flex'}}>
-                        <img src={process.env.PUBLIC_URL + '/' + picture} alt={name} width={30}/>
+                        <img src={process.env.PUBLIC_URL + picture} alt={name} width={30}/>
                     </div>
                 </div> :
                 <></>
