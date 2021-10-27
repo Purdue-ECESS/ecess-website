@@ -1,8 +1,7 @@
-import Typography from "@material-ui/core/Typography";
 import React from "react";
 
 export function WelcomeImage(props: any) {
-    const {label, picture} = props;
+    const {picture, children} = props;
     return (
         <div style={{display: 'block',}}>
             <div style={{
@@ -16,7 +15,7 @@ export function WelcomeImage(props: any) {
             </div>
 
             {
-                label ?
+                children ?
                 <div style={{
                     position: 'relative',
                     marginTop: "-50px",
@@ -29,12 +28,7 @@ export function WelcomeImage(props: any) {
                             borderRadius: '25px',
                             padding: 5,
                             backgroundColor: '#CEB888', maxWidth: 550, margin: '0 auto'}}>
-                        <Typography variant={'subtitle1'}>
-                            {label.title}
-                        </Typography>
-                        <Typography variant={'subtitle2'}>
-                            {label.msg}
-                        </Typography>
+                        {children}
                     </div>
                 </div> : <></>
             }

@@ -7,7 +7,7 @@ export const COMMITTEES = [
     {
         title: "Software Development",
         leads: ["Matthew Wen", "Naveen Vivek"],
-        description: "The Website Development Committee maintains the ECESS webpage and updates it with announcements and new information regarding the ECESS committees and ECE in general."
+        description: "The Software Development Committee maintains the ECESS webpage and updates it with announcements and new information regarding the ECESS committees and ECE in general."
     },
     {
         title: "Spark Challenge",
@@ -42,6 +42,6 @@ export const COMMITTEES = [
     {
         title: "Community Outreach",
         leads: ["Amita Pandey", "Akshaj Prasannakumar"],
-        description: "We volunteer in the West Lafayette area, Provide STEM experiences to local schools, help in Animal shelters, and participate in Winterization."
+        description: "The Community Outreach committee helps introduce ECE and general engineering concepts to kids in elementary, middle, and high schools. This includes preparing fun projects for local kids in the community. The committee also organizes volunteering opportunities in West Lafayette. "
     }
 ]

@@ -18,13 +18,14 @@ const getLinkIdxByPathName = (location, navLinks) => {
 }
 
 export function NavBar() {
-    const [root, setRoot] = useState('/');
     const [navColour, updateNavbar] = useState(false);
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
 
     const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith('/spark') ? "Spark": undefined));
+    const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
+    const [root, setRoot] = useState(getRoot(location));
 
     const [title, setTitle] = useState(getTitle(location));
     const setECESSPage = () => {
@@ -113,7 +114,13 @@ export function NavBar() {
                         as={Link}
                         to={"/"}
                     >
-                        <Typography>ECESS</Typography>
+                        <div style={{backgroundColor: "black"}}>
+                            <img
+                                width={120}
+                                src={process.env.PUBLIC_URL + "/static/ecess_logo.png"}
+                                alt="home pic"
+                                className="img-fluid" />
+                        </div>
                     </Nav.Link>
                 </Navbar.Brand>
                 <Navbar.Toggle

@@ -374,7 +374,7 @@ const ECESS_MEMBERS = [
         ecess_organization: {
             "ECESS": {
                 fav_class: "ECE 305",
-                board_position: "Faculty Outreach - Chair",
+                board_position: "Faculty Outreach Chair",
                 quote: "Don't force it, just get a bigger hammer."
             }
         },

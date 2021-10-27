@@ -1,9 +1,15 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
+import { useLocation } from 'react-router-dom';
 
 export default function Copyright(props) {
     const {style} = props;
+    const location = useLocation().pathname;
+    if (location === "/spark") {
+        return (<></>)
+    }
+
     return (
         <div style={{padding: 10, ...style}}>
             <Typography variant="body2" color="textSecondary" align="center" >
