@@ -1,7 +1,6 @@
 import React from "react";
-import {Button, Card, CardActions, CardContent, Typography, Chip} from "@material-ui/core";
+import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core";
 import {useState, useEffect} from 'react';
-import {hashCode, intToRGB} from "../utils";
 
 function MemberCard(props) {
     const {person, component} = props;
@@ -41,9 +40,19 @@ function MemberCard(props) {
                 </div>
             </CardContent>
             {
-                person.links ?
+                person.links || person.email ?
                     <CardActions>
-                        {person.links.map((link, j) => {
+
+                        {person.email ?
+                            <Button
+                                href={"mailto:" + person.email}
+                                size={"small"}
+                            >
+                                Email
+                            </Button>: <></>
+                        }
+
+                        {(person.links || []).map((link, j) => {
                             return (
                                 <Button
                                     href={link.link}
