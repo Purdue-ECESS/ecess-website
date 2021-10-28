@@ -1,10 +1,10 @@
 const ECESS_MEMBERS = [
     {
         name: "Ryan Villarreal",
-        email: "villar10@purdue.edu",
         major: "Computer Engineering",
         hometown: "Oswego, Illinois",
         graduation: "May 2022",
+        email: "villar10@purdue.edu",
         picture: '/static/people/Ryan_Villarreal.jpeg',
         ecess_organization: {
             "ECESS": {
@@ -14,7 +14,7 @@ const ECESS_MEMBERS = [
             }
         },
         links: [
-            {'name': 'Linkedin', link: 'https://www.linkedin.com/in/ryan-villarreal/'}
+            {'name': 'Linkedin', link: 'https://www.linkedin.com/in/ryan-villarreal/'},
         ]
     },
     {
@@ -22,6 +22,7 @@ const ECESS_MEMBERS = [
         picture: '/static/people/sarahui.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
+        email: "hui12@purdue.edu",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/sara-hui-purdue/'},
         ],
@@ -34,6 +35,8 @@ const ECESS_MEMBERS = [
             "wece": undefined,
             "ECESS": {
                 board_position: "ECE Ambassador Chair",
+                fav_class: "ECE 44000",
+                quote: "Roll with the punches!"
             }
         },
     },
@@ -42,9 +45,10 @@ const ECESS_MEMBERS = [
         picture: '/static/people/altayatik.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2023',
+        email: "aatik@purdue.edu",
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/altayaskinatik/'},
-            {'name': 'Personal', 'link': 'http://www.altayatik.com/'}
+            {'name': 'Personal', 'link': 'http://www.altayatik.com/'},
         ],
         ecess_board_position: "Spark",
         ecess_organization: {
@@ -53,7 +57,9 @@ const ECESS_MEMBERS = [
                 clubs: ["IEEE", "Purdue MIND", "Purdue ARC"],
             },
             "ECESS": {
-                board_position: "Spark Chair"
+                quote: "Simple can be harder than complex.",
+                board_position: "Spark Chair",
+                fav_class: "ECE 27000"
             }
        },
         ambassador: true
@@ -63,6 +69,7 @@ const ECESS_MEMBERS = [
         email: "adelouis@purdue.edu",
         picture: '/static/people/alyssadelouise.jpg',
         major: 'Electrical Engineering',
+        hometown: "Old Bridge, NJ",
         graduation: 'December 2022',
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/alyssadelouise/'},
@@ -76,13 +83,15 @@ const ECESS_MEMBERS = [
             "wece": undefined,
             "ECESS": {
                 board_position: "Publicity Chair",
-                quote: "Let courage carry you"
+                quote: "Let courage carry you",
+                fav_class: "ECE 27000"
             }
         },
     },
     {
         name: 'Denae Galloway',
         picture: '/static/people/denaegalloway.jpg',
+        email: "gallowd@purdue.edu",
         major: 'Electrical Engineering',
         graduation: 'May 2023',
         links: [
@@ -94,7 +103,8 @@ const ECESS_MEMBERS = [
             "wece": undefined,
             "ECESS": {
                 board_position: "Vice President",
-                quote: "Believe you can and you're halfway there."
+                quote: "Believe you can and you're halfway there.",
+                fav_class: "ECE 27000",
             }
         },
     },
@@ -116,9 +126,16 @@ const ECESS_MEMBERS = [
         picture: '/static/people/matthewwen.jpeg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
-        ecess_organization: {"Ambassadors": {
+        ecess_organization: {
+            "Ambassadors": {
                 quote: 'I spend around like 200 hours a year on Spotify. Such a great rate of return.',
-            }},
+            },
+            "ECESS": {
+                board_position: "Software Co-Chair",
+                fav_class: "ECE 468",
+                quote: "I'm tired all the time!!"
+            }
+        },
         links: [
             {'name': 'Linkedin', 'link': `https://www.linkedin.com/in/mattwen89/`},
             {'name': 'Personal', 'link': `https://www.matthewwen.com`},
@@ -140,10 +157,19 @@ const ECESS_MEMBERS = [
         picture: '/static/people/naveenvivek.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
+        hometown: "Chennai, India",
+        email: "vivek@purdue.edu",
         clubs: ["Power Engineering Society" , "Boilermaker Consulting Group", "CAM2 Research Group"],
-        ecess_organization: {"Ambassadors": {
+        ecess_organization: {
+            "Ambassadors": {
                 quote: "Happiness is having your capacitor never explode in ECE 20007.",
-            }},
+            },
+            "ECESS": {
+                fav_class: "ECE 27000",
+                board_position: "Software Co-Chair",
+                quote: "Quotes are overrated"
+            }
+        },
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/naveen-vivek/'},
         ]
@@ -238,7 +264,7 @@ const ECESS_MEMBERS = [
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         ecess_organization: {"Ambassadors": {
-                clubs: ["IEEE" ],
+                clubs: ["IEEE"],
                 quote: "Have to be totally honest with you, you are awesome!!"
             }},
         links: [
@@ -318,9 +344,13 @@ const ECESS_MEMBERS = [
         picture: '/static/people/amitap.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
+        email: "pandey26@purdue.edu",
+        hometown: "Fort Collins, CO",
         ecess_organization: {
             "ECESS": {
-                board_position: "Community Outreach Co-Chair",
+                board_position: "Community Outreach Chair",
+                fav_class: "ECE 40400",
+                quote: "I'm not lazy. I prefer to call it selective participation."
             }
         },
         links: [
@@ -411,7 +441,10 @@ const ECESS_MEMBERS = [
             "ECESS": {
                 fav_class: "ECE 270",
                 board_position: "Faculty Outreach Co-chair",
-                quote: "When the son of the deposed king of Nigeria emails you directly, asking for help, you help! His father ran the freaking country! Okay?' - Michael Scott"
+                quote: {
+                    msg: "When the son of the deposed king of Nigeria emails you directly, asking for help, you help! His father ran the freaking country! Okay?",
+                    author: "Michael Scott"
+                }
             }
         },
         links: [
@@ -429,9 +462,14 @@ const ECESS_MEMBERS = [
             "ECESS": {
                 fav_class: "ECE 20875",
                 board_position: "WECE Co-Chair",
-                quote: "Ask for what you want and be prepared to get it - Maya Angelou",
+                quote: {
+                    msg: "Ask for what you want and be prepared to get it",
+                    author: "Maya Angelou"
+                },
             },
-            "wece": undefined
+            "wece": {
+                position: "Chair"
+            }
         },
         links: [
             {name: 'Linkedin', link: 'https://www.linkedin.com/in/hope-post/'}
@@ -447,9 +485,12 @@ const ECESS_MEMBERS = [
         ecess_organization: {
             "ECESS": {
                 quote: "Shoot for the moon and if you miss you’ll end up amongst the stars!",
-                board_position: "WECE Co-Chair"
+                board_position: "WECE Co-Chair",
+                fav_class: "ECE 362"
             },
-            "wece": undefined
+            "wece": {
+                position: "Chair"
+            }
         },
         links: [
             {name: 'Linkedin', link: 'https://www.linkedin.com/in/samantha-unger12/'}
@@ -465,7 +506,10 @@ const ECESS_MEMBERS = [
             "ECESS": {
                 fav_class: "ECE 26400",
                 board_position: "Multicultural Affairs Chair",
-                quote: "The city is flying, we're fighting an army of robots... and I have a bow and arrow. None of this makes sense. - Clint Barton (MCU)"
+                quote: {
+                    msg: "The city is flying, we're fighting an army of robots... and I have a bow and arrow. None of this makes sense.",
+                    author: "Clint Barton (MCU)"
+                }
             }
         },
         hometown: "Highland Park, IL",
@@ -497,8 +541,11 @@ const ECESS_MEMBERS = [
         ecess_organization: {
             "ECESS": {
                 fav_class: "ECE 337",
-                board_position: "Community Outreach Chair",
-                quote: "Do or do not. There is no try. -Yoda"
+                board_position: "Community Outreach Co-Chair",
+                quote: {
+                    msg: "Do or do not. There is no try.",
+                    author: "Yoda"
+                }
             }
         },
         links: [
@@ -508,18 +555,29 @@ const ECESS_MEMBERS = [
     {
         name: "Giselle",
         picture: '/static/people/Giselle_Bender.jpg',
+        hometown: "San Juna, PR",
+        email: "gsalina@purdue.edu",
         ecess_organization: {
             "ECESS": {
+                fav_class: 'ECE 29401',
                 board_position: "Advisor",
+                quote: {
+                    msg: "For there is ALWAYS light, if only we are brave enough to see it, if only we are brave enough to BE it.",
+                    author: "Amanda Gorman"
+                }
             }
         },
     },
     {
         name: "Leigh Ann",
         picture: '/static/people/Leigh_Ann.png',
+        email: "lpittsfo@purdue.edu",
+        hometown: "Middletown, IN",
         ecess_organization: {
             "ECESS": {
                 board_position: "Advisor",
+                fav_class: "ECE 29401",
+                quote: "You change the world when you change your mind"
             }
         },
     },
