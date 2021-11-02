@@ -110,7 +110,7 @@ function splitRowPerPerson(people: Array<any>, pplPerRow, component) {
         <>
             {items.map((item, i) =>
                 (
-                    <div style={{display: 'flex'}}>
+                    <div style={{display: 'flex'}} key={i + "-" + items.length}>
                         {
                             item.map((person, j) => (
                                 <MemberCard key={`person-${i}-${j}`} person={person} component={component}/>
