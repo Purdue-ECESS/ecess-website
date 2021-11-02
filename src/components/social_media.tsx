@@ -49,7 +49,7 @@ export function SocialMedia(props) {
                             </Typography>
                         </div>
                         {email.map((item) => (
-                            <div>
+                            <div key={item}>
                                 <a href={'mailto:' + item}>
                                     {item}
                                 </a>

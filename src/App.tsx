@@ -58,7 +58,7 @@ function App() {
                 {/*Spark Page*/}
                 <Route exact path={"/spark"}>
                     <div>
-                        <iframe src={"https://www.im-creator.com/free/aatik/the_spark_challenge_spring_2021"}
+                        <iframe title={"spark"} src={"https://www.im-creator.com/free/aatik/the_spark_challenge_spring_2021"}
                                 style={{width: '100%', height: "calc(100vh - 69px)"}}/>
                     </div>
                 </Route>
