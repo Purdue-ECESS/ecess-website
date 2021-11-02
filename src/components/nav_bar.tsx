@@ -166,7 +166,7 @@ export function NavBar() {
                                         updateExpanded(false);
                                     }}
                                 >
-                                    <Typography style={{fontWeight: (linkIdx === idx ? "bold": undefined)}}>
+                                    <Typography style={{fontWeight: (linkIdx === idx ? "bold": undefined), "whiteSpace": "nowrap"}}>
                                         {i.label}
                                     </Typography>
                                 </Nav.Link>
