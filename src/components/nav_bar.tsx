@@ -23,7 +23,7 @@ export function NavBar() {
     const location = useLocation().pathname;
     const history = useHistory();
 
-    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith('/spark') ? "Spark": undefined));
+    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith('/spark') ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
     const [root, setRoot] = useState(getRoot(location));
 
@@ -63,9 +63,9 @@ export function NavBar() {
             }
         },
         {
-            link: '/spark', label: 'Spark', onClick: () => {
+            link: '/spark', label: 'Spark Challenge', onClick: () => {
                 setRoot('/spark');
-                setTitle('Spark');
+                setTitle('Spark Challenge');
                 setNavLinks([]);
             }
         }

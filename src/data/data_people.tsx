@@ -553,7 +553,8 @@ const ECESS_MEMBERS = [
         ]
     },
     {
-        name: "Giselle",
+        map_name: "Giselle",
+        name: "Giselle Salina-Bender",
         picture: '/static/people/Giselle_Bender.jpg',
         hometown: "San Juna, PR",
         email: "gsalina@purdue.edu",
@@ -584,7 +585,7 @@ const ECESS_MEMBERS = [
 ]
 export let ECESS_MAP = {};
 ECESS_MEMBERS.forEach((item) => {
-    ECESS_MAP[item.name] = item;
+    ECESS_MAP[item.map_name || item.name] = item;
 })
 export function getPictureUrl(name) {
     const ambassador = ECESS_MAP[name]

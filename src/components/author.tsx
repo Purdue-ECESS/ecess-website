@@ -10,13 +10,12 @@ export function Author(props) {
             <Typography variant={"body2"} component={"p"} style={{textAlign: 'center', margin: 'auto', padding: 5}}>
                 { name }
             </Typography>
-            {picture ?
+            {picture &&
                 <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
                     <div style={{justifyContent: 'center', display: 'flex'}}>
-                        <img src={process.env.PUBLIC_URL + picture} alt={name} width={30}/>
+                        <img src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public" + picture} alt={name} width={30}/>
                     </div>
-                </div> :
-                <></>
+                </div>
             }
         </div>
     )

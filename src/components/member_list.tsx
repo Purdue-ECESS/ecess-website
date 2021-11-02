@@ -15,7 +15,7 @@ function MemberCard(props) {
                 <div style={{display: 'flex'}}>
                     <div style={{maxHeight: 200, maxWidth: 150, overflow: 'hidden'}}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>
-                            <img src={process.env.PUBLIC_URL + person.picture} alt={'student profile'} height={200}/>
+                            <img src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public" + person.picture} alt={'student profile'} height={200}/>
                         </div>
                     </div>
                     <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>

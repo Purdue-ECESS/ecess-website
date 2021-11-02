@@ -40,7 +40,7 @@ export function SocialMedia(props) {
                     </div> : <></>
                 }
                 {
-                    email && email.length > 0 ?
+                    email && email.length > 0 &&
                     <div style={{minWidth: 250, flex: 1, margin: 5}}>
                         <div style={{display: "flex"}}>
                             <Gmail size={18} style={{margin: 3}}/>
@@ -55,7 +55,7 @@ export function SocialMedia(props) {
                                 </a>
                             </div>
                         ))}
-                    </div> : <></>
+                    </div>
                 }
             </div>
         </div>
