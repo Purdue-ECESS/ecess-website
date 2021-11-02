@@ -23,7 +23,7 @@ export function NavBar() {
     const location = useLocation().pathname;
     const history = useHistory();
 
-    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith('/spark') ? "Spark": undefined));
+    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith('/spark') ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
     const [root, setRoot] = useState(getRoot(location));
 
@@ -63,9 +63,9 @@ export function NavBar() {
             }
         },
         {
-            link: '/spark', label: 'Spark', onClick: () => {
+            link: '/spark', label: 'Spark Challenge', onClick: () => {
                 setRoot('/spark');
-                setTitle('Spark');
+                setTitle('Spark Challenge');
                 setNavLinks([]);
             }
         }
@@ -73,12 +73,18 @@ export function NavBar() {
     const WECE_NAV_LINKS = [
         {link: '/wece/members', label: 'Members', onClick: setWECEPage}
     ]
-    const getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
+
+    let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
         (x.startsWith('/wece') ? WECE_NAV_LINKS:
             (x.startsWith('/spark') ? [] : ECESS_NAV_LINKS));
-    const [navLinks, setNavLinks] = useState(getNavLinks(location));
 
-    const [linkIdx, setLinkIdx] = useState(getLinkIdxByPathName(location, navLinks));
+    const [navLinks, setNavLinks] = useState(undefined);
+    const [linkIdx, setLinkIdx] = useState(-1);
+    if (navLinks === undefined) {
+        const newNavLinks = getNavLinks(location);
+        setNavLinks(newNavLinks);
+        setLinkIdx(getLinkIdxByPathName(location, newNavLinks));
+    }
 
     function scrollHandler() {
         if (window.scrollY >= 20) {
@@ -93,12 +99,10 @@ export function NavBar() {
     useEffect(() => {
         return history.listen(location => {
             const pathname = location.pathname;
-            const navLinks = getNavLinks(pathname);
             setTitle(getTitle(pathname));
-            setNavLinks(getNavLinks(pathname));
-            setLinkIdx(getLinkIdxByPathName(pathname, navLinks));
+            setNavLinks(undefined);
         })
-    }, [getNavLinks, history])
+    }, [history, navLinks])
 
     return (
         <Navbar

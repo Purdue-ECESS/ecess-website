@@ -23,7 +23,6 @@ export default function AboutPage() {
             <MemberList
                 members={members}
                 component={(person) => {
-                    console.log(person.ecess_organization["Ambassadors"]);
                     if (person.ecess_organization["Ambassadors"]) {
                         return (
                             <>

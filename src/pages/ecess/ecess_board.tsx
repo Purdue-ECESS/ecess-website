@@ -31,7 +31,7 @@ export function EcessBoard() {
                     <>
                         {
                             <Chip label={ecess.board_position} style={{
-                                backgroundColor: `#${intToRGB(hashCode(person.name))}`,
+                                backgroundColor: `#${intToRGB(hashCode(ecess.board_position))}`,
                                 margin: 2
                             }}/>
                         }

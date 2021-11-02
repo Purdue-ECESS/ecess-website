@@ -47,7 +47,7 @@ export default function ECEAIndexPage() {
             <div style={{maxWidth: 1080, margin: '0 auto'}}>
                 <>
                     <WelcomeImage
-                        picture={process.env.PUBLIC_URL + "/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                        picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     >
                         <Typography variant={'subtitle1'}>
                             Mission Statement

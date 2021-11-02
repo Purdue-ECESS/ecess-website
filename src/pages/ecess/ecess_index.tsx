@@ -28,7 +28,7 @@ export function ECESSHome() {
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
-                picture={process.env.PUBLIC_URL + "/static/ecess_homescreen.jpg"}
+                picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/ecess_homescreen.jpg"}
                 >
                 <div style = {{textAlign: "center"}}>
                     <Typewriter
