@@ -21,14 +21,16 @@ const updateIndex = (item) => {
     const favicon = document.getElementById("favicon");
     const picture = document.getElementById("picture");
     const description = document.getElementById("description");
-    const descriptionDescription = document.getElementById("description");
+    const descriptionDescription = document.getElementById("description-description");
     const title = document.getElementById("title");
+    const header = document.getElementById("header");
 
     favicon.setAttribute("href", item.favicon);
     picture.setAttribute("href", item.picture);
     description.setAttribute("content", item.content);
     descriptionDescription.setAttribute("content", item.content);
     title.setAttribute("content", item.title);
+    header.innerHTML = item.title;
 }
 
 export function NavBar() {
@@ -54,7 +56,7 @@ export function NavBar() {
                 favicon: process.env.PUBLIC_URL + "/static/spark_logo.ico",
                 picture: process.env.PUBLIC_URL + "/static/spark_logo.jpg",
                 content: "Welcome to the Spark Challenge Website",
-                title: 'Spark'
+                title: 'Spark Challenge'
             }
         }
         return {
