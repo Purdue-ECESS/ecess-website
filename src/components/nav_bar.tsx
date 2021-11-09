@@ -21,9 +21,14 @@ const updateIndex = (item) => {
     const favicon = document.getElementById("favicon");
     const picture = document.getElementById("picture");
     const description = document.getElementById("description");
+    const descriptionDescription = document.getElementById("description");
+    const title = document.getElementById("title");
+
     favicon.setAttribute("href", item.favicon);
     picture.setAttribute("href", item.picture);
     description.setAttribute("content", item.content);
+    descriptionDescription.setAttribute("content", item.content);
+    title.setAttribute("content", item.title);
 }
 
 export function NavBar() {
@@ -39,7 +44,8 @@ export function NavBar() {
             return {
                 favicon: process.env.PUBLIC_URL + "/static/ecea_logo.ico",
                 picture: process.env.PUBLIC_URL + "/static/ecea_logo.jpg",
-                content: "Website for Purdue ECE Ambassadors"
+                content: "Website for Purdue ECE Ambassadors",
+                title: 'ECE Ambassadors'
             }
 
         }
@@ -47,13 +53,15 @@ export function NavBar() {
             return {
                 favicon: process.env.PUBLIC_URL + "/static/spark_logo.ico",
                 picture: process.env.PUBLIC_URL + "/static/spark_logo.jpg",
-                content: "Website for Purdue ECE Ambassadors"
+                content: "Welcome to the Spark Challenge Website",
+                title: 'Spark'
             }
         }
         return {
             favicon: process.env.PUBLIC_URL + "/static/ecess_logo.ico",
             picture: process.env.PUBLIC_URL + "/static/ecess_logo.jpg",
-            content: "Website for Purdue ECE Student Society"
+            content: "Website for Purdue ECE Student Society",
+            title: 'Purdue ECESS'
         }
     }
     updateIndex(getIndexContext(location));
