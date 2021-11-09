@@ -17,14 +17,46 @@ const getLinkIdxByPathName = (location, navLinks) => {
     return -1;
 }
 
+const updateIndex = (item) => {
+    const favicon = document.getElementById("favicon");
+    const picture = document.getElementById("picture");
+    const description = document.getElementById("description");
+    favicon.setAttribute("href", item.favicon);
+    picture.setAttribute("href", item.picture);
+    description.setAttribute("content", item.content);
+}
+
 export function NavBar() {
     const [navColour, updateNavbar] = useState(false);
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
 
-    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith('/spark') ? "Spark Challenge": undefined));
+    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
+    const getIndexContext = (x) => {
+        if (x.startsWith('/ecea')) {
+            return {
+                favicon: process.env.PUBLIC_URL + "/static/ecea_logo.ico",
+                picture: process.env.PUBLIC_URL + "/static/ecea_logo.jpg",
+                content: "Website for Purdue ECE Ambassadors"
+            }
+
+        }
+        else if (x.startsWith('/spark')) {
+            return {
+                favicon: process.env.PUBLIC_URL + "/static/spark_logo.ico",
+                picture: process.env.PUBLIC_URL + "/static/spark_logo.jpg",
+                content: "Website for Purdue ECE Ambassadors"
+            }
+        }
+        return {
+            favicon: process.env.PUBLIC_URL + "/static/ecess_logo.ico",
+            picture: process.env.PUBLIC_URL + "/static/ecess_logo.jpg",
+            content: "Website for Purdue ECE Student Society"
+        }
+    }
+    updateIndex(getIndexContext(location));
     const [root, setRoot] = useState(getRoot(location));
 
     const [title, setTitle] = useState(getTitle(location));
@@ -52,6 +84,7 @@ export function NavBar() {
         {link: '/board', label: 'Board', onClick:  setECESSPage},
         {link: '/committees', label: 'Committees', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
+        {link: '/spark', label: 'Spark Challenge', onClick: setECESSPage},
         {link: '/wece', label: 'WECE', onClick: () => {
                 setWECEPage();
                 setLinkIdx(-1);
@@ -62,13 +95,6 @@ export function NavBar() {
                 setLinkIdx(-1);
             }
         },
-        {
-            link: '/spark', label: 'Spark Challenge', onClick: () => {
-                setRoot('/spark');
-                setTitle('Spark Challenge');
-                setNavLinks([]);
-            }
-        }
     ]
     const WECE_NAV_LINKS = [
         {link: '/wece/members', label: 'Members', onClick: setWECEPage}
@@ -76,7 +102,7 @@ export function NavBar() {
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
         (x.startsWith('/wece') ? WECE_NAV_LINKS:
-            (x.startsWith('/spark') ? [] : ECESS_NAV_LINKS));
+            (ECESS_NAV_LINKS));
 
     const [navLinks, setNavLinks] = useState(undefined);
     const [linkIdx, setLinkIdx] = useState(-1);
@@ -121,7 +147,7 @@ export function NavBar() {
                         <div style={{backgroundColor: "black"}}>
                             <img
                                 width={120}
-                                src={process.env.PUBLIC_URL + "/static/ecess_logo.png"}
+                                src={process.env.PUBLIC_URL + "/static/ecess_nav_bar_logo.png"}
                                 alt="home pic"
                                 className="img-fluid" />
                         </div>
