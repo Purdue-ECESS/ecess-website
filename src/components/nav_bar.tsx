@@ -94,14 +94,14 @@ export function NavBar() {
         {link: '/board', label: 'Board', onClick:  setECESSPage},
         {link: '/committees', label: 'Committees', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
-        {link: '/spark', label: 'Spark Challenge', onClick: setECESSPage},
-        {link: '/wece', label: 'WECE', onClick: () => {
-                setWECEPage();
+        {link: '/ecea', label: 'Ambassadors', onClick:  () => {
+                setAmbassadorPage();
                 setLinkIdx(-1);
             }
         },
-        {link: '/ecea', label: 'Ambassadors', onClick:  () => {
-                setAmbassadorPage();
+        {link: '/spark', label: 'Spark Challenge', onClick: setECESSPage},
+        {link: '/wece', label: 'WECE', onClick: () => {
+                setWECEPage();
                 setLinkIdx(-1);
             }
         },
