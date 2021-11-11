@@ -29,7 +29,7 @@ export function Updates(props) {
     }
 
     return (
-        <div style={{margin: 10}}>
+        <div style={{margin: 10}} className={'dark'}>
             <Typography variant="h5" component="h2">
                 Updates
             </Typography>

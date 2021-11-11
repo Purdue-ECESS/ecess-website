@@ -128,7 +128,7 @@ export function MemberList(props: {members: any, component: any}) {
     const size = useWindowSize();
     return (
         <>
-            <div style={{maxWidth: 1080, margin: '0 auto'}}>
+            <div style={{maxWidth: 1080, margin: '0 auto'}} className={'dark'}>
                 {
                     size.pplPerRow ?
                         <div>

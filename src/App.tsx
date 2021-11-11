@@ -34,7 +34,7 @@ function App() {
         }
     }, []);
     return (
-        <Router>
+        <Router className={"dark"} >
             <Box boxShadow={offset} className={'sticky-top'} >
                 <NavBar />
             </Box>

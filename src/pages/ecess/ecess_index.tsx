@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 export function ECESSHome() {
     const classes = useStyles();
     return (
-        <div style={{maxWidth: 1080, margin: "0 auto"}}>
+        <div style={{maxWidth: 1080, margin: "0 auto"}} className={'dark'}>
             <WelcomeImage
                 picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/ecess_homescreen.jpg"}
                 >

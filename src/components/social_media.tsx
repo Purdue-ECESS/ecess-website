@@ -6,7 +6,7 @@ import React from "react";
 export function SocialMedia(props) {
     const {materialClass, discord, instagram, email} = props;
     return (
-        <div style={{margin: 10}}>
+        <div style={{margin: 10}} className={'dark'}>
             <Typography variant="h5" component="h2">
                 Follow Us
             </Typography>
