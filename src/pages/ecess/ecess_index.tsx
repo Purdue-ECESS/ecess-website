@@ -4,6 +4,7 @@ import {makeStyles} from "@material-ui/styles";
 import {Button, Typography} from "@material-ui/core";
 import {WelcomeImage} from "../../components/welcome";
 import Typewriter from "typewriter-effect";
+import ECESSTheme from "../../components/theme";
 
 
 const useStyles = makeStyles({
@@ -24,9 +25,9 @@ const useStyles = makeStyles({
 });
 
 export function ECESSHome() {
-    const classes = useStyles();
+    const classes = useStyles(ECESSTheme);
     return (
-        <div style={{maxWidth: 1080, margin: "0 auto"}} className={'dark'}>
+        <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
                 picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/ecess_homescreen.jpg"}
                 >

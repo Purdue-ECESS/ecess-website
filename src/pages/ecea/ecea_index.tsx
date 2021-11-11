@@ -4,6 +4,7 @@ import {SocialMedia} from "../../components/social_media";
 import {WelcomeImage} from "../../components/welcome";
 import {Updates} from "../../components/discord_updates";
 import Typography from "@material-ui/core/Typography";
+import ECESSTheme from "../../components/theme";
 
 const useStyles = makeStyles({
     root: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
 
 
 export default function ECEAIndexPage() {
-    const classes = useStyles();
+    const classes = useStyles(ECESSTheme);
     const [updates, setUpdates] = useState(undefined);
     useEffect(() => {
         if (updates === undefined) {

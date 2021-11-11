@@ -11,7 +11,7 @@ export default function Copyright(props) {
     }
 
     return (
-        <div style={{padding: 10, ...style}}>
+        <div style={{padding: 10, ...style}} className={"dark"}>
             <Typography variant="body2" color="textSecondary" align="center" >
                 {'Copyright © '}
                 {`${new Date().getFullYear()} `}

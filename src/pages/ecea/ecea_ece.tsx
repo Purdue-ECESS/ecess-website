@@ -3,6 +3,7 @@ import SURVEY_DATA from "../../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
 import {getPictureUrl} from "../../data/data_people";
 import {Author} from "../../components/author";
+import {DarkTypography} from "../../components/DarkTypography";
 
 function BubbleLayout(author, attribute) {
     if (author[attribute]){
@@ -18,9 +19,9 @@ function BubbleLayout(author, attribute) {
                     maxWidth: 300,
                     position: "relative"
                 }}>
-                    <Typography variant="body2" component="p">
+                    <DarkTypography variant="body2" >
                         <em>{ author[attribute] }</em>
-                    </Typography>
+                    </DarkTypography>
                 </div>
                 <div style={{
                     display: 'flex',
@@ -68,12 +69,12 @@ function WhyEce(props) {
 }
 
 function Section(backgroundColor, title, data) {
-    return (<div style={{backgroundColor}}>
+    return (<div>
         <div style={{ margin: '0 auto', maxWidth: 1080, padding: '10px 0'}}>
             <Typography variant="h5" component="h2">
                 {title}
             </Typography>
-            <div style={{display: "flex", marginLeft: 10, flexWrap: "wrap", justifyContent: "center"}}>
+            <div style={{display: "flex", marginLeft: 10, flexWrap: "wrap", justifyContent: "center" }}>
                 {data}
             </div>
         </div>
@@ -85,9 +86,9 @@ export default function ECEAECEPage() {
     return (
         <div>
             <div style={{backgroundColor: '#CEB888'}}>
-                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
+                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
                     About ECE from our Ambassadors
-                </Typography>
+                </DarkTypography>
             </div>
 
             {Section('#EEEEEE', "Fun Fact About Ambassadors",

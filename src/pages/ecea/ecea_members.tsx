@@ -3,6 +3,7 @@ import {getMembersFromOrganization} from "../../data/data_people";
 import {MemberList} from "../../components/member_list";
 import {Chip, Typography} from "@material-ui/core";
 import {hashCode, intToRGB} from "../../utils";
+import {DarkTypography} from "../../components/DarkTypography";
 
 
 export default function AboutPage() {
@@ -18,7 +19,7 @@ export default function AboutPage() {
     return (
         <>
             <div style={{backgroundColor: '#CEB888'}}>
-                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Ambassadors</Typography>
+                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Ambassadors</DarkTypography>
             </div>
             <MemberList
                 members={members}

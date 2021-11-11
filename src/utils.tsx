@@ -7,7 +7,7 @@ export function hashCode(str) { // java String#hashCode
 }
 
 export function intToRGB(i){
-    let d = (i & 0xFFFFFF) | 0xA0A0A0;
+    let d = (i & 0x9A9A9A) ;
     let c = d.toString(16).toUpperCase();
     return "00000".substring(0, 6 - c.length) + c;
 }

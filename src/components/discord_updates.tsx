@@ -6,6 +6,7 @@ import {Author} from "./author";
 import {getPictureUrl} from "../data/data_people";
 import React from "react";
 import dateformat from "dateformat";
+import ECESSTheme from "./theme";
 
 export function Updates(props) {
     const {content} = props;
@@ -17,7 +18,7 @@ export function Updates(props) {
     if (content.length === 0) {
         return (
             <div style={{margin: 10}}>
-                <Typography variant="h5" component="h2">
+                <Typography variant="h5" component="h2" style={ECESSTheme.typography}>
                     Updates
                 </Typography>
                 <Divider light style={{marginTop: 5, marginBottom: 5}}/>
@@ -29,7 +30,7 @@ export function Updates(props) {
     }
 
     return (
-        <div style={{margin: 10}} className={'dark'}>
+        <div style={{margin: 10}}>
             <Typography variant="h5" component="h2">
                 Updates
             </Typography>

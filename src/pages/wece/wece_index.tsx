@@ -3,6 +3,7 @@ import {SocialMedia} from "../../components/social_media";
 import {makeStyles} from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
+import ECESSTheme from "../../components/theme";
 
 const useStyles = makeStyles({
     root: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
 });
 
 export function WECEHome(props: any) {
-    const classes = useStyles();
+    const classes = useStyles(ECESSTheme);
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
