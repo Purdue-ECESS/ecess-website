@@ -168,15 +168,18 @@ export function NavBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle
                     style={{
-                        color: "#fff",
-                        borderColor: "#fff",
+                        backgroundColor: "#fffffff",
                     }}
-
                     aria-controls="responsive-navbar-nav"
                     onClick={() => {
                         updateExpanded(!expand);
                     }}
                 >
+                    <div style={{margin: "0 auto"}}>
+                        <span/>
+                        <span/>
+                        <span/>
+                    </div>
                 </Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto" defaultActiveKey="#home">
