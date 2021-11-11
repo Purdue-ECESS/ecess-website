@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typography from "@material-ui/core/Typography";
 import {ImageList, ImageListItem} from "@material-ui/core"; // requires a loader
 import {FUN} from "../../data/data_fun";
-import {hashCode, intToRGB} from "../../utils";
+import {DarkTypography} from "../../components/dark_typography";
 
 function ListImageView(key, photos, maxHeight=undefined) {
     const style = {
@@ -37,7 +37,7 @@ function ImageDescriptionView(key, title, date, description) {
                     <Typography variant={'h5'}>{title}</Typography>
                     <Typography variant={'caption'}>Date: {date}</Typography>
                 </div>
-                <div dangerouslySetInnerHTML={{__html: description}}/>
+                <Typography dangerouslySetInnerHTML={{__html: description}}/>
             </div>
         </div>
     )
@@ -65,16 +65,15 @@ export default function ECEAFunPage() {
     return (
         <>
             <div style={{backgroundColor: '#CEB888'}}>
-                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
+                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
                     Past Activities and Images from our Ambassadors
-                </Typography>
+                </DarkTypography>
             </div>
             {
                 FUN.map( (events, eventsIdx) => {
                         const key = `events-body-${eventsIdx}`;
-                        const backgroundColor = `#${intToRGB(hashCode(key + events.title + events.description))}`;
                         return (
-                            <div key={key} style={{backgroundColor}}>
+                            <div key={key} >
                                 <div style={{margin: '0 auto', maxWidth: 1080, paddingTop: 5, paddingBottom: 5}}>
                                     {EventView(`events-body-${eventsIdx}`, eventsIdx, events)}
                                 </div>

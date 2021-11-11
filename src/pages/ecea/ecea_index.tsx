@@ -3,7 +3,8 @@ import {makeStyles} from "@material-ui/styles";
 import {SocialMedia} from "../../components/social_media";
 import {WelcomeImage} from "../../components/welcome";
 import {Updates} from "../../components/discord_updates";
-import Typography from "@material-ui/core/Typography";
+import ECESSTheme from "../../components/theme";
+import {DarkTypography} from "../../components/dark_typography";
 
 const useStyles = makeStyles({
     root: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
 
 
 export default function ECEAIndexPage() {
-    const classes = useStyles();
+    const classes = useStyles(ECESSTheme);
     const [updates, setUpdates] = useState(undefined);
     useEffect(() => {
         if (updates === undefined) {
@@ -49,13 +50,13 @@ export default function ECEAIndexPage() {
                     <WelcomeImage
                         picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     >
-                        <Typography variant={'subtitle1'}>
+                        <DarkTypography variant={'subtitle1'}>
                             Mission Statement
-                        </Typography>
-                        <Typography variant={'subtitle2'}>
+                        </DarkTypography>
+                        <DarkTypography variant={'subtitle2'}>
                             ECE Ambassadors mission is to spread knowledge about Purdue’s ECE program to prospective
                             and current students alike.
-                        </Typography>
+                        </DarkTypography>
                     </WelcomeImage>
                     <SocialMedia
                         materialClass={classes}

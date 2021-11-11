@@ -3,7 +3,7 @@ import React from "react";
 export function WelcomeImage(props: any) {
     const {picture, children} = props;
     return (
-        <div style={{display: 'block',}}>
+        <div style={{display: 'block',}} className={"dark"}>
             <div style={{
                 borderRadius: "0px 0px 25px 25px",
                 width: "100%", overflow: 'hidden', maxHeight: 450, minHeight: 50}}>

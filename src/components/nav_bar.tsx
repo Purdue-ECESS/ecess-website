@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
 import "../styles/navbar.css";
 import { useLocation } from 'react-router-dom';
+import {DarkTypography} from "./dark_typography";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -87,7 +88,7 @@ export function NavBar() {
     }
     const AMBASSADOR_NAV_LINKS =  [
         {link: '/ecea/fun', label: 'Fun', onClick:  setAmbassadorPage},
-        {link: '/ecea/ece', label: 'ECE', onClick:  setAmbassadorPage},
+        // {link: '/ecea/ece', label: 'ECE', onClick:  setAmbassadorPage},
         {link: '/ecea/members', label: 'Members', onClick:  setAmbassadorPage},
     ];
     const ECESS_NAV_LINKS = [
@@ -183,7 +184,7 @@ export function NavBar() {
                                         updateExpanded(false)
                                     }}
                                 >
-                                    <Typography style={{fontWeight: (linkIdx === -1 ? "bold": undefined)}}>
+                                    <Typography style={{fontWeight: (linkIdx === -1 ? "bold": undefined), color: "#000000"}} >
                                         {title}
                                     </Typography>
                                 </Nav.Link>
@@ -202,9 +203,9 @@ export function NavBar() {
                                         updateExpanded(false);
                                     }}
                                 >
-                                    <Typography style={{fontWeight: (linkIdx === idx ? "bold": undefined), "whiteSpace": "nowrap"}}>
+                                    <DarkTypography style={{fontWeight: (linkIdx === idx ? "bold": undefined), "whiteSpace": "nowrap"}}>
                                         {i.label}
-                                    </Typography>
+                                    </DarkTypography>
                                 </Nav.Link>
                             </Nav.Item>
                         )): <></>}

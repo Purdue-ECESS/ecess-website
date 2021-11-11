@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Typography, CircularProgress} from "@material-ui/core";
+import {Typography, CircularProgress, Button, withStyles} from "@material-ui/core";
 import CalendarEvent from "../../components/calendar_event";
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../../styles/calendar.css';
+import {DarkTypography} from "../../components/dark_typography";
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     let url = "https://ecess-api.matthewwen.com/calendar/ambassadors/main"
@@ -27,8 +28,12 @@ function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     });
 }
 
+const PurdueButton = withStyles({root: {backgroundColor: "#CEB888", color: "#000000"}})(Button);
+
 export default function ECESSCalendarPage() {
-    const [value, setValue] = useState(new Date());
+    const date = new Date();
+    date.setHours(0,0,0,0);
+    const [value, setValue] = useState(date);
     const [todayEvents, setTodayEvents] = useState(undefined);
     const [laterEvents, setLaterEvents] = useState(undefined);
 
@@ -46,10 +51,11 @@ export default function ECESSCalendarPage() {
     })
 
 
+
     return (
         <>
             <div style={{backgroundColor: '#CEB888'}}>
-                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</Typography>
+                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</DarkTypography>
             </div>
             <div style={{
                 display: "flex",
@@ -60,14 +66,27 @@ export default function ECESSCalendarPage() {
                 justifyContent: "center",
                 overflowX: "scroll"
             }}>
-                <Calendar
-                    className={"ecea-calendar"}
-                    onChange={(param) => {
-                        setValue(param);
-                        setTodayEvents(undefined);
-                    }}
-                    value={value}
-                />
+                <div>
+                    <div style={{display: 'flex', margin: 5}}>
+                        <div style={{flex: 1}}/>
+                        <PurdueButton color={"primary"} onClick={() => {
+                            const date = new Date();
+                            date.setHours(0, 0, 0, 0);
+                            setValue(date);
+                            setTodayEvents(undefined);
+                        }}>Today</PurdueButton>
+
+                    </div>
+                    <Calendar
+                        className={"ecea-calendar"}
+                        onChange={(param) => {
+                            setValue(param);
+                            setTodayEvents(undefined);
+                        }}
+                        value={value}
+                    />
+
+                </div>
                 <div style={{flex: 1, marginTop: 10, maxWidth: "100%"}}>
                     {
                         todayEvents ? (
@@ -87,12 +106,16 @@ export default function ECESSCalendarPage() {
                     }
                     <Typography variant={"h6"} style={{padding: "10", textAlign: 'center'}}>Other Upcoming Events</Typography>
                     {
-                        laterEvents ? laterEvents.map(item => (
+                        laterEvents  ? (
+                            laterEvents.length > 0 ?
+                            laterEvents.map(item => (
                             <CalendarEvent
                                 key={item.id}
                                 item={item}
-                            />
-                        )): <></>
+                            /> )): <Typography style={{textAlign: 'center'}}>No other events the reset of the semester</Typography>
+                            ):
+                            <>
+                        </>
                     }
                 </div>
             </div>

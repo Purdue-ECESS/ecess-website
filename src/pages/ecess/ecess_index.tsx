@@ -4,6 +4,8 @@ import {makeStyles} from "@material-ui/styles";
 import {Button, Typography} from "@material-ui/core";
 import {WelcomeImage} from "../../components/welcome";
 import Typewriter from "typewriter-effect";
+import ECESSTheme from "../../components/theme";
+import {DarkTypography} from "../../components/dark_typography";
 
 
 const useStyles = makeStyles({
@@ -24,7 +26,7 @@ const useStyles = makeStyles({
 });
 
 export function ECESSHome() {
-    const classes = useStyles();
+    const classes = useStyles(ECESSTheme);
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
@@ -45,14 +47,14 @@ export function ECESSHome() {
                         }}
                     />
                 </div>
-                <Typography variant={"body2"}>
+                <DarkTypography variant={"body2"}>
                     The purpose of the Electrical and Computer Engineering Student Society is to provide ECE
                     students with an educational and professional community aimed at preparing students for a
                     rigorous academic program, exploring educational and professional post-baccalaureate options
                     and making the most out of their Purdue Experience.
-                </Typography>
+                </DarkTypography>
             </WelcomeImage>
-            <div style={{margin: "0 auto", justifyContent: "center", alignContent: "center", padding: 20}}>
+            <div style={{margin: "0 auto", justifyContent: "center", alignContent: "center", padding: 20, textAlign: "center"}}>
                 <Typography
                     >
                     ECESS is constantly looking for new applicants. If you are interested,
