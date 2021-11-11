@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typography from "@material-ui/core/Typography";
 import {ImageList, ImageListItem} from "@material-ui/core"; // requires a loader
 import {FUN} from "../../data/data_fun";
-import {DarkTypography} from "../../components/DarkTypography";
+import {DarkTypography} from "../../components/dark_typography";
 
 function ListImageView(key, photos, maxHeight=undefined) {
     const style = {

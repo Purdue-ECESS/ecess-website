@@ -2,6 +2,9 @@ import Typography from "@material-ui/core/Typography";
 import {Divider} from "@material-ui/core";
 import {Discord, Gmail, Instagram} from "@icons-pack/react-simple-icons";
 import React from "react";
+import {HoverButtons} from "./hover_button";
+
+
 
 export function SocialMedia(props) {
     const {materialClass, discord, instagram, email} = props;
@@ -15,44 +18,44 @@ export function SocialMedia(props) {
                 {discord ?
                     <div style={{minWidth: 250, flex: 1, margin: 5}}>
                         <div style={{display: "flex"}}>
-                            <Discord size={18} style={{margin: 3}}/>
+                            <Discord size={18} style={{margin: 3}} color={"white"}/>
                             <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
                                 DISCORD
                             </Typography>
                         </div>
-                        <a href={discord.link}>
+                        <HoverButtons href={discord.link}>
                             {discord.name}
-                        </a>
+                        </HoverButtons>
                     </div> : <></>
                 }
                 {
                     instagram ?
                     <div style={{minWidth: 250, flex: 1, margin: 5}}>
                         <div style={{display: "flex"}}>
-                            <Instagram size={18} style={{margin: 3}}/>
+                            <Instagram size={18} style={{margin: 3}} color={"white"}/>
                             <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
                                 INSTAGRAM
                             </Typography>
                         </div>
-                        <a href={'https://www.instagram.com/' + instagram}>
+                        <HoverButtons href={'https://www.instagram.com/' + instagram}>
                             @{instagram}
-                        </a>
+                        </HoverButtons>
                     </div> : <></>
                 }
                 {
                     email && email.length > 0 &&
                     <div style={{minWidth: 250, flex: 1, margin: 5}}>
                         <div style={{display: "flex"}}>
-                            <Gmail size={18} style={{margin: 3}}/>
+                            <Gmail size={18} style={{margin: 3}} color={"white"}/>
                             <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
                                 EMAIL
                             </Typography>
                         </div>
                         {email.map((item) => (
                             <div key={item}>
-                                <a href={'mailto:' + item}>
+                                <HoverButtons href={'mailto:' + item}>
                                     {item}
-                                </a>
+                                </HoverButtons>
                             </div>
                         ))}
                     </div>

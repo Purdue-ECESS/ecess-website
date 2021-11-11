@@ -1,6 +1,7 @@
 import React from "react";
-import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core";
+import {Card, CardActions, CardContent, Typography} from "@material-ui/core";
 import {useState, useEffect} from 'react';
+import {HoverButtons} from "./hover_button";
 
 function MemberCard(props) {
     const {person, component} = props;
@@ -44,21 +45,21 @@ function MemberCard(props) {
                     <CardActions>
 
                         {person.email ?
-                            <Button
+                            <HoverButtons
                                 href={"mailto:" + person.email}
                                 size={"small"}
                             >
                                 Email
-                            </Button>: <></>
+                            </HoverButtons>: <></>
                         }
 
                         {(person.links || []).map((link, j) => {
                             return (
-                                <Button
+                                <HoverButtons
                                     href={link.link}
                                     size="small"
                                     key={j + person.name + 'link'}>{link.name}
-                                </Button>
+                                </HoverButtons>
                             );
                         })}
                     </CardActions>: <></>

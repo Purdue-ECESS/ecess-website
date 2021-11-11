@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
 import "../styles/navbar.css";
 import { useLocation } from 'react-router-dom';
-import {DarkTypography} from "./DarkTypography";
+import {DarkTypography} from "./dark_typography";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
