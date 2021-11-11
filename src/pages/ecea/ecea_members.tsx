@@ -18,8 +18,8 @@ export default function AboutPage() {
     });
     return (
         <>
-            <div style={{backgroundColor: '#CEB888'}}>
-                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Ambassadors</DarkTypography>
+            <div style={{backgroundColor: '#222'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Ambassadors</Typography>
             </div>
             <MemberList
                 members={members}

@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
 import "../styles/navbar.css";
 import { useLocation } from 'react-router-dom';
-import {DarkTypography} from "./dark_typography";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -19,6 +18,7 @@ const getLinkIdxByPathName = (location, navLinks) => {
 }
 
 const updateIndex = (item) => {
+    const body = document.getElementById("body");
     const favicon = document.getElementById("favicon");
     const picture = document.getElementById("picture");
     const description = document.getElementById("description");
@@ -32,6 +32,7 @@ const updateIndex = (item) => {
     descriptionDescription.setAttribute("content", item.content);
     title.setAttribute("content", item.title);
     header.innerHTML = item.title;
+    body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
 export function NavBar() {
@@ -57,7 +58,8 @@ export function NavBar() {
                 favicon: process.env.PUBLIC_URL + "/static/spark_logo.ico",
                 picture: process.env.PUBLIC_URL + "/static/spark_logo.jpg",
                 content: "Welcome to the Spark Challenge Website",
-                title: 'Spark Challenge'
+                title: 'Spark Challenge',
+                backgroundColor: "#fff"
             }
         }
         return {
@@ -146,7 +148,7 @@ export function NavBar() {
             expanded={expand}
             expand="md"
             className={navColour ? "sticky" : "navbar"}
-            style={{padding: 0, margin: 0, backgroundColor: '#CEB888'}}
+            style={{padding: 0, margin: 0, backgroundColor: '#222222'}}
         >
             <Container>
                 <Navbar.Brand>
@@ -155,7 +157,7 @@ export function NavBar() {
                         as={Link}
                         to={"/"}
                     >
-                        <div style={{backgroundColor: "black"}}>
+                        <div>
                             <img
                                 width={120}
                                 src={process.env.PUBLIC_URL + "/static/ecess_nav_bar_logo.png"}
@@ -165,6 +167,12 @@ export function NavBar() {
                     </Nav.Link>
                 </Navbar.Brand>
                 <Navbar.Toggle
+                    style={{
+                        color: "#ffffff",
+                        borderColor: "#fff",
+                        backgroundImage: `url("data:image/svg+xml;..")` ,
+                    }}
+
                     aria-controls="responsive-navbar-nav"
                     onClick={() => {
                         updateExpanded(!expand);
@@ -184,7 +192,7 @@ export function NavBar() {
                                         updateExpanded(false)
                                     }}
                                 >
-                                    <Typography style={{fontWeight: (linkIdx === -1 ? "bold": undefined), color: "#000000"}} >
+                                    <Typography style={{fontWeight: (linkIdx === -1 ? "bold": undefined)}} >
                                         {title}
                                     </Typography>
                                 </Nav.Link>
@@ -203,9 +211,9 @@ export function NavBar() {
                                         updateExpanded(false);
                                     }}
                                 >
-                                    <DarkTypography style={{fontWeight: (linkIdx === idx ? "bold": undefined), "whiteSpace": "nowrap"}}>
+                                    <Typography style={{fontWeight: (linkIdx === idx ? "bold": undefined), "whiteSpace": "nowrap"}}>
                                         {i.label}
-                                    </DarkTypography>
+                                    </Typography>
                                 </Nav.Link>
                             </Nav.Item>
                         )): <></>}

@@ -54,8 +54,8 @@ export default function ECESSCalendarPage() {
 
     return (
         <>
-            <div style={{backgroundColor: '#CEB888'}}>
-                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</DarkTypography>
+            <div style={{backgroundColor: '#222'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>Calendar</Typography>
             </div>
             <div style={{
                 display: "flex",
