@@ -168,9 +168,8 @@ export function NavBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle
                     style={{
-                        color: "#ffffff",
+                        color: "#fff",
                         borderColor: "#fff",
-                        backgroundImage: `url("data:image/svg+xml;..")` ,
                     }}
 
                     aria-controls="responsive-navbar-nav"
