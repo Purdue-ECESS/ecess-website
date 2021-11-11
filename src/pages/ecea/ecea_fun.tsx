@@ -64,10 +64,10 @@ function EventView(key, i, event) {
 export default function ECEAFunPage() {
     return (
         <>
-            <div style={{backgroundColor: '#CEB888'}}>
-                <DarkTypography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
+            <div style={{backgroundColor: '#222'}}>
+                <Typography variant={"h5"} style={{padding: 20, textAlign: 'center'}}>
                     Past Activities and Images from our Ambassadors
-                </DarkTypography>
+                </Typography>
             </div>
             {
                 FUN.map( (events, eventsIdx) => {

@@ -10,7 +10,7 @@ function description(item) {
         <Card key={item.title} style={{margin: 10, border: "round"}}>
             <CardContent>
                 <Typography variant={"h5"}>{item.title}</Typography>
-                <div style={{display: "flex"}}>
+                <div style={{display: "flex", flexWrap: "wrap"}}>
                     {(item.leads || []).map((i) => (
                         <div key={i} style={{borderRadius: 25, backgroundColor: '#' + intToRGB(hashCode(i)), padding: 2, margin: 5}}>
                             <Author name={i} picture={getPictureUrl(i)}/>
