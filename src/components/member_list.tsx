@@ -2,6 +2,7 @@ import React from "react";
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core";
 import {useState, useEffect} from 'react';
 import {HoverButtons} from "./hover_button";
+import {ImageLoader} from "./image_loader";
 
 function MemberCard(props) {
     const {person, component} = props;
@@ -14,10 +15,13 @@ function MemberCard(props) {
         <Card style={{margin: 5, flex: 1}}>
             <CardContent>
                 <div style={{display: 'flex'}}>
-                    <div style={{maxHeight: 200, maxWidth: 150, overflow: 'hidden'}}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}>
-                            <img src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public" + person.picture} alt={'student profile'} height={200}/>
-                        </div>
+                    <div style={{maxHeight: 200, overflow: 'hidden',
+                    }}>
+                        <ImageLoader
+                            style={{position: "relative", justifyContent: 'center'}}
+                            src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public" + person.picture}
+                            height={200}
+                            width={150} />
                     </div>
                     <div style={{flex: 1, marginLeft: 10, overflowX: 'auto'}}>
                         <Typography variant={'h6'}>
