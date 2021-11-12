@@ -5,7 +5,6 @@ import CalendarEvent from "../../components/calendar_event";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../../styles/calendar.css';
-import {DarkTypography} from "../../components/dark_typography";
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     let url = "https://ecess-api.matthewwen.com/calendar/ambassadors/main"
@@ -87,7 +86,7 @@ export default function ECESSCalendarPage() {
                     />
 
                 </div>
-                <div style={{flex: 1, marginTop: 10, maxWidth: "100%"}}>
+                <div style={{flex: 1, marginTop: 10, maxWidth: "100%", minWidth: 250}}>
                     {
                         todayEvents ? (
                             todayEvents.length > 0 ?

@@ -177,6 +177,9 @@ export function NavBar() {
                         updateExpanded(!expand);
                     }}
                 >
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
                 </Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto" defaultActiveKey="#home">
