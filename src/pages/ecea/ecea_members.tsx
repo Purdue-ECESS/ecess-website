@@ -3,7 +3,6 @@ import {getMembersFromOrganization} from "../../data/data_people";
 import {MemberList} from "../../components/member_list";
 import {Chip, Typography} from "@material-ui/core";
 import {hashCode, intToRGB} from "../../utils";
-import {DarkTypography} from "../../components/dark_typography";
 
 
 export default function AboutPage() {
