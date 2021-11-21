@@ -202,7 +202,8 @@ export function NavBar() {
                         }
 
                         {navLinks ? navLinks.map((i, idx) => (
-                            <Nav.Item key={i.link}>
+                            <Nav.Item
+                                key={i.link}>
                                 <Nav.Link
                                     className="hover-underline-animation"
                                     as={Link}

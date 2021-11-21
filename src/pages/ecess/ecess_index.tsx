@@ -6,6 +6,7 @@ import {WelcomeImage} from "../../components/welcome";
 import Typewriter from "typewriter-effect";
 import ECESSTheme from "../../components/theme";
 import {DarkTypography} from "../../components/dark_typography";
+import "../../styles/ecess_index.css"
 
 
 const useStyles = makeStyles({
@@ -32,13 +33,17 @@ export function ECESSHome() {
             <WelcomeImage
                 picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/ecess_homescreen.jpg"}
                 >
-                <div style = {{textAlign: "center"}}>
+                <div
+                    className={"wiggle ls ease-in-out infinite"}
+                    >
                     <Typewriter
                         options={{
+                            wrapperClassName: "type_writer",
+                            cursorClassName: 'cursor_class',
                             strings: [
-                                "<h5 style='color: #000'>Welcome to ECESS</h5>",
-                                "<h5 style='color: #000'>ECE Student Society</h5>",
-                                "<h5 style='color: #000'>Purdue University</h5>",
+                                "<strong style='font-size: 20pt '>Welcome to ECESS</strong>",
+                                "<strong style='font-size: 20pt'>ECE Student Society</strong>",
+                                "<strong style='font-size: 20pt'>Purdue University</strong>",
                             ],
                             autoStart: true,
                             loop: true,
