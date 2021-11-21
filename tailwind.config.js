@@ -11,5 +11,14 @@ module.exports = {
       }
     },
   },
-  variants: ['dark', 'dark-hover', 'dark-group-hover', 'dark-even', 'dark-odd']
+  variants: [
+    'dark',
+    'dark-hover',
+    'dark-group-hover',
+    'dark-even',
+    'dark-odd',
+    'responsive',
+    'motion-safe',
+    'motion-reduce'
+  ]
 }
