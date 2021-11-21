@@ -41,7 +41,7 @@ export function ECESSHome() {
                             wrapperClassName: "type_writer",
                             cursorClassName: 'cursor_class',
                             strings: [
-                                "<strong style='font-size: 20pt '>Welcome to ECESS</strong>",
+                                "<strong style='font-size: 20pt'>Welcome to ECESS</strong>",
                                 "<strong style='font-size: 20pt'>ECE Student Society</strong>",
                                 "<strong style='font-size: 20pt'>Purdue University</strong>",
                             ],
