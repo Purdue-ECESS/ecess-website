@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
 import "../styles/navbar.css";
 import { useLocation } from 'react-router-dom';
+import {NavDropdown} from "react-bootstrap";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -93,24 +94,24 @@ export function NavBar() {
         // {link: '/ecea/ece', label: 'ECE', onClick:  setAmbassadorPage},
         {link: '/ecea/members', label: 'Members', onClick:  setAmbassadorPage},
     ];
+    const WECE_NAV_LINKS = [
+        {link: '/wece/members', label: 'Members', onClick: setWECEPage}
+    ]
     const ECESS_NAV_LINKS = [
         {link: '/board', label: 'Board', onClick:  setECESSPage},
         {link: '/committees', label: 'Committees', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
-        {link: '/ecea', label: 'Ambassadors', onClick:  () => {
+        {link: '/ecea', label: 'Ambassadors', dropdown: AMBASSADOR_NAV_LINKS, onClick:  () => {
                 setAmbassadorPage();
                 setLinkIdx(-1);
             }
         },
         {link: '/spark', label: 'Spark Challenge', onClick: setECESSPage},
-        {link: '/wece', label: 'WECE', onClick: () => {
+        {link: '/wece', label: 'WECE', dropdown: WECE_NAV_LINKS, onClick: () => {
                 setWECEPage();
                 setLinkIdx(-1);
             }
         },
-    ]
-    const WECE_NAV_LINKS = [
-        {link: '/wece/members', label: 'Members', onClick: setWECEPage}
     ]
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
@@ -147,7 +148,8 @@ export function NavBar() {
         backgroundColor: "#CEB888",
         borderRadius: "15px 15px 15px 15px",
         fontWeight: "bold",
-        padding: 5
+        padding: 5,
+        color: "#000"
     };
     const not_active_style = {
         fontWeight: undefined,
