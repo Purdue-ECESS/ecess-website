@@ -28,9 +28,9 @@ export const FUN = [
         `,
         'photos': [
             {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1145.JPG", col: 4},
-            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1144.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1144.JPG", col: 2},
             {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1146.JPG", col: 2},
-            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1148.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/grad-school-panel/IMG_1148.JPG", col: 2},
         ],
     },
     {
@@ -45,8 +45,8 @@ export const FUN = [
             {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1256.JPG", col: 2},
             {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1240.JPG", col: 2},
             {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1244.JPG", col: 2},
-            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1245.JPG"},
-            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1252.JPG"},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1245.JPG", col: 2},
+            {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1252.JPG", col: 2},
             {"ref": "9-21-2021-welcome-back-week/lawn-games/IMG_1246.JPG", col: 2},
         ],
     },
