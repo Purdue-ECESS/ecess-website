@@ -143,6 +143,17 @@ export function NavBar() {
         })
     }, [history, navLinks])
 
+    const active_style = {
+        backgroundColor: "#CEB888",
+        borderRadius: "15px 15px 15px 15px",
+        fontWeight: "bold",
+        padding: 5
+    };
+    const not_active_style = {
+        fontWeight: undefined,
+        padding: 5
+    }
+
     return (
         <Navbar
             expanded={expand}
@@ -154,6 +165,7 @@ export function NavBar() {
                 <Navbar.Brand>
                     <Nav.Link
                         style={{color: "#000"}}
+                        className="hover-underline-animation"
                         as={Link}
                         to={"/"}
                     >
@@ -194,16 +206,20 @@ export function NavBar() {
                                         updateExpanded(false)
                                     }}
                                 >
-                                    <Typography style={{fontWeight: (linkIdx === -1 ? "bold": undefined)}} >
+                                    <Typography style={
+                                        linkIdx === -1 ? active_style: not_active_style} >
                                         {title}
                                     </Typography>
                                 </Nav.Link>
                             </Nav.Item>: <></>
                         }
-
-                        {navLinks ? navLinks.map((i, idx) => (
+                        {navLinks && navLinks.map((i, idx) => (
                             <Nav.Item
-                                key={i.link}>
+                                key={i.link}
+                                style={{
+                                    transition: '1s ease-in'
+                                }}
+                            >
                                 <Nav.Link
                                     className="hover-underline-animation"
                                     as={Link}
@@ -214,12 +230,12 @@ export function NavBar() {
                                         updateExpanded(false);
                                     }}
                                 >
-                                    <Typography style={{fontWeight: (linkIdx === idx ? "bold": undefined), "whiteSpace": "nowrap"}}>
+                                    <Typography style={{...(linkIdx === idx ? active_style: not_active_style), "whiteSpace": "nowrap"}}>
                                         {i.label}
                                     </Typography>
                                 </Nav.Link>
                             </Nav.Item>
-                        )): <></>}
+                        ))}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
