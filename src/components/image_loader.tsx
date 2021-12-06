@@ -5,13 +5,13 @@ import React from "react";
 type ImageLoaderProp = {
     style?: any,
     height: number,
-    width: number,
+    width: number | "100%",
     src: string
 }
 
 type ImageLoaderState = {
     dimensions: {
-        width?: number,
+        width?: number| "100%",
         height?: number
     }
 }
@@ -27,15 +27,16 @@ export class ImageLoader extends React.Component<ImageLoaderProp, ImageLoaderSta
                 width:0}});
     }
     render(){
-        const {src, width, height} = this.props;
+        const {src, width, height, style} = this.props;
         return (
             <div
                 style={{
+                    ...style,
                     width: width,
                     height: height,
                     backgroundImage: `url(${src})`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center"
+                    backgroundPosition: "center",
                 }}
             />
         );
