@@ -1,19 +1,17 @@
 import React, {useEffect, useState} from "react";
+import { useLocation } from 'react-router-dom';
 
 export function SparkIndex() {
-    const [init, setInit] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const isVisible = (useLocation().pathname || "").startsWith("/spark");
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    if (!init && !mounted) {
-        setInit(true);
-        return (
-            <div
-                style={{height: "calc(100vh - 69px)", width: "100%"}}/>
-        )
+    if (!isVisible || !mounted) {
+        return <div style={{height: "calc(100vh - 69px)", width: "100%"}}/>
+
     }
 
     return (
