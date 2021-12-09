@@ -42,7 +42,7 @@ export default function ECESSCalendarPage() {
                 setTodayEvents(response);
             });
         }
-        if (laterEvents === undefined) {
+        else if (laterEvents === undefined) {
             getCalendarEvents().then(response => {
                 setLaterEvents(response);
             });
@@ -112,9 +112,9 @@ export default function ECESSCalendarPage() {
                                 key={item.id}
                                 item={item}
                             /> )): <Typography style={{textAlign: 'center'}}>No other events the reset of the semester</Typography>
-                            ):
-                            <>
-                        </>
+                            ): <div style={{display: 'flex', justifyContent: 'center'}}>
+                                <CircularProgress />
+                            </div>
                     }
                 </div>
             </div>
