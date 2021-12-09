@@ -19,7 +19,7 @@ export function SparkIndex() {
                 loading="lazy"
                 src={"https://purdue-ecess.github.io/spark-website/"}
                 frameBorder={0}
-                style={{height: "calc(100vh - 69px)", width: "100%"}}/>
+                style={{height: "calc(100vh - 69px)"}} width={"100%"}/>
     )
 
 }
