@@ -111,7 +111,13 @@ export function NavBar() {
             }
         },
         {link: '/spark', label: 'Spark Challenge', onClick: () => {
-                window.location.href = '/spark';
+                let sUsrAg = navigator.userAgent;
+                if (sUsrAg.indexOf("Firefox") > -1) {
+                    window.location.href = '/spark';
+                }
+                else {
+                    setSparkPage();
+                }
             }
         },
         {link: '/wece', label: 'WECE', dropdown: WECE_NAV_LINKS, onClick: () => {
