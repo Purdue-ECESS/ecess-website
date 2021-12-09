@@ -40,8 +40,10 @@ export function NavBar() {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
+    let sUsrAg = navigator.userAgent;
+    const isFirefox = sUsrAg.indexOf("Firefox") > -1;
 
-    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
+        const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
     const getIndexContext = (x) => {
         if (x.startsWith('/ecea')) {
@@ -111,8 +113,7 @@ export function NavBar() {
             }
         },
         {link: '/spark', label: 'Spark Challenge', onClick: () => {
-                let sUsrAg = navigator.userAgent;
-                if (sUsrAg.indexOf("Firefox") > -1) {
+                if (isFirefox) {
                     window.location.href = '/spark';
                 }
                 else {
@@ -221,8 +222,13 @@ export function NavBar() {
                                     as={Link}
                                     to={root}
                                     onClick={() => {
-                                        setLinkIdx(-1);
-                                        updateExpanded(false)
+                                        if (root === "/spark" && isFirefox) {
+                                            window.location.href = "/spark";
+                                        }
+                                        else {
+                                            setLinkIdx(-1);
+                                            updateExpanded(false)
+                                        }
                                     }}
                                 >
                                     <Typography style={
