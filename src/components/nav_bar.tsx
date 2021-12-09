@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
 import "../styles/navbar.css";
 import { useLocation } from 'react-router-dom';
-import {NavDropdown} from "react-bootstrap";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -112,8 +111,7 @@ export function NavBar() {
             }
         },
         {link: '/spark', label: 'Spark Challenge', onClick: () => {
-                setSparkPage();
-                setLinkIdx(-1);
+                window.location.href = '/spark';
             }
         },
         {link: '/wece', label: 'WECE', dropdown: WECE_NAV_LINKS, onClick: () => {

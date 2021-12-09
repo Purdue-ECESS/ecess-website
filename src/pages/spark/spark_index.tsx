@@ -11,7 +11,6 @@ export function SparkIndex() {
 
     if (!isVisible || !mounted) {
         return <div style={{height: "calc(100vh - 69px)", width: "100%"}}/>
-
     }
 
     return (
