@@ -22,6 +22,7 @@ import {ECESSCommittess} from "./pages/ecess/ecess_committees";
 
 function App() {
     const [offset, setOffset] = useState(0);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -33,6 +34,7 @@ function App() {
                 setOffset(3);
             }
         }
+        setMounted(true);
     }, []);
     return (
         <ThemeProvider theme={ECESSTheme} >
@@ -60,8 +62,24 @@ function App() {
                     {/*Spark Page*/}
                     <Route exact path={"/spark"}>
                         <div>
-                            <iframe title={"spark"} src={"https://purdue-ecess.github.io/spark-website/"}
-                                    style={{width: '100%', height: "calc(100vh - 69px)"}}/>
+                            {
+                                mounted ?
+                                    <iframe title={"spark"}
+                                            src={"https://purdue-ecess.github.io/spark-website/"}
+                                            style={{width: '100%', height: "calc(100vh - 69px)"}}/>:
+                                    <div>Loading...</div>
+                            }
+                        </div>
+                    </Route>
+                    <Route path={"/spark/schedule"}>
+                        <div>
+                            {
+                                mounted ?
+                                    <iframe title={"spark schedule"}
+                                            src={"https://purdue-ecess.github.io/spark-website/interactive-schedule/"}
+                                            style={{width: '100%', height: "calc(100vh - 69px)"}}/>:
+                                    <div>Loading..</div>
+                            }
                         </div>
                     </Route>
 

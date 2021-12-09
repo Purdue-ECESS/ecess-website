@@ -42,7 +42,7 @@ export function NavBar() {
     const location = useLocation().pathname;
     const history = useHistory();
 
-    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (undefined));
+    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
     const getIndexContext = (x) => {
         if (x.startsWith('/ecea')) {
@@ -89,6 +89,11 @@ export function NavBar() {
         setTitle("Women in ECE");
         setNavLinks(WECE_NAV_LINKS);
     }
+    const setSparkPage = () => {
+        setRoot('/spark')
+        setTitle("Spark Challenge")
+        setNavLinks(SPARK_NAV_LINKS)
+    }
     const AMBASSADOR_NAV_LINKS =  [
         {link: '/ecea/fun', label: 'Fun', onClick:  setAmbassadorPage},
         // {link: '/ecea/ece', label: 'ECE', onClick:  setAmbassadorPage},
@@ -106,17 +111,25 @@ export function NavBar() {
                 setLinkIdx(-1);
             }
         },
-        {link: '/spark', label: 'Spark Challenge', onClick: setECESSPage},
+        {link: '/spark', label: 'Spark Challenge', onClick: () => {
+                setSparkPage();
+                setLinkIdx(-1);
+            }
+        },
         {link: '/wece', label: 'WECE', dropdown: WECE_NAV_LINKS, onClick: () => {
                 setWECEPage();
                 setLinkIdx(-1);
             }
         },
     ]
+    const SPARK_NAV_LINKS = [
+        {link: '/spark/schedule', label: 'Schedule', onClick: setSparkPage},
+    ]
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
         (x.startsWith('/wece') ? WECE_NAV_LINKS:
-            (ECESS_NAV_LINKS));
+            (x.startsWith('/spark') ? SPARK_NAV_LINKS:
+            ECESS_NAV_LINKS));
 
     const [navLinks, setNavLinks] = useState(undefined);
     const [linkIdx, setLinkIdx] = useState(-1);
