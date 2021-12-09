@@ -65,6 +65,7 @@ function App() {
                             {
                                 mounted ?
                                     <iframe title={"spark"}
+                                            loading="lazy"
                                             src={"https://purdue-ecess.github.io/spark-website/"} width={'100vh'}
                                             style={{height: "calc(100vh - 69px)"}}/>:
                                     <div>Loading...</div>
