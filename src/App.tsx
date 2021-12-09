@@ -66,8 +66,9 @@ function App() {
                                 mounted ?
                                     <iframe title={"spark"}
                                             loading="lazy"
-                                            src={"https://purdue-ecess.github.io/spark-website/"} width={'100vw'}
-                                            style={{height: "calc(100vh - 69px)"}}/>:
+                                            src={"https://purdue-ecess.github.io/spark-website/"}
+                                            frameBorder={0}
+                                            style={{height: "calc(100vh - 69px)", width: "100vw"}}/>:
                                     <div>Loading...</div>
                             }
                         </div>
@@ -78,7 +79,7 @@ function App() {
                                 mounted ?
                                     <iframe title={"spark schedule"}
                                             src={"https://purdue-ecess.github.io/spark-website/interactive-schedule/"}
-                                            width={'100vw'} style={{height: "calc(100vh - 69px)"}}/>:
+                                            style={{height: "calc(100vh - 69px)", width: "100vw"}}/>:
                                     <div>Loading..</div>
                             }
                         </div>
