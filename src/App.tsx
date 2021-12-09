@@ -18,11 +18,12 @@ import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";
 import {EcessBoard} from "./pages/ecess/ecess_board";
 import {ECESSCommittess} from "./pages/ecess/ecess_committees";
+import {SparkIndex} from "./pages/spark/spark_index";
+import {SparkSchedule} from "./pages/spark/spark_schedule";
 
 
 function App() {
     const [offset, setOffset] = useState(0);
-    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -34,7 +35,6 @@ function App() {
                 setOffset(3);
             }
         }
-        setMounted(true);
     }, []);
     return (
         <ThemeProvider theme={ECESSTheme} >
@@ -60,28 +60,8 @@ function App() {
                     <Route path={"/ecea/members"} component={AboutPage}/>
 
                     {/*Spark Page*/}
-                    <Route exact path={"/spark"}>
-                        <div>
-                            {
-                                mounted ?
-                                    <iframe title={"spark"}
-                                            src={"https://purdue-ecess.github.io/spark-website/"}
-                                            style={{width: '100%', height: "calc(100vh - 69px)"}}/>:
-                                    <div>Loading...</div>
-                            }
-                        </div>
-                    </Route>
-                    <Route path={"/spark/schedule"}>
-                        <div>
-                            {
-                                mounted ?
-                                    <iframe title={"spark schedule"}
-                                            src={"https://purdue-ecess.github.io/spark-website/interactive-schedule/"}
-                                            style={{width: '100%', height: "calc(100vh - 69px)"}}/>:
-                                    <div>Loading..</div>
-                            }
-                        </div>
-                    </Route>
+                    <Route exact path={"/spark"} component={SparkIndex} />
+                    <Route path={"/spark/schedule"} component={SparkSchedule}/>
 
                     <Route>
                         <Typography style={{textAlign: 'center', margin: 20}}>Sorry, Page is Not Found</Typography>
