@@ -351,7 +351,11 @@ const ECESS_MEMBERS = [
                 board_position: "Community Outreach Chair",
                 fav_class: "ECE 40400",
                 quote: "I'm not lazy. I prefer to call it selective participation."
+            },
+            "Ambassadors": {
+                retired: true
             }
+
         },
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/amita-pandey/'},
@@ -591,12 +595,14 @@ export function getPictureUrl(name) {
     const ambassador = ECESS_MAP[name]
     return ambassador ? ambassador.picture: undefined;
 }
-export function getMembersFromOrganization(organization) {
+export function getMembersFromOrganization(organization, retired=false) {
     const response = [];
     ECESS_MEMBERS.forEach((item) => {
         if (item.ecess_organization) {
             if (organization in item.ecess_organization) {
-                response.push(item);
+                if ( (organization.retired && retired) || (!retired && organization.retired === undefined)) {
+                    response.push(item);
+                }
             }
         }
     });

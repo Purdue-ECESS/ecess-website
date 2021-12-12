@@ -43,7 +43,7 @@ export function NavBar() {
     let sUsrAg = navigator.userAgent;
     const isFirefox = sUsrAg.indexOf("Firefox") > -1;
 
-        const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
+    const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
     const getIndexContext = (x) => {
         if (x.startsWith('/ecea')) {
@@ -56,12 +56,16 @@ export function NavBar() {
 
         }
         else if (x.startsWith('/spark')) {
+            let temp = x;
+            if (x.endsWith('/')) {
+                temp = x.substring(0, x.length - 1);
+            }
             return {
                 favicon: process.env.PUBLIC_URL + "/static/spark_logo.ico",
                 picture: process.env.PUBLIC_URL + "/static/spark_logo.jpg",
                 content: "Welcome to the Spark Challenge Website",
                 title: 'Spark Challenge',
-                backgroundColor: "#fff"
+                backgroundColor: ['/spark','/spark/schedule'].includes(temp) ? "#fff": undefined
             }
         }
         return {
@@ -114,7 +118,8 @@ export function NavBar() {
         },
         {link: '/spark', label: 'Spark Challenge', onClick: () => {
                 if (isFirefox) {
-                    window.location.href = '/spark';
+                    // window.location.href = '/spark';
+                    setSparkPage();
                 }
                 else {
                     setSparkPage();
@@ -129,6 +134,7 @@ export function NavBar() {
     ]
     const SPARK_NAV_LINKS = [
         {link: '/spark/schedule', label: 'Schedule', onClick: setSparkPage},
+        // {link: '/spark/results', label: 'Results', onClick: setSparkPage},
     ]
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
@@ -222,13 +228,13 @@ export function NavBar() {
                                     as={Link}
                                     to={root}
                                     onClick={() => {
-                                        if (root === "/spark" && isFirefox) {
-                                            window.location.href = "/spark";
-                                        }
-                                        else {
-                                            setLinkIdx(-1);
-                                            updateExpanded(false)
-                                        }
+                                        // if (root === "/spark" && isFirefox) {
+                                        //     window.location.href = "/spark";
+                                        // }
+                                        // {
+                                        setLinkIdx(-1);
+                                        updateExpanded(false)
+                                        // }
                                     }}
                                 >
                                     <Typography style={

@@ -20,6 +20,7 @@ import {EcessBoard} from "./pages/ecess/ecess_board";
 import {ECESSCommittess} from "./pages/ecess/ecess_committees";
 import {SparkIndex} from "./pages/spark/spark_index";
 import {SparkSchedule} from "./pages/spark/spark_schedule";
+import {SparkResults} from "./pages/spark/spark_results";
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
                     {/*Spark Page*/}
                     <Route exact path={"/spark"} component={SparkIndex} />
                     <Route path={"/spark/schedule"} component={SparkSchedule}/>
+                    <Route path={"/spark/results"} component={SparkResults}/>
 
                     <Route>
                         <Typography style={{textAlign: 'center', margin: 20}}>Sorry, Page is Not Found</Typography>

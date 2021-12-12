@@ -27,6 +27,7 @@ export function WECEHome(props: any) {
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
+                center={true}
                 picture={process.env.PUBLIC_URL + "/static/generic-purdue-banner.jpg"}
             >
                 <DarkTypography variant={'subtitle1'}>
