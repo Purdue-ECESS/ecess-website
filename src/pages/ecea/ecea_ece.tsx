@@ -2,8 +2,8 @@ import React from "react";
 import SURVEY_DATA from "../../data/data_surveys";
 import Typography from "@material-ui/core/Typography";
 import {getPictureUrl} from "../../data/data_people";
-import {Author} from "../../components/author";
-import {DarkTypography} from "../../components/dark_typography";
+import {Author} from "../../components/widgets/author";
+import {DarkTypography} from "../../components/theme/mui/dark_typography";
 
 function BubbleLayout(author, attribute) {
     if (author[attribute]){

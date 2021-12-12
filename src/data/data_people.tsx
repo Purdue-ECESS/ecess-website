@@ -5,7 +5,7 @@ const ECESS_MEMBERS = [
         hometown: "Oswego, Illinois",
         graduation: "May 2022",
         email: "villar10@purdue.edu",
-        picture: '/static/people/Ryan_Villarreal.jpeg',
+        picture: 'people/Ryan_Villarreal.jpeg',
         ecess_organization: {
             "ECESS": {
                 fav_class: "ECE 36200",
@@ -19,7 +19,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Sara Hui',
-        picture: '/static/people/sarahui.jpg',
+        picture: 'people/sarahui.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         email: "hui12@purdue.edu",
@@ -42,7 +42,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Altay Atik',
-        picture: '/static/people/altayatik.jpg',
+        picture: 'people/altayatik.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2023',
         email: "aatik@purdue.edu",
@@ -67,7 +67,7 @@ const ECESS_MEMBERS = [
     {
         name: 'Alyssa Delouise',
         email: "adelouis@purdue.edu",
-        picture: '/static/people/alyssadelouise.jpg',
+        picture: 'people/alyssadelouise.jpg',
         major: 'Electrical Engineering',
         hometown: "Old Bridge, NJ",
         graduation: 'December 2022',
@@ -90,7 +90,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Denae Galloway',
-        picture: '/static/people/denaegalloway.jpg',
+        picture: 'people/denaegalloway.jpg',
         email: "gallowd@purdue.edu",
         major: 'Electrical Engineering',
         graduation: 'May 2023',
@@ -110,7 +110,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Justin Zhang',
-        picture: '/static/people/justinzhang.jpg',
+        picture: 'people/justinzhang.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
         ecess_organization: {"Ambassadors": {
@@ -123,7 +123,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Matthew Wen',
-        picture: '/static/people/matthewwen.jpeg',
+        picture: 'people/matthewwen.jpeg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
         ecess_organization: {
@@ -144,7 +144,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Michael Worthington',
-        picture: '/static/people/michaelworthington.jpg',
+        picture: 'people/michaelworthington.jpg',
         major: 'Electrical Engineering',
         graduation: 'December 2023',
         ecess_organization: {"Ambassadors": undefined},
@@ -154,7 +154,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Naveen Vivek',
-        picture: '/static/people/naveenvivek.jpg',
+        picture: 'people/naveenvivek.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         hometown: "Chennai, India",
@@ -176,7 +176,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Sam Dlott',
-        picture: '/static/people/samdlott.jpg',
+        picture: 'people/samdlott.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
         clubs: ["Purdue Student Engineering Foundation" , "All-American Marching Band", "Purdue Jazz Bands","3D Printing Club", "Cary Club"],
@@ -191,7 +191,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Grace Ulmer',
-        picture: '/static/people/graceulmer.jpg',
+        picture: 'people/graceulmer.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         ecess_organization: {"Ambassadors": undefined, "wece": undefined},
@@ -201,7 +201,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Heath Lovell',
-        picture: '/static/people/heathlovell.jpg',
+        picture: 'people/heathlovell.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
         ecess_organization: {"Ambassadors": {
@@ -213,7 +213,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Jason Chamness',
-        picture: '/static/people/jasonchamness.jpg',
+        picture: 'people/jasonchamness.jpg',
         major: 'Computer Engineering',
         ecess_organization: {"Ambassadors": undefined},
         graduation: 'May 2022',
@@ -223,7 +223,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Jennifer Gutman',
-        picture: '/static/people/jennifergutman.jpg',
+        picture: 'people/jennifergutman.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
         links: [
@@ -232,7 +232,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Juan Carlos G.',
-        picture: '/static/people/juancarlos.jpg',
+        picture: 'people/juancarlos.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
         links: [
@@ -241,7 +241,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Kobe Martin',
-        picture: '/static/people/kobemartin.jpg',
+        picture: 'people/kobemartin.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
         links: [
@@ -250,7 +250,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Yueting Mary Zhao',
-        picture: '/static/people/maryzhao.jpg',
+        picture: 'people/maryzhao.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
         clubs: ["Chinese Engineering Student Council" , "Delta Phi Lambda"],
@@ -260,7 +260,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Mohamed Ibrahim',
-        picture: '/static/people/mohamedibrahim.jpg',
+        picture: 'people/mohamedibrahim.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         ecess_organization: {"Ambassadors": {
@@ -273,7 +273,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Noah Thoma',
-        picture: '/static/people/noahthoma.jpg',
+        picture: 'people/noahthoma.jpg',
         major: 'Computer Engineering',
         ecess_organization: {"Ambassadors": undefined},
         graduation: 'December 2022',
@@ -283,7 +283,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'James Donnelly',
-        picture: '/static/people/jamesdonnelly.jpg',
+        picture: 'people/jamesdonnelly.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
         ecess_organization: {"Ambassadors": {
@@ -295,7 +295,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Rylee Benes',
-        picture: '/static/people/ryleebenes.jpg',
+        picture: 'people/ryleebenes.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2022',
         ecess_organization: {"Ambassadors": {
@@ -308,7 +308,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Sihun Kim',
-        picture: '/static/people/sihunkim.jpg',
+        picture: 'people/sihunkim.jpg',
         major: 'Electrical Engineering',
         ecess_organization: {"Ambassadors": undefined},
         graduation: 'December 2023',
@@ -318,7 +318,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Warren Xiong',
-        picture: '/static/people/warrenxiong.jpg',
+        picture: 'people/warrenxiong.jpg',
         major: 'Computer Engineering',
         ecess_organization: {"Ambassadors": {
                 quote: 'No one knows you exploded a capacitor in 20007 if you did it online.',
@@ -330,7 +330,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Vikram Srivastava ',
-        picture: '/static/people/vikramsrivastava.jpg',
+        picture: 'people/vikramsrivastava.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
         ecess_organization: {"Ambassadors": undefined},
@@ -341,7 +341,7 @@ const ECESS_MEMBERS = [
     {
         name: 'Amita Pandey',
         quote: 'Never exploded my capacitor in 20007 and still don\'t know how I didn\'t.',
-        picture: '/static/people/amitap.jpg',
+        picture: 'people/amitap.jpg',
         major: 'Computer Engineering',
         graduation: 'December 2021',
         email: "pandey26@purdue.edu",
@@ -363,7 +363,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Brady Smith',
-        picture: '/static/people/bradysmith.jpg',
+        picture: 'people/bradysmith.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
         ecess_organization: {"Ambassadors": {
@@ -377,7 +377,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Elizabeth Thomas',
-        picture: '/static/people/elizabeththomas.jpg',
+        picture: 'people/elizabeththomas.jpg',
         major: 'Electrical Engineering',
         graduation: 'May 2022',
         ecess_organization: {
@@ -390,7 +390,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Zach Vander Missen',
-        picture: '/static/people/zachvandermissen.jpg',
+        picture: 'people/zachvandermissen.jpg',
         major: 'Electrical Engineering',
         graduation: 'December 2021',
         ecess_organization: {"Ambassadors": undefined},
@@ -401,7 +401,7 @@ const ECESS_MEMBERS = [
     {
         name: "Andrew Lake",
         email: "lake14@purdue.edu",
-        picture: "/static/people/Andrew_Lake.png",
+        picture: "people/Andrew_Lake.png",
         major: "Electrical Engineering",
         graduation: "May 2022",
         hometown: "Flint, Michigan",
@@ -419,7 +419,7 @@ const ECESS_MEMBERS = [
     {
         name: "Alexandra E. Sichterman",
         email: "asichter@purdue.edu",
-        picture: "/static/people/Alexandra_Sichterman.jpeg",
+        picture: "people/Alexandra_Sichterman.jpeg",
         major: "Computer Engineering",
         graduation: "May 2022",
         hometown: "Muscatine, IA",
@@ -436,7 +436,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Edmund Leung",
-        picture: "/static/people/Edmund_Leung.png",
+        picture: "people/Edmund_Leung.png",
         email: "leung55@purdue.edu",
         major: "Electrical Engineering",
         graduation: "May 2024",
@@ -457,7 +457,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Hope Post",
-        picture: "/static/people/Hope_Post.png",
+        picture: "people/Hope_Post.png",
         email: "posth@purdue.edu",
         major: "Computer Engineering",
         graduation: "May 2023",
@@ -481,7 +481,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Samantha Unger",
-        picture: "/static/people/Samantha_Unger.jpeg",
+        picture: "people/Samantha_Unger.jpeg",
         email: "unger12@purdue.edu",
         major: "Computer Engineering",
         graduation: "May 2022",
@@ -503,7 +503,7 @@ const ECESS_MEMBERS = [
     {
         name: "Claire Poukey",
         email: "cpoukey@purdue.edu",
-        picture: "/static/people/Claire_Poukey.jpg",
+        picture: "people/Claire_Poukey.jpg",
         major: "Computer Engineering",
         graduation: "December 2023",
         ecess_organization: {
@@ -523,7 +523,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Jack Brewer",
-        picture: "/static/people/Jack_Brewer.png",
+        picture: "people/Jack_Brewer.png",
         email: "brewe116@purdue.edu",
         major: "Computer Engineering",
         hometown: "Saint Louis, Missouri",
@@ -538,7 +538,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Akshaj Prasannakumar",
-        picture: "/static/people/Akshaj_Prasannakumar.png",
+        picture: "people/Akshaj_Prasannakumar.png",
         email: "aprasan@purdue.edu",
         major: "Computer Engineering",
         graduation: "May 2022"	,
@@ -559,7 +559,7 @@ const ECESS_MEMBERS = [
     {
         map_name: "Giselle",
         name: "Giselle Salina-Bender",
-        picture: '/static/people/Giselle_Bender.jpg',
+        picture: 'people/Giselle_Bender.jpg',
         hometown: "San Juna, PR",
         email: "gsalina@purdue.edu",
         ecess_organization: {
@@ -575,7 +575,7 @@ const ECESS_MEMBERS = [
     },
     {
         name: "Leigh Ann",
-        picture: '/static/people/Leigh_Ann.png',
+        picture: 'people/Leigh_Ann.png',
         email: "lpittsfo@purdue.edu",
         hometown: "Middletown, IN",
         ecess_organization: {

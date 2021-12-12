@@ -1,6 +1,6 @@
 import {COMMITTEES} from "../../data/data_committees";
 import {Card, CardContent, Typography} from "@material-ui/core";
-import {Author} from "../../components/author";
+import {Author} from "../../components/widgets/author";
 import {getPictureUrl} from "../../data/data_people";
 import React from "react";
 import {hashCode, intToRGB} from "../../utils";

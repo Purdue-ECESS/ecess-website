@@ -1,38 +1,16 @@
-import {DarkTypography} from "src/components/dark_typography";
-import {WelcomeImage} from "src/components/welcome";
-import React, {useEffect, useState} from "react";
-import {ImageList, ImageListItem, Typography} from "@material-ui/core";
-import {delay} from "q";
+import {DarkTypography} from "src/components/theme/mui/dark_typography";
+import React, {useEffect, useState, useLayoutEffect} from "react";
+import {Typography} from "@material-ui/core";
+import {ImageGallery} from "src/components/screens/image_gallery";
+import {ecessApiCall} from "src/utils/api";
 
 
-function SparkBackground(photos) {
-    const background_photos = photos.photos;
-    return (
-        <div style={{maxHeight: "90vh", overflow: "hidden"}}>
-            <ImageList rowHeight={170} cols={4}>
-                {
-                    (background_photos || []).map((item, i) => (
-                        <ImageListItem key={`background-${item.photo}-${i}`} cols={1}>
-                            <img
-                                style={
-                                    item.opacity === 0 ? {opacity: 0, transition: "opacity 0.5s"}:
-                                    item.opacity === 1 ? {opacity: 1, transition: "opacity 0.5s"}: {opacity: 0}
-                                }
-                                src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/12-11-2021-spark/members/" + item.photo} alt={'head-shots'} />
-                        </ImageListItem>
-                    ))
-                }
-            </ImageList>
-        </div>
-    )
-}
 
 function ExportWinner(props) {
     const {emoji, children, placement, title, link} = props;
     return (
         <div style={{
             display: "flex",
-            flex: 1,
             borderWidth: 1,
             borderStyle: "solid",
             margin: 10,
@@ -56,85 +34,80 @@ function ExportWinner(props) {
     )
 }
 
+let background_photos: string[] = [
+    "events/12-11-2021-spark/events/IMG_1042.jpg",
+    "events/12-11-2021-spark/events/IMG_3271.jpg",
+    "events/12-11-2021-spark/events/IMG_3272.jpg",
+    "events/12-11-2021-spark/events/IMG_3273.jpg",
+    "events/12-11-2021-spark/events/IMG_3274.jpg",
+    "events/12-11-2021-spark/events/IMG_4901.jpg",
+    "events/12-11-2021-spark/events/IMG_4902.jpg",
+    "events/12-11-2021-spark/events/IMG_4903.jpg",
+    "events/12-11-2021-spark/events/IMG_4906.jpg",
+    "events/12-11-2021-spark/events/IMG_4916.png",
+    "events/12-11-2021-spark/events/IMG_5991.jpg",
+    "events/12-11-2021-spark/events/IMG_5992.jpg",
+    "events/12-11-2021-spark/events/IMG_5993.jpg",
+    "events/12-11-2021-spark/events/IMG_7768.jpg",
+    "events/12-11-2021-spark/events/IMG_7769.jpg",
+    "events/12-11-2021-spark/events/IMG_7770.jpg",
+    "events/12-11-2021-spark/events/IMG_1045.jpg",
+    "events/12-11-2021-spark/events/IMG_4909.jpg",
+    "events/12-11-2021-spark/events/IMG_4910.jpg",
+];
 
 export function SparkResults() {
-    const background_photos = [
-        "IMG_1042.jpg",
-        "IMG_3271.jpg",
-        "IMG_3272.jpg",
-        "IMG_3273.jpg",
-        "IMG_3274.jpg",
-        "IMG_4901.jpg",
-        "IMG_4902.jpg",
-        "IMG_4903.jpg",
-        "IMG_4906.jpg",
-        "IMG_4916.png",
-        "IMG_5991.jpg",
-        "IMG_5992.jpg",
-        "IMG_5993.jpg",
-        "IMG_7768.jpg",
-        "IMG_7769.jpg",
-        "IMG_7770.jpg",
-        "IMG_1045.jpg",
-        "IMG_4909.jpg",
-        "IMG_4910.jpg",
-    ]
 
-    const photosWithAttribute = [];
-    background_photos.forEach((item) => {
-        photosWithAttribute.push({
-            photo: item,
-            opacity: 1,
-        })
-    })
-
-    const [photos, setPhotos] = useState({
-        photos: photosWithAttribute,
-    });
-
+    const [photos, setPhotos] = useState(undefined);
     useEffect(() => {
-        const interval = setInterval(async () => {
-            const idx1 = Math.floor(Math.random() * (8));
-            const idx2 = Math.floor(Math.random() * (photos.photos.length));
-            const photo1 = {...photos.photos[idx1]};
-            const photo2 = {...photos.photos[idx2]};
+        if (photos === undefined) {
+            const getLinks = async () => {
+                const temp = []
+                for (let i = 0; i < background_photos.length; i++) {
+                    const item = background_photos[i];
+                    const response: any = await ecessApiCall("bucket", undefined, {image: item})
+                    temp.push({
+                        photo: response.image,
+                        opacity: 1,
+                    })
+                }
+                return temp;
+            }
+            getLinks().then((response: any[]) => {
+                setPhotos(response);
+            })
 
-            // idx1 animate out then in
-            photos.photos[idx1].opacity = 0;
-            setPhotos({...photos});
-            await delay(500);
-            photos.photos[idx1] = photo2;
-            photos.photos[idx1].opacity = 2;
-            setPhotos({...photos});
-            photos.photos[idx1].opacity = 1;
-            setPhotos({...photos});
-            await delay(500);
+        }
 
+    }, [photos])
 
-            // idx2 animate
-            photos.photos[idx2].opacity = 0;
-            setPhotos({...photos});
-            await delay(500);
-            photos.photos[idx2] = photo1;
-            photos.photos[idx2].opacity = 2;
-            setPhotos({...photos});
-            photos.photos[idx2].opacity = 1;
-            setPhotos({...photos});
-            await delay(500);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, [photos]);
+    const [width, setWidth] = useState(undefined);
+
+    useLayoutEffect(() => {
+        function updateSize() {
+            let newWidth = window.innerWidth > 500 ? window.innerWidth: 500;
+            setWidth(newWidth * 0.8 / 3);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
 
     return (
         <div>
-            <WelcomeImage
-                width={"100%"}
-                background={SparkBackground(photos)}>
-                <div style={{padding: 10}}>
+            {photos &&
+            <ImageGallery
+                photos={photos}
+            >
+                <div style={{padding: 10, overflowX: "hidden", maxWidth: "100%"}}>
                     <DarkTypography variant={'h6'}>
                         Winners!! 🎉
                     </DarkTypography>
-                    <div style={{display: "flex", flexWrap: "wrap"}}>
+                    {width &&
+                    <div style={{
+                        display: "grid",
+                        gridTemplateColumns: `repeat(auto-fill,minmax(${Math.floor(width)}px, 1fr))`,
+                    }}>
                         <ExportWinner
                             title={"Snow Vision"}
                             emoji={"🥇"}
@@ -145,15 +118,17 @@ export function SparkResults() {
                             title={"RevEx"}
                             emoji={"🥈"}
                             placement={"Second Place"}
-                            link={"https://engineering.purdue.edu/477grp6/"} />
+                            link={"https://engineering.purdue.edu/477grp6/"}/>
                         <ExportWinner
                             title={"Interactive Piano"}
                             emoji={"🥉"}
                             link={"https://engineering.purdue.edu/477grp16/"}
                             placement={"Third Place"}/>
                     </div>
+                    }
                 </div>
-            </WelcomeImage>
+            </ImageGallery>
+            }
 
             <div style={{textAlign: "center", margin: "30px 0 30px 0"}}>
                 <Typography variant={"h6"}>Awards</Typography>
@@ -180,16 +155,18 @@ export function SparkResults() {
                     <div style={{display: "flex", flexWrap: "wrap"}}>
                         {
                             [
-                                {name: "GM"},
-                                {name: "John Deere"},
-                                {name: "Texas Instruments"},
-                                {name: "Qualcomm"},
-                                {name: "Eastman"},
-                                {name: "JLG"},
-                                {name: "Cliffs"},
+                                {name: "GM", logo: "General_Motors_(2021).svg"},
+                                {name: "John Deere", logo: "John_Deere_logo.svg.png"},
+                                {name: "Texas Instruments", logo: "Official_logo_of_Texas_Instruments.png"},
+                                {name: "Qualcomm", logo: "qualcomm.jpg"},
+                                {name: "Eastman", logo: "eastman.png"},
+                                {name: "JLG", logo: "jlg.svg.png"},
+                                {name: "Cliffs", logo: "cliffs.jpg"},
                             ].map((item, i) => (
-                                <div style={{minWidth: 200}}>
-                                    <DarkTypography variant={"subtitle1"}>{i + 1}: {item.name}</DarkTypography>
+                                <div key={`sponsor-${item.name}`} style={{display: "flex", flexDirection: "column", margin: 10}}>
+                                    <div style={{flex: 1}} />
+                                    <img style={{maxWidth: 100, maxHeight: 100, height: "auto", width: "auto"}} src={process.env.PUBLIC_URL + "/static/logo/other/" + item.logo} alt={item.name}/>
+                                    <div style={{flex: 1}} />
                                 </div>
                             ))
                         }

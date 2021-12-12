@@ -4,15 +4,15 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import ECESSTheme from "./components/theme";
-import Copyright from "./components/copyright";
+import ECESSTheme from "./components/theme/mui/theme";
+import Copyright from "./components/theme/copyright";
 import ECESSCalendarPage from "./pages/ecess/ecess_calendar";
 import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
 import React, {useEffect, useState} from "react";
 import {Box, ThemeProvider, Typography} from "@material-ui/core";
-import {NavBar} from "./components/nav_bar";
+import {NavBar} from "./components/theme/nav_bar";
 import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";

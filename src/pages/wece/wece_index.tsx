@@ -1,9 +1,10 @@
-import {WelcomeImage} from "../../components/welcome";
-import {SocialMedia} from "../../components/social_media";
+import {WelcomeImage} from "../../components/screens/welcome";
+import {SocialMedia} from "../../components/widgets/social_media";
 import {makeStyles} from "@material-ui/styles";
-import React from "react";
-import ECESSTheme from "../../components/theme";
-import {DarkTypography} from "../../components/dark_typography";
+import React, {useEffect, useState} from "react";
+import ECESSTheme from "../../components/theme/mui/theme";
+import {DarkTypography} from "../../components/theme/mui/dark_typography";
+import {ecessApiCall} from "../../utils/api";
 
 const useStyles = makeStyles({
     root: {
@@ -23,12 +24,20 @@ const useStyles = makeStyles({
 });
 
 export function WECEHome(props: any) {
+    const [background, setBackground] = useState(undefined);
     const classes = useStyles(ECESSTheme);
+    useEffect(() => {
+        if (background === undefined) {
+            ecessApiCall("bucket", undefined, {image: "generic-purdue-banner.jpg"}).then((response: any) => {
+                setBackground(response.image);
+            })
+        }
+    })
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
                 center={true}
-                picture={process.env.PUBLIC_URL + "/static/generic-purdue-banner.jpg"}
+                picture={background}
             >
                 <DarkTypography variant={'subtitle1'}>
                     About Us
