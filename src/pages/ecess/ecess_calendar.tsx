@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Typography, CircularProgress, Button, withStyles} from "@material-ui/core";
-import CalendarEvent from "../../components/calendar_event";
+import CalendarEvent from "../../components/widgets/calendar_event";
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {makeStyles} from "@material-ui/styles";
-import {SocialMedia} from "../../components/social_media";
-import {WelcomeImage} from "../../components/welcome";
-import {Updates} from "../../components/discord_updates";
-import ECESSTheme from "../../components/theme";
-import {DarkTypography} from "../../components/dark_typography";
-import {ecessApiCall} from "src/utils/index";
+import {SocialMedia} from "src/components/widgets/social_media";
+import {WelcomeImage} from "src/components/screens/welcome";
+import {Updates} from "src/components/widgets/discord_updates";
+import ECESSTheme from "src/components/theme/mui/theme";
+import {DarkTypography} from "src/components/theme/mui/dark_typography";
+import {ecessApiCall} from "src/utils/api";
 
 const useStyles = makeStyles({
     root: {
@@ -28,20 +28,28 @@ const useStyles = makeStyles({
 export default function ECEAIndexPage() {
     const classes = useStyles(ECESSTheme);
     const [updates, setUpdates] = useState(undefined);
+    const [background, setBackground] = useState(undefined);
     useEffect(() => {
         if (updates === undefined) {
             ecessApiCall("/bot/announcements", undefined, undefined).then((response) => {
                 setUpdates(response);
             });
         }
-    }, [updates])
+        if (background === undefined) {
+            ecessApiCall("bucket", undefined, {
+                image: "events/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"
+            }).then((response: any) => {
+                setBackground(response.image);
+            });
+        }
+    }, [background, updates])
     return (
         <>
             <div style={{maxWidth: 1080, margin: '0 auto'}}>
                 <>
                     <WelcomeImage
                         center={true}
-                        picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                        picture={background}
                     >
                         <DarkTypography variant={'subtitle1'}>
                             Mission Statement

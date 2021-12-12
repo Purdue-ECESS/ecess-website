@@ -1,6 +1,6 @@
 import React from "react";
 import {getMembersFromOrganization} from "../../data/data_people";
-import {MemberList} from "../../components/member_list";
+import {MemberList} from "../../components/widgets/lists/member_list";
 import {Chip, Typography} from "@material-ui/core";
 import {hashCode, intToRGB} from "../../utils";
 

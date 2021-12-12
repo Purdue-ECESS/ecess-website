@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typography from "@material-ui/core/Typography";
 import {ImageList, ImageListItem} from "@material-ui/core"; // requires a loader
 import {FUN} from "src/data/data_fun";
+import {ecessApiCall} from "../../utils/api";
 
-function ListImageView(key, photos, maxHeight=undefined) {
+function ListImageView(key, refs, maxHeight=undefined) {
+    const [photos, setPhotos] = useState(undefined);
+    useEffect(() => {
+        if (photos === undefined) {
+            const temp = [];
+            (
+                async () => {
+                    for (let i = 0; i < refs.length; i++) {
+                        const item = refs[i]
+                        const response: any = await ecessApiCall("bucket", undefined, {image: item.ref})
+                        temp.push({...item, src: response.image});
+                    }
+                    return temp;
+                }
+            )().then(response => {
+                setPhotos(response);
+            });
+        }
+    }, [photos, refs]);
     const style = {
         minWidth: 300,
         flex: 1,
@@ -19,7 +38,7 @@ function ListImageView(key, photos, maxHeight=undefined) {
             {
                 (photos || []).map((item, i) => (
                         <ImageListItem key={`${key}-image-list-${i}`} cols={item.col || 1}>
-                            <img src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/" + item.ref} alt={'head-shots'} />
+                            <img src={item.src} alt={'head-shots'} />
                         </ImageListItem>
                     )
                 )

@@ -1,12 +1,12 @@
 import Typography from "@material-ui/core/Typography";
 import {CardContent, Chip, Divider} from "@material-ui/core";
 import {Col, Container, Row} from "react-grid-system";
-import {hashCode, intToRGB} from "../utils";
+import {hashCode, intToRGB} from "../../utils";
 import {Author} from "./author";
-import {getPictureUrl} from "../data/data_people";
+import {getPictureUrl} from "../../data/data_people";
 import React from "react";
 import dateformat from "dateformat";
-import ECESSTheme from "./theme";
+import ECESSTheme from "../theme/mui/theme";
 
 export function Updates(props) {
     const {content} = props;
@@ -59,9 +59,9 @@ export function Updates(props) {
                                     <Typography variant="h6" component="h2" style={{marginTop: 10}}>
                                         {item.title}
                                     </Typography>
-                                    <Typography variant={"body2"}>
+                                    <div style={{color: "#fff"}}>
                                         <div dangerouslySetInnerHTML={{__html: item.content}}/>
-                                    </Typography>
+                                    </div>
                                 </CardContent>
                             </Col>
                         )

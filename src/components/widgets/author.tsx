@@ -1,6 +1,6 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import {ImageLoader} from "./image_loader";
+import {ImageLoader} from "../utils/image_loader";
 
 export function Author(props) {
     const {name, picture, relative} = props;
@@ -13,7 +13,7 @@ export function Author(props) {
             </Typography>
             {picture &&
                 <div style={{width: 30, height: 30, overflow: "hidden", borderRadius: "100%"}}>
-                    <ImageLoader height={35} width={30} src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public" + picture}/>
+                    <ImageLoader height={35} width={30} src={process.env.PUBLIC_URL + picture}/>
                 </div>
             }
         </div>

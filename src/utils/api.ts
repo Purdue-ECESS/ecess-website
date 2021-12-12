@@ -17,7 +17,6 @@ export function ecessApiCall(path: string, headers: any, paramters: object | und
                 count += 1;
             }
         }
-        console.log(url);
         fetch(url,
             {
                 method: 'GET'

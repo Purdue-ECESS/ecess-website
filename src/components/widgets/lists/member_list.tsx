@@ -1,8 +1,8 @@
 import React from "react";
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core";
 import {useState, useEffect} from 'react';
-import {HoverButtons} from "./hover_button";
-import {ImageLoader} from "./image_loader";
+import {HoverButtons} from "../../theme/mui/hover_button";
+import {ImageLoader} from "../../utils/image_loader";
 
 function MemberCard(props) {
     const {person, component} = props;
@@ -19,7 +19,7 @@ function MemberCard(props) {
                     }}>
                         <ImageLoader
                             style={{position: "relative", justifyContent: 'center'}}
-                            src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public" + person.picture}
+                            src={person.picture}
                             height={200}
                             width={150} />
                     </div>
