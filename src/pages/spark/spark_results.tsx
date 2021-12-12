@@ -60,7 +60,6 @@ function ExportWinner(props) {
 export function SparkResults() {
     const background_photos = [
         "IMG_1042.jpg",
-        "IMG_1043.jpg",
         "IMG_3271.jpg",
         "IMG_3272.jpg",
         "IMG_3273.jpg",
