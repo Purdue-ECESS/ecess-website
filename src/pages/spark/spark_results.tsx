@@ -1,8 +1,8 @@
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
 import React, {useEffect, useState, useLayoutEffect} from "react";
 import {Typography} from "@material-ui/core";
-import {ImageGallery} from "../../components/screens/image_gallery";
-import {ecessApiCall} from "../../utils/api";
+import {ImageGallery} from "src/components/screens/image_gallery";
+import {ecessApiCall} from "src/utils/api";
 
 
 
@@ -155,16 +155,18 @@ export function SparkResults() {
                     <div style={{display: "flex", flexWrap: "wrap"}}>
                         {
                             [
-                                {name: "GM"},
-                                {name: "John Deere"},
-                                {name: "Texas Instruments"},
-                                {name: "Qualcomm"},
-                                {name: "Eastman"},
-                                {name: "JLG"},
-                                {name: "Cliffs"},
+                                {name: "GM", logo: "General_Motors_(2021).svg"},
+                                {name: "John Deere", logo: "John_Deere_logo.svg.png"},
+                                {name: "Texas Instruments", logo: "Official_logo_of_Texas_Instruments.png"},
+                                {name: "Qualcomm", logo: "qualcomm.jpg"},
+                                {name: "Eastman", logo: "eastman.png"},
+                                {name: "JLG", logo: "jlg.svg.png"},
+                                {name: "Cliffs", logo: "cliffs.jpg"},
                             ].map((item, i) => (
-                                <div style={{minWidth: 200}} key={`sponsor-${item.name}`}>
-                                    <DarkTypography variant={"subtitle1"}>{i + 1}: {item.name}</DarkTypography>
+                                <div key={`sponsor-${item.name}`} style={{display: "flex", flexDirection: "column", margin: 10}}>
+                                    <div style={{flex: 1}} />
+                                    <img style={{maxWidth: 100, maxHeight: 100, height: "auto", width: "auto"}} src={process.env.PUBLIC_URL + "/static/logo/other/" + item.logo} alt={item.name}/>
+                                    <div style={{flex: 1}} />
                                 </div>
                             ))
                         }

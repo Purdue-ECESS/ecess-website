@@ -48,8 +48,8 @@ export function NavBar() {
     const getIndexContext = (x) => {
         if (x.startsWith('/ecea')) {
             return {
-                favicon: process.env.PUBLIC_URL + "/static/ecea_logo.ico",
-                picture: process.env.PUBLIC_URL + "/static/ecea_logo.jpg",
+                favicon: process.env.PUBLIC_URL + "/static/logo/ecess/ecea_logo.ico",
+                picture: process.env.PUBLIC_URL + "/static/logo/ecess/ecea_logo.jpg",
                 content: "Website for Purdue ECE Ambassadors",
                 title: 'ECE Ambassadors'
             }
@@ -61,16 +61,16 @@ export function NavBar() {
                 temp = x.substring(0, x.length - 1);
             }
             return {
-                favicon: process.env.PUBLIC_URL + "/static/spark_logo.ico",
-                picture: process.env.PUBLIC_URL + "/static/spark_logo.jpg",
+                favicon: process.env.PUBLIC_URL + "/static/logo/ecess/spark_logo.ico",
+                picture: process.env.PUBLIC_URL + "/static/logo/ecess/spark_logo.jpg",
                 content: "Welcome to the Spark Challenge Website",
                 title: 'Spark Challenge',
                 backgroundColor: ['/spark','/spark/schedule'].includes(temp) ? "#fff": undefined
             }
         }
         return {
-            favicon: process.env.PUBLIC_URL + "/static/ecess_logo.ico",
-            picture: process.env.PUBLIC_URL + "/static/ecess_logo.jpg",
+            favicon: process.env.PUBLIC_URL + "/static/logo/ecess/ecess_logo.ico",
+            picture: process.env.PUBLIC_URL + "/static/logo/ecess/ecess_logo.jpg",
             content: "Website for Purdue ECE Student Society",
             title: 'Purdue ECESS'
         }
@@ -198,7 +198,7 @@ export function NavBar() {
                         <div>
                             <img
                                 width={120}
-                                src={process.env.PUBLIC_URL + "/static/ecess_nav_bar_logo.png"}
+                                src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
                                 alt="home pic"
                                 className="img-fluid" />
                         </div>
