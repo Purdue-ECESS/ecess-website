@@ -134,7 +134,7 @@ export function NavBar() {
     ]
     const SPARK_NAV_LINKS = [
         {link: '/spark/schedule', label: 'Schedule', onClick: setSparkPage},
-        // {link: '/spark/results', label: 'Results', onClick: setSparkPage},
+        {link: '/spark/results', label: 'Results', onClick: setSparkPage},
     ]
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
