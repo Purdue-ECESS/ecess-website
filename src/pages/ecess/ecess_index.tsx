@@ -32,6 +32,7 @@ export function ECESSHome() {
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
                 picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/ecess_homescreen.jpg"}
+                center={true}
                 >
                 <div
                     className={"wiggle ls ease-in-out infinite"}

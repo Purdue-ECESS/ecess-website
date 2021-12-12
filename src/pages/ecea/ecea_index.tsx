@@ -48,6 +48,7 @@ export default function ECEAIndexPage() {
             <div style={{maxWidth: 1080, margin: '0 auto'}}>
                 <>
                     <WelcomeImage
+                        center={true}
                         picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     >
                         <DarkTypography variant={'subtitle1'}>

@@ -2,7 +2,7 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typography from "@material-ui/core/Typography";
 import {ImageList, ImageListItem} from "@material-ui/core"; // requires a loader
-import {FUN} from "../../data/data_fun";
+import {FUN} from "src/data/data_fun";
 
 function ListImageView(key, photos, maxHeight=undefined) {
     const style = {

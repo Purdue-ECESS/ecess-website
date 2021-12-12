@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 export default function Copyright(props) {
     const {style} = props;
     const location = useLocation().pathname;
-    if (location === "/spark") {
+    if (location.startsWith("/spark") && !location.startsWith("/spark/results")) {
         return (<></>)
     }
 
