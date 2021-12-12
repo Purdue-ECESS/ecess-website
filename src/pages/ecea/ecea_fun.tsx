@@ -19,7 +19,7 @@ function ListImageView(key, photos, maxHeight=undefined) {
             {
                 (photos || []).map((item, i) => (
                         <ImageListItem key={`${key}-image-list-${i}`} cols={item.col || 1}>
-                            <img src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/" + item.ref} alt={'head-shots'} />
+                            <img src={process.env.PUBLIC_URL + "/static/src/" + item.ref} alt={'head-shots'} />
                         </ImageListItem>
                     )
                 )

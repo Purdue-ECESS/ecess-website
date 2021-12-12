@@ -1,12 +1,12 @@
 import Typography from "@material-ui/core/Typography";
 import {CardContent, Chip, Divider} from "@material-ui/core";
 import {Col, Container, Row} from "react-grid-system";
-import {hashCode, intToRGB} from "../utils";
+import {hashCode, intToRGB} from "../../utils";
 import {Author} from "./author";
-import {getPictureUrl} from "../data/data_people";
+import {getPictureUrl} from "../../data/data_people";
 import React from "react";
 import dateformat from "dateformat";
-import ECESSTheme from "./theme";
+import ECESSTheme from "../theme/mui/theme";
 
 export function Updates(props) {
     const {content} = props;

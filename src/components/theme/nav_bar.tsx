@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
-import "../styles/navbar.css";
+import "../../styles/navbar.css";
 import { useLocation } from 'react-router-dom';
 
 const getLinkIdxByPathName = (location, navLinks) => {

@@ -1,9 +1,9 @@
-import {WelcomeImage} from "../../components/welcome";
-import {SocialMedia} from "../../components/social_media";
+import {WelcomeImage} from "../../components/screens/welcome";
+import {SocialMedia} from "../../components/widgets/social_media";
 import {makeStyles} from "@material-ui/styles";
 import React from "react";
-import ECESSTheme from "../../components/theme";
-import {DarkTypography} from "../../components/dark_typography";
+import ECESSTheme from "../../components/theme/mui/theme";
+import {DarkTypography} from "../../components/theme/mui/dark_typography";
 
 const useStyles = makeStyles({
     root: {

@@ -1,38 +1,15 @@
-import {DarkTypography} from "src/components/dark_typography";
-import {WelcomeImage} from "src/components/welcome";
-import React, {useEffect, useState} from "react";
-import {ImageList, ImageListItem, Typography} from "@material-ui/core";
-import {delay} from "q";
+import {DarkTypography} from "src/components/theme/mui/dark_typography";
+import React, {useEffect, useState, useLayoutEffect} from "react";
+import {Typography} from "@material-ui/core";
+import {ImageGallery} from "../../components/screens/image_gallery";
 
 
-function SparkBackground(photos) {
-    const background_photos = photos.photos;
-    return (
-        <div style={{maxHeight: "90vh", overflow: "hidden"}}>
-            <ImageList rowHeight={170} cols={4}>
-                {
-                    (background_photos || []).map((item, i) => (
-                        <ImageListItem key={`background-${item.photo}-${i}`} cols={1}>
-                            <img
-                                style={
-                                    item.opacity === 0 ? {opacity: 0, transition: "opacity 0.5s"}:
-                                    item.opacity === 1 ? {opacity: 1, transition: "opacity 0.5s"}: {opacity: 0}
-                                }
-                                src={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/12-11-2021-spark/members/" + item.photo} alt={'head-shots'} />
-                        </ImageListItem>
-                    ))
-                }
-            </ImageList>
-        </div>
-    )
-}
 
 function ExportWinner(props) {
     const {emoji, children, placement, title, link} = props;
     return (
         <div style={{
             display: "flex",
-            flex: 1,
             borderWidth: 1,
             borderStyle: "solid",
             margin: 10,
@@ -83,58 +60,37 @@ export function SparkResults() {
     const photosWithAttribute = [];
     background_photos.forEach((item) => {
         photosWithAttribute.push({
-            photo: item,
+            photo: "/static/src/12-11-2021-spark/members/" + item,
             opacity: 1,
         })
     })
 
-    const [photos, setPhotos] = useState({
-        photos: photosWithAttribute,
-    });
+    const [width, setWidth] = useState(undefined);
 
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            const idx1 = Math.floor(Math.random() * (8));
-            const idx2 = Math.floor(Math.random() * (photos.photos.length));
-            const photo1 = {...photos.photos[idx1]};
-            const photo2 = {...photos.photos[idx2]};
-
-            // idx1 animate out then in
-            photos.photos[idx1].opacity = 0;
-            setPhotos({...photos});
-            await delay(500);
-            photos.photos[idx1] = photo2;
-            photos.photos[idx1].opacity = 2;
-            setPhotos({...photos});
-            photos.photos[idx1].opacity = 1;
-            setPhotos({...photos});
-            await delay(500);
-
-
-            // idx2 animate
-            photos.photos[idx2].opacity = 0;
-            setPhotos({...photos});
-            await delay(500);
-            photos.photos[idx2] = photo1;
-            photos.photos[idx2].opacity = 2;
-            setPhotos({...photos});
-            photos.photos[idx2].opacity = 1;
-            setPhotos({...photos});
-            await delay(500);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, [photos]);
+    useLayoutEffect(() => {
+        function updateSize() {
+            let newWidth = window.innerWidth > 500 ? window.innerWidth: 500;
+            setWidth(newWidth * 0.8 / 3);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
 
     return (
         <div>
-            <WelcomeImage
-                width={"100%"}
-                background={SparkBackground(photos)}>
-                <div style={{padding: 10}}>
+            <ImageGallery
+                photos={photosWithAttribute}
+            >
+                <div style={{padding: 10, overflowX: "hidden", maxWidth: "100%"}}>
                     <DarkTypography variant={'h6'}>
                         Winners!! 🎉
                     </DarkTypography>
-                    <div style={{display: "flex", flexWrap: "wrap"}}>
+                    {width &&
+                    <div style={{
+                        display: "grid",
+                        gridTemplateColumns: `repeat(auto-fill,minmax(${Math.floor(width)}px, 1fr))`,
+                    }}>
                         <ExportWinner
                             title={"Snow Vision"}
                             emoji={"🥇"}
@@ -145,15 +101,16 @@ export function SparkResults() {
                             title={"RevEx"}
                             emoji={"🥈"}
                             placement={"Second Place"}
-                            link={"https://engineering.purdue.edu/477grp6/"} />
+                            link={"https://engineering.purdue.edu/477grp6/"}/>
                         <ExportWinner
                             title={"Interactive Piano"}
                             emoji={"🥉"}
                             link={"https://engineering.purdue.edu/477grp16/"}
                             placement={"Third Place"}/>
                     </div>
+                    }
                 </div>
-            </WelcomeImage>
+            </ImageGallery>
 
             <div style={{textAlign: "center", margin: "30px 0 30px 0"}}>
                 <Typography variant={"h6"}>Awards</Typography>
@@ -188,7 +145,7 @@ export function SparkResults() {
                                 {name: "JLG"},
                                 {name: "Cliffs"},
                             ].map((item, i) => (
-                                <div style={{minWidth: 200}}>
+                                <div style={{minWidth: 200}} key={`sponsor-${item.name}`}>
                                     <DarkTypography variant={"subtitle1"}>{i + 1}: {item.name}</DarkTypography>
                                 </div>
                             ))

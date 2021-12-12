@@ -1,12 +1,12 @@
-import {SocialMedia} from "../../components/social_media";
+import {SocialMedia} from "src/components/widgets/social_media";
 import React from "react";
 import {makeStyles} from "@material-ui/styles";
 import {Button, Typography} from "@material-ui/core";
-import {WelcomeImage} from "../../components/welcome";
+import {WelcomeImage} from "src/components/screens/welcome";
 import Typewriter from "typewriter-effect";
-import ECESSTheme from "../../components/theme";
-import {DarkTypography} from "../../components/dark_typography";
-import "../../styles/ecess_index.css"
+import ECESSTheme from "src/components/theme/mui/theme";
+import {DarkTypography} from "src/components/theme/mui/dark_typography";
+import "src/styles/ecess_index.css"
 
 
 const useStyles = makeStyles({
@@ -31,7 +31,7 @@ export function ECESSHome() {
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
             <WelcomeImage
-                picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/ecess_homescreen.jpg"}
+                picture={process.env.PUBLIC_URL + "/static/ecess_homescreen.jpg"}
                 center={true}
                 >
                 <div

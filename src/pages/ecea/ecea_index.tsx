@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {makeStyles} from "@material-ui/styles";
-import {SocialMedia} from "../../components/social_media";
-import {WelcomeImage} from "../../components/welcome";
-import {Updates} from "../../components/discord_updates";
-import ECESSTheme from "../../components/theme";
-import {DarkTypography} from "../../components/dark_typography";
+import {SocialMedia} from "../../components/widgets/social_media";
+import {WelcomeImage} from "../../components/screens/welcome";
+import {Updates} from "../../components/widgets/discord_updates";
+import ECESSTheme from "../../components/theme/mui/theme";
+import {DarkTypography} from "../../components/theme/mui/dark_typography";
 
 const useStyles = makeStyles({
     root: {
@@ -49,7 +49,7 @@ export default function ECEAIndexPage() {
                 <>
                     <WelcomeImage
                         center={true}
-                        picture={"https://raw.githubusercontent.com/Purdue-ECESS/ecess-website-source-code/main/public/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
+                        picture={process.env.PUBLIC_URL + "/static/src/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
                     >
                         <DarkTypography variant={'subtitle1'}>
                             Mission Statement

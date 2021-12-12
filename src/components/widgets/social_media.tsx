@@ -2,7 +2,7 @@ import Typography from "@material-ui/core/Typography";
 import {Divider} from "@material-ui/core";
 import {Discord, Gmail, Instagram} from "@icons-pack/react-simple-icons";
 import React from "react";
-import {HoverButtons} from "./hover_button";
+import {HoverButtons} from "../theme/mui/hover_button";
 
 
 
