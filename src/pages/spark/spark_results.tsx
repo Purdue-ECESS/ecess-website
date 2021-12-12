@@ -95,7 +95,7 @@ export function SparkResults() {
 
     return (
         <div>
-            {photos &&
+            {photos ?
             <ImageGallery
                 photos={photos}
             >
@@ -127,7 +127,8 @@ export function SparkResults() {
                     </div>
                     }
                 </div>
-            </ImageGallery>
+            </ImageGallery>:
+            <div style={{minHeight: "100vh", width: "100%"}} />
             }
 
             <div style={{textAlign: "center", margin: "30px 0 30px 0"}}>
