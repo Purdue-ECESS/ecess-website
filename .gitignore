@@ -109,3 +109,4 @@ yarn.lock
 next-env.d.ts
 out
 build
+**/.DS_Store
