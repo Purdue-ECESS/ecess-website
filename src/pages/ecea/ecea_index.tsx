@@ -5,6 +5,7 @@ import {WelcomeImage} from "../../components/welcome";
 import {Updates} from "../../components/discord_updates";
 import ECESSTheme from "../../components/theme";
 import {DarkTypography} from "../../components/dark_typography";
+import {ecessApiCall} from "src/utils/index";
 
 const useStyles = makeStyles({
     root: {
@@ -29,18 +30,9 @@ export default function ECEAIndexPage() {
     const [updates, setUpdates] = useState(undefined);
     useEffect(() => {
         if (updates === undefined) {
-            fetch("https://ecess-api.matthewwen.com/bot/announcements",
-                {
-                    method: 'GET'
-                })
-                .then(res => res.json())
-                .then(response => {
-                    setUpdates(response);
-                })
-                .catch(e => {
-                    setUpdates([]);
-                    console.log(e);
-                });
+            ecessApiCall("/bot/announcements", undefined, undefined).then((response) => {
+                setUpdates(response);
+            });
         }
     }, [updates])
     return (
