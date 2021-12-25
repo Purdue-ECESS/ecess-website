@@ -1,8 +1,7 @@
 
-export function ecessApiCall(path: string, headers: any, paramters: object | undefined) {
-
+export function ecessApiCall(path: string, headers: any, paramters: object | undefined,
+                             url: string = "https://ecess-api.matthewwen.com") {
     return new Promise((resolve) => {
-        let url = "https://ecess-api.matthewwen.com";
         if (path) {
             url += "/" + path;
         }

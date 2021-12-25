@@ -34,44 +34,19 @@ function ExportWinner(props) {
     )
 }
 
-let background_photos: string[] = [
-    "events/12-11-2021-spark/events/IMG_1042.jpg",
-    "events/12-11-2021-spark/events/IMG_3271.jpg",
-    "events/12-11-2021-spark/events/IMG_3272.jpg",
-    "events/12-11-2021-spark/events/IMG_3273.jpg",
-    "events/12-11-2021-spark/events/IMG_3274.jpg",
-    "events/12-11-2021-spark/events/IMG_4901.jpg",
-    "events/12-11-2021-spark/events/IMG_4902.jpg",
-    "events/12-11-2021-spark/events/IMG_4903.jpg",
-    "events/12-11-2021-spark/events/IMG_4906.jpg",
-    "events/12-11-2021-spark/events/IMG_4916.png",
-    "events/12-11-2021-spark/events/IMG_5991.jpg",
-    "events/12-11-2021-spark/events/IMG_5992.jpg",
-    "events/12-11-2021-spark/events/IMG_5993.jpg",
-    "events/12-11-2021-spark/events/IMG_7768.jpg",
-    "events/12-11-2021-spark/events/IMG_7769.jpg",
-    "events/12-11-2021-spark/events/IMG_7770.jpg",
-    "events/12-11-2021-spark/events/IMG_1045.jpg",
-    "events/12-11-2021-spark/events/IMG_4909.jpg",
-    "events/12-11-2021-spark/events/IMG_4910.jpg",
-];
-
 export function SparkResults() {
 
     const [photos, setPhotos] = useState(undefined);
     useEffect(() => {
         if (photos === undefined) {
             const getLinks = async () => {
-                const temp = []
-                for (let i = 0; i < background_photos.length; i++) {
-                    const item = background_photos[i];
-                    const response: any = await ecessApiCall("bucket", undefined, {image: item})
-                    temp.push({
-                        photo: response.image,
-                        opacity: 1,
-                    })
-                }
-                return temp;
+                const response: any = await ecessApiCall("events", undefined, {
+                    path: "events/12-11-2021-spark/"
+                }, "https://ecess-api.matthewwen.com/ecess");
+                response.forEach((item) => {
+                    item.opacity = 1
+                })
+                return response;
             }
             getLinks().then((response: any[]) => {
                 setPhotos(response);
