@@ -19,7 +19,6 @@ function Background(photos) {
                                         item.opacity === 1 ? {opacity: 1, transition: "opacity 0.5s"}: {opacity: 0}
                                 }
                                 src={item.photo} alt={'head-shots'} />
-                            <div>{item.photo}</div>
                         </ImageListItem>)
                     )
                 }
