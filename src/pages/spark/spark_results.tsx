@@ -3,11 +3,15 @@ import React, {useEffect, useState, useLayoutEffect} from "react";
 import {Typography} from "@material-ui/core";
 import {ImageGallery} from "src/components/screens/image_gallery";
 import {ecessApiCall} from "src/utils/api";
-
+import {SparkTeam} from "../../components/widgets/spark_team";
+import {FloatYoutube} from "../../components/utils/float_youtube";
+import {FloatWebsite} from "../../components/utils/float_website";
+import {isMobile} from 'react-device-detect';
+import "../../styles/dark_click.css";
 
 
 function ExportWinner(props) {
-    const {emoji, children, placement, title, link} = props;
+    const {emoji, children, placement, title, onClick} = props;
     return (
         <div style={{
             display: "flex",
@@ -24,9 +28,12 @@ function ExportWinner(props) {
             </div>
             <div style={{flex: 1}}>
                 <DarkTypography variant={'subtitle2'}>️{placement}</DarkTypography>
-                <DarkTypography variant={'subtitle2'}>
-                    <a href={link}
-                       style={{fontSize: 12, margin: 0, padding: 0}}>{title}</a>
+                <DarkTypography
+                    variant={'subtitle2'}
+                    onClick={onClick}
+                    className="hover-dark-underline-animation"
+                >
+                       {title}
                 </DarkTypography>
                 {children}
             </div>
@@ -36,6 +43,8 @@ function ExportWinner(props) {
 
 export function SparkResults() {
 
+    const [popUpWebsite, setPopUpWebsite] = useState(undefined);
+    const [popUpVideoId, setPopUpVideoId] = useState(undefined);
     const [photos, setPhotos] = useState(undefined);
     useEffect(() => {
         if (photos === undefined) {
@@ -89,22 +98,38 @@ export function SparkResults() {
                         display: "grid",
                         gridTemplateColumns: `repeat(auto-fill,minmax(${Math.floor(width)}px, 1fr))`,
                     }}>
-                        <ExportWinner
-                            title={"Snow Vision"}
-                            emoji={"🥇"}
-                            link={"https://engineering.purdue.edu/477grp17/"}
-                            placement={"First Place"}
-                        />
-                        <ExportWinner
-                            title={"RevEx"}
-                            emoji={"🥈"}
-                            placement={"Second Place"}
-                            link={"https://engineering.purdue.edu/477grp6/"}/>
-                        <ExportWinner
-                            title={"Interactive Piano"}
-                            emoji={"🥉"}
-                            link={"https://engineering.purdue.edu/477grp16/"}
-                            placement={"Third Place"}/>
+                        {
+                            [
+                                {
+                                    title: "Snow Vision",
+                                    emoji: "🥇",
+                                    url: "https://engineering.purdue.edu/477grp17/",
+                                    placement: "First Place"
+                                },
+                                {
+                                    title: "RevEx",
+                                    emoji: "🥈",
+                                    url: "https://engineering.purdue.edu/477grp6/",
+                                    placement: "Second Place",
+                                },
+                                {
+                                    title: "Interactive Piano",
+                                    emoji: "🥉",
+                                    url: "https://engineering.purdue.edu/477grp16/",
+                                    placement: "Third Place",
+                                }
+                            ].map((item) => (
+                                <ExportWinner
+                                    key={item.title}
+                                    title={item.title}
+                                    emoji={item.emoji}
+                                    onClick={() => {
+                                        setPopUpWebsite(item.url)
+                                    }}
+                                    placement={item.placement}
+                                />
+                            ))
+                        }
                     </div>
                     }
                 </div>
@@ -136,15 +161,21 @@ export function SparkResults() {
                     <div style={{display: "flex", flexWrap: "wrap"}}>
                         {
                             [
-                                {name: "GM", logo: "General_Motors_(2021).svg"},
-                                {name: "John Deere", logo: "John_Deere_logo.svg.png"},
-                                {name: "Texas Instruments", logo: "Official_logo_of_Texas_Instruments.png"},
-                                {name: "Qualcomm", logo: "qualcomm.jpg"},
-                                {name: "Eastman", logo: "eastman.png"},
-                                {name: "JLG", logo: "jlg.svg.png"},
-                                {name: "Cliffs", logo: "cliffs.jpg"},
+                                {name: "GM", logo: "General_Motors_(2021).svg", link: "https://www.gm.com"},
+                                {name: "John Deere", logo: "John_Deere_logo.svg.png", link: "https://www.deere.com/en/index.html"},
+                                {name: "Texas Instruments", logo: "Official_logo_of_Texas_Instruments.png", link: "https://www.ti.com/"},
+                                {name: "Qualcomm", logo: "qualcomm.jpg", link: "https://www.qualcomm.com/"},
+                                {name: "Eastman", logo: "eastman.png", link: "https://www.eastman.com/Pages/Home.aspx"},
+                                {name: "JLG", logo: "jlg.svg.png", link: "https://www.jlg.com/en"},
+                                {name: "Cliffs", logo: "cliffs.jpg", link: "https://www.clevelandcliffs.com/"},
                             ].map((item, i) => (
-                                <div key={`sponsor-${item.name}`} style={{display: "flex", flexDirection: "column", margin: 10}}>
+                                <div
+                                    onClick={() => {
+                                        window.location.href = item.link || "https://www.google.com"
+                                    }}
+                                    className={"hover-dark-underline-animation"}
+                                    key={`sponsor-${item.name}`}
+                                    style={{display: "flex", flexDirection: "column", margin: 10}}>
                                     <div style={{flex: 1}} />
                                     <img style={{maxWidth: 100, maxHeight: 100, height: "auto", width: "auto"}} src={process.env.PUBLIC_URL + "/static/logo/other/" + item.logo} alt={item.name}/>
                                     <div style={{flex: 1}} />
@@ -158,10 +189,68 @@ export function SparkResults() {
             <div style={{padding: "30px"}}>
                 <div style={{maxWidth: 1080, margin: "0 auto"}}>
                     <Typography variant={"h6"}>Video Submissions</Typography>
-                    <Typography variant={"subtitle1"}>Coming Soon</Typography>
+                    <Typography variant={"subtitle1"}>More Submissions Coming Soon</Typography>
+                    <div style={{
+                        display: "grid",
+                        gridTemplateColumns: `repeat(auto-fill,minmax(${Math.floor(200)}px, 1fr))`,
+                    }}>
+                        {
+                            [
+                                {
+                                    title: "Solar Charging Station",
+                                    team: 20,
+                                    videoId: "ixIIc4Vfy_s",
+                                    website: "https://engineering.purdue.edu/477grp2/"
+                                },
+                                {
+                                    title: "Sink or be Sunk",
+                                    team: 18,
+                                    videoId: "ziMwrT-h9pU",
+                                    website: "https://engineering.purdue.edu/477grp8/"
+                                }
+                            ]
+                                .map((item) => (
+                                    <SparkTeam
+                                        key={item.videoId}
+                                        title={item.title}
+                                        videoId={item.videoId}
+                                        team={item.team}
+                                        videoClick={(videoId) => {
+                                            if (isMobile) {
+                                               window.location.href = `https://www.youtube.com/watch?v=${videoId}`
+                                            }
+                                            else {
+                                                setPopUpVideoId(videoId);
+                                            }
+                                        }}
+                                        website={item.website}
+                                        websiteClick={(website) => {
+                                            setPopUpWebsite(website)
+                                        }}
+                                    />
+                                ))
+                        }
+                    </div>
                 </div>
             </div>
 
+            {popUpVideoId &&
+            (
+                <FloatYoutube
+                    onClose={() => {
+                        setPopUpVideoId(undefined);
+                    }}
+                    videoId={popUpVideoId}
+                />
+            )}
+            {
+                popUpWebsite &&
+                <FloatWebsite
+                    onClose={() => {
+                        setPopUpWebsite(undefined);
+                    }}
+                    url={popUpWebsite}/>
+            }
         </div>
     )
 

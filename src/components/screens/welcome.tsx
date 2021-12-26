@@ -23,7 +23,7 @@ export function WelcomeImage(props: any) {
                     width: "90%",
                     marginLeft: 'auto',
                     marginRight: 'auto',
-                    zIndex: 100}}>
+                    }}>
                     <div
                         style={{
                             textAlign: center ? "center": undefined,
