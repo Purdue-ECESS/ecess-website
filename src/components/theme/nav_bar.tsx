@@ -195,13 +195,11 @@ export function NavBar() {
                         as={Link}
                         to={"/"}
                     >
-                        <div>
-                            <img
-                                width={120}
-                                src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
-                                alt="home pic"
-                                className="img-fluid" />
-                        </div>
+                        <img
+                            width={120}
+                            src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
+                            alt="home pic"
+                        />
                     </Nav.Link>
                 </Navbar.Brand>
                 <Navbar.Toggle

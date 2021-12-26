@@ -135,7 +135,7 @@ export function MemberList(props: {members: any, component: any}) {
         <>
             <div style={{maxWidth: 1080, margin: '0 auto'}} className={'dark'}>
                 {
-                    size.pplPerRow ?
+                    size.pplPerRow &&
                         <div>
                             <div style={{margin: '0 auto', fontSize: 0}}>
                                 {
@@ -143,7 +143,6 @@ export function MemberList(props: {members: any, component: any}) {
                                 }
                             </div>
                         </div>
-                        : <></>
                 }
             </div>
         </>
