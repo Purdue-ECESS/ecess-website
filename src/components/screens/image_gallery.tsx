@@ -1,5 +1,5 @@
 import {ImageList, ImageListItem} from "@material-ui/core";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import {delay} from "q";
 import {WelcomeImage} from "./welcome";
 import "src/styles/image_gallary.css";
@@ -7,7 +7,9 @@ import "src/styles/image_gallary.css";
 export function ImageGallery({photos: userPhotos, children}) {
     const [photos, setPhotos] = useState(userPhotos);
 
-    const { innerWidth: width, innerHeight: height} = window;
+    const { innerWidth: preWidth, innerHeight: preHeight} = window;
+    const [width, setWidth] = useState(preWidth);
+    const [height, setHeight] = useState(preHeight);
 
     const blockWidth = 150;
     const blockHeight = 150;
@@ -17,6 +19,16 @@ export function ImageGallery({photos: userPhotos, children}) {
 
     const numImgVisible = numImgHorizontal * numImgVertical;
     const maxSize = numImgVisible >= photos.length ? photos.length: numImgVisible;
+
+    useLayoutEffect(() => {
+        const onResize = () => {
+            setWidth(window.innerWidth);
+            setHeight(window.innerHeight);
+        }
+        window.addEventListener('resize', onResize);
+        onResize();
+        return () => window.removeEventListener('resize', onResize);
+    })
 
     const changeImage = async (idx, photo) => {
         photos[idx].opacity = 0;
