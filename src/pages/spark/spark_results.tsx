@@ -46,6 +46,12 @@ export function SparkResults() {
                 response.forEach((item) => {
                     item.opacity = 1
                 })
+                for (let i = 0; i < response.length; i++) {
+                    let idx =  i + Math.floor(Math.random() * (response.length - i));
+                    const temp = response[i];
+                    response[i] = response[idx];
+                    response[idx] = temp;
+                }
                 return response;
             }
             getLinks().then((response: any[]) => {
