@@ -3,6 +3,7 @@
     "public": "build",
     "ignore": [
       "firebase.json",
+      "**/*.tsx",
       "**/.*",
       "**/node_modules/**"
     ],
