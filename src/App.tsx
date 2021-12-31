@@ -1,6 +1,7 @@
 import ECEAIndexPage from "./pages/ecea/ecea_index";
 import {
     BrowserRouter as Router,
+    Redirect,
     Switch,
     Route,
 } from "react-router-dom";
@@ -21,10 +22,14 @@ import {ECESSCommittess} from "./pages/ecess/ecess_committees";
 import {SparkIndex} from "./pages/spark/spark_index";
 import {SparkSchedule} from "./pages/spark/spark_schedule";
 import {SparkResults} from "./pages/spark/spark_results";
+import {LoginPage} from "./pages/login";
+import {DashboardIndex} from "./pages/dashboard/dashboard_index";
+import Cookies from "universal-cookie";
 
 
 function App() {
     const [offset, setOffset] = useState(0);
+    const [user, setUser] = useState();
 
     useEffect(() => {
         window.onscroll = () => {
@@ -36,7 +41,12 @@ function App() {
                 setOffset(3);
             }
         }
-    }, []);
+        if (user === undefined) {
+            const cookies = new Cookies();
+            const token = cookies.get('token');
+            setUser(token);
+        }
+    }, [user]);
     return (
         <ThemeProvider theme={ECESSTheme} >
             <Router>
@@ -64,6 +74,22 @@ function App() {
                     <Route exact path={"/spark"} component={SparkIndex} />
                     <Route path={"/spark/schedule"} component={SparkSchedule}/>
                     <Route path={"/spark/results"} component={SparkResults}/>
+
+                    {/* Login Page */}
+                    {user ?
+                        <Redirect exact path={"/login"} to={"/dashboard"} /> :
+                        <Route exact path={"/login"}
+                               render={(props) => <LoginPage setUser={setUser} {...props} />}
+                        />
+                    }
+
+                    {/*Dashboard Page*/}
+                    {user ?
+                        <Route exact path={"/dashboard"}
+                               render={(props) => <DashboardIndex user={user} {...props} />}
+                        /> :
+                        <Redirect exact path={"/dashboard"} to={"/login"} />
+                    }
 
                     <Route>
                         <Typography style={{textAlign: 'center', margin: 20}}>Sorry, Page is Not Found</Typography>
