@@ -24,12 +24,24 @@ import {SparkSchedule} from "./pages/spark/spark_schedule";
 import {SparkResults} from "./pages/spark/spark_results";
 import {LoginPage} from "./pages/login";
 import {DashboardIndex} from "./pages/dashboard/dashboard_index";
-import Cookies from "universal-cookie";
+import { initializeApp } from "firebase/app";
+import {getAuth} from "firebase/auth";
 
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA0rfqzRgQfY8Hut8BT1ZBuLXkQHm9jZu0",
+    authDomain: "purdue-ecess.firebaseapp.com",
+    projectId: "purdue-ecess",
+    storageBucket: "purdue-ecess.appspot.com",
+    messagingSenderId: "3539621967",
+    appId: "1:3539621967:web:a5793fe1cce7cc778a323a",
+    measurementId: "G-P5V2HKSFGW"
+};
 
 function App() {
+    initializeApp(firebaseConfig);
     const [offset, setOffset] = useState(0);
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(undefined);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -42,9 +54,9 @@ function App() {
             }
         }
         if (user === undefined) {
-            const cookies = new Cookies();
-            const token = cookies.get('token');
-            setUser(token);
+            const auth = getAuth();
+            console.log(auth.currentUser);
+            setUser(auth.currentUser);
         }
     }, [user]);
     return (
