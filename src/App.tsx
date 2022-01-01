@@ -18,7 +18,6 @@ import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";
 import {EcessBoard} from "./pages/ecess/ecess_board";
-import {ECESSCommittess} from "./pages/ecess/ecess_committees";
 import {SparkIndex} from "./pages/spark/spark_index";
 import {SparkSchedule} from "./pages/spark/spark_schedule";
 import {SparkResults} from "./pages/spark/spark_results";
@@ -67,6 +66,7 @@ function App() {
                 <Switch>
                     {/*ECESS Pages*/}
                     <Route exact path={"/"} component={ECESSHome}/>
+                    <Route path={"/board"} component={EcessBoard}/>
                     <Route path={"/calendar"} component={ECESSCalendarPage}/>
 
                     {/*WECE Pages*/}

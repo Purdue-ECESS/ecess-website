@@ -107,6 +107,7 @@ export function NavBar({user}) {
         {link: '/wece/members', label: 'Members', onClick: setWECEPage}
     ]
     const ECESS_NAV_LINKS = [
+        {link: '/board', label: 'Board', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
         {link: '/ecea', label: 'Ambassadors', dropdown: AMBASSADOR_NAV_LINKS, onClick:  () => {
                 setAmbassadorPage();
@@ -140,6 +141,7 @@ export function NavBar({user}) {
         setNavLinks(newNavLinks);
         setLinkIdx(getLinkIdxByPathName(location, newNavLinks));
     }
+    console.log({location});
 
     useEffect(() => {
         return history.listen(location => {
@@ -238,9 +240,14 @@ export function NavBar({user}) {
                         ))}
                         {
                             user === null &&
-                            <Nav.Item className="ml-auto">
-                                <Nav.Link>
-                                    <Button variant={"contained"}>Login</Button>
+                            <Nav.Item>
+                                <Nav.Link
+                                    as={Link}
+                                    to={"/login"}
+                                >
+                                    <Typography style={{...(location === "/login" ? active_style: not_active_style)}}>
+                                        Login
+                                    </Typography>
                                 </Nav.Link>
                             </Nav.Item>
                         }
@@ -248,10 +255,14 @@ export function NavBar({user}) {
                             user &&
                             <Nav.Item>
                                 <Nav.Link
+                                    style={{display: "grid", placeItems: "center"}}
                                 >
-                                    <Typography style={not_active_style}>
-                                        User Logged In
-                                    </Typography>
+                                    <div style={{
+                                        width: "35px",
+                                        height: "35px",
+                                        borderRadius: "100%",
+                                        backgroundColor: "gold"
+                                    }}/>
                                 </Nav.Link>
                             </Nav.Item>
                         }

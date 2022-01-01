@@ -95,11 +95,6 @@ export function ECESSHome() {
             </div>
 
             <Typography variant="h5" component="h2" style={{textAlign: "center", margin: 30}}>
-                Board Members
-            </Typography>
-            <EcessBoard />
-
-            <Typography variant="h5" component="h2" style={{textAlign: "center", margin: 30}}>
                 Committees
             </Typography>
             <ECESSCommittess />
