@@ -51,7 +51,7 @@ export function SparkResults() {
             const getLinks = async () => {
                 const response: any = await ecessApiCall("events", undefined, {
                     path: "events/12-11-2021-spark/"
-                }, "https://ecess-api.matthewwen.com/ecess");
+                });
                 response.forEach((item) => {
                     item.opacity = 1
                 })

@@ -1,6 +1,7 @@
 
 export function ecessApiCall(path: string, headers: any, paramters: object | undefined,
-                             url: string = "https://ecess-api.matthewwen.com") {
+                             url: string = process.env.REACT_APP_API_URL || "https://ecess-api.matthewwen.com/ecess"
+) {
     return new Promise((resolve) => {
         if (path) {
             url += "/" + path;

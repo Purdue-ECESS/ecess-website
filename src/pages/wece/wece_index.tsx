@@ -28,7 +28,9 @@ export function WECEHome(props: any) {
     const classes = useStyles(ECESSTheme);
     useEffect(() => {
         if (background === undefined) {
-            ecessApiCall("bucket", undefined, {image: "generic-purdue-banner.jpg"}).then((response: any) => {
+            ecessApiCall("bucket", undefined,
+                {image: "generic-purdue-banner.jpg"}, "https://ecess-api.matthewwen.com")
+                .then((response: any) => {
                 setBackground(response.image);
             })
         }

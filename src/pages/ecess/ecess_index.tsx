@@ -34,7 +34,7 @@ export function ECESSHome() {
         if (background === undefined) {
             ecessApiCall("bucket", undefined, {
                 image: "ecess_homescreen.jpg"
-            }).then((response: any) => {
+            }, "https://ecess-api.matthewwen.com").then((response: any) => {
                 setBackground(response.image);
             });
         }

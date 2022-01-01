@@ -30,7 +30,10 @@ export class ImageLoader extends React.Component<ImageLoaderProp, ImageLoaderSta
     }
 
     getImageFromFb() {
-        ecessApiCall("bucket", undefined, {image: this.props.src}).then((item: any) => {
+        ecessApiCall("bucket", undefined,
+            {image: this.props.src},
+            "https://ecess-api.matthewwen.com"
+        ).then((item: any) => {
             this.setState({...this.state, src: item.image})
         })
     }
