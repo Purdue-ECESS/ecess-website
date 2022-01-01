@@ -25,6 +25,7 @@ import {DashboardIndex} from "./pages/dashboard/dashboard_index";
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {NavBar} from "./components/theme/nav_bar";
+import "src/styles/index.css";
 
 
 const firebaseConfig = {
@@ -60,7 +61,7 @@ function App() {
     return (
         <ThemeProvider theme={ECESSTheme} >
             <Router>
-                <NavBar user={user} />
+                <NavBar user={user} offset={offset}/>
                 <Switch>
                     {/*ECESS Pages*/}
                     <Route exact path={"/"} component={ECESSHome}/>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
-import {Typography} from "@material-ui/core";
+import {Button, Typography} from "@material-ui/core";
 import "src/styles/bootstrap_navbar.css";
 import { useLocation } from 'react-router-dom';
 
@@ -32,7 +32,7 @@ const updateIndex = (item) => {
     body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
-export function NavBar({user}) {
+export function NavBar({user, offset}) {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
@@ -160,15 +160,21 @@ export function NavBar({user}) {
     return (
         <div
             style={{
-                margin: 0,
                 backgroundColor: '#222222',
-                display: "flex",
-                padding: "0.2rem calc((100vw - 1000px) / 2)"
+                top: 0,
+                zIndex: 100,
+                position: offset !== 0 ? "fixed": undefined,
+                width: "100%"
             }}
         >
-            <div>
+            <div
+                style={{
+                    display: "flex",
+                    padding: "0.2rem calc((100vw - 1000px) / 2)"
+                }}
+            >
                 <Link
-                    style={{color: "#000"}}
+                    style={{color: "#000", textDecoration: 'none', padding: 5}}
                     to={"/"}>
                     <div
                         className="hover-underline-animation">
@@ -179,48 +185,52 @@ export function NavBar({user}) {
                         />
                     </div>
                 </Link>
-            </div>
-            <div
-                style={{
-                    color: "#fff",
-                    borderColor: "#fff",
-                }}
-                onClick={() => {
-                    updateExpanded(!expand);
-                }}
-            >
-                <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-            </div>
-            <div
-                style={{
-                    flex: 1,
-                    display: "flex",
-                    flexDirection: "row"
-                }}>
-                {title &&
-                <div>
-                    <Link
-                        to={root}
-                        onClick={() => {
-                            setLinkIdx(-1);
-                            updateExpanded(false)
-                        }}>
-                        <div className={"hover-underline-animation"}>
-                            <Typography style={
-                                linkIdx === -1 ? active_style: not_active_style} >
-                                {title}
-                            </Typography>
-                        </div>
-                    </Link>
+                <div
+                    style={{
+                        color: "#fff",
+                        borderColor: "#fff",
+                        padding: 5
+                    }}
+                    onClick={() => {
+                        updateExpanded(!expand);
+                    }}
+                >
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
                 </div>
-                }
-                {navLinks && navLinks.map((i, idx) => (
-                    <div
-                        key={i.link}
-                    >
+                <div
+                    style={{
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "row"
+                    }}>
+                    {title &&
                         <Link
+                            style={{
+                                textDecoration: 'none',
+                                padding: 5
+                            }}
+                            to={root}
+                            onClick={() => {
+                                setLinkIdx(-1);
+                                updateExpanded(false)
+                            }}>
+                            <div className={"hover-underline-animation"}>
+                                <Typography style={
+                                    linkIdx === -1 ? active_style: not_active_style} >
+                                    {title}
+                                </Typography>
+                            </div>
+                        </Link>
+                    }
+                    {navLinks && navLinks.map((i, idx) => (
+                        <Link
+                            key={i.link}
+                            style={{
+                                textDecoration: 'none',
+                                padding: 5
+                            }}
                             to={i.link}
                             onClick={() => {
                                 setLinkIdx(idx);
@@ -234,35 +244,37 @@ export function NavBar({user}) {
                                 </Typography>
                             </div>
                         </Link>
-                    </div>
-                ))}
-                {
-                    user === null &&
-                    <div>
-                        <Link
-                            to={"/login"}
-                        >
-                            <Typography style={{...(location === "/login" ? active_style: not_active_style)}}>
+                    ))}
+                    <div style={{flex: 1}} />
+                    {
+                        user === null &&
+                        <div style={{padding: 5}}>
+                            <Button
+                                component={Link}
+                                variant={"contained"}
+                                style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
+                                to={"/login"}
+                            >
                                 Login
-                            </Typography>
-                        </Link>
-                    </div>
-                }
-                {
-                    user &&
-                    <div>
-                        <div
-                            style={{display: "grid", placeItems: "center"}}
-                        >
-                            <div style={{
-                                width: "35px",
-                                height: "35px",
-                                borderRadius: "100%",
-                                backgroundColor: "gold"
-                            }}/>
+                            </Button>
                         </div>
-                    </div>
-                }
+                    }
+                    {
+                        user &&
+                        <div>
+                            <div
+                                style={{display: "grid", placeItems: "center"}}
+                            >
+                                <div style={{
+                                    width: "35px",
+                                    height: "35px",
+                                    borderRadius: "100%",
+                                    backgroundColor: "gold"
+                                }}/>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     );
