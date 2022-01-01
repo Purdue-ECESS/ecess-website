@@ -49,7 +49,6 @@ export function LoginPage({setUser}) {
                         await auth.setPersistence(browserLocalPersistence)
                         try {
                             const cred: UserCredential = await signInWithEmailAndPassword(auth, email, password);
-                            console.log(auth.currentUser);
                             setUser(cred.user);
                         }
                         catch (e) {

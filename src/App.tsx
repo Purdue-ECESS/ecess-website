@@ -12,7 +12,7 @@ import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
 import React, {useEffect, useState} from "react";
-import {Box, ThemeProvider, Typography} from "@material-ui/core";
+import {Box, CircularProgress, ThemeProvider, Typography} from "@material-ui/core";
 import {NavBar} from "./components/theme/nav_bar";
 import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
@@ -53,17 +53,16 @@ function App() {
                 setOffset(3);
             }
         }
-        if (user === undefined) {
-            const auth = getAuth();
-            console.log(auth.currentUser);
-            setUser(auth.currentUser);
-        }
     }, [user]);
+    const auth = getAuth();
+    auth.onAuthStateChanged((user) => {
+        setUser(user);
+    })
     return (
         <ThemeProvider theme={ECESSTheme} >
             <Router>
                 <Box boxShadow={offset} className={'sticky-top'} >
-                    <NavBar />
+                    <NavBar user={user} />
                 </Box>
                 <Switch>
                     {/*ECESS Pages*/}
@@ -90,9 +89,14 @@ function App() {
                     {/* Login Page */}
                     {user ?
                         <Redirect exact path={"/login"} to={"/dashboard"} /> :
-                        <Route exact path={"/login"}
-                               render={(props) => <LoginPage setUser={setUser} {...props} />}
-                        />
+                            user === undefined ?
+                                <div style={{ display: 'grid', width: "100%", placeItems: "center" , margin: 20}}>
+                                    <CircularProgress />
+                                </div>
+                                :
+                                <Route exact path={"/login"}
+                                       render={(props) => <LoginPage setUser={setUser} {...props} />}
+                                />
                     }
 
                     {/*Dashboard Page*/}

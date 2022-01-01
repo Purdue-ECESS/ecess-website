@@ -4,8 +4,9 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
-import {Typography} from "@material-ui/core";
-import "../../styles/navbar.css";
+import {Button, Typography} from "@material-ui/core";
+import "src/styles/navbar.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from 'react-router-dom';
 
 const getLinkIdxByPathName = (location, navLinks) => {
@@ -35,13 +36,10 @@ const updateIndex = (item) => {
     body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
-export function NavBar() {
-    const [navColour, updateNavbar] = useState(false);
+export function NavBar({user}) {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
-    let sUsrAg = navigator.userAgent;
-    const isFirefox = sUsrAg.indexOf("Firefox") > -1;
 
     const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
@@ -117,13 +115,7 @@ export function NavBar() {
             }
         },
         {link: '/spark', label: 'Spark Challenge', onClick: () => {
-                if (isFirefox) {
-                    // window.location.href = '/spark';
-                    setSparkPage();
-                }
-                else {
-                    setSparkPage();
-                }
+                setSparkPage();
             }
         },
         {link: '/wece', label: 'WECE', dropdown: WECE_NAV_LINKS, onClick: () => {
@@ -150,16 +142,6 @@ export function NavBar() {
         setLinkIdx(getLinkIdxByPathName(location, newNavLinks));
     }
 
-    function scrollHandler() {
-        if (window.scrollY >= 20) {
-            updateNavbar(true);
-        } else {
-            updateNavbar(false);
-        }
-    }
-
-    window.addEventListener("scroll", scrollHandler);
-
     useEffect(() => {
         return history.listen(location => {
             const pathname = location.pathname;
@@ -184,10 +166,9 @@ export function NavBar() {
         <Navbar
             expanded={expand}
             expand="md"
-            className={navColour ? "sticky" : "navbar"}
+            className={"sticky"}
             style={{padding: 0, margin: 0, backgroundColor: '#222222'}}
         >
-            <Container>
                 <Navbar.Brand>
                     <Nav.Link
                         style={{color: "#000"}}
@@ -207,7 +188,6 @@ export function NavBar() {
                         color: "#fff",
                         borderColor: "#fff",
                     }}
-
                     aria-controls="responsive-navbar-nav"
                     onClick={() => {
                         updateExpanded(!expand);
@@ -217,22 +197,17 @@ export function NavBar() {
                     <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
                     <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
                 </Navbar.Toggle>
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ml-auto" defaultActiveKey="#home">
-                        {title ?
+                <Navbar.Collapse id="responsive-navbar-nav" >
+                    <Nav>
+                        {title &&
                             <Nav.Item>
                                 <Nav.Link
                                     className="hover-underline-animation"
                                     as={Link}
                                     to={root}
                                     onClick={() => {
-                                        // if (root === "/spark" && isFirefox) {
-                                        //     window.location.href = "/spark";
-                                        // }
-                                        // {
                                         setLinkIdx(-1);
                                         updateExpanded(false)
-                                        // }
                                     }}
                                 >
                                     <Typography style={
@@ -240,14 +215,11 @@ export function NavBar() {
                                         {title}
                                     </Typography>
                                 </Nav.Link>
-                            </Nav.Item>: <></>
+                            </Nav.Item>
                         }
                         {navLinks && navLinks.map((i, idx) => (
                             <Nav.Item
                                 key={i.link}
-                                style={{
-                                    transition: '1s ease-in'
-                                }}
                             >
                                 <Nav.Link
                                     className="hover-underline-animation"
@@ -265,9 +237,27 @@ export function NavBar() {
                                 </Nav.Link>
                             </Nav.Item>
                         ))}
+                        {
+                            user === null &&
+                            <Nav.Item className="ml-auto">
+                                <Nav.Link>
+                                    <Button variant={"contained"}>Login</Button>
+                                </Nav.Link>
+                            </Nav.Item>
+                        }
+                        {
+                            user &&
+                            <Nav.Item className={"mr-auto"}>
+                                <Nav.Link
+                                >
+                                    <Typography style={not_active_style}>
+                                        User Logged In
+                                    </Typography>
+                                </Nav.Link>
+                            </Nav.Item>
+                        }
                     </Nav>
                 </Navbar.Collapse>
-            </Container>
         </Navbar>
     );
 }

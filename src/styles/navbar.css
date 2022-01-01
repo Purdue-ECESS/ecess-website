@@ -1,7 +1,7 @@
 /*https://www.30secondsofcode.org/css/s/hover-underline-animation*/
 
 .hover-underline-animation {
-    display: inline-block;
+    /*display: inline-block;*/
     position: relative;
     color: #fff;
 }
