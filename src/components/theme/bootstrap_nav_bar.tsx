@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
 import "src/styles/bootstrap_navbar.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from 'react-router-dom';
 
 const getLinkIdxByPathName = (location, navLinks) => {
@@ -32,7 +35,7 @@ const updateIndex = (item) => {
     body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
-export function NavBar({user}) {
+export function BootstrapNavBar({user}) {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
@@ -127,7 +130,7 @@ export function NavBar({user}) {
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
         (x.startsWith('/wece') ? WECE_NAV_LINKS:
             (x.startsWith('/spark') ? SPARK_NAV_LINKS:
-                ECESS_NAV_LINKS));
+            ECESS_NAV_LINKS));
 
     const [navLinks, setNavLinks] = useState(undefined);
     const [linkIdx, setLinkIdx] = useState(-1);
@@ -136,6 +139,7 @@ export function NavBar({user}) {
         setNavLinks(newNavLinks);
         setLinkIdx(getLinkIdxByPathName(location, newNavLinks));
     }
+    console.log({location});
 
     useEffect(() => {
         return history.listen(location => {
@@ -158,113 +162,111 @@ export function NavBar({user}) {
     }
 
     return (
-        <div
-            style={{
-                margin: 0,
-                backgroundColor: '#222222',
-                display: "flex",
-                padding: "0.2rem calc((100vw - 1000px) / 2)"
-            }}
+        <Navbar
+            expanded={expand}
+            expand="md"
+            className={"sticky"}
+            style={{padding: 0, margin: 0, backgroundColor: '#222222', maxWidth: "100%", overflow: "scroll"}}
         >
-            <div>
-                <Link
-                    style={{color: "#000"}}
-                    to={"/"}>
-                    <div
-                        className="hover-underline-animation">
+                <Navbar.Brand>
+                    <Nav.Link
+                        style={{color: "#000"}}
+                        className="hover-underline-animation"
+                        as={Link}
+                        to={"/"}
+                    >
                         <img
                             width={120}
                             src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
                             alt="home pic"
                         />
-                    </div>
-                </Link>
-            </div>
-            <div
-                style={{
-                    color: "#fff",
-                    borderColor: "#fff",
-                }}
-                onClick={() => {
-                    updateExpanded(!expand);
-                }}
-            >
-                <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-            </div>
-            <div
-                style={{
-                    flex: 1,
-                    display: "flex",
-                    flexDirection: "row"
-                }}>
-                {title &&
-                <div>
-                    <Link
-                        to={root}
-                        onClick={() => {
-                            setLinkIdx(-1);
-                            updateExpanded(false)
-                        }}>
-                        <div className={"hover-underline-animation"}>
-                            <Typography style={
-                                linkIdx === -1 ? active_style: not_active_style} >
-                                {title}
-                            </Typography>
-                        </div>
-                    </Link>
-                </div>
-                }
-                {navLinks && navLinks.map((i, idx) => (
-                    <div
-                        key={i.link}
-                    >
-                        <Link
-                            to={i.link}
-                            onClick={() => {
-                                setLinkIdx(idx);
-                                i.onClick();
-                                updateExpanded(false);
-                            }}>
-                            <div
-                                className="hover-underline-animation">
-                                <Typography style={{...(linkIdx === idx ? active_style: not_active_style), "whiteSpace": "nowrap"}}>
-                                    {i.label}
-                                </Typography>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-                {
-                    user === null &&
-                    <div>
-                        <Link
-                            to={"/login"}
-                        >
-                            <Typography style={{...(location === "/login" ? active_style: not_active_style)}}>
-                                Login
-                            </Typography>
-                        </Link>
-                    </div>
-                }
-                {
-                    user &&
-                    <div>
-                        <div
-                            style={{display: "grid", placeItems: "center"}}
-                        >
-                            <div style={{
-                                width: "35px",
-                                height: "35px",
-                                borderRadius: "100%",
-                                backgroundColor: "gold"
-                            }}/>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
+                    </Nav.Link>
+                </Navbar.Brand>
+                <Navbar.Toggle
+                    style={{
+                        color: "#fff",
+                        borderColor: "#fff",
+                    }}
+                    aria-controls="responsive-navbar-nav"
+                    onClick={() => {
+                        updateExpanded(!expand);
+                    }}
+                >
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                </Navbar.Toggle>
+                <Navbar.Collapse id="responsive-navbar-nav" >
+                    <Nav>
+                        {title &&
+                            <Nav.Item>
+                                <Nav.Link
+                                    className="hover-underline-animation"
+                                    as={Link}
+                                    to={root}
+                                    onClick={() => {
+                                        setLinkIdx(-1);
+                                        updateExpanded(false)
+                                    }}
+                                >
+                                    <Typography style={
+                                        linkIdx === -1 ? active_style: not_active_style} >
+                                        {title}
+                                    </Typography>
+                                </Nav.Link>
+                            </Nav.Item>
+                        }
+                        {navLinks && navLinks.map((i, idx) => (
+                            <Nav.Item
+                                key={i.link}
+                            >
+                                <Nav.Link
+                                    className="hover-underline-animation"
+                                    as={Link}
+                                    to={i.link}
+                                    onClick={() => {
+                                        setLinkIdx(idx);
+                                        i.onClick();
+                                        updateExpanded(false);
+                                    }}
+                                >
+                                    <Typography style={{...(linkIdx === idx ? active_style: not_active_style), "whiteSpace": "nowrap"}}>
+                                        {i.label}
+                                    </Typography>
+                                </Nav.Link>
+                            </Nav.Item>
+                        ))}
+                        {
+                            user === null &&
+                            <Nav.Item>
+                                <Nav.Link
+                                    as={Link}
+                                    to={"/login"}
+                                >
+                                    <Typography style={{...(location === "/login" ? active_style: not_active_style)}}>
+                                        Login
+                                    </Typography>
+                                </Nav.Link>
+                            </Nav.Item>
+                        }
+                        {
+                            user &&
+                            <Nav.Item>
+                                <Nav.Link
+                                    style={{display: "grid", placeItems: "center"}}
+                                >
+                                    <div style={{
+                                        width: "35px",
+                                        height: "35px",
+                                        borderRadius: "100%",
+                                        backgroundColor: "gold"
+                                    }}/>
+                                </Nav.Link>
+                            </Nav.Item>
+                        }
+                    </Nav>
+                </Navbar.Collapse>
+        </Navbar>
     );
 }
 

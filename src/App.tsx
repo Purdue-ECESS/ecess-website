@@ -12,8 +12,7 @@ import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
 import React, {useEffect, useState} from "react";
-import {Box, CircularProgress, ThemeProvider, Typography} from "@material-ui/core";
-import {NavBar} from "./components/theme/nav_bar";
+import {CircularProgress, ThemeProvider, Typography} from "@material-ui/core";
 import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";
@@ -25,6 +24,7 @@ import {LoginPage} from "./pages/login";
 import {DashboardIndex} from "./pages/dashboard/dashboard_index";
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
+import {NavBar} from "./components/theme/nav_bar";
 
 
 const firebaseConfig = {
@@ -60,9 +60,7 @@ function App() {
     return (
         <ThemeProvider theme={ECESSTheme} >
             <Router>
-                <Box boxShadow={offset} className={'sticky-top'} >
-                    <NavBar user={user} />
-                </Box>
+                <NavBar user={user} />
                 <Switch>
                     {/*ECESS Pages*/}
                     <Route exact path={"/"} component={ECESSHome}/>
