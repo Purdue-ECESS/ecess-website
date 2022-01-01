@@ -67,8 +67,6 @@ function App() {
                 <Switch>
                     {/*ECESS Pages*/}
                     <Route exact path={"/"} component={ECESSHome}/>
-                    <Route path={"/board"} component={EcessBoard}/>
-                    <Route path={"/committees"} component={ECESSCommittess}/>
                     <Route path={"/calendar"} component={ECESSCalendarPage}/>
 
                     {/*WECE Pages*/}

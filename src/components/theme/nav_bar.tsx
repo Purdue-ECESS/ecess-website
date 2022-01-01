@@ -8,6 +8,7 @@ import {Button, Typography} from "@material-ui/core";
 import "src/styles/navbar.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from 'react-router-dom';
+import {Form, FormControl} from "react-bootstrap";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -106,8 +107,6 @@ export function NavBar({user}) {
         {link: '/wece/members', label: 'Members', onClick: setWECEPage}
     ]
     const ECESS_NAV_LINKS = [
-        {link: '/board', label: 'Board', onClick:  setECESSPage},
-        {link: '/committees', label: 'Committees', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
         {link: '/ecea', label: 'Ambassadors', dropdown: AMBASSADOR_NAV_LINKS, onClick:  () => {
                 setAmbassadorPage();
@@ -167,7 +166,7 @@ export function NavBar({user}) {
             expanded={expand}
             expand="md"
             className={"sticky"}
-            style={{padding: 0, margin: 0, backgroundColor: '#222222'}}
+            style={{padding: 0, margin: 0, backgroundColor: '#222222', maxWidth: "100%", overflow: "scroll"}}
         >
                 <Navbar.Brand>
                     <Nav.Link
@@ -247,7 +246,7 @@ export function NavBar({user}) {
                         }
                         {
                             user &&
-                            <Nav.Item className={"mr-auto"}>
+                            <Nav.Item>
                                 <Nav.Link
                                 >
                                     <Typography style={not_active_style}>
