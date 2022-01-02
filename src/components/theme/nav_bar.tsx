@@ -242,7 +242,7 @@ export function NavBar({user}) {
                                 width: "35px",
                                 height: "35px",
                                 borderRadius: "100%",
-                                backgroundColor: "gold"
+                                backgroundImage: `url(https://avatars.dicebear.com/api/identicon/${user.email}.svg)`,
                             }}/>
                         </div>
                     }
