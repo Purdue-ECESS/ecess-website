@@ -163,20 +163,22 @@ export function NavBar({user}) {
                     </Link>
 
                     <div className={"hamburger-menu"}>
-                        <div
-                            className={"menu-block"}
-                            onClick={() => {
-                                updateExpanded(!expand);
-                            }}>
-                            <div className={"menu-line"}/>
-                            <div className={"menu-line"}/>
-                            <div className={"menu-line"}/>
+                        <div className={"space"}/>
+                        <div className={"parent-menu-block"}>
+                            <div
+                                className={"menu-block"}
+                                onClick={() => {
+                                    updateExpanded(!expand);
+                                }}>
+                                <div className={"menu-line"}/>
+                                <div className={"menu-line"}/>
+                                <div className={"menu-line"}/>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div
-                    className={"links"}>
+                <div className={expand ? "links-expanded": "links-not-expanded"}>
                     {title &&
                         <Link
                             className={"link"}
@@ -213,39 +215,39 @@ export function NavBar({user}) {
                         </Link>
                     ))}
                     <div style={{flex: 1}} />
+                    {
+                        user === null &&
+                        <div style={{padding: 5}}>
+                            <Button
+                                component={Link}
+                                variant={"contained"}
+                                style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
+                                to={"/login"}
+                            >
+                                Login
+                            </Button>
+                        </div>
+                    }
+                    {
+                        user &&
+                        <div
+                            style={{
+                                display: "grid",
+                                alignContent: "center",
+                                justifyContent: "center",
+                                height: "100%",
+                            }}>
+                            <div style={{
+                                margin: 5,
+                                width: "35px",
+                                height: "35px",
+                                borderRadius: "100%",
+                                backgroundColor: "gold"
+                            }}/>
+                        </div>
+                    }
                 </div>
 
-                {
-                    user === null &&
-                    <div style={{padding: 5}}>
-                        <Button
-                            component={Link}
-                            variant={"contained"}
-                            style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
-                            to={"/login"}
-                        >
-                            Login
-                        </Button>
-                    </div>
-                }
-                {
-                    user &&
-                    <div
-                        style={{
-                            display: "grid",
-                            alignContent: "center",
-                            justifyContent: "center",
-                            height: "100%",
-                        }}>
-                        <div style={{
-                            margin: 5,
-                            width: "35px",
-                            height: "35px",
-                            borderRadius: "100%",
-                            backgroundColor: "gold"
-                        }}/>
-                    </div>
-                }
             </div>
         </div>
     );
