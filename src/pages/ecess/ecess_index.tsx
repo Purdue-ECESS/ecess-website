@@ -6,7 +6,7 @@ import {WelcomeImage} from "src/components/screens/welcome";
 import Typewriter from "typewriter-effect";
 import ECESSTheme from "src/components/theme/mui/theme";
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
-import "src/styles/ecess_index.css"
+import "src/styles/ecess_index.sass"
 import {ecessApiCall} from "../../utils/api";
 import {EcessBoard} from "./ecess_board";
 import {ECESSCommittess} from "./ecess_committees";

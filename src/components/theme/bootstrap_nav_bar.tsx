@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
 import {Typography} from "@material-ui/core";
-import "src/styles/bootstrap_navbar.css";
+import "src/styles/bootstrap_navbar.sass";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from 'react-router-dom';
 

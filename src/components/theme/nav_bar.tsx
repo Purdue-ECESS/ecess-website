@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
 import {Button, Typography} from "@material-ui/core";
-import "src/styles/bootstrap_navbar.css";
+import "src/styles/bootstrap_navbar.sass";
 import { useLocation } from 'react-router-dom';
 
 const getLinkIdxByPathName = (location, navLinks) => {
@@ -145,67 +145,49 @@ export function NavBar({user}) {
         })
     }, [history, navLinks])
 
-    const active_style = {
-        backgroundColor: "#CEB888",
-        borderRadius: "15px 15px 15px 15px",
-        fontWeight: "bold",
-        padding: 5,
-        color: "#000"
-    };
-    const not_active_style = {
-        fontWeight: undefined,
-        padding: 5
-    }
-
     return (
         <div
-            style={{
-                backgroundColor: '#222222',
-                top: 0,
-                zIndex: 100,
-                position: "sticky",
-                width: "100%"
-            }}
-        >
-            <div
-                style={{
-                    display: "flex",
-                    padding: "0.2rem calc((100vw - 1000px) / 2)"
-                }}
-            >
-                <Link
-                    style={{color: "#000", textDecoration: 'none', padding: 5}}
-                    to={"/"}>
-                    <div
-                        className="hover-underline-animation">
-                        <img
-                            width={120}
-                            src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
-                            alt="home pic"
-                        />
+            className={"nav_bar"}>
+            <div className={"content"}>
+                <div className={"title-div"}>
+                    <Link
+                        className={"link"}
+                        to={"/"}>
+                        <div className="hover-underline-animation inactive-link">
+                            <img
+                                width={120}
+                                src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
+                                alt="home pic"
+                            />
+                        </div>
+                    </Link>
+
+                    <div className={"hamburger-menu"}>
+                        <div
+                            className={"menu-block"}
+                            onClick={() => {
+                                updateExpanded(!expand);
+                            }}>
+                            <div className={"menu-line"}/>
+                            <div className={"menu-line"}/>
+                            <div className={"menu-line"}/>
+                        </div>
                     </div>
-                </Link>
+                </div>
 
                 <div
-                    style={{
-                        flex: 1,
-                        display: "flex",
-                        flexDirection: "row"
-                    }}>
+                    className={"links"}>
                     {title &&
                         <Link
-                            style={{
-                                textDecoration: 'none',
-                                padding: 5
-                            }}
+                            className={"link"}
                             to={root}
                             onClick={() => {
                                 setLinkIdx(-1);
                                 updateExpanded(false)
                             }}>
                             <div className={"hover-underline-animation"}>
-                                <Typography style={
-                                    linkIdx === -1 ? active_style: not_active_style} >
+                                <Typography
+                                    className={(linkIdx === -1 ? "active-link": "inactive-link")}>
                                     {title}
                                 </Typography>
                             </div>
@@ -214,10 +196,7 @@ export function NavBar({user}) {
                     {navLinks && navLinks.map((i, idx) => (
                         <Link
                             key={i.link}
-                            style={{
-                                textDecoration: 'none',
-                                padding: 5
-                            }}
+                            className={"link"}
                             to={i.link}
                             onClick={() => {
                                 setLinkIdx(idx);
@@ -226,45 +205,31 @@ export function NavBar({user}) {
                             }}>
                             <div
                                 className="hover-underline-animation">
-                                <Typography style={{...(linkIdx === idx ? active_style: not_active_style), "whiteSpace": "nowrap"}}>
+                                <Typography
+                                    className={(linkIdx === idx ? "active-link": "inactive-link")}>
                                     {i.label}
                                 </Typography>
                             </div>
                         </Link>
                     ))}
                     <div style={{flex: 1}} />
-                    {
-                        user === null &&
-                        <div style={{padding: 5}}>
-                            <Button
-                                component={Link}
-                                variant={"contained"}
-                                style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
-                                to={"/login"}
-                            >
-                                Login
-                            </Button>
-                        </div>
-                    }
-                    {
-                        user &&
-                            <div
-                                style={{
-                                    display: "grid",
-                                    alignContent: "center",
-                                    justifyContent: "center",
-                                    height: "100%",
-                                }}>
-                                <div style={{
-                                    margin: 5,
-                                    width: "35px",
-                                    height: "35px",
-                                    borderRadius: "100%",
-                                    backgroundColor: "gold"
-                                }}/>
-                            </div>
-                    }
+                </div>
 
+                {
+                    user === null &&
+                    <div style={{padding: 5}}>
+                        <Button
+                            component={Link}
+                            variant={"contained"}
+                            style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
+                            to={"/login"}
+                        >
+                            Login
+                        </Button>
+                    </div>
+                }
+                {
+                    user &&
                     <div
                         style={{
                             display: "grid",
@@ -272,20 +237,15 @@ export function NavBar({user}) {
                             justifyContent: "center",
                             height: "100%",
                         }}>
-                        <div
-                            style={{
-                                color: "#fff",
-                                borderColor: "#fff",
-                            }}
-                            onClick={() => {
-                                updateExpanded(!expand);
-                            }}>
-                            <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                            <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                            <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                        </div>
+                        <div style={{
+                            margin: 5,
+                            width: "35px",
+                            height: "35px",
+                            borderRadius: "100%",
+                            backgroundColor: "gold"
+                        }}/>
                     </div>
-                </div>
+                }
             </div>
         </div>
     );

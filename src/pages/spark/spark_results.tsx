@@ -7,7 +7,7 @@ import {SparkTeam} from "../../components/widgets/spark_team";
 import {FloatYoutube} from "../../components/utils/float_youtube";
 import {FloatWebsite} from "../../components/utils/float_website";
 import {isMobile} from 'react-device-detect';
-import "../../styles/dark_click.css";
+import "../../styles/dark_click.sass";
 
 
 function ExportWinner(props) {
