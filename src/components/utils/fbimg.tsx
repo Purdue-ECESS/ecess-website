@@ -5,7 +5,8 @@ export function Fbimg(props) {
     const [src, setSrc] = useState(undefined);
     useEffect(() => {
         if (src === undefined) {
-            ecessApiCall("/bucket", undefined, {image: props.src}).then((response: any) => {
+            ecessApiCall("/bucket", undefined,
+                {image: props.src}, "https://ecess-api.matthewwen.com").then((response: any) => {
                 if (response?.image || undefined) {
                     setSrc(response.image);
                 }

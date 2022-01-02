@@ -1,0 +1,25 @@
+/*https://www.30secondsofcode.org/css/s/hover-underline-animation*/
+
+.hover-dark-underline-animation
+    display: inline-block
+    position: relative
+    color: #000
+
+
+.hover-dark-underline-animation:after
+    content: ''
+    position: absolute
+    width: 100%
+    transform: scaleX(0)
+    height: 3px
+    bottom: 0
+    left: 0
+    background-color: #000
+    transform-origin: bottom right
+    transition: transform 0.25s ease-out
+
+
+.hover-dark-underline-animation:hover:after
+    transform: scaleX(1)
+    transform-origin: bottom left
+

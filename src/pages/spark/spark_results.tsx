@@ -7,7 +7,7 @@ import {SparkTeam} from "../../components/widgets/spark_team";
 import {FloatYoutube} from "../../components/utils/float_youtube";
 import {FloatWebsite} from "../../components/utils/float_website";
 import {isMobile} from 'react-device-detect';
-import "../../styles/dark_click.css";
+import "../../styles/dark_click.sass";
 
 
 function ExportWinner(props) {
@@ -51,7 +51,7 @@ export function SparkResults() {
             const getLinks = async () => {
                 const response: any = await ecessApiCall("events", undefined, {
                     path: "events/12-11-2021-spark/"
-                }, "https://ecess-api.matthewwen.com/ecess");
+                });
                 response.forEach((item) => {
                     item.opacity = 1
                 })

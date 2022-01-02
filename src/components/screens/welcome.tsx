@@ -12,7 +12,7 @@ export function WelcomeImage(props: any) {
                     style={{
                         position: 'relative', width: "100%", minWidth: "500px", marginTop: "-10%"}}
                     src={picture}
-                    alt={"Welcome Page"} />
+                    alt={""} />
                 </div>
             }
             {

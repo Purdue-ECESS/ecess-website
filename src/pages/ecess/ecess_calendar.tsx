@@ -4,7 +4,7 @@ import CalendarEvent from "../../components/widgets/calendar_event";
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import '../../styles/calendar.css';
+import '../../styles/calendar.sass';
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     let url = "https://ecess-api.matthewwen.com/calendar/ambassadors/main"

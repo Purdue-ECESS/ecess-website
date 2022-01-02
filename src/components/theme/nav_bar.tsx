@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
-import {Typography} from "@material-ui/core";
-import "../../styles/navbar.css";
+import {Button, Typography} from "@material-ui/core";
+import "src/styles/bootstrap_navbar.sass";
 import { useLocation } from 'react-router-dom';
 
 const getLinkIdxByPathName = (location, navLinks) => {
@@ -35,13 +32,10 @@ const updateIndex = (item) => {
     body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
-export function NavBar() {
-    const [navColour, updateNavbar] = useState(false);
+export function NavBar({user}) {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
-    let sUsrAg = navigator.userAgent;
-    const isFirefox = sUsrAg.indexOf("Firefox") > -1;
 
     const getTitle = (x) => x.startsWith('/ecea') ? "Ambassadors" : (x.startsWith('/wece') ? 'Women in ECE': (x.startsWith("/spark") ? "Spark Challenge": undefined));
     const getRoot = (x) => x.startsWith('/ecea') ? "/ecea" : (x.startsWith('/wece') ? '/wece': (x.startsWith('/spark') ? "/spark": "/"));
@@ -109,7 +103,6 @@ export function NavBar() {
     ]
     const ECESS_NAV_LINKS = [
         {link: '/board', label: 'Board', onClick:  setECESSPage},
-        {link: '/committees', label: 'Committees', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
         {link: '/ecea', label: 'Ambassadors', dropdown: AMBASSADOR_NAV_LINKS, onClick:  () => {
                 setAmbassadorPage();
@@ -117,13 +110,7 @@ export function NavBar() {
             }
         },
         {link: '/spark', label: 'Spark Challenge', onClick: () => {
-                if (isFirefox) {
-                    // window.location.href = '/spark';
-                    setSparkPage();
-                }
-                else {
-                    setSparkPage();
-                }
+                setSparkPage();
             }
         },
         {link: '/wece', label: 'WECE', dropdown: WECE_NAV_LINKS, onClick: () => {
@@ -140,7 +127,7 @@ export function NavBar() {
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
         (x.startsWith('/wece') ? WECE_NAV_LINKS:
             (x.startsWith('/spark') ? SPARK_NAV_LINKS:
-            ECESS_NAV_LINKS));
+                ECESS_NAV_LINKS));
 
     const [navLinks, setNavLinks] = useState(undefined);
     const [linkIdx, setLinkIdx] = useState(-1);
@@ -150,16 +137,6 @@ export function NavBar() {
         setLinkIdx(getLinkIdxByPathName(location, newNavLinks));
     }
 
-    function scrollHandler() {
-        if (window.scrollY >= 20) {
-            updateNavbar(true);
-        } else {
-            updateNavbar(false);
-        }
-    }
-
-    window.addEventListener("scroll", scrollHandler);
-
     useEffect(() => {
         return history.listen(location => {
             const pathname = location.pathname;
@@ -168,107 +145,111 @@ export function NavBar() {
         })
     }, [history, navLinks])
 
-    const active_style = {
-        backgroundColor: "#CEB888",
-        borderRadius: "15px 15px 15px 15px",
-        fontWeight: "bold",
-        padding: 5,
-        color: "#000"
-    };
-    const not_active_style = {
-        fontWeight: undefined,
-        padding: 5
-    }
-
     return (
-        <Navbar
-            expanded={expand}
-            expand="md"
-            className={navColour ? "sticky" : "navbar"}
-            style={{padding: 0, margin: 0, backgroundColor: '#222222'}}
-        >
-            <Container>
-                <Navbar.Brand>
-                    <Nav.Link
-                        style={{color: "#000"}}
-                        className="hover-underline-animation"
-                        as={Link}
-                        to={"/"}
-                    >
-                        <img
-                            width={120}
-                            src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
-                            alt="home pic"
-                        />
-                    </Nav.Link>
-                </Navbar.Brand>
-                <Navbar.Toggle
-                    style={{
-                        color: "#fff",
-                        borderColor: "#fff",
-                    }}
+        <div
+            className={"nav_bar"}>
+            <div className={"content"}>
+                <div className={"title-div"}>
+                    <Link
+                        className={"link"}
+                        to={"/"}>
+                        <div className="hover-underline-animation inactive-link">
+                            <img
+                                width={120}
+                                src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
+                                alt="home pic"
+                            />
+                        </div>
+                    </Link>
 
-                    aria-controls="responsive-navbar-nav"
-                    onClick={() => {
-                        updateExpanded(!expand);
-                    }}
-                >
-                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                </Navbar.Toggle>
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ml-auto" defaultActiveKey="#home">
-                        {title ?
-                            <Nav.Item>
-                                <Nav.Link
-                                    className="hover-underline-animation"
-                                    as={Link}
-                                    to={root}
-                                    onClick={() => {
-                                        // if (root === "/spark" && isFirefox) {
-                                        //     window.location.href = "/spark";
-                                        // }
-                                        // {
-                                        setLinkIdx(-1);
-                                        updateExpanded(false)
-                                        // }
-                                    }}
-                                >
-                                    <Typography style={
-                                        linkIdx === -1 ? active_style: not_active_style} >
-                                        {title}
-                                    </Typography>
-                                </Nav.Link>
-                            </Nav.Item>: <></>
-                        }
-                        {navLinks && navLinks.map((i, idx) => (
-                            <Nav.Item
-                                key={i.link}
-                                style={{
-                                    transition: '1s ease-in'
-                                }}
+                    <div className={"hamburger-menu"}>
+                        <div className={"space"}/>
+                        <div className={"parent-menu-block"}>
+                            <div
+                                className={"menu-block"}
+                                onClick={() => {
+                                    updateExpanded(!expand);
+                                }}>
+                                <div className={"menu-line"}/>
+                                <div className={"menu-line"}/>
+                                <div className={"menu-line"}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={expand ? "links-expanded": "links-not-expanded"}>
+                    {title &&
+                        <Link
+                            className={"link"}
+                            to={root}
+                            onClick={() => {
+                                setLinkIdx(-1);
+                                updateExpanded(false)
+                            }}>
+                            <div className={"hover-underline-animation"}>
+                                <Typography
+                                    className={(linkIdx === -1 ? "active-link": "inactive-link")}>
+                                    {title}
+                                </Typography>
+                            </div>
+                        </Link>
+                    }
+                    {navLinks && navLinks.map((i, idx) => (
+                        <Link
+                            key={i.link}
+                            className={"link"}
+                            to={i.link}
+                            onClick={() => {
+                                setLinkIdx(idx);
+                                i.onClick();
+                                updateExpanded(false);
+                            }}>
+                            <div
+                                className="hover-underline-animation">
+                                <Typography
+                                    className={(linkIdx === idx ? "active-link": "inactive-link")}>
+                                    {i.label}
+                                </Typography>
+                            </div>
+                        </Link>
+                    ))}
+                    <div style={{flex: 1}} />
+                    {
+                        user === null &&
+                        <div style={{padding: 5}}>
+                            <Button
+                                component={Link}
+                                variant={"contained"}
+                                style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
+                                to={"/login"}
                             >
-                                <Nav.Link
-                                    className="hover-underline-animation"
-                                    as={Link}
-                                    to={i.link}
-                                    onClick={() => {
-                                        setLinkIdx(idx);
-                                        i.onClick();
-                                        updateExpanded(false);
-                                    }}
-                                >
-                                    <Typography style={{...(linkIdx === idx ? active_style: not_active_style), "whiteSpace": "nowrap"}}>
-                                        {i.label}
-                                    </Typography>
-                                </Nav.Link>
-                            </Nav.Item>
-                        ))}
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                                Login
+                            </Button>
+                        </div>
+                    }
+                    {
+                        user &&
+                        <div
+                            style={{
+                                display: "grid",
+                                alignContent: "center",
+                                justifyContent: "center",
+                                height: "100%",
+                            }}>
+                            <div style={{
+                                margin: 5,
+                                width: "35px",
+                                height: "35px",
+                                borderRadius: "100%",
+                                backgroundImage: `url(https://avatars.dicebear.com/api/identicon/${user.email}.svg)`,
+                            }}/>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
     );
 }
 

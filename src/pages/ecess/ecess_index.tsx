@@ -6,8 +6,10 @@ import {WelcomeImage} from "src/components/screens/welcome";
 import Typewriter from "typewriter-effect";
 import ECESSTheme from "src/components/theme/mui/theme";
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
-import "src/styles/ecess_index.css"
+import "src/styles/ecess_index.sass"
 import {ecessApiCall} from "../../utils/api";
+import {EcessBoard} from "./ecess_board";
+import {ECESSCommittess} from "./ecess_committees";
 
 
 const useStyles = makeStyles({
@@ -34,7 +36,7 @@ export function ECESSHome() {
         if (background === undefined) {
             ecessApiCall("bucket", undefined, {
                 image: "ecess_homescreen.jpg"
-            }).then((response: any) => {
+            }, "https://ecess-api.matthewwen.com").then((response: any) => {
                 setBackground(response.image);
             });
         }
@@ -79,13 +81,23 @@ export function ECESSHome() {
                     please fill out the interest form below or scan the QR code provided.
                     Committees are detailed in the Committees page of the Website. Thank you!
                 </Typography>
-                <Button href="https://docs.google.com/forms/d/e/1FAIpQLSdJiB-CY9fsSLUF1b204HNTQDN59xNzK5JYUp2Z7KxtybsWGg/viewform" target="_blank" color={"primary"}>
+                <Button
+                    style={{margin: 5}}
+                    variant="contained" href="https://docs.google.com/forms/d/e/1FAIpQLSdJiB-CY9fsSLUF1b204HNTQDN59xNzK5JYUp2Z7KxtybsWGg/viewform" target="_blank" color={"primary"}>
                     {"Apply Here!"}
                 </Button>
-                <Button href="https://docs.google.com/presentation/d/1i4AwbaDw5L7QFtBHDrKgNnoDBB-9ouSqy-YSwgM5oHM/edit?usp=sharing" target="_blank" color={"primary"}>
+                <Button
+                    style={{margin: 5}}
+                    variant={"contained"}
+                    href="https://docs.google.com/presentation/d/1i4AwbaDw5L7QFtBHDrKgNnoDBB-9ouSqy-YSwgM5oHM/edit?usp=sharing" target="_blank" color={"primary"}>
                     {"Callout Slides!"}
                 </Button>
             </div>
+
+            <Typography variant="h5" component="h2" style={{textAlign: "center", margin: 30}}>
+                Committees
+            </Typography>
+            <ECESSCommittess />
 
             <SocialMedia
                 materialClass={classes}
