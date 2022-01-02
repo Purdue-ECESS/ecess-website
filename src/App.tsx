@@ -61,7 +61,7 @@ function App() {
     return (
         <ThemeProvider theme={ECESSTheme} >
             <Router>
-                <NavBar user={user} offset={offset}/>
+                <NavBar user={user} />
                 <Switch>
                     {/*ECESS Pages*/}
                     <Route exact path={"/"} component={ECESSHome}/>

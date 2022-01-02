@@ -32,7 +32,7 @@ const updateIndex = (item) => {
     body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
-export function NavBar({user, offset}) {
+export function NavBar({user}) {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
@@ -163,7 +163,7 @@ export function NavBar({user, offset}) {
                 backgroundColor: '#222222',
                 top: 0,
                 zIndex: 100,
-                position: offset !== 0 ? "fixed": undefined,
+                position: "sticky",
                 width: "100%"
             }}
         >
@@ -185,20 +185,7 @@ export function NavBar({user, offset}) {
                         />
                     </div>
                 </Link>
-                <div
-                    style={{
-                        color: "#fff",
-                        borderColor: "#fff",
-                        padding: 5
-                    }}
-                    onClick={() => {
-                        updateExpanded(!expand);
-                    }}
-                >
-                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                    <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
-                </div>
+
                 <div
                     style={{
                         flex: 1,
@@ -261,19 +248,43 @@ export function NavBar({user, offset}) {
                     }
                     {
                         user &&
-                        <div>
                             <div
-                                style={{display: "grid", placeItems: "center"}}
-                            >
+                                style={{
+                                    display: "grid",
+                                    alignContent: "center",
+                                    justifyContent: "center",
+                                    height: "100%",
+                                }}>
                                 <div style={{
+                                    margin: 5,
                                     width: "35px",
                                     height: "35px",
                                     borderRadius: "100%",
                                     backgroundColor: "gold"
                                 }}/>
                             </div>
-                        </div>
                     }
+
+                    <div
+                        style={{
+                            display: "grid",
+                            alignContent: "center",
+                            justifyContent: "center",
+                            height: "100%",
+                        }}>
+                        <div
+                            style={{
+                                color: "#fff",
+                                borderColor: "#fff",
+                            }}
+                            onClick={() => {
+                                updateExpanded(!expand);
+                            }}>
+                            <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                            <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                            <div style={{backgroundColor: "white", height: 2, width: 20, margin: 5}}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
