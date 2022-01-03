@@ -1,20 +1,29 @@
 /*https://www.30secondsofcode.org/css/s/hover-underline-animation*/
 
-.hover-underline-animation
-    /*display: inline-block*/
-    position: relative
-    color: #fff
+.parent-menu-dropdown
+    margin: 0 5px
+    padding: 0
+    overflow: hidden
+
+    &:hover .menu-dropdown
+        display: block
 
     .menu-dropdown
         display: none
-        position: absolute
+        position: fixed
         z-index: 100
         background-color: #222222
         padding: 5px
         margin: 5px
 
-    &:hover .menu-dropdown
+    .menu-dropdown:hover
         display: block
+
+
+.hover-underline-animation
+    /*display: inline-block*/
+    position: relative
+    color: #fff
 
     .active-link
         background-color: #CEB888
@@ -94,6 +103,10 @@
                         margin: 5px
 
 @media screen and (max-width: 700px)
+    .hover-underline-animation
+        &:hover .menu-dropdown
+            display: none
+
     .nav_bar
         .title-div
             .hamburger-menu

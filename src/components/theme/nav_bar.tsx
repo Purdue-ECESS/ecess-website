@@ -101,6 +101,10 @@ export function NavBar({user}) {
     const WECE_NAV_LINKS = [
         {link: '/wece/members', label: 'Members', onClick: setWECEPage}
     ]
+    const SPARK_NAV_LINKS = [
+        {link: '/spark/schedule', label: 'Schedule', onClick: setSparkPage},
+        {link: '/spark/results', label: 'Results', onClick: setSparkPage},
+    ]
     const ECESS_NAV_LINKS = [
         {link: '/board', label: 'Board', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
@@ -109,7 +113,7 @@ export function NavBar({user}) {
                 setLinkIdx(-1);
             }
         },
-        {link: '/spark', label: 'Spark Challenge', onClick: () => {
+        {link: '/spark', label: 'Spark Challenge', dropdown: SPARK_NAV_LINKS, onClick: () => {
                 setSparkPage();
             }
         },
@@ -118,10 +122,6 @@ export function NavBar({user}) {
                 setLinkIdx(-1);
             }
         },
-    ]
-    const SPARK_NAV_LINKS = [
-        {link: '/spark/schedule', label: 'Schedule', onClick: setSparkPage},
-        {link: '/spark/results', label: 'Results', onClick: setSparkPage},
     ]
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :
@@ -199,7 +199,7 @@ export function NavBar({user}) {
                         navLinks && navLinks.map((i, idx) => (
                             <div
                                 key={i.link}
-                                style={{margin: "0 5px" , padding: 0, overflow: "hidden"}}>
+                                className={"parent-menu-dropdown"}>
                                 <div className="hover-underline-animation">
                                     <Link
                                         className={"link"}
@@ -218,7 +218,9 @@ export function NavBar({user}) {
                                         i.dropdown &&
                                         <div className={"menu-dropdown"}>
                                             {i.dropdown.map((i_sub, i_sub_idx) => (
-                                                <div key={i_sub.link}>
+                                                <div
+                                                    className={"hover-underline-animation"}
+                                                    key={i_sub.link}>
                                                     <Link
                                                         className={"link"}
                                                         to={i_sub.link}
