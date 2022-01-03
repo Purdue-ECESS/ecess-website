@@ -5,6 +5,17 @@
     position: relative
     color: #fff
 
+    .menu-dropdown
+        display: none
+        position: absolute
+        z-index: 100
+        background-color: #222222
+        padding: 5px
+        margin: 5px
+
+    &:hover .menu-dropdown
+        display: block
+
     .active-link
         background-color: #CEB888
         border-radius: 15px 15px 15px 15px
@@ -46,7 +57,6 @@
     .link
         color: #000
         text-decoration: none
-        padding: 5px
 
     .content
         display: flex
@@ -95,18 +105,18 @@
             text-align: left
 
             .links-expanded, .links-not-expanded
+                position: fixed
+                overflow: hidden
+                width: 100%
+                background-color: #222222
                 display: block
-                margin: 5px
                 flex: unset
                 flex-direction: unset
 
             .links-not-expanded
-                position: relative
                 max-height: 0
                 transition: max-height 0.5s ease-out
 
             .links-expanded
-                float: left
-                position: relative
                 max-height: 100vh
                 transition: max-height 0.5s ease-in

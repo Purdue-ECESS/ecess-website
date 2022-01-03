@@ -146,21 +146,22 @@ export function NavBar({user}) {
     }, [history, navLinks])
 
     return (
-        <div
-            className={"nav_bar"}>
+        <div className={"nav_bar"}>
             <div className={"content"}>
                 <div className={"title-div"}>
-                    <Link
-                        className={"link"}
-                        to={"/"}>
-                        <div className="hover-underline-animation inactive-link">
-                            <img
-                                width={120}
-                                src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
-                                alt="home pic"
-                            />
-                        </div>
-                    </Link>
+                    <div style={{margin: "0 5px"}}>
+                        <Link
+                            className={"link"}
+                            to={"/"}>
+                            <div className="hover-underline-animation inactive-link">
+                                <img
+                                    width={120}
+                                    src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
+                                    alt="home pic"
+                                />
+                            </div>
+                        </Link>
+                    </div>
 
                     <div className={"hamburger-menu"}>
                         <div className={"space"}/>
@@ -177,43 +178,64 @@ export function NavBar({user}) {
                         </div>
                     </div>
                 </div>
-
                 <div className={expand ? "links-expanded": "links-not-expanded"}>
                     {title &&
-                        <Link
-                            className={"link"}
-                            to={root}
-                            onClick={() => {
-                                setLinkIdx(-1);
-                                updateExpanded(false)
-                            }}>
-                            <div className={"hover-underline-animation"}>
-                                <Typography
-                                    className={(linkIdx === -1 ? "active-link": "inactive-link")}>
-                                    {title}
-                                </Typography>
-                            </div>
-                        </Link>
+                    <Link
+                        className={"link"}
+                        to={root}
+                        onClick={() => {
+                            setLinkIdx(-1);
+                            updateExpanded(false)
+                        }}>
+                        <div className={"hover-underline-animation"}>
+                            <Typography
+                                className={(linkIdx === -1 ? "active-link": "inactive-link")}>
+                                {title}
+                            </Typography>
+                        </div>
+                    </Link>
                     }
-                    {navLinks && navLinks.map((i, idx) => (
-                        <Link
-                            key={i.link}
-                            className={"link"}
-                            to={i.link}
-                            onClick={() => {
-                                setLinkIdx(idx);
-                                i.onClick();
-                                updateExpanded(false);
-                            }}>
+                    {
+                        navLinks && navLinks.map((i, idx) => (
                             <div
-                                className="hover-underline-animation">
-                                <Typography
-                                    className={(linkIdx === idx ? "active-link": "inactive-link")}>
-                                    {i.label}
-                                </Typography>
+                                key={i.link}
+                                style={{margin: "0 5px" , padding: 0, overflow: "hidden"}}>
+                                <div className="hover-underline-animation">
+                                    <Link
+                                        className={"link"}
+                                        to={i.link}
+                                        onClick={() => {
+                                            setLinkIdx(idx);
+                                            i.onClick();
+                                            updateExpanded(false);
+                                        }}>
+                                        <Typography
+                                            className={(linkIdx === idx ? "active-link": "inactive-link")}>
+                                            {i.label}
+                                        </Typography>
+                                    </Link>
+                                    {
+                                        i.dropdown &&
+                                        <div className={"menu-dropdown"}>
+                                            {i.dropdown.map((i_sub, i_sub_idx) => (
+                                                <div key={i_sub.link}>
+                                                    <Link
+                                                        className={"link"}
+                                                        to={i_sub.link}
+                                                        onClick={() => {
+                                                            setLinkIdx(i_sub_idx);
+                                                            i.onClick();
+                                                            updateExpanded(false);
+                                                        }}>
+                                                        <Typography>{i_sub.label}</Typography>
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                        </Link>
-                    ))}
+                        ))}
                     <div style={{flex: 1}} />
                     {
                         user === null &&
@@ -238,7 +260,6 @@ export function NavBar({user}) {
                                 height: "100%",
                             }}>
                             <div style={{
-                                margin: 5,
                                 width: "35px",
                                 height: "35px",
                                 borderRadius: "100%",
