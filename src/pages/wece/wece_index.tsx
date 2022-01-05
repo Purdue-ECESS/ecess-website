@@ -1,10 +1,10 @@
-import {WelcomeImage} from "../../components/screens/welcome";
-import {SocialMedia} from "../../components/widgets/social_media";
+import {WelcomeImage} from "src/components/screens/welcome";
+import {SocialMedia} from "src/components/widgets/social_media";
 import {makeStyles} from "@material-ui/styles";
 import React, {useEffect, useState} from "react";
-import ECESSTheme from "../../components/theme/mui/theme";
-import {DarkTypography} from "../../components/theme/mui/dark_typography";
-import {ecessApiCall} from "../../utils/api";
+import ECESSTheme from "src/components/theme/mui/theme";
+import {DarkTypography} from "src/components/theme/mui/dark_typography";
+import {ecessApiCall} from "src/utils/api";
 
 const useStyles = makeStyles({
     root: {
@@ -28,8 +28,8 @@ export function WECEHome(props: any) {
     const classes = useStyles(ECESSTheme);
     useEffect(() => {
         if (background === undefined) {
-            ecessApiCall("bucket", undefined,
-                {image: "generic-purdue-banner.jpg"}, "https://ecess-api.matthewwen.com")
+            ecessApiCall("img", undefined,
+                {path: "generic-purdue-banner.jpg", minSize: 1080})
                 .then((response: any) => {
                 setBackground(response.image);
             })

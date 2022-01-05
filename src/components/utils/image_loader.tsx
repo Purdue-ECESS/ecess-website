@@ -1,7 +1,7 @@
 
 // https://stackoverflow.com/questions/39092859/get-dimensions-of-image-with-react/
 import React from "react";
-import {ecessApiCall} from "../../utils/api";
+import {ecessApiCall} from "src/utils/api";
 
 type ImageLoaderProp = {
     style?: any,
@@ -30,10 +30,7 @@ export class ImageLoader extends React.Component<ImageLoaderProp, ImageLoaderSta
     }
 
     getImageFromFb() {
-        ecessApiCall("bucket", undefined,
-            {image: this.props.src},
-            "https://ecess-api.matthewwen.com"
-        ).then((item: any) => {
+        ecessApiCall("img", undefined, {path: this.props.src, minSize: 240}).then((item: any) => {
             this.setState({...this.state, src: item.image})
         })
     }

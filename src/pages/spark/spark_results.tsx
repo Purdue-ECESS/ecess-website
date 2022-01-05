@@ -50,7 +50,7 @@ export function SparkResults() {
         if (photos === undefined) {
             const getLinks = async () => {
                 const response: any = await ecessApiCall("events", undefined, {
-                    path: "events/12-11-2021-spark/"
+                    path: "events/12-11-2021-spark/", minSize: 240
                 });
                 response.forEach((item) => {
                     item.opacity = 1
