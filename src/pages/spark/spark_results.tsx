@@ -3,11 +3,11 @@ import React, {useEffect, useState, useLayoutEffect} from "react";
 import {Typography} from "@material-ui/core";
 import {ImageGallery} from "src/components/screens/image_gallery";
 import {ecessApiCall} from "src/utils/api";
-import {SparkTeam} from "../../components/widgets/spark_team";
-import {FloatYoutube} from "../../components/utils/float_youtube";
-import {FloatWebsite} from "../../components/utils/float_website";
+import {SparkTeam} from "src/components/widgets/spark_team";
+import {FloatYoutube} from "src/components/utils/float_youtube";
+import {FloatWebsite} from "src/components/utils/float_website";
 import {isMobile} from 'react-device-detect';
-import "../../styles/dark_click.sass";
+import "src/styles/dark_click.sass";
 
 
 function ExportWinner(props) {
