@@ -11,7 +11,7 @@ import ECESSCalendarPage from "./pages/ecess/ecess_calendar";
 import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {CircularProgress, ThemeProvider, Typography} from "@material-ui/core";
 import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
@@ -42,6 +42,8 @@ function App() {
     initializeApp(firebaseConfig);
     const [offset, setOffset] = useState(0);
     const [user, setUser] = useState(undefined);
+    const navRef = useRef(null);
+    const [marginTop, setMarginTop] = useState(0);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -54,6 +56,16 @@ function App() {
             }
         }
     }, [user]);
+    useLayoutEffect(() => {
+        function updateSize() {
+            if (navRef) {
+                setMarginTop(window.innerWidth > 700 ? 0 : (navRef?.current?.clientHeight || 0))
+            }
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
     const auth = getAuth();
     auth.onAuthStateChanged((user) => {
         setUser(user);
@@ -61,27 +73,28 @@ function App() {
     return (
         <ThemeProvider theme={ECESSTheme} >
             <Router>
-                <NavBar user={user} />
+                <NavBar navRef={navRef} user={user} />
+                <div style={{height: marginTop}} />
                 <Switch>
                     {/*ECESS Pages*/}
-                    <Route exact path={"/"} component={ECESSHome}/>
-                    <Route path={"/board"} component={EcessBoard}/>
-                    <Route path={"/calendar"} component={ECESSCalendarPage}/>
+                    <Route exact path={"/"} render={(props) => <ECESSHome {...props}/> } />
+                    <Route path={"/board"} render={(props) => <EcessBoard {...props}/> } />
+                    <Route path={"/calendar"} render={(props) => <ECESSCalendarPage {...props}/> } />
 
                     {/*WECE Pages*/}
-                    <Route exact path={"/wece"} component={WECEHome}/>
-                    <Route path={"/wece/members"} component={WECEMembers}/>
+                    <Route exact path={"/wece"} render={(props) => <WECEHome {...props}/> } />
+                    <Route path={"/wece/members"} render={(props) => <WECEMembers {...props}/> } />
 
                     {/*ECEA Pages*/}
-                    <Route exact path={"/ecea"} component={ECEAIndexPage}/>
-                    <Route path={"/ecea/fun"} component={ECEAFunPage}/>
-                    <Route path={"/ecea/ece"} component={ECEAECEPage}/>
-                    <Route path={"/ecea/members"} component={AboutPage}/>
+                    <Route exact path={"/ecea"} render={(props) => <ECEAIndexPage {...props}/> } />
+                    <Route path={"/ecea/fun"} render={(props) => <ECEAFunPage {...props}/> } />
+                    <Route path={"/ecea/ece"} render={(props) => <ECEAECEPage {...props}/> } />
+                    <Route path={"/ecea/members"} render={(props) => <AboutPage {...props}/> } />
 
                     {/*Spark Page*/}
-                    <Route exact path={"/spark"} component={SparkIndex} />
-                    <Route path={"/spark/schedule"} component={SparkSchedule}/>
-                    <Route path={"/spark/results"} component={SparkResults}/>
+                    <Route exact path={"/spark"} render={(props) => <SparkIndex {...props} /> } />
+                    <Route path={"/spark/schedule"} render={(props) => <SparkSchedule {...props}/> } />
+                    <Route path={"/spark/results"} render={(props) => <SparkResults {...props}/> } />
 
                     {/* Login Page */}
                     {user ?

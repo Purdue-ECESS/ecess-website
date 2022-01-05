@@ -32,7 +32,7 @@ const updateIndex = (item) => {
     body.style.backgroundColor = item.backgroundColor || "#333";
 }
 
-export function NavBar({user}) {
+export function NavBar({user, navRef}) {
     const [expand, updateExpanded] = useState(false);
     const location = useLocation().pathname;
     const history = useHistory();
@@ -146,7 +146,7 @@ export function NavBar({user}) {
     }, [history, navLinks])
 
     return (
-        <div className={"nav_bar"}>
+        <div className={"nav_bar"} ref={navRef}>
             <div className={"content"}>
                 <div className={"title-div"}>
                     <div style={{margin: "0 5px"}}>
@@ -205,9 +205,9 @@ export function NavBar({user}) {
                                         className={"link"}
                                         to={i.link}
                                         onClick={() => {
+                                            updateExpanded(false);
                                             setLinkIdx(idx);
                                             i.onClick();
-                                            updateExpanded(false);
                                         }}>
                                         <Typography
                                             className={(linkIdx === idx ? "active-link": "inactive-link")}>
@@ -225,9 +225,9 @@ export function NavBar({user}) {
                                                         className={"link"}
                                                         to={i_sub.link}
                                                         onClick={() => {
+                                                            updateExpanded(false);
                                                             setLinkIdx(i_sub_idx);
                                                             i.onClick();
-                                                            updateExpanded(false);
                                                         }}>
                                                         <Typography>{i_sub.label}</Typography>
                                                     </Link>
