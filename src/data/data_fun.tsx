@@ -27,7 +27,7 @@ export const FUN = [
             who came to the event.
         `,
         'photos': [
-            {"ref": "events/9-21-2021-welcome-back-week/grad-school-panel/IMG_1145.JPG", col: 4},
+            {"ref": "events/9-21-2021-welcome-back-week/grad-school-panel/IMG_1145.JPG", col: 2},
             {"ref": "events/9-21-2021-welcome-back-week/grad-school-panel/IMG_1144.JPG", col: 2},
             {"ref": "events/9-21-2021-welcome-back-week/grad-school-panel/IMG_1146.JPG", col: 2},
             {"ref": "events/9-21-2021-welcome-back-week/grad-school-panel/IMG_1148.JPG", col: 2},
@@ -107,16 +107,16 @@ export const FUN = [
             {"ref": "events/4-16-2021-headshots/6a656652329d2e88aa19b9b164de27d2.jpg", col: 2},
             {"ref": "events/4-16-2021-headshots/bec6f0aea811a44340b873cc7ce57e77.jpg", col: 2},
             {"ref": "events/4-16-2021-headshots/e7282ff2de26dd6e5176b2e6ca44d6b8.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/1f20bbc7d9baad58653ad6b1ec2b43a9.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/7db2a11d9389595c9f51c7e8a97668b0.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/f54caa40ea454855e8f6a0448173f63f.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/26fa08f9c36cb813d8778bb19f83a7ae.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/cc7c44ff3d31623625564f403e188283.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/f915717ee4d52f70f92c2590efeee44f.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/447cc5c569de3ac912d4bb408df4af65.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/96d464123fa16923deecee14f22ee333.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg", col: 2},
-            {"ref": "events/4-16-2021-headshots/a608146ee287fc344b5e734abcdb4fd7.jpg", col: 2}
+            // {"ref": "events/4-16-2021-headshots/1f20bbc7d9baad58653ad6b1ec2b43a9.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/7db2a11d9389595c9f51c7e8a97668b0.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/f54caa40ea454855e8f6a0448173f63f.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/26fa08f9c36cb813d8778bb19f83a7ae.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/cc7c44ff3d31623625564f403e188283.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/f915717ee4d52f70f92c2590efeee44f.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/447cc5c569de3ac912d4bb408df4af65.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/96d464123fa16923deecee14f22ee333.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg", col: 2},
+            // {"ref": "events/4-16-2021-headshots/a608146ee287fc344b5e734abcdb4fd7.jpg", col: 2}
         ]
     }
 ]
