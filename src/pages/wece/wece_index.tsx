@@ -29,7 +29,7 @@ export function WECEHome(props: any) {
     useEffect(() => {
         if (background === undefined) {
             ecessApiCall("img", undefined,
-                {path: "generic-purdue-banner.jpg", minSize: 1080})
+                {path: "wece.png", minSize: 1080})
                 .then((response: any) => {
                 setBackground(response.image);
             })
