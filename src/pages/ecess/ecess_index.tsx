@@ -33,11 +33,9 @@ export function ECESSHome() {
     const classes = useStyles(ECESSTheme);
     useEffect(() => {
         if (background === undefined) {
-            console.log("getting api call");
             ecessApiCall("img", undefined, {
                 path: "ecess_homescreen.jpg"
             }).then((response: any) => {
-                console.log(response.image);
                 setBackground(response.image);
             });
         }
