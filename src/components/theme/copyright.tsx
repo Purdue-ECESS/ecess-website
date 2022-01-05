@@ -2,6 +2,8 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
 import { useLocation } from 'react-router-dom';
+import {SocialMedia} from "../widgets/social_media";
+import {Divider} from "@material-ui/core";
 
 export default function Copyright(props) {
     const {style} = props;
@@ -12,6 +14,7 @@ export default function Copyright(props) {
 
     return (
         <div style={{padding: 10, ...style}} className={"dark"}>
+            <Divider light style={{marginTop: 5, marginBottom: 5}}/>
             <Typography variant="body2" color="textSecondary" align="center" >
                 {'Copyright © '}
                 {`${new Date().getFullYear()} `}
@@ -22,6 +25,9 @@ export default function Copyright(props) {
             <Typography variant="body2" color="textSecondary" align="center" >
                 Address: EE 232, 475 Northwestern Avenue, West Lafayette IN - 47907
             </Typography>
+            <div style={{maxWidth: 1080, margin: "0 auto"}}>
+                <SocialMedia/>
+            </div>
         </div>
     );
 }

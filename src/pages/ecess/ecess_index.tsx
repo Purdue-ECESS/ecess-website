@@ -100,12 +100,5 @@ export function ECESSHome() {
             </div>
 
             <ECESSCommittess />
-
-            <SocialMedia
-                materialClass={classes}
-                discord={{name: 'ECESS Discord ', link: 'https://discord.gg/g2frztsC8W'}}
-                instagram={"purdue_ecess"}
-                email={['ecess@purdue.edu']}
-            />
         </>)
 }
