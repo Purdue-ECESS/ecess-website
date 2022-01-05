@@ -13,13 +13,14 @@ export function SparkIndex() {
         return <div style={{height: "calc(100vh - 69px)", width: "100%"}}/>
     }
 
+    // TODO: Put Spark Website Code within the <></>
     return (
-        <!-- TODO: Put Spark Website Code Here -->
-        <iframe title={"spark"}
-                loading="lazy"
-                src={"https://purdue-ecess.github.io/spark-website/"}
-                frameBorder={0}
-                style={{height: "calc(100vh - 69px)"}} width={"100%"}/>
+        <>
+            <iframe title={"spark"}
+                    loading="lazy"
+                    src={"https://purdue-ecess.github.io/spark-website/"}
+                    frameBorder={0}
+                    style={{height: "calc(100vh - 69px)"}} width={"100%"}/>
+        </>
     )
-
 }
