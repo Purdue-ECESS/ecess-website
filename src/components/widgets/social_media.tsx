@@ -79,7 +79,6 @@ export function SocialMedia() {
     return (
         <div>
             <div style={{
-                margin: "0 auto",
                 display: "flex",
                 flexWrap: "wrap"
             }}>

@@ -25,7 +25,9 @@ export default function Copyright(props) {
             <Typography variant="body2" color="textSecondary" align="center" >
                 Address: EE 232, 475 Northwestern Avenue, West Lafayette IN - 47907
             </Typography>
-            <SocialMedia/>
+            <div style={{maxWidth: 1080, margin: "0 auto"}}>
+                <SocialMedia/>
+            </div>
         </div>
     );
 }
