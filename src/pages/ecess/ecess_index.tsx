@@ -8,7 +8,6 @@ import ECESSTheme from "src/components/theme/mui/theme";
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
 import "src/styles/ecess_index.sass"
 import {ecessApiCall} from "../../utils/api";
-import {EcessBoard} from "./ecess_board";
 import {ECESSCommittess} from "./ecess_committees";
 
 
@@ -34,9 +33,9 @@ export function ECESSHome() {
     const classes = useStyles(ECESSTheme);
     useEffect(() => {
         if (background === undefined) {
-            ecessApiCall("bucket", undefined, {
-                image: "ecess_homescreen.jpg"
-            }, "https://ecess-api.matthewwen.com").then((response: any) => {
+            ecessApiCall("img", undefined, {
+                path: "ecess_homescreen.jpg"
+            }).then((response: any) => {
                 setBackground(response.image);
             });
         }

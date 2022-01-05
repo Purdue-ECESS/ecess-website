@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typography from "@material-ui/core/Typography";
 import {ImageList, ImageListItem} from "@material-ui/core"; // requires a loader
 import {FUN} from "src/data/data_fun";
-import {ecessApiCall} from "../../utils/api";
+import {ecessApiCall} from "src/utils/api";
 
 function ListImageView(key, refs, maxHeight=undefined) {
     const [photos, setPhotos] = useState(undefined);
@@ -14,8 +14,8 @@ function ListImageView(key, refs, maxHeight=undefined) {
                 async () => {
                     for (let i = 0; i < refs.length; i++) {
                         const item = refs[i]
-                        const response: any = await ecessApiCall("bucket", undefined,
-                            {image: item.ref}, "https://ecess-api.matthewwen.com")
+                        const response: any = await ecessApiCall("img", undefined,
+                            {path: item.ref, minSize: 480})
                         temp.push({...item, src: response.image});
                     }
                     return temp;
