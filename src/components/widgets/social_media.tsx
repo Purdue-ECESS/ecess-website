@@ -15,7 +15,7 @@ function Category({style, item}) {
                 {discord &&
                 <div>
                     <HoverButtons href={discord.link} style={{width: "100%", display: "flex"}}>
-                        <Discord size={15} style={{marginRight: 5}} color={"white"}/>
+                        <Discord size={15} style={{margin: 3}} color={"white"}/>
                         <div style={{flex: 1}}>
                             {discord.name}
                         </div>
