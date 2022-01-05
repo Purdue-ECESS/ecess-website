@@ -49,11 +49,6 @@ export function WECEHome(props: any) {
                     connecting women within the field of technology.
                 </DarkTypography>
             </WelcomeImage>
-            <SocialMedia
-                materialClass={classes}
-                instagram={"purduewece"}
-                email={["unger12@purdue.edu", "posth@purdue.edu"]}
-                />
         </div>
     )
 

@@ -2,63 +2,91 @@ import Typography from "@material-ui/core/Typography";
 import {Divider} from "@material-ui/core";
 import {Discord, Gmail, Instagram} from "@icons-pack/react-simple-icons";
 import React from "react";
-import {HoverButtons} from "../theme/mui/hover_button";
+import {HoverButtons} from "src/components/theme/mui/hover_button";
 
-
-
-export function SocialMedia(props) {
-    const {materialClass, discord, instagram, email} = props;
+function Category({style, item}) {
+    const {organization, discord, instagram, email} = item;
     return (
-        <div style={{margin: 10}} className={'dark'}>
-            <Typography variant="h5" component="h2">
-                Follow Us
-            </Typography>
-            <Divider light style={{marginTop: 5, marginBottom: 5}}/>
-            <div style={{display: "flex", flexWrap: "wrap"}}>
-                {discord ?
-                    <div style={{minWidth: 250, flex: 1, margin: 5}}>
-                        <div style={{display: "flex"}}>
-                            <Discord size={18} style={{margin: 3}} color={"white"}/>
-                            <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
-                                DISCORD
-                            </Typography>
-                        </div>
-                        <HoverButtons href={discord.link}>
+        <div style={{margin: 10, ...style}}>
+            <div style={{display: "inline-block", minWidth: 250}}>
+                <Typography variant="subtitle2" style={{marginLeft: 10}}>
+                    {organization}
+                </Typography>
+                {discord &&
+                <div>
+                    <HoverButtons href={discord.link} style={{width: "100%", display: "flex"}}>
+                        <Discord size={15} style={{margin: 3}} color={"white"}/>
+                        <div style={{flex: 1}}>
                             {discord.name}
-                        </HoverButtons>
-                    </div> : <></>
+                        </div>
+                    </HoverButtons>
+                </div>
                 }
                 {
-                    instagram ?
-                    <div style={{minWidth: 250, flex: 1, margin: 5}}>
-                        <div style={{display: "flex"}}>
-                            <Instagram size={18} style={{margin: 3}} color={"white"}/>
-                            <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
-                                INSTAGRAM
-                            </Typography>
-                        </div>
-                        <HoverButtons href={'https://www.instagram.com/' + instagram}>
-                            @{instagram}
+                    instagram &&
+                    <div>
+                        <HoverButtons href={'https://www.instagram.com/' + instagram} style={{width: "100%", display: "flex"}}>
+                            <Instagram size={15} style={{margin: 3}} color={"white"}/>
+                            <div style={{flex: 1}}>
+                                @{instagram}
+                            </div>
                         </HoverButtons>
-                    </div> : <></>
+                    </div>
                 }
                 {
                     email && email.length > 0 &&
-                    <div style={{minWidth: 250, flex: 1, margin: 5}}>
-                        <div style={{display: "flex"}}>
-                            <Gmail size={18} style={{margin: 3}} color={"white"}/>
-                            <Typography className={materialClass.pos} color="textSecondary" gutterBottom>
-                                EMAIL
-                            </Typography>
-                        </div>
+                    <>
                         {email.map((item) => (
                             <div key={item}>
-                                <HoverButtons href={'mailto:' + item}>
-                                    {item}
+                                <HoverButtons href={'mailto:' + item} style={{width: "100%"}}>
+                                    <Gmail size={15} style={{margin: 3}} color={"white"}/>
+                                    <div style={{flex: 1}}>
+                                        {item}
+                                    </div>
                                 </HoverButtons>
                             </div>
                         ))}
-                    </div>
+                    </>
+                }
+            </div>
+        </div>
+    );
+}
+
+
+
+export function SocialMedia() {
+    const links = [
+        {
+            organization: "ECESS",
+            discord: {name: 'ECESS Discord ', link: 'https://discord.gg/g2frztsC8W'},
+            instagram: "purdue_ecess",
+            email: ['ecess@purdue.edu']
+        },
+        {
+            organization: "Ambassadors",
+            discord: {name: 'ECE Ambassadors', link: 'https://discord.gg/fmwxACFB2T'},
+            instagram: "purdue_ecea",
+            email: ['eceambassadors@gmail.com']
+        },
+        {
+            organization: "Women in ECE",
+            instagram: "purduewece",
+            email: ["unger12@purdue.edu", "posth@purdue.edu"]
+        },
+        // {}
+    ]
+    return (
+        <div>
+            <div style={{
+                margin: "0 auto",
+                display: "flex",
+                flexWrap: "wrap"
+            }}>
+                {
+                    links.map((item) => (
+                        <Category style={{alignItems: "center", flex: 1}} item={item} />
+                    ))
                 }
             </div>
         </div>

@@ -5,26 +5,14 @@ import CalendarEvent from "../../components/widgets/calendar_event";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../../styles/calendar.sass';
+import {ecessApiCall} from "../../utils/api";
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
-    let url = "https://ecess-api.matthewwen.com/calendar/ambassadors/main"
+    let parameters = undefined;
     if (date instanceof Date) {
-        url += "?day=" + date.toISOString();
+        parameters = {day: date.toISOString()}
     }
-    return new Promise((resolve, reject) => {
-        fetch(url,
-            {
-                method: 'GET'
-            })
-            .then(res => res.json())
-            .then(response => {
-                resolve(response);
-            })
-            .catch(e => {
-                console.log(e);
-                reject([]);
-            });
-    });
+    return ecessApiCall("calendar/ambassadors/main", undefined, parameters);
 }
 
 const PurdueButton = withStyles({root: {backgroundColor: "#CEB888", color: "#000000"}})(Button);
