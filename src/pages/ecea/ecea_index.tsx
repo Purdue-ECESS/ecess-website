@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {makeStyles} from "@material-ui/styles";
-import {SocialMedia} from "src/components/widgets/social_media";
 import {WelcomeImage} from "src/components/screens/welcome";
 import {Updates} from "src/components/widgets/discord_updates";
 import ECESSTheme from "src/components/theme/mui/theme";
@@ -59,12 +58,6 @@ export default function ECEAIndexPage() {
                             and current students alike.
                         </DarkTypography>
                     </WelcomeImage>
-                    <SocialMedia
-                        materialClass={classes}
-                        discord={{name: 'ECE Ambassadors', link: 'https://discord.gg/fmwxACFB2T'}}
-                        instagram={"purdue_ecea"}
-                        email={['eceambassadors@gmail.com']}
-                    />
                     <Updates materialClass={classes} content={updates}/>
                 </>
             </div>
