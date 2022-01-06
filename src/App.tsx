@@ -81,7 +81,7 @@ function App() {
                     {/*Spark Page*/}
                     <Route exact path={"/spark"} component={SparkIndex} />
                     <Route path={"/spark/schedule"} component={SparkSchedule}/>
-                    <Route path={"/spark/results"} component={SparkResults}/>
+                    <Route path={"/spark/fa2021"} component={SparkResults}/>
 
                     {/* Login Page */}
                     {user ?
