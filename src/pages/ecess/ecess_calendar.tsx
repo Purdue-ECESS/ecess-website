@@ -12,7 +12,7 @@ function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     if (date instanceof Date) {
         parameters = {day: date.toISOString()}
     }
-    return ecessApiCall("calendar/ambassadors/main", undefined, parameters);
+    return ecessApiCall({path: "calendar/ambassadors/main", parameters: parameters});
 }
 
 const PurdueButton = withStyles({root: {backgroundColor: "#CEB888", color: "#000000"}})(Button);
