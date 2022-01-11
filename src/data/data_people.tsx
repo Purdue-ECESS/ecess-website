@@ -60,8 +60,11 @@ const ECESS_MEMBERS = [
                 quote: "Simple can be harder than complex.",
                 board_position: "Spark Chair",
                 fav_class: "ECE 27000"
+            },
+            "Spark": {
+                position: "President"
             }
-       },
+        },
         ambassador: true
     },
     {
@@ -366,10 +369,14 @@ const ECESS_MEMBERS = [
         picture: 'people/bradysmith.jpg',
         major: 'Computer Engineering',
         graduation: 'May 2023',
-        ecess_organization: {"Ambassadors": {
+        ecess_organization: {
+            "Ambassadors": {
                 clubs: ["Purdue Women in ECE"],
             },
-            "wece": undefined
+            "wece": undefined,
+            "Spark": {
+                position: "Vice President"
+            }
         },
         links: [
             {'name': 'Linkedin', 'link': 'https://www.linkedin.com/in/bradyeesmith/'},
@@ -585,6 +592,76 @@ const ECESS_MEMBERS = [
                 quote: "You change the world when you change your mind"
             }
         },
+    },
+    {
+        name: "Waewta Saw",
+        picture: "people/waewtasaw.jpeg",
+        graduation: "May 2022",
+        ecess_organization: {
+            "Spark": {
+                position: "270/362 Communications"
+            }
+        }
+    },
+    {
+        name: "Dhanya Prem",
+        ecess_organization: {
+            "Spark": {
+                position: "Corporate Partner Communications"
+            }
+        },
+        // picture: "people/dhanyaprem.jpg",
+        graduation: "December 2022"
+    },
+    {
+        name: "Samantha Dreussi",
+        ecess_organization: {
+            "Spark": {
+                position: "Teams Communications"
+            }
+        },
+        graduation: "May 2024",
+        picture: "people/samanthadreussi.jpg"
+    },
+    {
+        name: "Raghav Kumar",
+        ecess_organization: {
+            "Spark": {
+                position: "Teams Communications"
+            }
+        },
+        graduation: "May 2024",
+        picture: "people/raghavkumar.jpg"
+    },
+    {
+        name: "Roshni Sharma",
+        ecess_organization: {
+            "Spark": {
+                position: "Event Support"
+            }
+        },
+        graduation: "May 2023",
+        picture: "people/roshnisharma.jpg"
+    },
+    {
+        name: "Nahush Walvekar ",
+        ecess_organization: {
+            "Spark": {
+                position: "Event Support"
+            }
+        },
+        graduation: "May 2024",
+        picture:  "people/nahushwalvekar.jpg"
+    },
+    {
+        name: "Vivek Panchagnula",
+        ecess_organization: {
+            "Spark": {
+                position: "Event Support"
+            }
+        },
+        graduation: "May 2025",
+        picture: "people/vivekpanchagnula.jpeg"
     },
 ]
 export let ECESS_MAP = {};
