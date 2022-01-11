@@ -101,6 +101,10 @@ export function NavBar({user}) {
     const WECE_NAV_LINKS = [
         {link: '/wece/members', label: 'Members', onClick: setWECEPage}
     ]
+    const SPARK_NAV_LINKS = [
+        {link: '/spark/members', label: 'Members', onClick: setSparkPage},
+        {link: '/spark/fa2021', label: 'Fall 2021', onClick: setSparkPage},
+    ]
     const ECESS_NAV_LINKS = [
         {link: '/board', label: 'Board', onClick:  setECESSPage},
         {link: '/calendar', label: 'Calendar', onClick:  setECESSPage},
@@ -109,7 +113,7 @@ export function NavBar({user}) {
                 setLinkIdx(-1);
             }
         },
-        {link: '/spark', label: 'Spark Challenge', onClick: () => {
+        {link: '/spark', label: 'Spark Challenge', dropdown: SPARK_NAV_LINKS, onClick: () => {
                 setSparkPage();
             }
         },
@@ -118,9 +122,6 @@ export function NavBar({user}) {
                 setLinkIdx(-1);
             }
         },
-    ]
-    const SPARK_NAV_LINKS = [
-        {link: '/spark/fa2021', label: 'Fall 2021', onClick: setSparkPage},
     ]
 
     let getNavLinks = (x) => x.startsWith('/ecea') ? AMBASSADOR_NAV_LINKS :

@@ -26,6 +26,7 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {NavBar} from "./components/theme/nav_bar";
 import "src/styles/index.css";
+import {SparkMembers} from "./pages/spark/spark_members";
 
 
 const firebaseConfig = {
@@ -80,7 +81,7 @@ function App() {
 
                     {/*Spark Page*/}
                     <Route exact path={"/spark"} component={SparkIndex} />
-                    <Route path={"/spark/schedule"} component={SparkSchedule}/>
+                    <Route path={"/spark/members"} component={SparkMembers}/>
                     <Route path={"/spark/fa2021"} component={SparkResults}/>
 
                     {/* Login Page */}
