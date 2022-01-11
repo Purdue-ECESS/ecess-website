@@ -31,15 +31,17 @@ export function ImageGallery({photos: userPhotos, children}) {
     })
 
     const changeImage = async (idx, photo) => {
-        photos[idx].opacity = 0;
-        setPhotos([...photos]);
-        await delay(300);
-        photos[idx] = photo;
-        photos[idx].opacity = 2;
-        setPhotos([...photos]);
-        photos[idx].opacity = 1;
-        setPhotos([...photos]);
-        await delay(300);
+        if (photos[idx]) {
+            photos[idx].opacity = 0;
+            setPhotos([...photos]);
+            await delay(300);
+            photos[idx] = photo;
+            photos[idx].opacity = 2;
+            setPhotos([...photos]);
+            photos[idx].opacity = 1;
+            setPhotos([...photos]);
+            await delay(300);
+        }
     }
 
     useEffect(() => {

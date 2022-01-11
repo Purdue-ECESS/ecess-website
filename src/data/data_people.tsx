@@ -366,8 +366,8 @@ const ECESS_MEMBERS = [
     },
     {
         name: 'Brady Smith',
-        picture: 'people/bradysmith.jpg',
-        major: 'Computer Engineering',
+        picture: 'people/bradysmith2.jpg',
+        major: 'Electrical Engineering',
         graduation: 'May 2023',
         ecess_organization: {
             "Ambassadors": {
@@ -610,7 +610,7 @@ const ECESS_MEMBERS = [
                 position: "Corporate Partner Communications"
             }
         },
-        // picture: "people/dhanyaprem.jpg",
+        picture: "people/dhanyaprem.jpg",
         graduation: "December 2022"
     },
     {
