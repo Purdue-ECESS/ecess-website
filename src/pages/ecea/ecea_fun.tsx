@@ -14,8 +14,12 @@ function ListImageView(key, refs, maxHeight=undefined) {
                 async () => {
                     for (let i = 0; i < refs.length; i++) {
                         const item = refs[i]
-                        const response: any = await ecessApiCall("img", undefined,
-                            {path: item.ref, minSize: 480})
+                        const response: any = await ecessApiCall(
+                            {
+                                path: "img", 
+                                parameters: {path: item.ref, minSize: 480}
+                            }
+                        )
                         temp.push({...item, src: response.image});
                     }
                     return temp;

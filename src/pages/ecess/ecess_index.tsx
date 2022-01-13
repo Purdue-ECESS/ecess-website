@@ -12,8 +12,11 @@ export function ECESSHome() {
     const [background, setBackground] = useState(undefined);
     useEffect(() => {
         if (background === undefined) {
-            ecessApiCall("img", undefined, {
-                path: "ecess_homescreen.jpg"
+            ecessApiCall({
+                path: "img",
+                parameters: {
+                    path: "ecess_homescreen.jpg"
+                }
             }).then((response: any) => {
                 setBackground(response.image);
             });

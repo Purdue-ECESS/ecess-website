@@ -86,7 +86,8 @@ function BasicOptionSelection({label, selections, onSelect}) {
 const changeUserData = async (user: any, currentData: any, newData: any) => {
     let mergeData = {...currentData, ...newData};
     if (newData.email || newData.name) {
-
+        // Need to do API Call to ECESS
+        // ecessApiCall({path: "updateUser", user})
     }
     if (currentData.email) {
         delete mergeData.email;

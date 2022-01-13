@@ -7,9 +7,10 @@ export function WECEHome(props: any) {
     const [background, setBackground] = useState(undefined);
     useEffect(() => {
         if (background === undefined) {
-            ecessApiCall("img", undefined,
-                {path: "wece.png", minSize: 1080})
-                .then((response: any) => {
+            ecessApiCall({
+                path: "img",
+                parameters: {path: "wece.png", minSize: 1080}
+             }).then((response: any) => {
                 setBackground(response.image);
             })
         }
