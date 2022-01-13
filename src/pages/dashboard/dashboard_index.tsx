@@ -15,7 +15,7 @@ import {getPersonByUid} from "src/data/data_people";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import * as React from 'react';
 import {TransitionProps} from "@material-ui/core/transitions";
-import {collection, doc, getFirestore, updateDoc} from "firebase/firestore";
+import {collection, doc, getFirestore, setDoc, updateDoc} from "firebase/firestore";
 import {ecessApiCall} from "../../utils/api";
 
 const Transition = React.forwardRef(function Transition(
@@ -92,7 +92,12 @@ const changeUserData = async (user: any, currentData: any, newData: any) => {
         delete mergeData.email;
     }
     MyFb.loadFb();
-    await updateDoc(doc(collection(getFirestore(), "users"), user.uid), mergeData);
+    if (Object.keys(currentData).length === 0) {
+        await setDoc(doc(collection(getFirestore(), "users"), user.uid), mergeData);
+    }
+    else {
+        await updateDoc(doc(collection(getFirestore(), "users"), user.uid), mergeData);
+    }
     return mergeData;
 }
 
@@ -233,7 +238,9 @@ export function DashboardIndex({user}) {
     useEffect(() => {
         if (userData === undefined) {
             getPersonByUid(user.uid).then(response => {
-                setUserData(response);
+                setUserData(response || {});
+            }).catch( e => {
+                setUserData({});
             })
         }
     }, [userData, user]);
