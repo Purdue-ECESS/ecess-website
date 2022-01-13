@@ -15,6 +15,8 @@ import {getPersonByUid} from "src/data/data_people";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import * as React from 'react';
 import {TransitionProps} from "@material-ui/core/transitions";
+import {collection, doc, getFirestore, updateDoc} from "firebase/firestore";
+import {ecessApiCall} from "../../utils/api";
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -66,6 +68,7 @@ function BasicOptionSelection({label, selections, onSelect}) {
                         selections.map((item) => {
                             return (
                                 <MenuItem
+                                    key={item}
                                     selected={item === newLabel}
                                     onClick={() => handleClose(item)}
                                 >
@@ -80,7 +83,21 @@ function BasicOptionSelection({label, selections, onSelect}) {
     )
 }
 
-function AdvancedOptionSelectionAndText({label: month, selections, onSelect}) {
+const changeUserData = async (user: any, currentData: any, newData: any) => {
+    let mergeData = {...currentData, ...newData};
+    if (newData.email || newData.name) {
+
+    }
+    if (currentData.email) {
+        delete mergeData.email;
+    }
+    MyFb.loadFb();
+    await updateDoc(doc(collection(getFirestore(), "users"), user.uid), mergeData);
+    return mergeData;
+}
+
+function AdvancedOptionSelectionAndText({label: month, onSelect}) {
+    const selections = ["None", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let actualMonth = undefined;
     let actualYear = undefined;
     selections.forEach((item) => {
@@ -89,15 +106,16 @@ function AdvancedOptionSelectionAndText({label: month, selections, onSelect}) {
             actualYear = month.substr(item.length + 1);
         }
     })
-    const [newLabel, setNewLabel] = useState(actualMonth);
+    const [newMonth, setNewMonth] = useState(actualMonth);
+    const [newYear, setNewYear] = useState(actualYear);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = (option) => {
-        setNewLabel(option);
-        onSelect(option)
+        setNewMonth(option);
+        onSelect(`${option} ${newYear}`)
         setAnchorEl(null);
     };
     return (
@@ -114,10 +132,17 @@ function AdvancedOptionSelectionAndText({label: month, selections, onSelect}) {
                         aria-expanded={open ? 'true' : undefined}
                         onClick={handleClick}
                     >
-                        {newLabel}
+                        {newMonth}
                     </Button>
-                    {newLabel !== "None" &&
-                        <TextField defaultValue={actualYear} />
+                    {newMonth !== "None" &&
+                        <TextField
+                            defaultValue={newYear}
+                            onChange={(event) => {
+                                const year = event.target.value;
+                                setNewYear(event.target.value)
+                                onSelect(`${newMonth} ${year}`);
+                            }}
+                        />
                     }
                 </div>
                 <Menu
@@ -134,7 +159,8 @@ function AdvancedOptionSelectionAndText({label: month, selections, onSelect}) {
                             selections.map((item) => {
                                 return (
                                     <MenuItem
-                                        selected={item === newLabel}
+                                        key={item}
+                                        selected={item === newMonth}
                                         onClick={() => handleClose(item)}
                                     >
                                         {item}
@@ -150,7 +176,7 @@ function AdvancedOptionSelectionAndText({label: month, selections, onSelect}) {
 }
 
 
-function OptionName({option, value, insideMessage}) {
+function OptionName({option, value, insideMessage, onSave}) {
     const [open, setOpen] = React.useState(false);
     return (
         <>
@@ -171,8 +197,9 @@ function OptionName({option, value, insideMessage}) {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button onClick={() => {
+                    <Button onClick={async () => {
                         setOpen(false);
+                        await onSave();
                     }}>Save</Button>
                 </DialogActions>
             </Dialog>
@@ -195,6 +222,12 @@ function OptionName({option, value, insideMessage}) {
 export function DashboardIndex({user}) {
     MyFb.loadFb();
     const [userData, setUserData] = useState(undefined);
+    const [newChange, setNewChange] = useState({});
+    const onSave = async () => {
+        const response = await changeUserData(user, userData, newChange);
+        setUserData(response);
+        setNewChange({});
+    };
 
 
     useEffect(() => {
@@ -215,52 +248,84 @@ export function DashboardIndex({user}) {
                             <div>
                                 <Typography variant={"h6"} style={{padding: 5}}>Basic Information</Typography>
                                 <OptionName
+                                    onSave={onSave}
                                     insideMessage={(
                                         <>
                                             <Typography>Click Save When You Are Done</Typography>
-                                            <TextField id="filled-basic" label={"Name"} variant="filled" style={{width: "100%"}}/>
+                                            <TextField
+                                                label={"Name"}
+                                                variant="filled"
+                                                style={{width: "100%"}}
+                                                defaultValue={user.displayName || ""}
+                                                onChange={(event) => {
+                                                    setNewChange({...newChange, name: event.target.value});
+                                                }}
+                                            />
                                         </>
                                     )}
                                     option={"Name"}
                                     value={user.displayName}
                                 />
                                 <OptionName
+                                    onSave={onSave}
                                     insideMessage={(
                                         <>
                                             <Typography>Click Save When You Are Done</Typography>
-                                            <TextField id="filled-basic" label={"Email"} variant="filled" style={{width: "100%"}}/>
+                                            <TextField
+                                                onChange={(event) => {
+                                                    setNewChange({...newChange, email: event.target.value});
+                                                }}
+                                                defaultValue={user.email || ""}
+                                                label={"Email"}
+                                                variant="filled"
+                                                style={{width: "100%"}}/>
                                         </>
                                     )}
                                     option={"Email"}
                                     value={user.email}
                                 />
                                 <OptionName
+                                    onSave={onSave}
                                     insideMessage={
                                         (
                                             <AdvancedOptionSelectionAndText
-                                            label={userData.graduation || "Not Set"}
-                                            selections={["None", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]}
-                                            onSelect={ () => {} }
-                                        />)
+                                                label={userData.graduation || "Not Set"}
+                                                onSelect={ (response) => {
+                                                    setNewChange({...newChange, graduation: response});
+                                                }}
+                                            />
+                                        )
                                     }
                                     option={"Graduation"}
                                     value={userData.graduation}
                                 />
                                 <OptionName
+                                    onSave={onSave}
                                     insideMessage={(
                                         <>
                                             <Typography>Click Save When You Are Done</Typography>
-                                            <TextField id="filled-basic" label={"Hometown"} variant="filled" style={{width: "100%"}}/>
+                                            <TextField
+                                                onChange={ (response) => {
+                                                    setNewChange({...newChange, hometown: response.target.value});
+                                                }}
+                                                label={"Hometown"}
+                                                variant="filled"
+                                                defaultValue={user.hometown || ""}
+                                                style={{width: "100%"}}
+                                            />
                                         </>
                                     )}
                                     option={"Hometown"}
                                     value={userData.hometown}
                                 />
                                 <OptionName
+                                    onSave={onSave}
                                     insideMessage={(
                                         <BasicOptionSelection
                                             label={userData.major}
-                                            onSelect={(item) => console.log(item)}
+                                            onSelect={(item) => {
+                                                setNewChange({...newChange, major: item});
+                                            }}
                                             selections={["Computer Engineering", "Electrical Engineering"]}
                                         />
                                     )}
