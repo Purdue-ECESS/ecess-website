@@ -18,29 +18,17 @@ import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";
 import {EcessBoard} from "./pages/ecess/ecess_board";
 import {SparkIndex} from "./pages/spark/spark_index";
-import {SparkSchedule} from "./pages/spark/spark_schedule";
 import {SparkResults} from "./pages/spark/spark_results";
 import {LoginPage} from "./pages/login";
 import {DashboardIndex} from "./pages/dashboard/dashboard_index";
-import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {NavBar} from "./components/theme/nav_bar";
 import "src/styles/index.css";
 import {SparkMembers} from "./pages/spark/spark_members";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyA0rfqzRgQfY8Hut8BT1ZBuLXkQHm9jZu0",
-    authDomain: "purdue-ecess.firebaseapp.com",
-    projectId: "purdue-ecess",
-    storageBucket: "purdue-ecess.appspot.com",
-    messagingSenderId: "3539621967",
-    appId: "1:3539621967:web:a5793fe1cce7cc778a323a",
-    measurementId: "G-P5V2HKSFGW"
-};
+import {MyFb} from "./data/data_fb";
 
 function App() {
-    initializeApp(firebaseConfig);
+    MyFb.loadFb();
     const [offset, setOffset] = useState(0);
     const [user, setUser] = useState(undefined);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {getMembersFromOrganization} from "src/data/data_people";
 import {MemberList} from "src/components/widgets/lists/member_list";
 import {Chip, Typography} from "@material-ui/core";
@@ -6,15 +6,22 @@ import {hashCode, intToRGB} from "src/utils";
 
 
 export default function AboutPage() {
-    const members = getMembersFromOrganization("Ambassadors");
-    members.sort((a, b) => {
-        if (a.name === "Sara Hui") {
-            return -1;
-        } else if (b.name === "Sara Hui") {
-            return 1;
+    const [members, setMembers] = useState(undefined);
+    useEffect(() => {
+        if (members === undefined) {
+            getMembersFromOrganization("Ambassadors").then((response) => {
+                response.sort((a, b) => {
+                    if (a.name === "Sara Hui") {
+                        return -1;
+                    } else if (b.name === "Sara Hui") {
+                        return 1;
+                    }
+                    return a.name.localeCompare(b.name);
+                });
+                setMembers(response);
+            });
         }
-        return a.name.localeCompare(b.name);
-    });
+    }, [members])
     return (
         <>
             <div style={{backgroundColor: '#222'}}>

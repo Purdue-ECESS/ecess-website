@@ -1,36 +1,15 @@
-import {SocialMedia} from "src/components/widgets/social_media";
 import React, {useEffect, useState} from "react";
-import {makeStyles} from "@material-ui/styles";
 import {Button, Typography} from "@material-ui/core";
 import {WelcomeImage} from "src/components/screens/welcome";
 import Typewriter from "typewriter-effect";
-import ECESSTheme from "src/components/theme/mui/theme";
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
 import "src/styles/ecess_index.sass"
 import {ecessApiCall} from "../../utils/api";
 import {ECESSCommittess} from "./ecess_committees";
 
 
-const useStyles = makeStyles({
-    root: {
-        minWidth: 275,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
-
 export function ECESSHome() {
     const [background, setBackground] = useState(undefined);
-    const classes = useStyles(ECESSTheme);
     useEffect(() => {
         if (background === undefined) {
             ecessApiCall("img", undefined, {
