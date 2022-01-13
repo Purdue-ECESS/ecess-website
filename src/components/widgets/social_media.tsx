@@ -1,5 +1,4 @@
 import Typography from "@material-ui/core/Typography";
-import {Divider} from "@material-ui/core";
 import {Discord, Gmail, Instagram} from "@icons-pack/react-simple-icons";
 import React from "react";
 import {HoverButtons} from "src/components/theme/mui/hover_button";
@@ -84,7 +83,7 @@ export function SocialMedia() {
             }}>
                 {
                     links.map((item) => (
-                        <Category style={{alignItems: "center", flex: 1}} item={item} />
+                        <Category key={item.organization} style={{alignItems: "center", flex: 1}} item={item} />
                     ))
                 }
             </div>

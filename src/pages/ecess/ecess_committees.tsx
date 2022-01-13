@@ -1,9 +1,8 @@
-import {COMMITTEES} from "../../data/data_committees";
+import {COMMITTEES} from "src/data/data_committees";
 import {Card, CardContent, Typography} from "@material-ui/core";
-import {Author} from "../../components/widgets/author";
-import {getPictureUrl} from "../../data/data_people";
+import {Author} from "src/components/widgets/author";
 import React from "react";
-import {hashCode, intToRGB} from "../../utils";
+import {hashCode, intToRGB} from "src/utils";
 
 function description(item) {
     return (
@@ -13,11 +12,10 @@ function description(item) {
                 <div style={{display: "flex", flexWrap: "wrap"}}>
                     {(item.leads || []).map((i) => (
                         <div key={i} style={{borderRadius: 25, backgroundColor: '#' + intToRGB(hashCode(i)), padding: 2, margin: 5}}>
-                            <Author name={i} picture={getPictureUrl(i)}/>
+                            <Author name={i} />
                         </div>
                         )
                     )}
-
                 </div>
                 <Typography>{item.description}</Typography>
             </CardContent>

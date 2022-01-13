@@ -131,6 +131,9 @@ function splitRowPerPerson(people: Array<any>, pplPerRow, component) {
 export function MemberList(props: {members: any, component: any}) {
     const {members, component} = props;
     const size = useWindowSize();
+    if (members === undefined) {
+        return <></>
+    }
     return (
         <>
             <div style={{maxWidth: 1080, margin: '0 auto'}} className={'dark'}>
