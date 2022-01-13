@@ -17,6 +17,7 @@ import * as React from 'react';
 import {TransitionProps} from "@material-ui/core/transitions";
 import {collection, doc, getFirestore, setDoc, updateDoc} from "firebase/firestore";
 import {ecessApiCall} from "../../utils/api";
+import {getAuth} from "firebase/auth";
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -87,7 +88,7 @@ const changeUserData = async (user: any, currentData: any, newData: any) => {
     let mergeData = {...currentData, ...newData};
     if (newData.email || newData.name) {
         // Need to do API Call to ECESS
-        // ecessApiCall({path: "updateUser", user})
+        await ecessApiCall({path: "updateUser", user, type: 'POST', body: newData});
     }
     if (currentData.email) {
         delete mergeData.email;
@@ -121,7 +122,12 @@ function AdvancedOptionSelectionAndText({label: month, onSelect}) {
     };
     const handleClose = (option) => {
         setNewMonth(option);
-        onSelect(`${option} ${newYear}`)
+        if (option === "None") {
+            onSelect("None");
+        }
+        else {
+            onSelect(`${option} ${newYear}`)
+        }
         setAnchorEl(null);
     };
     return (
@@ -142,6 +148,7 @@ function AdvancedOptionSelectionAndText({label: month, onSelect}) {
                     </Button>
                     {newMonth !== "None" &&
                         <TextField
+                            label={"Year"}
                             defaultValue={newYear}
                             onChange={(event) => {
                                 const year = event.target.value;
@@ -229,8 +236,12 @@ export function DashboardIndex({user}) {
     MyFb.loadFb();
     const [userData, setUserData] = useState(undefined);
     const [newChange, setNewChange] = useState({});
+    const [name, setName] = useState(user.displayName);
     const onSave = async () => {
         const response = await changeUserData(user, userData, newChange);
+        if (response.name)  {
+            setName(response.name);
+        }
         setUserData(response);
         setNewChange({});
     };
@@ -248,6 +259,10 @@ export function DashboardIndex({user}) {
 
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
+            <Button
+                onClick={async () => {
+                    await getAuth().signOut();
+                }}>Logout</Button>
             {userData &&
                 <>
                     <Typography variant={"h5"} style={{textAlign: "center", margin: 10}}>Welcome {userData.name}</Typography>
@@ -272,7 +287,7 @@ export function DashboardIndex({user}) {
                                         </>
                                     )}
                                     option={"Name"}
-                                    value={user.displayName}
+                                    value={name}
                                 />
                                 <OptionName
                                     onSave={onSave}
@@ -297,7 +312,7 @@ export function DashboardIndex({user}) {
                                     insideMessage={
                                         (
                                             <AdvancedOptionSelectionAndText
-                                                label={userData.graduation || "Not Set"}
+                                                label={userData.graduation || "None"}
                                                 onSelect={ (response) => {
                                                     setNewChange({...newChange, graduation: response});
                                                 }}
@@ -305,7 +320,7 @@ export function DashboardIndex({user}) {
                                         )
                                     }
                                     option={"Graduation"}
-                                    value={userData.graduation}
+                                    value={userData.graduation || "None"}
                                 />
                                 <OptionName
                                     onSave={onSave}
@@ -330,18 +345,17 @@ export function DashboardIndex({user}) {
                                     onSave={onSave}
                                     insideMessage={(
                                         <BasicOptionSelection
-                                            label={userData.major}
+                                            label={userData.major || "None"}
                                             onSelect={(item) => {
                                                 setNewChange({...newChange, major: item});
                                             }}
-                                            selections={["Computer Engineering", "Electrical Engineering"]}
+                                            selections={["None", "Computer Engineering", "Electrical Engineering"]}
                                         />
                                     )}
                                     option={"Major"}
-                                    value={userData.major}
+                                    value={userData.major || "None"}
                                 />
                             </div>
-
                         </CardContent>
                     </Card>
                 </>
