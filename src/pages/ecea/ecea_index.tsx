@@ -30,13 +30,14 @@ export default function ECEAIndexPage() {
     const [background, setBackground] = useState(undefined);
     useEffect(() => {
         if (updates === undefined) {
-            ecessApiCall("bot/announcements/ambassadors", undefined, undefined).then((response) => {
+            ecessApiCall({path: "bot/announcements/ambassadors"}).then((response) => {
                 setUpdates(response);
             });
         }
         if (background === undefined) {
-            ecessApiCall("img", undefined, {
-                path: "events/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"
+            ecessApiCall({
+                path: "img", 
+                parameters: {path: "events/4-16-2021-headshots/4d5b0e835542d04b1615a6cec95aa1f8.jpg"}
             }).then((response: any) => {
                 setBackground(response.image);
             });

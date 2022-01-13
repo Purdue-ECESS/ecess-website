@@ -49,9 +49,13 @@ export function SparkResults() {
     useEffect(() => {
         if (photos === undefined) {
             const getLinks = async () => {
-                const response: any = await ecessApiCall("events", undefined, {
-                    path: "events/12-11-2021-spark/", minSize: 240
-                });
+                const response: any = await ecessApiCall(
+                    {
+                        path: "events", 
+                        parameters: {
+                            path: "events/12-11-2021-spark/", minSize: 240
+                        }
+                    });
                 response.forEach((item) => {
                     item.opacity = 1
                 })
