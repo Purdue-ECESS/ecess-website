@@ -1,12 +1,12 @@
-import {User} from "firebase/auth";
-
 export async function ecessApiCall(
-    {path, headers, parameters: parameters, user, url}: {
+    {path, headers, parameters, user, url, type, body}: {
     path: string,
     parameters?: any,
     headers?:any,
     user?:any,
-    url?:any
+    url?:any,
+    type?:any,
+    body?: Object
 }) { 
     if (url === undefined) {
         url = process.env.REACT_APP_API_URL || "https://ecess-api.matthewwen.com/ecess";
@@ -32,11 +32,12 @@ export async function ecessApiCall(
         }
         fetch(url,
             {
-                method: 'GET',
+                method: type,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
-                }
+                },
+                body: JSON.stringify(body) || undefined
             })
             .then(res => res.json())
             .then(response => {
