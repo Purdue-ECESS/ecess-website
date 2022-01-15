@@ -5,6 +5,7 @@ import {BasicOptionSelection} from "./basic_option_selection";
 import * as React from "react";
 import {changeUserData} from "src/utils/change_user_data";
 import {useState} from "react";
+import {FullScreenLoading} from "src/components/utils/loading";
 
 export const MainUserDashboard = ({user, userData, setUserData}) => {
     const [name, setName] = useState(user.displayName);
@@ -19,105 +20,91 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
         setNewChange({});
     };
 
+    if (!userData) {
+        return <FullScreenLoading />
+    }
+
     return (
-        <>
-            {userData &&
-                <>
-                    <Typography variant={"h5"} style={{textAlign: "center", margin: 10}}>Welcome {userData.name}</Typography>
-                    <Card>
-                        <CardContent>
-                            <div>
-                                <Typography variant={"h6"} style={{padding: 5}}>Basic Information</Typography>
-                                <OptionName
-                                    onSave={onSave}
-                                    insideMessage={(
-                                        <>
-                                            <Typography>Click Save When You Are Done</Typography>
-                                            <TextField
-                                                label={"Name"}
-                                                variant="filled"
-                                                style={{width: "100%"}}
-                                                defaultValue={user.displayName || ""}
-                                                onChange={(event) => {
-                                                    setNewChange({...newChange, name: event.target.value});
-                                                }}
-                                            />
-                                        </>
-                                    )}
-                                    option={"Name"}
-                                    value={name}
+        <div>
+            <Typography variant={"h5"} style={{textAlign: "center", margin: 10}}>Welcome {userData.name}</Typography>
+            <Card>
+                <CardContent>
+                    <div>
+                        <Typography variant={"h6"} style={{padding: 5}}>Basic Information</Typography>
+                        <OptionName
+                            onSave={onSave}
+                            option={"Name"}
+                            value={name}>
+                            <>
+                                <Typography>Click Save When You Are Done</Typography>
+                                <TextField
+                                    label={"Name"}
+                                    variant="filled"
+                                    style={{width: "100%"}}
+                                    defaultValue={user.displayName || ""}
+                                    onChange={(event) => {
+                                        setNewChange({...newChange, name: event.target.value});
+                                    }}
                                 />
-                                <OptionName
-                                    onSave={onSave}
-                                    insideMessage={(
-                                        <>
-                                            <Typography>Click Save When You Are Done</Typography>
-                                            <TextField
-                                                onChange={(event) => {
-                                                    setNewChange({...newChange, email: event.target.value});
-                                                }}
-                                                defaultValue={user.email || ""}
-                                                label={"Email"}
-                                                variant="filled"
-                                                style={{width: "100%"}}/>
-                                        </>
-                                    )}
-                                    option={"Email"}
-                                    value={user.email}
-                                />
-                                <OptionName
-                                    onSave={onSave}
-                                    insideMessage={
-                                        (
-                                            <AdvancedOptionSelectionAndText
-                                                label={userData.graduation || "None"}
-                                                onSelect={ (response) => {
-                                                    setNewChange({...newChange, graduation: response});
-                                                }}
-                                            />
-                                        )
-                                    }
-                                    option={"Graduation"}
-                                    value={userData.graduation || "None"}
-                                />
-                                <OptionName
-                                    onSave={onSave}
-                                    insideMessage={(
-                                        <>
-                                            <Typography>Click Save When You Are Done</Typography>
-                                            <TextField
-                                                onChange={ (response) => {
-                                                    setNewChange({...newChange, hometown: response.target.value});
-                                                }}
-                                                label={"Hometown"}
-                                                variant="filled"
-                                                defaultValue={user.hometown || ""}
-                                                style={{width: "100%"}}
-                                            />
-                                        </>
-                                    )}
-                                    option={"Hometown"}
-                                    value={userData.hometown}
-                                />
-                                <OptionName
-                                    onSave={onSave}
-                                    insideMessage={(
-                                        <BasicOptionSelection
-                                            label={userData.major || "None"}
-                                            onSelect={(item) => {
-                                                setNewChange({...newChange, major: item});
-                                            }}
-                                            selections={["None", "Computer Engineering", "Electrical Engineering"]}
-                                        />
-                                    )}
-                                    option={"Major"}
-                                    value={userData.major || "None"}
-                                />
-                            </div>
-                        </CardContent>
-                    </Card>
-                </>
-            }
-        </>
+                            </>
+                        </OptionName>
+                        <OptionName
+                            onSave={onSave}
+                            option={"Email"}
+                            value={user.email}>
+                            <>
+                                <Typography>Click Save When You Are Done</Typography>
+                                <TextField
+                                    onChange={(event) => {
+                                        setNewChange({...newChange, email: event.target.value});
+                                    }}
+                                    defaultValue={user.email || ""}
+                                    label={"Email"}
+                                    variant="filled"
+                                    style={{width: "100%"}}/>
+                            </>
+                        </OptionName>
+                        <OptionName
+                            onSave={onSave}
+                            option={"Graduation"}
+                            value={userData.graduation || "None"}>
+                            <AdvancedOptionSelectionAndText
+                                label={userData.graduation || "None"}
+                                onSelect={ (response) => {
+                                    setNewChange({...newChange, graduation: response});
+                                }}
+                            />
+                        </OptionName>
+                        <OptionName
+                            onSave={onSave}
+                            option={"Hometown"}
+                            value={userData.hometown}>
+                            <Typography>Click Save When You Are Done</Typography>
+                            <TextField
+                                onChange={ (response) => {
+                                    setNewChange({...newChange, hometown: response.target.value});
+                                }}
+                                label={"Hometown"}
+                                variant="filled"
+                                defaultValue={user.hometown || ""}
+                                style={{width: "100%"}}
+                            />
+                        </OptionName>
+                        <OptionName
+                            onSave={onSave}
+                            option={"Major"}
+                            value={userData.major || "None"}>
+                            <BasicOptionSelection
+                                label={userData.major || "None"}
+                                onSelect={(item) => {
+                                    setNewChange({...newChange, major: item});
+                                }}
+                                selections={["None", "Computer Engineering", "Electrical Engineering"]}
+                            />
+                        </OptionName>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
     );
 }

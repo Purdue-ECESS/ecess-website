@@ -26,6 +26,7 @@ import "src/styles/index.css";
 import {SparkMembers} from "./pages/spark/spark_members";
 import {MyFb} from "./data/data_fb";
 import {CircularProgress, ThemeProvider, Typography} from "@mui/material";
+import {FullScreenLoading} from "./components/utils/loading";
 
 function App() {
     MyFb.loadFb();
@@ -80,9 +81,7 @@ function App() {
                                }
                                if (user === undefined) {
                                    return (
-                                       <div style={{ display: 'grid', width: "100%", placeItems: "center" , margin: 20}}>
-                                            <CircularProgress />
-                                       </div>
+                                       <FullScreenLoading />
                                    )
                                }
                                return <Redirect exact path={"/login"} to={"/dashboard"} />
@@ -92,6 +91,11 @@ function App() {
                     {/* Dashboard Page */}
                     <Route exact path={"/dashboard"}
                            render={(props) => {
+                               if (user === undefined) {
+                                   return (
+                                       <FullScreenLoading />
+                                   )
+                               }
                                if (user) {
                                    return <DashboardIndex user={user} {...props} />;
                                }

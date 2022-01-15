@@ -9,7 +9,7 @@ export function AdvancedOptionSelectionAndText({label: month, onSelect}) {
     selections.forEach((item) => {
         if (month.startsWith(item)) {
             actualMonth = item;
-            actualYear = month.substr(item.length + 1);
+            actualYear = month.substring(item.length + 1);
         }
     })
     const [newMonth, setNewMonth] = useState(actualMonth);
@@ -49,6 +49,7 @@ export function AdvancedOptionSelectionAndText({label: month, onSelect}) {
                         <TextField
                             label={"Year"}
                             defaultValue={newYear}
+                            variant="filled"
                             onChange={(event) => {
                                 const year = event.target.value;
                                 setNewYear(event.target.value)

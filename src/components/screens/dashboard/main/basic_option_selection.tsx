@@ -37,21 +37,19 @@ export function BasicOptionSelection({label, selections, onSelect}) {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <>
-                    {
-                        selections.map((item) => {
-                            return (
-                                <MenuItem
-                                    key={item}
-                                    selected={item === newLabel}
-                                    onClick={() => handleClose(item)}
-                                >
-                                    {item}
-                                </MenuItem>
-                            );
-                        })
-                    }
-                </>
+                {
+                    selections.map((item) => {
+                        return (
+                            <MenuItem
+                                key={item}
+                                selected={item === newLabel}
+                                onClick={() => handleClose(item)}
+                            >
+                                {item}
+                            </MenuItem>
+                        );
+                    })
+                }
             </Menu>
         </>
     )

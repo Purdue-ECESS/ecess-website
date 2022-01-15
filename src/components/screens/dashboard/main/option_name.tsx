@@ -7,27 +7,15 @@ import {
     DialogContentText,
     DialogTitle,
     Divider,
-    Slide
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import {TransitionProps} from "@mui/material/transitions";
 
-const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
-        children: React.ReactElement<any, any>;
-    },
-    ref: React.Ref<unknown>,
-) {
-    return <Slide direction="up" ref={ref} {...props}  children={<></>}/>;
-});
-
-export function OptionName({option, value, insideMessage, onSave}) {
+export function OptionName({option, value, children, onSave}) {
     const [open, setOpen] = React.useState(false);
     return (
         <>
             <Dialog
                 open={open}
-                TransitionComponent={Transition}
                 keepMounted
                 onClose={() => {
                     setOpen(false);
@@ -36,9 +24,7 @@ export function OptionName({option, value, insideMessage, onSave}) {
             >
                 <DialogTitle>{`Set New ${option} ${option === "Graduation" ? "Date": ""}`}</DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        {insideMessage}
-                    </DialogContentText>
+                        {children}
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpen(false)}>Cancel</Button>
