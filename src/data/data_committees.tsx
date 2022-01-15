@@ -6,7 +6,7 @@ export const COMMITTEES = [
     },
     {
         title: "Software Development",
-        leads: ["Matthew Wen", "Naveen Vivek"],
+        leads: ["Matthew Wen"],
         description: "The Software Development Committee maintains the ECESS webpage and updates it with announcements and new information regarding the ECESS committees and ECE in general."
     },
     {
@@ -36,12 +36,11 @@ export const COMMITTEES = [
     },
     {
         title: "Social",
-        leads: ["Jack Brewer"],
         description: "The Social Committee Organizes fun events throughout the week. These events are a fun and engaging way to interact with other ECESS members, and other students in ECE."
     },
     {
         title: "Community Outreach",
-        leads: ["Amita Pandey", "Akshaj Prasannakumar"],
+        leads: ["Akshaj Prasannakumar"],
         description: "The Community Outreach committee helps introduce ECE and general engineering concepts to kids in elementary, middle, and high schools. This includes preparing fun projects for local kids in the community. The committee also organizes volunteering opportunities in West Lafayette. "
     }
 ]

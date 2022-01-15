@@ -16,9 +16,9 @@ export async function getPersonByUid(uid) {
     else {
         const user = await getDoc(doc(collection(db, "users"), uid));
         member = user.data();
-        ECESS_MAP_UID.set(uid, member);
+        ECESS_MAP_UID.set(uid, {...member, uid});
         if (member && member?.name) {
-            ECESS_MAP_BY_NAME.set(member.name, member);
+            ECESS_MAP_BY_NAME.set(member.name, {...member, uid});
         }
     }
     return member;
@@ -37,8 +37,8 @@ export async function getPersonByName(name) {
             id = item.id;
         });
         if (member) {
-            ECESS_MAP_BY_NAME.set(member.name, member);
-            ECESS_MAP_UID.set(id, member);
+            ECESS_MAP_BY_NAME.set(member.name, {...member, uid: id});
+            ECESS_MAP_UID.set(id, {...member, uid: id});
         }
     }
     return member;
@@ -57,16 +57,20 @@ export async function getMembersFromOrganization(organization, retired=false) {
         (await getDocs(q)).forEach((item) => {
             const data = item.data();
             if (!ECESS_MAP_BY_NAME.has(data.name)) {
-                ECESS_MAP_BY_NAME.set(data.name, data);
-                ECESS_MAP_UID.set(item.id, data);
+                ECESS_MAP_BY_NAME.set(data.name, {...data, uid: item.id});
+                ECESS_MAP_UID.set(item.id, {...data, uid: item.id});
             }
         })
     }
     let heads = [];
+    let retiredItems = [];
     ECESS_MAP_BY_NAME.forEach((item) => {
         if (item.ecess_organization) {
             if (organization in item.ecess_organization) {
-                if ( (organization.retired && retired) || !(retired || organization.retired)) {
+                if ((item.ecess_organization[organization]?.retired) && retired) {
+                    retiredItems.push(item);
+                }
+                else {
                     if (item.ecess_board_position === organization) {
                         heads.push(item)
                     }
@@ -83,8 +87,14 @@ export async function getMembersFromOrganization(organization, retired=false) {
     response.sort((a: any, b: any) => {
         return a.name.localeCompare(b.name);
     })
+    retiredItems.sort((a: any, b: any) => {
+        return a.name.localeCompare(b.name);
+    })
     heads.forEach((item) => {
         response.splice(0, 0, item);
+    })
+    retiredItems.forEach((item) => {
+        response.push(item);
     })
     return response;
 }

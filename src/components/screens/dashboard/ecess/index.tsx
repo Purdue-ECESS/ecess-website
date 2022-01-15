@@ -1,2 +1,3 @@
 import {ECESSDashboard} from "./ecess_dashboard";
-export {ECESSDashboard};
+import {ECESSMemberTable} from "../members";
+export {ECESSDashboard, ECESSMemberTable};

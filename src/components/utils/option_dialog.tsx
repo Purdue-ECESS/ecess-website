@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-export function OptionName({option, value, children, onSave, disable=false}) {
+export function OptionDialogWindow({option, value, children, onSave, disable=false}) {
     const [open, setOpen] = React.useState(false);
     return (
         <>
@@ -17,16 +17,16 @@ export function OptionName({option, value, children, onSave, disable=false}) {
                 open={open}
                 keepMounted
                 onClose={() => {
-                    setOpen(false && !disable);
+                    setOpen(false);
                 }}
                 aria-describedby="alert-dialog-slide-description"
             >
                 <DialogTitle>{`Set New ${option} ${option === "Graduation" ? "Date": ""}`}</DialogTitle>
-                <DialogContent>
+                <DialogContent id={"alert-dialog-slide-description"}>
                         {children}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpen(false && !disable)}>Cancel</Button>
+                    <Button onClick={() => setOpen(false)}>Cancel</Button>
                     <Button onClick={async () => {
                         setOpen(false);
                         await onSave();
@@ -36,7 +36,7 @@ export function OptionName({option, value, children, onSave, disable=false}) {
             <div>
                 <Button
                     onClick={() => {
-                        setOpen(true && !disable);
+                        setOpen(!disable);
                     }}
                     style={{display: "flex", flexFlow: "row", padding: 10, width: '100%'}}>
                     <div>{option}</div>

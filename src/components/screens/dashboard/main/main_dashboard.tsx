@@ -1,5 +1,5 @@
 import {Card, CardContent, TextField, Typography} from "@mui/material";
-import {OptionName} from "./option_name";
+import {OptionDialogWindow} from "src/components/utils/option_dialog";
 import {AdvancedOptionSelectionAndText} from "./advanced_selection";
 import {BasicOptionSelection} from "./basic_option_selection";
 import * as React from "react";
@@ -31,7 +31,7 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                 <CardContent>
                     <div>
                         <Typography variant={"h6"} style={{padding: 5}}>Basic Information</Typography>
-                        <OptionName
+                        <OptionDialogWindow
                             onSave={onSave}
                             option={"Name"}
                             value={name}>
@@ -47,8 +47,8 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                     }}
                                 />
                             </>
-                        </OptionName>
-                        <OptionName
+                        </OptionDialogWindow>
+                        <OptionDialogWindow
                             onSave={onSave}
                             option={"Email"}
                             value={user.email}>
@@ -63,8 +63,8 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                     variant="filled"
                                     style={{width: "100%"}}/>
                             </>
-                        </OptionName>
-                        <OptionName
+                        </OptionDialogWindow>
+                        <OptionDialogWindow
                             onSave={onSave}
                             option={"Graduation"}
                             value={userData.graduation || "None"}>
@@ -74,8 +74,8 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                     setNewChange({...newChange, graduation: response});
                                 }}
                             />
-                        </OptionName>
-                        <OptionName
+                        </OptionDialogWindow>
+                        <OptionDialogWindow
                             onSave={onSave}
                             option={"Hometown"}
                             value={userData.hometown}>
@@ -89,8 +89,8 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                 defaultValue={user.hometown || ""}
                                 style={{width: "100%"}}
                             />
-                        </OptionName>
-                        <OptionName
+                        </OptionDialogWindow>
+                        <OptionDialogWindow
                             onSave={onSave}
                             option={"Major"}
                             value={userData.major || "None"}>
@@ -101,7 +101,7 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                 }}
                                 selections={["None", "Computer Engineering", "Electrical Engineering"]}
                             />
-                        </OptionName>
+                        </OptionDialogWindow>
                     </div>
                 </CardContent>
             </Card>

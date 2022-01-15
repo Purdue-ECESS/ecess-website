@@ -30,20 +30,20 @@ import {FullScreenLoading} from "./components/utils/loading";
 
 function App() {
     MyFb.loadFb();
-    const [offset, setOffset] = useState(0);
+    // const [offset, setOffset] = useState(0);
     const [user, setUser] = useState(undefined);
 
-    useEffect(() => {
-        window.onscroll = () => {
-            const tempOffset = window.pageYOffset;
-            if (tempOffset < 10) {
-                setOffset(tempOffset / 10 * 3);
-            }
-            else {
-                setOffset(3);
-            }
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     window.onscroll = () => {
+    //         const tempOffset = window.pageYOffset;
+    //         if (tempOffset < 10) {
+    //             setOffset(tempOffset / 10 * 3);
+    //         }
+    //         else {
+    //             setOffset(3);
+    //         }
+    //     }
+    // }, [user]);
     const auth = getAuth();
     auth.onAuthStateChanged((user) => {
         setUser(user);
