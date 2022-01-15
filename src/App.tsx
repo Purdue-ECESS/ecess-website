@@ -11,7 +11,7 @@ import ECESSCalendarPage from "./pages/ecess/ecess_calendar";
 import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";
@@ -25,7 +25,7 @@ import {NavBar} from "./components/theme/nav_bar";
 import "src/styles/index.css";
 import {SparkMembers} from "./pages/spark/spark_members";
 import {MyFb} from "./data/data_fb";
-import {CircularProgress, ThemeProvider, Typography} from "@mui/material";
+import {ThemeProvider, Typography} from "@mui/material";
 import {FullScreenLoading} from "./components/utils/loading";
 
 function App() {
