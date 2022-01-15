@@ -67,8 +67,10 @@ export async function getMembersFromOrganization(organization, retired=false) {
     ECESS_MAP_BY_NAME.forEach((item) => {
         if (item.ecess_organization) {
             if (organization in item.ecess_organization) {
-                if ((item.ecess_organization[organization]?.retired) && retired) {
-                    retiredItems.push(item);
+                if ((item.ecess_organization[organization]?.retired)) {
+                    if (retired) {
+                        retiredItems.push(item);
+                    }
                 }
                 else {
                     if (item.ecess_board_position === organization) {

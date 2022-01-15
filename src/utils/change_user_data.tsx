@@ -15,6 +15,7 @@ export const changeUserData = async (user: any, currentData: any, newData: any) 
 export const adminChangeUserData = async (targetId: string, currentData: any, newData: any) => {
     delete newData.uid;
     MyFb.loadFb();
+    console.log({currentData, newData})
     if (Object.keys(currentData).length === 0) {
         await setDoc(doc(collection(getFirestore(), "users"), targetId), newData);
     }

@@ -16,7 +16,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {Button} from "@mui/material";
 import {Ambassador, Board, Spark, Wece} from "../edit";
 import {useState} from "react";
-import {adminChangeUserData} from "../../../../utils/change_user_data";
+import {adminChangeUserData} from "src/utils/change_user_data";
 
 function createData(
     uid: any,
@@ -36,7 +36,9 @@ function Row(props: { row: ReturnType<typeof createData>, organization: string, 
     const ecessOrg = row.ecess_organization;
     const [newEcessOrg, setEcessOrgChange] = useState({});
     const onSave = async () => {
-        const response = await adminChangeUserData(row.uid, ecessOrg, newEcessOrg);
+        const response = await adminChangeUserData(row.uid,
+            {ecess_organization: ecessOrg},
+            {ecess_organization: newEcessOrg});
         onMemberChange(idx, response);
         setEcessOrgChange({});
     }
@@ -56,7 +58,7 @@ function Row(props: { row: ReturnType<typeof createData>, organization: string, 
                 <TableCell component="th" scope="row">
                     {row.name}
                 </TableCell>
-                <TableCell align="right">{row.ecess_organization[organization]?.retired ? "True" : "False"}</TableCell>
+                <TableCell align="right">{row.ecess_organization[organization]?.retired ? "False" : "True"}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -99,7 +101,9 @@ function Row(props: { row: ReturnType<typeof createData>, organization: string, 
                                 onClick={ async () => {
                                     let ecess_organization = {};
                                     ecess_organization[organization] = {retired: true};
-                                    await adminChangeUserData(row.uid, ecessOrg, {ecess_organization});
+                                    await adminChangeUserData(row.uid,
+                                        {ecess_organization: ecessOrg},
+                                        {ecess_organization: ecess_organization});
                                     setEcessOrgChange({});
                                 }}
                                 style={{margin: 5}}>

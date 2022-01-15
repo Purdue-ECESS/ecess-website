@@ -23,7 +23,8 @@ export function Ambassador({ecessOrg, setEcessOrgChange, onSave}) {
                     defaultValue={ambassadors.quote || ""}
                     onChange={(event) =>{
                         ambassadors.quote = event.target.value;
-                        setEcessOrgChange(ecessOrg);
+                        // setEcessOrgChange(ecessOrg);
+                        setEcessOrgChange({"Ambassadors": ambassadors})
                     }} />
             </OptionDialogWindow>
         </div>
