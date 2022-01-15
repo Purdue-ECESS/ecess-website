@@ -38,7 +38,9 @@ export function DashboardIndex({user}) {
             />
 
             <ECESSDashboard
-
+                user={user}
+                userData={userData}
+                setUserData={setUserData}
             />
 
         </div>

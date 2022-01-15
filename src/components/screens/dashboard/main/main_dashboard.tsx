@@ -25,7 +25,7 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
     }
 
     return (
-        <div>
+        <div style={{margin: 10}}>
             <Typography variant={"h5"} style={{textAlign: "center", margin: 10}}>Welcome {userData.name}</Typography>
             <Card>
                 <CardContent>
