@@ -1,4 +1,4 @@
-import {Card, CardContent, Chip, Typography} from "@material-ui/core";
+import {Card, CardContent, Chip, Typography} from "@mui/material";
 import React from "react";
 import moment from "moment";
 import LocationOnIcon from '@mui/icons-material/LocationOn';

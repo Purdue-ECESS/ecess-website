@@ -1,5 +1,5 @@
 import {COMMITTEES} from "src/data/data_committees";
-import {Card, CardContent, Typography} from "@material-ui/core";
+import {Card, CardContent, Typography} from "@mui/material";
 import {Author} from "src/components/widgets/author";
 import React from "react";
 import {hashCode, intToRGB} from "src/utils";

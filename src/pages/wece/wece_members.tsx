@@ -1,5 +1,5 @@
-import {MemberList} from "../../components/widgets/lists/member_list";
-import {getMembersFromOrganization} from "../../data/data_people";
+import {MemberList} from "src/components/widgets/lists/member_list";
+import {getMembersFromOrganization} from "src/data/data_people";
 import {useEffect, useState} from "react";
 
 export function WECEMembers() {

@@ -12,7 +12,6 @@ import ECEAFunPage from "./pages/ecea/ecea_fun";
 import ECEAECEPage from "./pages/ecea/ecea_ece";
 import AboutPage from "./pages/ecea/ecea_members";
 import React, {useEffect, useState} from "react";
-import {CircularProgress, ThemeProvider, Typography} from "@material-ui/core";
 import {ECESSHome} from "./pages/ecess/ecess_index";
 import {WECEHome} from "./pages/wece/wece_index";
 import {WECEMembers} from "./pages/wece/wece_members";
@@ -26,6 +25,7 @@ import {NavBar} from "./components/theme/nav_bar";
 import "src/styles/index.css";
 import {SparkMembers} from "./pages/spark/spark_members";
 import {MyFb} from "./data/data_fb";
+import {CircularProgress, ThemeProvider, Typography} from "@mui/material";
 
 function App() {
     MyFb.loadFb();
@@ -73,25 +73,32 @@ function App() {
                     <Route path={"/spark/fa2021"} component={SparkResults}/>
 
                     {/* Login Page */}
-                    {user ?
-                        <Redirect exact path={"/login"} to={"/dashboard"} /> :
-                            user === undefined ?
-                                <div style={{ display: 'grid', width: "100%", placeItems: "center" , margin: 20}}>
-                                    <CircularProgress />
-                                </div>
-                                :
-                                <Route exact path={"/login"}
-                                       render={(props) => <LoginPage setUser={setUser} {...props} />}
-                                />
-                    }
+                    <Route exact path={"/login"}
+                           render={(props) => {
+                               if (user === null) {
+                                   return <LoginPage setUser={setUser} {...props} />
+                               }
+                               if (user === undefined) {
+                                   return (
+                                       <div style={{ display: 'grid', width: "100%", placeItems: "center" , margin: 20}}>
+                                            <CircularProgress />
+                                       </div>
+                                   )
+                               }
+                               return <Redirect exact path={"/login"} to={"/dashboard"} />
+                           }}
+                    />
 
-                    {/*Dashboard Page*/}
-                    {user ?
-                        <Route exact path={"/dashboard"}
-                               render={(props) => <DashboardIndex user={user} {...props} />}
-                        /> :
-                        <Redirect exact path={"/dashboard"} to={"/login"} />
-                    }
+                    {/* Dashboard Page */}
+                    <Route exact path={"/dashboard"}
+                           render={(props) => {
+                               if (user) {
+                                   return <DashboardIndex user={user} {...props} />;
+                               }
+                               return <Redirect exact path={"/dashboard"} to={"/login"} />;
+                           }}
+                    />
+
 
                     <Route>
                         <Typography style={{textAlign: 'center', margin: 20}}>Sorry, Page is Not Found</Typography>

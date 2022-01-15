@@ -1,9 +1,7 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import MuiLink from '@material-ui/core/Link';
 import { useLocation } from 'react-router-dom';
 import {SocialMedia} from "../widgets/social_media";
-import {Divider} from "@material-ui/core";
+import {Divider, Typography} from "@mui/material";
 
 export default function Copyright(props) {
     const {style} = props;
@@ -18,9 +16,7 @@ export default function Copyright(props) {
             <Typography variant="body2" color="textSecondary" align="center" >
                 {'Copyright © '}
                 {`${new Date().getFullYear()} `}
-                <MuiLink color="inherit" href="https://engineering.purdue.edu/ece">
-                    Purdue ECE Student Society
-                </MuiLink>
+                Purdue ECE Student Society
             </Typography>
             <Typography variant="body2" color="textSecondary" align="center" >
                 Address: EE 232, 475 Northwestern Avenue, West Lafayette IN - 47907

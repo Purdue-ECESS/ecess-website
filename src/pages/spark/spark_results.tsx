@@ -1,11 +1,11 @@
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
 import React, {useEffect, useState, useLayoutEffect} from "react";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import {ImageGallery} from "src/components/screens/image_gallery";
 import {ecessApiCall} from "src/utils/api";
 import {SparkTeam} from "src/components/widgets/spark_team";
-import {FloatYoutube} from "src/components/utils/float_youtube";
-import {FloatWebsite} from "src/components/utils/float_website";
+import {FloatYoutube} from "src/components/utils/float/float_youtube";
+import {FloatWebsite} from "src/components/utils/float/float_website";
 import {isMobile} from 'react-device-detect';
 import "src/styles/dark_click.sass";
 

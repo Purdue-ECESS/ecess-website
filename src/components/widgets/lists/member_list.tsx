@@ -1,8 +1,8 @@
 import React from "react";
-import {Card, CardActions, CardContent, Typography} from "@material-ui/core";
+import {Card, CardActions, CardContent, Typography} from "@mui/material";
 import {useState, useEffect} from 'react';
-import {HoverButtons} from "../../theme/mui/hover_button";
-import {ImageLoader} from "../../utils/image_loader";
+import {HoverButtons} from "src/components/theme/mui/hover_button";
+import {ImageLoader} from "src/components/utils/image_loader";
 
 function MemberCard(props) {
     const {person, component} = props;

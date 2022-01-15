@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Typography, CircularProgress, Button, withStyles} from "@material-ui/core";
-import CalendarEvent from "../../components/widgets/calendar_event";
+import {Typography, CircularProgress, Button,} from "@mui/material";
+import {withStyles} from "@mui/styles";
+import CalendarEvent from "src/components/widgets/calendar_event";
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import '../../styles/calendar.sass';
-import {ecessApiCall} from "../../utils/api";
+import 'src/styles/calendar.sass';
+import {ecessApiCall} from "src/utils/api";
 
 function getCalendarEvents(date: Date | undefined = undefined) : Promise<any>{
     let parameters = undefined;
