@@ -1,4 +1,4 @@
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import {Discord, Gmail, Instagram} from "@icons-pack/react-simple-icons";
 import React from "react";
 import {HoverButtons} from "src/components/theme/mui/hover_button";

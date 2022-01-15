@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Button, Typography} from "@material-ui/core";
+import {Button, Typography} from "@mui/material";
 import {WelcomeImage} from "src/components/screens/welcome";
 import Typewriter from "typewriter-effect";
 import {DarkTypography} from "src/components/theme/mui/dark_typography";
 import "src/styles/ecess_index.sass"
-import {ecessApiCall} from "../../utils/api";
+import {ecessApiCall} from "src/utils/api";
 import {ECESSCommittess} from "./ecess_committees";
 
 

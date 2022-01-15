@@ -1,7 +1,7 @@
-import {MemberList} from "../../components/widgets/lists/member_list";
-import {getMembersFromOrganization} from "../../data/data_people";
-import {Chip, Typography} from "@material-ui/core";
-import {hashCode, intToRGB} from "../../utils";
+import {MemberList} from "src/components/widgets/lists/member_list";
+import {getMembersFromOrganization} from "src/data/data_people";
+import {Chip, Typography} from "@mui/material";
+import {hashCode, intToRGB} from "src/utils";
 import React, {useEffect, useState} from "react";
 
 

@@ -1,7 +1,7 @@
-import Typography from "@material-ui/core/Typography";
 import React, {useState} from "react";
-import {ImageLoader} from "../utils/image_loader";
-import {getPictureUrl} from "../../data/data_people";
+import {ImageLoader} from "src/components/utils/image_loader";
+import {getPictureUrl} from "src/data/data_people";
+import {Typography} from "@mui/material";
 
 export function Author(props) {
     const {name, relative} = props;

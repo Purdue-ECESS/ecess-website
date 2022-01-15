@@ -1,7 +1,8 @@
-import {createTheme} from '@material-ui/core/styles';
-import {red} from '@material-ui/core/colors';
 
 // Create a theme instance.
+import {createTheme} from "@mui/material";
+import {red} from "@mui/material/colors";
+
 const ECESSTheme = createTheme({
     typography: {
         allVariants: {
@@ -24,7 +25,7 @@ const ECESSTheme = createTheme({
         error: {
             main: red.A400,
         },
-        type: "dark",
+        mode: "dark",
     },
 });
 

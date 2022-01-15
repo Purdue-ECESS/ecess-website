@@ -1,5 +1,5 @@
-import {Card, CardActions, CardContent, Typography} from "@material-ui/core";
-import {HoverButtons} from "../theme/mui/hover_button";
+import {Card, CardActions, CardContent, Typography} from "@mui/material";
+import {HoverButtons} from "src/components/theme/mui/hover_button";
 import React from "react";
 
 export function SparkTeam(props) {

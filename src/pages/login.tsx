@@ -1,5 +1,5 @@
 import {Button} from "@mui/material";
-import {TextField, Typography} from "@material-ui/core";
+import {TextField, Typography} from "@mui/material";
 import {useState} from "react";
 import {
     getAuth,

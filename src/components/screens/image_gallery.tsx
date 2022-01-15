@@ -1,8 +1,8 @@
-import {ImageList, ImageListItem} from "@material-ui/core";
 import React, {useEffect, useLayoutEffect, useState} from "react";
 import {delay} from "q";
 import {WelcomeImage} from "./welcome";
 import "src/styles/image_gallary.sass";
+import {ImageList, ImageListItem} from "@mui/material";
 
 export function ImageGallery({photos: userPhotos, children}) {
     const [photos, setPhotos] = useState(userPhotos);

@@ -1,6 +1,6 @@
 import {MemberList} from "src/components/widgets/lists/member_list";
 import {getMembersFromOrganization} from "src/data/data_people";
-import {Chip} from "@material-ui/core";
+import {Chip} from "@mui/material";
 import {hashCode, intToRGB} from "src/utils";
 import React, {useEffect, useState} from "react";
 

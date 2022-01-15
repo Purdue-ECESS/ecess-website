@@ -1,5 +1,5 @@
-import {Fab} from "@material-ui/core";
 import ClearIcon from "@mui/icons-material/Clear";
+import {Fab} from "@mui/material";
 
 export const Float = (props) => {
     const {style, onClose, children} = props;

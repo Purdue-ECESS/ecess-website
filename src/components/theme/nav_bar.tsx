@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
-import {Button, Typography} from "@material-ui/core";
 import "src/styles/bootstrap_navbar.sass";
 import { useLocation } from 'react-router-dom';
+import {Button, Typography} from "@mui/material";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {

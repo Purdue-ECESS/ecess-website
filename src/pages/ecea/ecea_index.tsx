@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {makeStyles} from "@material-ui/styles";
+import {makeStyles} from "@mui/styles";
 import {WelcomeImage} from "src/components/screens/welcome";
 import {Updates} from "src/components/widgets/discord_updates";
 import ECESSTheme from "src/components/theme/mui/theme";
