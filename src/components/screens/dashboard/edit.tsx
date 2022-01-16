@@ -3,8 +3,7 @@ import {OptionDialogWindow} from "src/components/utils/option_dialog";
 import * as React from "react";
 
 export function Ambassador({ecessOrg, setEcessOrgChange, onSave}) {
-    let ambassadors = ecessOrg["Ambassadors"];
-    ambassadors = ambassadors ? ambassadors: {};
+    let ambassadors = {...ecessOrg["Ambassadors"]};
 
     return (
         <div style={{margin: 5}}>
@@ -23,7 +22,6 @@ export function Ambassador({ecessOrg, setEcessOrgChange, onSave}) {
                     defaultValue={ambassadors.quote || ""}
                     onChange={(event) =>{
                         ambassadors.quote = event.target.value;
-                        // setEcessOrgChange(ecessOrg);
                         setEcessOrgChange({"Ambassadors": ambassadors})
                     }} />
             </OptionDialogWindow>
@@ -33,29 +31,38 @@ export function Ambassador({ecessOrg, setEcessOrgChange, onSave}) {
 
 export function Wece({ecessOrg, setEcessOrgChange, onSave}) {
     return (
-        <>
-        </>
+        <div/>
     )
 }
 
-export function Board({ecessOrg, setEcessOrgChange, onSave}) {
-    const exec = ecessOrg.ECESS;
-    if (!exec) {
-        return <></>
+export function Board({ecessOrg, setEcessOrgChange, onSave, disable=false}) {
+    const exec = {...ecessOrg.ECESS};
+    if (exec.quote instanceof Object) {
+        exec.quote = "";
     }
     return (
         <div style={{margin: 5}}>
             <Typography variant={"h6"} style={{padding: 5}}>ECESS Executive</Typography>
             <OptionDialogWindow
-                disable={true}
+                disable={disable}
                 option={"Position"}
                 onSave={onSave}
-                value={exec.board_position || ""}>
+                value={exec?.board_position || ""}>
+                <Typography>Add Position</Typography>
+                <TextField
+                    label={"Position"}
+                    variant={"filled"}
+                    style={{width: "100%"}}
+                    defaultValue={exec?.board_position || ""}
+                    onChange={(event) =>{
+                        exec.board_position = event.target.value;
+                        setEcessOrgChange({"ECESS": exec});
+                    }} />
             </OptionDialogWindow>
             <OptionDialogWindow
                 option={"Quote"}
                 onSave={onSave}
-                value={exec.quote || "No Quote"}
+                value={exec?.quote || "No Quote"}
             >
                 <Typography>Add Your Quote</Typography>
                 <TextField
@@ -63,26 +70,26 @@ export function Board({ecessOrg, setEcessOrgChange, onSave}) {
                     variant={"filled"}
                     multiline
                     rows={4}
-                    defaultValue={exec.quote || ""}
+                    defaultValue={exec?.quote || ""}
                     onChange={(event) =>{
                         exec.quote = event.target.value;
-                        setEcessOrgChange(ecessOrg);
+                        setEcessOrgChange({"ECESS": exec});
                     }} />
             </OptionDialogWindow>
             <OptionDialogWindow
                 option={"Favorite Class"}
                 onSave={onSave}
-                value={exec.fav_class || "No Favorite Class"}
+                value={exec?.fav_class || "No Favorite Class"}
             >
                 <Typography>Add Your Favorite Class</Typography>
                 <TextField
                     label={"Favorite Class"}
                     variant={"filled"}
                     style={{width: "100%"}}
-                    defaultValue={exec.fav_class || ""}
+                    defaultValue={exec?.fav_class || ""}
                     onChange={(event) =>{
                         exec.fav_class = event.target.value;
-                        setEcessOrgChange(ecessOrg);
+                        setEcessOrgChange({"ECESS": exec});
                     }} />
             </OptionDialogWindow>
         </div>
@@ -90,5 +97,5 @@ export function Board({ecessOrg, setEcessOrgChange, onSave}) {
 }
 
 export function Spark({ecessOrg, setEcessOrgChange, onSave}) {
-    return <></>;
+    return <div/>;
 }

@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {FullScreenLoading} from "src/components/utils/loading";
 import {getMembersFromOrganization} from "src/data/data_people";
 import * as React from "react";
+import {MemberAdd} from "./member_add";
 
 export function ECESSMemberDashboard({user, userData, setUserData}) {
     const [members, setMembers] = useState(undefined);
@@ -38,7 +39,22 @@ export function ECESSMemberDashboard({user, userData, setUserData}) {
     return (
         <Card style={{margin: 10}}>
             <CardContent>
-                <Typography variant={"h6"} style={{padding: 5}}>Manage Members</Typography>
+                <div style={{display: "flex", flexFlow: "wrap"}}>
+                    <Typography variant={"h6"} style={{padding: 5, flex: 1}}>Manage Members</Typography>
+                    <MemberAdd organization={userData.ecess_board_position} onClick={ async () => {
+                        const response = await getMembersFromOrganization(userData.ecess_board_position, true);
+                        let removeIdx = -1;
+                        response.forEach((item, i) => {
+                            if (item.email === user.email) {
+                                removeIdx = i;
+                            }
+                        })
+                        if (removeIdx >= 0) {
+                            response.splice(removeIdx, 1);
+                        }
+                        setMembers(response || []);
+                    }}/>
+                </div>
                 <ECESSMemberTable
                     rows={members}
                     organization={userData.ecess_board_position}

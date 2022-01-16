@@ -3,6 +3,7 @@ import {changeUserData} from "src/utils/change_user_data";
 import {useState} from "react";
 import * as React from "react";
 import {Ambassador, Board, Spark, Wece} from "../edit";
+import {getPersonByUid} from "src/data/data_people";
 
 export function ECESSDashboard({user, userData, setUserData}) {
     const [ecessOrgChange, setEcessOrgChange] = useState({});
@@ -11,7 +12,11 @@ export function ECESSDashboard({user, userData, setUserData}) {
     }
     const ecessOrg: any = userData.ecess_organization;
     const onSave = async () => {
-        const response = await changeUserData(user, userData, {ecess_organization: ecessOrgChange});
+        const newUserData = await getPersonByUid(user.uid);
+        const response = await changeUserData(user, userData, {ecess_organization: {
+            ...newUserData.ecess_organization,
+            ...ecessOrgChange
+        }});
         setUserData(response);
         setEcessOrgChange({});
     };
@@ -19,15 +24,16 @@ export function ECESSDashboard({user, userData, setUserData}) {
         <Card style={{margin: 10}}>
             <CardContent>
                 {
-                    ecessOrg.ECESS &&
+                    "ECESS" in ecessOrg &&
                     <Board
+                        disable={true}
                         onSave={onSave}
                         ecessOrg={ecessOrg}
                         setEcessOrgChange={setEcessOrgChange}
                     />
                 }
                 {
-                    ecessOrg.Ambassadors &&
+                    "Ambassadors" in ecessOrg &&
                     <Ambassador
                         onSave={onSave}
                         ecessOrg={ecessOrg}
@@ -35,7 +41,7 @@ export function ECESSDashboard({user, userData, setUserData}) {
                     />
                 }
                 {
-                    ecessOrg.wece &&
+                    "wece" in ecessOrg &&
                     <Wece
                         onSave={onSave}
                         ecessOrg={ecessOrg}
@@ -43,7 +49,7 @@ export function ECESSDashboard({user, userData, setUserData}) {
                     />
                 }
                 {
-                    ecessOrg.Spark &&
+                    "Spark" in ecessOrg &&
                     <Spark
                         onSave={onSave}
                         ecessOrg={ecessOrg}
