@@ -11,6 +11,7 @@ export function ECESSDashboard({user, userData, setUserData}) {
     }
     const ecessOrg: any = userData.ecess_organization;
     const onSave = async () => {
+        console.log(ecessOrgChange);
         const response = await changeUserData(user, userData, {ecess_organization: ecessOrgChange});
         setUserData(response);
         setEcessOrgChange({});
@@ -19,15 +20,16 @@ export function ECESSDashboard({user, userData, setUserData}) {
         <Card style={{margin: 10}}>
             <CardContent>
                 {
-                    ecessOrg.ECESS &&
+                    "ECESS" in ecessOrg &&
                     <Board
+                        disable={true}
                         onSave={onSave}
                         ecessOrg={ecessOrg}
                         setEcessOrgChange={setEcessOrgChange}
                     />
                 }
                 {
-                    ecessOrg.Ambassadors &&
+                    "Ambassadors" in ecessOrg &&
                     <Ambassador
                         onSave={onSave}
                         ecessOrg={ecessOrg}
@@ -35,7 +37,7 @@ export function ECESSDashboard({user, userData, setUserData}) {
                     />
                 }
                 {
-                    ecessOrg.wece &&
+                    "wece" in ecessOrg &&
                     <Wece
                         onSave={onSave}
                         ecessOrg={ecessOrg}
@@ -43,7 +45,7 @@ export function ECESSDashboard({user, userData, setUserData}) {
                     />
                 }
                 {
-                    ecessOrg.Spark &&
+                    "Spark" in ecessOrg &&
                     <Spark
                         onSave={onSave}
                         ecessOrg={ecessOrg}

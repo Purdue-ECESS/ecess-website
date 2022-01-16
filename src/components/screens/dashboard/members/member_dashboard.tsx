@@ -1,28 +1,32 @@
 import {ECESSMemberTable} from "./member_table";
-import {Card, CardContent, Typography} from "@mui/material";
+import {Button, Card, CardContent, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {FullScreenLoading} from "src/components/utils/loading";
 import {getMembersFromOrganization} from "src/data/data_people";
 import * as React from "react";
+import {MemberAdd} from "./member_add";
 
 export function ECESSMemberDashboard({user, userData, setUserData}) {
     const [members, setMembers] = useState(undefined);
+    const updateMembers = () => {
+        getMembersFromOrganization(userData.ecess_board_position, true).then((response) => {
+            let removeIdx = -1;
+            response.forEach((item, i) => {
+                if (item.email === user.email) {
+                    removeIdx = i;
+                }
+            })
+            if (removeIdx >= 0) {
+                response.splice(removeIdx, 1);
+            }
+            setMembers(response || []);
+        })
+    }
     useEffect(() => {
         if (userData && userData.ecess_board_position && members === undefined) {
-            getMembersFromOrganization(userData.ecess_board_position, true).then((response) => {
-                let removeIdx = -1;
-                response.forEach((item, i) => {
-                    if (item.email === user.email) {
-                        removeIdx = i;
-                    }
-                })
-                if (removeIdx >= 0) {
-                    response.splice(removeIdx, 1);
-                }
-                setMembers(response || []);
-            })
+            updateMembers();
         }
-    }, [members, user.email, userData]);
+    }, [members, updateMembers, user.email, userData]);
     if (!userData) {
         return <></>
     }
@@ -38,7 +42,10 @@ export function ECESSMemberDashboard({user, userData, setUserData}) {
     return (
         <Card style={{margin: 10}}>
             <CardContent>
-                <Typography variant={"h6"} style={{padding: 5}}>Manage Members</Typography>
+                <div style={{display: "flex", flexFlow: "wrap"}}>
+                    <Typography variant={"h6"} style={{padding: 5, flex: 1}}>Manage Members</Typography>
+                    <MemberAdd organization={userData.ecess_board_position} onClick={updateMembers}/>
+                </div>
                 <ECESSMemberTable
                     rows={members}
                     organization={userData.ecess_board_position}
