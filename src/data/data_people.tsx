@@ -4,29 +4,59 @@ import {MyFb} from "./data_fb";
 
 const ECESS_MAP_BY_NAME = new Map();
 const ECESS_MAP_UID = new Map();
+const ECESS_MAP_EMAIL = new Map();
 const ORG_REQUESTED = new Set();
 MyFb.loadFb();
 const db: Firestore = getFirestore();
 
-export async function getPersonByUid(uid) {
+const addMember = (uid, member) => {
+    if (member) {
+        const merged = {...member, uid};
+        ECESS_MAP_UID.set(uid, merged);
+        if (member?.name) {
+            ECESS_MAP_BY_NAME.set(member.name, merged);
+        }
+        if (member?.email) {
+            ECESS_MAP_EMAIL.set(member.email, merged)
+        }
+        return merged;
+    }
+    return member;
+}
+
+export async function getPersonByEmail(email, force=false) {
     let member: any = {};
-    if (ECESS_MAP_UID.has(uid)){
+    if (ECESS_MAP_EMAIL.has(email) && !force) {
+        member = ECESS_MAP_EMAIL.get(email);
+    }
+    else {
+        const q = query(collection(db, "users"), where("email", "==", email));
+        let id = undefined;
+        (await getDocs(q)).forEach((item) => {
+            member = item.data();
+            id = item.id;
+        });
+        member = addMember(id, member);
+    }
+    return member;
+}
+
+export async function getPersonByUid(uid, force=false) {
+    let member: any = {};
+    if (ECESS_MAP_UID.has(uid) && !force){
         member = ECESS_MAP_UID.get(uid);
     }
     else {
         const user = await getDoc(doc(collection(db, "users"), uid));
         member = user.data();
-        ECESS_MAP_UID.set(uid, {...member, uid});
-        if (member && member?.name) {
-            ECESS_MAP_BY_NAME.set(member.name, {...member, uid});
-        }
+        member = addMember(uid, member);
     }
     return member;
 }
 
-export async function getPersonByName(name) {
+export async function getPersonByName(name, force = false) {
     let member;
-    if (ECESS_MAP_BY_NAME.has(name)) {
+    if (ECESS_MAP_BY_NAME.has(name) && !force) {
         member = ECESS_MAP_BY_NAME.get(name);
     }
     else {
@@ -36,10 +66,7 @@ export async function getPersonByName(name) {
             member = item.data();
             id = item.id;
         });
-        if (member) {
-            ECESS_MAP_BY_NAME.set(member.name, {...member, uid: id});
-            ECESS_MAP_UID.set(id, {...member, uid: id});
-        }
+        member = addMember(id, member);
     }
     return member;
 }
@@ -56,10 +83,7 @@ export async function getMembersFromOrganization(organization, retired=false) {
         const q = query(collection(db, `users`), orderBy(`ecess_organization.${organization}`, "asc"));
         (await getDocs(q)).forEach((item) => {
             const data = item.data();
-            if (!ECESS_MAP_BY_NAME.has(data.name)) {
-                ECESS_MAP_BY_NAME.set(data.name, {...data, uid: item.id});
-                ECESS_MAP_UID.set(item.id, {...data, uid: item.id});
-            }
+            addMember(item.id, data);
         })
     }
     let heads = [];

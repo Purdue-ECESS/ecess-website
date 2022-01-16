@@ -17,6 +17,7 @@ import {Button} from "@mui/material";
 import {Ambassador, Board, Spark, Wece} from "../edit";
 import {useState} from "react";
 import {adminChangeUserData} from "src/utils/change_user_data";
+import {getPersonByUid} from "src/data/data_people";
 
 function createData(
     uid: any,
@@ -31,16 +32,18 @@ function createData(
 }
 
 function Row(props: { row: ReturnType<typeof createData>, organization: string, onMemberChange: any, idx: number }) {
-    const { row , organization, onMemberChange, idx } = props;
+    const { row , organization} = props;
     const [open, setOpen] = React.useState(false);
-    const ecessOrg = row.ecess_organization;
-    const [newEcessOrg, setEcessOrgChange] = useState({});
+    const [ecessOrg, setEcessOrg] = useState({...row.ecess_organization});
+    const [newEcessOrg, setNewEcessOrg] = useState({});
     const onSave = async () => {
-        const response = await adminChangeUserData(row.uid,
-            {ecess_organization: ecessOrg},
-            {ecess_organization: newEcessOrg});
-        onMemberChange(idx, response);
-        setEcessOrgChange({});
+        const updatedUserAttribute = await getPersonByUid(row.uid, true);
+        const merged = {...updatedUserAttribute.ecess_organization, ...newEcessOrg};
+        await adminChangeUserData(row.uid,
+            {ecess_organization: updatedUserAttribute.ecess_organization},
+            {ecess_organization: merged});
+        setNewEcessOrg({});
+        setEcessOrg(merged);
     }
 
     return (
@@ -64,34 +67,50 @@ function Row(props: { row: ReturnType<typeof createData>, organization: string, 
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
+                            <>
                             {
                                 organization === "Ambassadors" &&
                                     <Ambassador
-                                        ecessOrg={ecessOrg} setEcessOrgChange={setEcessOrgChange} onSave={onSave}
+                                        ecessOrg={ecessOrg}
+                                        setEcessOrgChange={setNewEcessOrg}
+                                        onSave={onSave}
                                     />
                             }
                             {
                                 organization === "ECESS" &&
                                 <Board
-                                    ecessOrg={ecessOrg} setEcessOrgChange={setEcessOrgChange} onSave={onSave}
+                                    disable={false}
+                                    ecessOrg={ecessOrg}
+                                    setEcessOrgChange={setNewEcessOrg}
+                                    onSave={onSave}
                                 />
                             }
                             {
                                 organization === "WECE" &&
                                 <Wece
-                                    ecessOrg={ecessOrg} setEcessOrgChange={setEcessOrgChange} onSave={onSave}
+                                    ecessOrg={ecessOrg}
+                                    setEcessOrgChange={setNewEcessOrg}
+                                    onSave={onSave}
                                 />
                             }
                             {
                                 organization === "Spark" &&
                                 <Spark
-                                    ecessOrg={ecessOrg} setEcessOrgChange={setEcessOrgChange} onSave={onSave}
+                                    ecessOrg={ecessOrg}
+                                    setEcessOrgChange={setNewEcessOrg}
+                                    onSave={onSave}
                                 />
                             }
                             <Button
                                 variant={"contained"}
-                                onClick={() => {
-                                    alert("Nobody at the Moment can Perform this Action. Contact the Web Dev to Remove Someone");
+                                onClick={async () => {
+                                    alert("Feature is not Supported Yet");
+                                    // const newUserData = await getPersonByUid(row.uid, true);
+                                    // delete newUserData.ecess_organization[organization];
+                                    // console.log({temp: newUserData.ecess_organization});
+                                    // await adminChangeUserData(row.uid, {ecess_organization: ecessOrg},
+                                    //     {ecess_organization: newUserData.ecess_organization});
+                                    // setNewEcessOrg({});
                                 }}
                                 style={{margin: 5}}>
                                 Remove
@@ -99,16 +118,22 @@ function Row(props: { row: ReturnType<typeof createData>, organization: string, 
                             <Button
                                 variant={"contained"}
                                 onClick={ async () => {
-                                    let ecess_organization = {};
-                                    ecess_organization[organization] = {retired: true};
+                                    let ecess_organization = {...ecessOrg};
+                                    if (ecess_organization[organization]) {
+                                        ecess_organization[organization]["retired"] = !ecess_organization[organization]["retired"];
+                                    }
+                                    else {
+                                        ecess_organization[organization] = {retired: true};
+                                    }
                                     await adminChangeUserData(row.uid,
                                         {ecess_organization: ecessOrg},
                                         {ecess_organization: ecess_organization});
-                                    setEcessOrgChange({});
+                                    setNewEcessOrg({});
                                 }}
                                 style={{margin: 5}}>
-                                Retire
+                                {ecessOrg[organization]?.retired ? "Not Retire": "Retire"}
                             </Button>
+                            </>
                         </Box>
                     </Collapse>
                 </TableCell>
@@ -134,7 +159,7 @@ export function ECESSMemberTable({rows, organization, setMembers}) {
                 </TableHead>
                 <TableBody>
                     {rows.map((row, i) => (
-                        <Row key={row.name} row={row} organization={organization} onMemberChange={onMemberChange} idx={i}/>
+                        <Row key={row.uid} row={row} organization={organization} onMemberChange={onMemberChange} idx={i}/>
                     ))}
                 </TableBody>
             </Table>
