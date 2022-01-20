@@ -64,14 +64,20 @@ export function ECESSHome() {
                 </Typography>
                 <Button
                     style={{margin: 5}}
-                    variant="contained" href="https://docs.google.com/forms/d/e/1FAIpQLSdJiB-CY9fsSLUF1b204HNTQDN59xNzK5JYUp2Z7KxtybsWGg/viewform" target="_blank" color={"primary"}>
+                    variant="contained" href="https://bit.ly/ecessapp" target="_blank" color={"primary"}>
                     {"Apply Here!"}
                 </Button>
                 <Button
                     style={{margin: 5}}
                     variant={"contained"}
-                    href="https://docs.google.com/presentation/d/1i4AwbaDw5L7QFtBHDrKgNnoDBB-9ouSqy-YSwgM5oHM/edit?usp=sharing" target="_blank" color={"primary"}>
+                    href="https://docs.google.com/presentation/d/1_frwIrKieIseq4VxoeykkEfFpsoWLHoyBH_FSUujjQk/edit?usp=sharing" target="_blank" color={"primary"}>
                     {"Callout Slides!"}
+                </Button>
+                <Button
+                    style={{margin: 5}}
+                    variant={"contained"}
+                    href=" https://youtu.be/lJRxn-N8ODA" target="_blank" color={"primary"}>
+                    {"Callout Video!"}
                 </Button>
             </div>
 
