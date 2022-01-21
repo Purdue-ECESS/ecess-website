@@ -55,8 +55,7 @@ export default function ECEAIndexPage() {
                             Mission Statement
                         </DarkTypography>
                         <DarkTypography variant={'subtitle2'}>
-                            ECE Ambassadors mission is to spread knowledge about Purdue’s ECE program to prospective
-                            and current students alike.
+                            Our mission is to spread knowledge about Purdue’s ECE program to prospective and current students alike
                         </DarkTypography>
                     </WelcomeImage>
                     <Updates materialClass={classes} content={updates}/>
