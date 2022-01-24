@@ -5,9 +5,14 @@ export const COMMITTEES = [
         description: "We work on all things social- including social media, flyers, and getting people to events. We spread the word about ECESS, do outreach, and answer questions."
     },
     {
-        title: "Software Development",
+        title: "Software/Website Development",
         leads: ["Matthew Wen"],
-        description: "The Software Development Committee maintains the ECESS webpage and updates it with announcements and new information regarding the ECESS committees and ECE in general."
+        description: "The Software/Website Development Committee maintains the ECESS webpage and updates it with announcements and new information regarding the ECESS committees and ECE in general."
+    },
+    {
+        title: "Podcast",
+        leads: ["Naveen Vivek"],
+        description: "Manages the Podcast for ECESS"
     },
     {
         title: "Spark Challenge",
@@ -36,6 +41,7 @@ export const COMMITTEES = [
     },
     {
         title: "Social",
+        leads: ["Alice Dragnea"],
         description: "The Social Committee Organizes fun events throughout the week. These events are a fun and engaging way to interact with other ECESS members, and other students in ECE."
     },
     {
