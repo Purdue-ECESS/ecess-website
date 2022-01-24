@@ -107,19 +107,16 @@ export function SparkResults() {
                                 {
                                     title: "Snow Vision",
                                     emoji: "🥇",
-                                    url: "https://engineering.purdue.edu/477grp17/",
                                     placement: "First Place"
                                 },
                                 {
                                     title: "RevEx",
                                     emoji: "🥈",
-                                    url: "https://engineering.purdue.edu/477grp6/",
                                     placement: "Second Place",
                                 },
                                 {
                                     title: "Interactive Piano",
                                     emoji: "🥉",
-                                    url: "https://engineering.purdue.edu/477grp16/",
                                     placement: "Third Place",
                                 }
                             ].map((item) => (
@@ -127,9 +124,6 @@ export function SparkResults() {
                                     key={item.title}
                                     title={item.title}
                                     emoji={item.emoji}
-                                    onClick={() => {
-                                        setPopUpWebsite(item.url)
-                                    }}
                                     placement={item.placement}
                                 />
                             ))
@@ -204,13 +198,11 @@ export function SparkResults() {
                                     title: "Solar Charging Station",
                                     team: 20,
                                     videoId: "ixIIc4Vfy_s",
-                                    website: "https://engineering.purdue.edu/477grp2/"
                                 },
                                 {
                                     title: "Sink or be Sunk",
                                     team: 18,
                                     videoId: "ziMwrT-h9pU",
-                                    website: "https://engineering.purdue.edu/477grp8/"
                                 }
                             ]
                                 .map((item) => (
@@ -226,10 +218,6 @@ export function SparkResults() {
                                             else {
                                                 setPopUpVideoId(videoId);
                                             }
-                                        }}
-                                        website={item.website}
-                                        websiteClick={(website) => {
-                                            setPopUpWebsite(website)
                                         }}
                                     />
                                 ))
