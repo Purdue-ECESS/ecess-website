@@ -6,11 +6,11 @@ import {getMembersFromOrganization} from "src/data/data_people";
 import * as React from "react";
 import {MemberAdd} from "./member_add";
 
-export function ECESSMemberDashboard({user, userData, setUserData}) {
+export function ECESSMemberDashboard({user, organization, setUserData}: any) {
     const [members, setMembers] = useState(undefined);
     useEffect(() => {
-        if (userData && userData.ecess_board_position && members === undefined) {
-            getMembersFromOrganization(userData.ecess_board_position, true).then((response) => {
+        if (organization && members === undefined) {
+            getMembersFromOrganization(organization, true).then((response) => {
                 let removeIdx = -1;
                 response.forEach((item, i) => {
                     if (item.email === user.email) {
@@ -23,11 +23,14 @@ export function ECESSMemberDashboard({user, userData, setUserData}) {
                 setMembers(response || []);
             })
         }
-    }, [members, user.email, userData]);
-    if (!userData) {
-        return <></>
-    }
-    if (!userData.ecess_board_position) {
+    }, [members, organization, user.email]);
+    const organizationMap = {
+        "Ambassadors": "Ambassadors",
+        "wece": "WECE Members",
+        "Spark": "Spark Members",
+        "ECESS": "Board Members"
+    };
+    if (!organization) {
         return <></>
     }
     if (members === undefined) {
@@ -40,9 +43,9 @@ export function ECESSMemberDashboard({user, userData, setUserData}) {
         <Card style={{margin: 10}}>
             <CardContent>
                 <div style={{display: "flex", flexFlow: "wrap"}}>
-                    <Typography variant={"h6"} style={{padding: 5, flex: 1}}>Manage Members</Typography>
-                    <MemberAdd organization={userData.ecess_board_position} onClick={ async () => {
-                        const response = await getMembersFromOrganization(userData.ecess_board_position, true);
+                    <Typography variant={"h6"} style={{padding: 5, flex: 1}}>Manage {organizationMap[organization]}</Typography>
+                    <MemberAdd organization={organization} onClick={ async () => {
+                        const response = await getMembersFromOrganization(organization, true);
                         let removeIdx = -1;
                         response.forEach((item, i) => {
                             if (item.email === user.email) {
@@ -57,7 +60,7 @@ export function ECESSMemberDashboard({user, userData, setUserData}) {
                 </div>
                 <ECESSMemberTable
                     rows={members}
-                    organization={userData.ecess_board_position}
+                    organization={organization}
                     setMembers={setMembers}
                 />
             </CardContent>

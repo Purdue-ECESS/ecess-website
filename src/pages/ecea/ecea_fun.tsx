@@ -43,7 +43,7 @@ function ListImageView(key, refs, maxHeight=undefined) {
             {
                 (photos || []).map((item, i) => (
                         <ImageListItem key={`${key}-image-list-${i}`} cols={item.col || 1}>
-                            <img src={item.src} alt={'head-shots'} />
+                            <img src={item.src} alt={''} />
                         </ImageListItem>
                     )
                 )

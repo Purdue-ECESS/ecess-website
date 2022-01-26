@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import "src/styles/bootstrap_navbar.sass";
-import { useLocation } from 'react-router-dom';
 import {Button, Typography} from "@mui/material";
+import {LoginNavButton} from "./login_button";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -177,7 +177,6 @@ export function NavBar({user}) {
                         </div>
                     </div>
                 </div>
-
                 <div className={expand ? "links-expanded": "links-not-expanded"}>
                     {title &&
                         <Link
@@ -230,24 +229,14 @@ export function NavBar({user}) {
                     }
                     {
                         user &&
-                        <div
-                            style={{
-                                display: "grid",
-                                alignContent: "center",
-                                justifyContent: "center",
-                                height: "100%",
-                            }}>
-                            <div style={{
-                                margin: 5,
-                                width: "35px",
-                                height: "35px",
-                                borderRadius: "100%",
-                                backgroundImage: `url(https://avatars.dicebear.com/api/identicon/${user.email}.svg)`,
-                            }}/>
-                        </div>
+                        <LoginNavButton
+                            user={user}
+                            onClick={() => {
+                                updateExpanded(false);
+                            }}
+                        />
                     }
                 </div>
-
             </div>
         </div>
     );
