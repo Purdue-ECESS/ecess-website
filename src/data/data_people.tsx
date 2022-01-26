@@ -76,6 +76,15 @@ export async function getPictureUrl(name) {
     let member = await getPersonByName(name);
     return member ? member.picture: undefined;
 }
+
+export async function getAllMembers() {
+    const q = query(collection(db, 'users'));
+    (await getDocs(q)).forEach((item) => {
+        const data = item.data();
+        addMember(item.id, data);
+    })
+}
+
 export async function getMembersFromOrganization(organization, retired=false) {
     const response = [];
     if (!ORG_REQUESTED.has(organization)) {

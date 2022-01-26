@@ -15,16 +15,20 @@ export function SparkMembers() {
                     const ecess1 = item1.ecess_organization["Spark"];
                     const ecess2 = item2.ecess_organization["Spark"];
 
-                    if (required_order.indexOf(ecess1.position) !== -1 || required_order.indexOf(ecess2.position) !== -1) {
-                        return required_order.indexOf(ecess2.position) - required_order.indexOf(ecess1.position);
-                    }
+                    if (ecess1 && ecess2) {
+                        if (required_order.indexOf(ecess1.position) !== -1 || required_order.indexOf(ecess2.position) !== -1) {
+                            return required_order.indexOf(ecess2.position) - required_order.indexOf(ecess1.position);
+                        }
 
-                    if (ecess1.position === ecess2.position) {
-                        return (item1.name < item2.name) ? 0: 1;
+                        if (ecess1.position === ecess2.position) {
+                            return (item1.name < item2.name) ? 0: 1;
+                        }
+                        else {
+                            return (ecess1.position < ecess2.position) ? 0: 1;
+                        }
                     }
-                    else {
-                        return (ecess1.position < ecess2.position) ? 0: 1;
-                    }
+                    return -1;
+
                 })
                 setMembers(response);
             });
@@ -37,7 +41,8 @@ export function SparkMembers() {
                 return (
                     <>
                         {
-                            <Chip label={ecess.position} style={{
+                            ecess?.position &&
+                            <Chip label={ecess.position } style={{
                                 backgroundColor: `#${intToRGB(hashCode(ecess.position))}`,
                                 margin: 2
                             }}/>

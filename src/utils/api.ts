@@ -1,13 +1,14 @@
 export async function ecessApiCall(
-    {path, headers, parameters, user, url, type, body}: {
+    {path, headers, parameters, user, url, type, body, expectReturn}: {
     path: string,
     parameters?: any,
     headers?:any,
     user?:any,
     url?:any,
     type?:any,
-    body?: Object
-}) { 
+    body?: Object,
+    expectReturn?: boolean
+}) {
     if (url === undefined) {
         url = process.env.REACT_APP_API_URL || "https://ecess-api.matthewwen.com/ecess";
     }
@@ -30,7 +31,7 @@ export async function ecessApiCall(
                 count += 1;
             }
         }
-        fetch(url,
+        const f = fetch(url,
             {
                 method: type,
                 headers: {
@@ -38,14 +39,21 @@ export async function ecessApiCall(
                     Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(body) || undefined
-            })
-            .then(res => res.json())
-            .then(response => {
-                resolve(response)
-            })
-            .catch(e => {
-                resolve([]);
-                console.log(e);
             });
+        if (expectReturn || type !== "POST") {
+            f.then(res => res.json())
+                .then(response => {
+                    resolve(response)
+                })
+                .catch(e => {
+                    resolve([]);
+                    console.log(e);
+                });
+        }
+        else {
+            f.then(() => {
+                resolve(undefined);
+            })
+        }
     })
 }
