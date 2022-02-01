@@ -1,4 +1,4 @@
-import {Card, CardContent, TextField, Typography} from "@mui/material";
+import {Button, Card, CardContent, TextField, Typography} from "@mui/material";
 import {OptionDialogWindow} from "src/components/utils/option_dialog";
 import {AdvancedOptionSelectionAndText} from "./advanced_selection";
 import {BasicOptionSelection} from "./basic_option_selection";
@@ -6,6 +6,7 @@ import * as React from "react";
 import {changeUserData} from "src/utils/change_user_data";
 import {useState} from "react";
 import {FullScreenLoading} from "src/components/utils/loading";
+import {FacebookAuthProvider, getAuth, GoogleAuthProvider, linkWithPopup} from "firebase/auth";
 
 export const MainUserDashboard = ({user, userData, setUserData}) => {
     const [name, setName] = useState(user.displayName);
@@ -102,6 +103,30 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                 selections={["None", "Computer Engineering", "Electrical Engineering"]}
                             />
                         </OptionDialogWindow>
+                        <div style={{display: "flex", marginTop: 20}}>
+                            <div style={{flex: 1}}/>
+                            <Button
+                                onClick={() => {
+                                    const auth = getAuth();
+                                    linkWithPopup(auth.currentUser, new GoogleAuthProvider())
+                                        .then((result => {
+                                        })).catch((error) => {
+                                            console.log(error);
+                                    })
+                                }}>Connect Google Account</Button>
+                            <Button
+                                onClick={() => {
+                                    const auth = getAuth();
+                                    linkWithPopup(auth.currentUser, new FacebookAuthProvider())
+                                        .then((result) => {
+                                            console.log(result);
+                                        })
+                                        .catch((error) => {
+                                            console.log(error);
+                                        });
+                                }}
+                            >Connect Facebook Account</Button>
+                        </div>
                     </div>
                 </CardContent>
             </Card>

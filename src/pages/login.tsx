@@ -5,7 +5,8 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     UserCredential,
-    browserLocalPersistence
+    browserLocalPersistence,
+    GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, createUserWithEmailAndPassword
 } from "firebase/auth";
 
 export function LoginPage({setUser}) {
@@ -52,8 +53,7 @@ export function LoginPage({setUser}) {
                             setUser(cred.user);
                         }
                         catch (e) {
-                            const errorMessage = e.message;
-                            setMessage(errorMessage);
+                            setMessage(e.message || "Unknown Error");
                         }
                     }}>Login</Button>
             </div>
@@ -61,24 +61,49 @@ export function LoginPage({setUser}) {
                 <Button
                     style={{width: "100%"}}
                     variant="contained"
-                    onClick={() => {
-                        alert("Feature Not Supported Yet")
+                    onClick={async () => {
+                        const auth = getAuth();
+                        auth.useDeviceLanguage();
+                        await auth.setPersistence(browserLocalPersistence)
+                        try {
+                            const cred: UserCredential = await signInWithPopup(auth, new GoogleAuthProvider());
+                            setUser(cred.user);
+                        }
+                        catch (e) {
+                            setMessage(e.message || "Unknown Error");
+                        }
                     }}>Login with Google</Button>
             </div>
             <div style={spacingStyle}>
                 <Button
                     style={{width: "100%"}}
                     variant="contained"
-                    onClick={() => {
-                        alert("Feature Not Supported Yet")
+                    onClick={async () => {
+                        const auth = getAuth();
+                        auth.useDeviceLanguage();
+                        await auth.setPersistence(browserLocalPersistence)
+                        try {
+                            const cred: UserCredential = await signInWithPopup(auth, new FacebookAuthProvider());
+                            setUser(cred.user);
+                        }
+                        catch (e) {
+                            setMessage(e.message || "Unknown Error");
+                        }
                     }}>Login with Facebook</Button>
             </div>
             <div style={spacingStyle}>
                 <Button
                     style={{width: "100%"}}
                     variant="contained"
-                    onClick={() => {
-                        alert("Feature Not Supported Yet")
+                    onClick={async () => {
+                        const auth = getAuth();
+                        try {
+                            const cred: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
+                            setUser(cred.user);
+                        }
+                        catch (e) {
+                            setMessage(e.message || "Unknown Error");
+                        }
                     }}>Sign Up</Button>
             </div>
 
