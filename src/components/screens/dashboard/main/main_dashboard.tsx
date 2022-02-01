@@ -105,25 +105,24 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                         </OptionDialogWindow>
                         <div style={{display: "flex", marginTop: 10}}>
                             <div style={{flex: 1}}/>
-                            {
-                                !user.verified &&
-                                <Button variant={"contained"}
-                                        onClick={async () => {
-                                            const actionCodeSettings = {
-                                                url: 'https://www.purdue-ecess.org/dashboard',
-                                                // This must be true.
-                                                handleCodeInApp: true,
-                                            };
-                                            const auth = getAuth()
-                                            sendEmailVerification(auth.currentUser, actionCodeSettings).then(
-                                                (response) => {
-                                                    console.log(response);
-                                                }
-                                            );
-                                        }}
-                                >Verify Your Account</Button>
-
-                            }
+                            {/*{*/}
+                            {/*    !user.verified &&*/}
+                            {/*    <Button variant={"contained"}*/}
+                            {/*            onClick={async () => {*/}
+                            {/*                const actionCodeSettings = {*/}
+                            {/*                    url: 'https://www.purdue-ecess.org/dashboard',*/}
+                            {/*                    // This must be true.*/}
+                            {/*                    handleCodeInApp: true,*/}
+                            {/*                };*/}
+                            {/*                const auth = getAuth()*/}
+                            {/*                sendEmailVerification(auth.currentUser, actionCodeSettings).then(*/}
+                            {/*                    (response) => {*/}
+                            {/*                        console.log(response);*/}
+                            {/*                    }*/}
+                            {/*                );*/}
+                            {/*            }}*/}
+                            {/*    >Verify Your Account</Button>*/}
+                            {/*}*/}
                         </div>
                     </div>
                 </CardContent>
