@@ -63,40 +63,6 @@ export function LoginPage({setUser}) {
                     variant="contained"
                     onClick={async () => {
                         const auth = getAuth();
-                        auth.useDeviceLanguage();
-                        await auth.setPersistence(browserLocalPersistence)
-                        try {
-                            const cred: UserCredential = await signInWithPopup(auth, new GoogleAuthProvider());
-                            setUser(cred.user);
-                        }
-                        catch (e) {
-                            setMessage(e.message || "Unknown Error");
-                        }
-                    }}>Login with Google</Button>
-            </div>
-            <div style={spacingStyle}>
-                <Button
-                    style={{width: "100%"}}
-                    variant="contained"
-                    onClick={async () => {
-                        const auth = getAuth();
-                        auth.useDeviceLanguage();
-                        await auth.setPersistence(browserLocalPersistence)
-                        try {
-                            const cred: UserCredential = await signInWithPopup(auth, new FacebookAuthProvider());
-                            setUser(cred.user);
-                        }
-                        catch (e) {
-                            setMessage(e.message || "Unknown Error");
-                        }
-                    }}>Login with Facebook</Button>
-            </div>
-            <div style={spacingStyle}>
-                <Button
-                    style={{width: "100%"}}
-                    variant="contained"
-                    onClick={async () => {
-                        const auth = getAuth();
                         try {
                             const cred: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
                             setUser(cred.user);

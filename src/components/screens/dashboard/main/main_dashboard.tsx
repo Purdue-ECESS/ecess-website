@@ -6,7 +6,7 @@ import * as React from "react";
 import {changeUserData} from "src/utils/change_user_data";
 import {useState} from "react";
 import {FullScreenLoading} from "src/components/utils/loading";
-import {FacebookAuthProvider, getAuth, GoogleAuthProvider, linkWithPopup} from "firebase/auth";
+import {FacebookAuthProvider, getAuth, GoogleAuthProvider, linkWithPopup, sendEmailVerification} from "firebase/auth";
 
 export const MainUserDashboard = ({user, userData, setUserData}) => {
     const [name, setName] = useState(user.displayName);
@@ -103,29 +103,27 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                                 selections={["None", "Computer Engineering", "Electrical Engineering"]}
                             />
                         </OptionDialogWindow>
-                        <div style={{display: "flex", marginTop: 20}}>
+                        <div style={{display: "flex", marginTop: 10}}>
                             <div style={{flex: 1}}/>
-                            <Button
-                                onClick={() => {
-                                    const auth = getAuth();
-                                    linkWithPopup(auth.currentUser, new GoogleAuthProvider())
-                                        .then((result => {
-                                        })).catch((error) => {
-                                            console.log(error);
-                                    })
-                                }}>Connect Google Account</Button>
-                            <Button
-                                onClick={() => {
-                                    const auth = getAuth();
-                                    linkWithPopup(auth.currentUser, new FacebookAuthProvider())
-                                        .then((result) => {
-                                            console.log(result);
-                                        })
-                                        .catch((error) => {
-                                            console.log(error);
-                                        });
-                                }}
-                            >Connect Facebook Account</Button>
+                            {
+                                !user.verified &&
+                                <Button variant={"contained"}
+                                        onClick={async () => {
+                                            const actionCodeSettings = {
+                                                url: 'https://www.purdue-ecess.org/dashboard',
+                                                // This must be true.
+                                                handleCodeInApp: true,
+                                            };
+                                            const auth = getAuth()
+                                            sendEmailVerification(auth.currentUser, actionCodeSettings).then(
+                                                (response) => {
+                                                    console.log(response);
+                                                }
+                                            );
+                                        }}
+                                >Verify Your Account</Button>
+
+                            }
                         </div>
                     </div>
                 </CardContent>
