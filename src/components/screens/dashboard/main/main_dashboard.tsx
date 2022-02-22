@@ -1,4 +1,4 @@
-import { Card, CardContent, TextField, Typography} from "@mui/material";
+import {Card, CardContent, TextField, Typography} from "@mui/material";
 import {OptionDialogWindow} from "src/components/utils/option_dialog";
 import {AdvancedOptionSelectionAndText} from "./advanced_selection";
 import {BasicOptionSelection} from "./basic_option_selection";
