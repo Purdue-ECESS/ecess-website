@@ -9,11 +9,11 @@ export function Headline({link, text}) {
     const [key, setKey] = useState(1);
 
     const scrolling = useSpring({
-        from: { transform: "translate(60%,0)" },
-        to: { transform: "translate(-60%,0)" },
+        from: { transform: "translate(100%,0)" },
+        to: { transform: "translate(-100%,0)" },
         config: { duration: 20000 },
-        reset: true,
-        //reverse: key % 2 == 0,
+        reset: false,
+        reverse: key % 2 === 0,
         onRest: () => {
             setKey(key + 1);
         }
@@ -27,7 +27,7 @@ export function Headline({link, text}) {
             className={"headline"}
             key={key}>
             <animated.div style={scrolling}>
-                <Typography style={{padding: 2}} variant={"subtitle2"}>
+                <Typography style={{padding: 1}} variant={"subtitle2"}>
                     {text}
                 </Typography>
             </animated.div>
