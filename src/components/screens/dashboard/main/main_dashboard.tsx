@@ -1,4 +1,4 @@
-import {Button, Card, CardContent, TextField, Typography} from "@mui/material";
+import { Card, CardContent, TextField, Typography} from "@mui/material";
 import {OptionDialogWindow} from "src/components/utils/option_dialog";
 import {AdvancedOptionSelectionAndText} from "./advanced_selection";
 import {BasicOptionSelection} from "./basic_option_selection";
@@ -6,7 +6,6 @@ import * as React from "react";
 import {changeUserData} from "src/utils/change_user_data";
 import {useState} from "react";
 import {FullScreenLoading} from "src/components/utils/loading";
-import {FacebookAuthProvider, getAuth, GoogleAuthProvider, linkWithPopup, sendEmailVerification} from "firebase/auth";
 
 export const MainUserDashboard = ({user, userData, setUserData}) => {
     const [name, setName] = useState(user.displayName);

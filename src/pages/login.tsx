@@ -6,7 +6,7 @@ import {
     signInWithEmailAndPassword,
     UserCredential,
     browserLocalPersistence,
-    GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, createUserWithEmailAndPassword
+    createUserWithEmailAndPassword
 } from "firebase/auth";
 
 export function LoginPage({setUser}) {
@@ -53,7 +53,7 @@ export function LoginPage({setUser}) {
                             setUser(cred.user);
                         }
                         catch (e) {
-                            setMessage(e.message || "Unknown Error");
+                            setMessage((e.message || "Unknown Error").replace("Firebase: ", ""));
                         }
                     }}>Login</Button>
             </div>
@@ -68,7 +68,7 @@ export function LoginPage({setUser}) {
                             setUser(cred.user);
                         }
                         catch (e) {
-                            setMessage(e.message || "Unknown Error");
+                            setMessage((e.message || "Unknown Error").replace("Firebase: ", ""));
                         }
                     }}>Sign Up</Button>
             </div>
