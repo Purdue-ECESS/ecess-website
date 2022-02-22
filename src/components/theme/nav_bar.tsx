@@ -4,6 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom'
 import "src/styles/bootstrap_navbar.sass";
 import {Button, Typography} from "@mui/material";
 import {LoginNavButton} from "./login_button";
+import {Headline} from "../utils/headline";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -147,97 +148,103 @@ export function NavBar({user}) {
 
     return (
         <div
-            className={"nav_bar"}>
-            <div className={"content"}>
-                <div className={"title-div"}>
-                    <Link
-                        className={"link"}
-                        to={"/"}>
-                        <div className="hover-underline-animation inactive-link">
-                            <img
-                                width={120}
-                                src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
-                                alt="home pic"
-                            />
-                        </div>
-                    </Link>
+            className={"nav_bar_parent"}>
+            <div
+                className={"nav_bar"}>
+                <div className={"content"}>
+                    <div className={"title-div"}>
+                        <Link
+                            className={"link"}
+                            to={"/"}>
+                            <div className="hover-underline-animation inactive-link">
+                                <img
+                                    width={120}
+                                    src={process.env.PUBLIC_URL + "/static/logo/ecess/ecess_nav_bar_logo.png"}
+                                    alt="home pic"
+                                />
+                            </div>
+                        </Link>
 
-                    <div className={"hamburger-menu"}>
-                        <div className={"space"}/>
-                        <div className={"parent-menu-block"}>
-                            <div
-                                className={"menu-block"}
-                                onClick={() => {
-                                    updateExpanded(!expand);
-                                }}>
-                                <div className={"menu-line"}/>
-                                <div className={"menu-line"}/>
-                                <div className={"menu-line"}/>
+                        <div className={"hamburger-menu"}>
+                            <div className={"space"}/>
+                            <div className={"parent-menu-block"}>
+                                <div
+                                    className={"menu-block"}
+                                    onClick={() => {
+                                        updateExpanded(!expand);
+                                    }}>
+                                    <div className={"menu-line"}/>
+                                    <div className={"menu-line"}/>
+                                    <div className={"menu-line"}/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className={expand ? "links-expanded": "links-not-expanded"}>
-                    {title &&
-                        <Link
-                            className={"link"}
-                            to={root}
-                            onClick={() => {
-                                setLinkIdx(-1);
-                                updateExpanded(false)
-                            }}>
-                            <div className={"hover-underline-animation"}>
-                                <Typography
-                                    className={(linkIdx === -1 ? "active-link": "inactive-link")}>
-                                    {title}
-                                </Typography>
+                    <div className={expand ? "links-expanded": "links-not-expanded"}>
+                        {title &&
+                            <Link
+                                className={"link"}
+                                to={root}
+                                onClick={() => {
+                                    setLinkIdx(-1);
+                                    updateExpanded(false)
+                                }}>
+                                <div className={"hover-underline-animation"}>
+                                    <Typography
+                                        className={(linkIdx === -1 ? "active-link": "inactive-link")}>
+                                        {title}
+                                    </Typography>
+                                </div>
+                            </Link>
+                        }
+                        {navLinks && navLinks.map((i, idx) => (
+                            <Link
+                                key={i.link}
+                                className={"link"}
+                                to={i.link}
+                                onClick={() => {
+                                    setLinkIdx(idx);
+                                    i.onClick();
+                                    updateExpanded(false);
+                                }}>
+                                <div
+                                    className="hover-underline-animation">
+                                    <Typography
+                                        className={(linkIdx === idx ? "active-link": "inactive-link")}>
+                                        {i.label}
+                                    </Typography>
+                                </div>
+                            </Link>
+                        ))}
+                        <div style={{flex: 1}} />
+                        {
+                            user === null &&
+                            <div style={{padding: 5}}>
+                                <Button
+                                    component={Link}
+                                    variant={"contained"}
+                                    style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
+                                    to={"/login"}
+                                >
+                                    Login
+                                </Button>
                             </div>
-                        </Link>
-                    }
-                    {navLinks && navLinks.map((i, idx) => (
-                        <Link
-                            key={i.link}
-                            className={"link"}
-                            to={i.link}
-                            onClick={() => {
-                                setLinkIdx(idx);
-                                i.onClick();
-                                updateExpanded(false);
-                            }}>
-                            <div
-                                className="hover-underline-animation">
-                                <Typography
-                                    className={(linkIdx === idx ? "active-link": "inactive-link")}>
-                                    {i.label}
-                                </Typography>
-                            </div>
-                        </Link>
-                    ))}
-                    <div style={{flex: 1}} />
-                    {
-                        user === null &&
-                        <div style={{padding: 5}}>
-                            <Button
-                                component={Link}
-                                variant={"contained"}
-                                style={{textDecoration: 'none', backgroundColor: "#CEB888"}}
-                                to={"/login"}
-                            >
-                                Login
-                            </Button>
-                        </div>
-                    }
-                    {
-                        user &&
-                        <LoginNavButton
-                            user={user}
-                            onClick={() => {
-                                updateExpanded(false);
-                            }}
-                        />
-                    }
+                        }
+                        {
+                            user &&
+                            <LoginNavButton
+                                user={user}
+                                onClick={() => {
+                                    updateExpanded(false);
+                                }}
+                            />
+                        }
+                    </div>
                 </div>
             </div>
+            <Headline
+                link={"https://forms.gle/WrUJL2oAxqkuauZr8"}
+                text={"Micron tech talk on March 1st, 2022 - RSVP by Clicking Here"}/>
         </div>
     );
 }
