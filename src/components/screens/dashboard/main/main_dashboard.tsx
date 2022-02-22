@@ -23,7 +23,6 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
     };
 
 
-    console.log("userdata: ", userData);
     useEffect(() => {
         if (userData && userData.picture) {
             ecessApiCall({
