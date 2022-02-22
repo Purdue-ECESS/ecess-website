@@ -10,17 +10,18 @@ export function DashboardIndex({user}) {
     MyFb.loadFb();
     const [userData, setUserData] = useState(undefined);
     useEffect(() => {
-        if (userData === undefined) {
-            getPersonByUid(user.uid).then(response => {
-                setUserData(response || {});
-            }).catch( e => {
-                setUserData({});
-            })
-        }
-    }, [userData, user]);
+        getPersonByUid(user.uid).then(response => {
+            console.log("updating user data");
+            setUserData(response || {});
+        }).catch( e => {
+            setUserData({});
+        })
+    }, [user]);
 
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
+
+
             <MainUserDashboard
                 user={user}
                 userData={userData}
