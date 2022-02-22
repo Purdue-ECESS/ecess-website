@@ -4,12 +4,14 @@ import {AdvancedOptionSelectionAndText} from "./advanced_selection";
 import {BasicOptionSelection} from "./basic_option_selection";
 import * as React from "react";
 import {changeUserData} from "src/utils/change_user_data";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {FullScreenLoading} from "src/components/utils/loading";
+import {ecessApiCall} from "src/utils/api";
 
 export const MainUserDashboard = ({user, userData, setUserData}) => {
     const [name, setName] = useState(user.displayName);
     const [newChange, setNewChange] = useState({});
+    const [pictureUrl, setPictureUrl] = useState(undefined);
 
     const onSave = async () => {
         const response = await changeUserData(user, userData, newChange);
@@ -20,12 +22,36 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
         setNewChange({});
     };
 
+
+    useEffect(() => {
+        if (userData && userData.picture) {
+            ecessApiCall({
+                path: "img",
+                parameters: {path: userData.picture, minSize: 480}
+            }).then((item: any) => {
+                setPictureUrl(item.image);
+            })
+        }
+    }, [userData]);
+
     if (!userData) {
         return <FullScreenLoading />
     }
 
     return (
         <div style={{margin: 10}}>
+            {pictureUrl &&
+                <div style={{
+                    overflow: "hidden",
+                    width: 200,
+                    height: 200,
+                    margin: "0 auto",
+                    borderRadius: "100%"
+                }}
+                >
+                    <img src={pictureUrl} alt={"User Profile"} />
+                </div>
+            }
             <Typography variant={"h5"} style={{textAlign: "center", margin: 10}}>Welcome {userData.name}</Typography>
             <Card>
                 <CardContent>
