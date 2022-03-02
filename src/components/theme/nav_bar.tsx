@@ -242,9 +242,9 @@ export function NavBar({user}) {
                     </div>
                 </div>
             </div>
-            <Headline
-                link={"https://forms.gle/WrUJL2oAxqkuauZr8"}
-                text={"Micron tech talk on March 1st, 2022 - RSVP by Clicking Here"}/>
+            {/*<Headline*/}
+            {/*    link={"https://forms.gle/WrUJL2oAxqkuauZr8"}*/}
+            {/*    text={"Micron tech talk on March 1st, 2022 - RSVP by Clicking Here"}/>*/}
         </div>
     );
 }
