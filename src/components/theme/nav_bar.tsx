@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom'
 import "src/styles/bootstrap_navbar.sass";
 import {Button, Typography} from "@mui/material";
 import {LoginNavButton} from "./login_button";
-import {Headline} from "../utils/headline";
+// import {Headline} from "../utils/headline";
 
 const getLinkIdxByPathName = (location, navLinks) => {
     for (let i = 0; navLinks && i < navLinks.length; i++) {
@@ -242,9 +242,9 @@ export function NavBar({user}) {
                     </div>
                 </div>
             </div>
-            <Headline
-                link={"https://forms.gle/WrUJL2oAxqkuauZr8"}
-                text={"Micron tech talk on March 1st, 2022 - RSVP by Clicking Here"}/>
+            {/*<Headline*/}
+            {/*    link={"https://forms.gle/WrUJL2oAxqkuauZr8"}*/}
+            {/*    text={"Micron tech talk on March 1st, 2022 - RSVP by Clicking Here"}/>*/}
         </div>
     );
 }
