@@ -21,7 +21,6 @@ export function DashboardIndex({user}) {
     return (
         <div style={{maxWidth: 1080, margin: "0 auto"}}>
 
-
             <MainUserDashboard
                 user={user}
                 userData={userData}

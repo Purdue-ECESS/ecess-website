@@ -1,4 +1,4 @@
-import {Card, CardContent, TextField, Typography} from "@mui/material";
+import {Button, Card, CardContent, TextField, Typography} from "@mui/material";
 import {OptionDialogWindow} from "src/components/utils/option_dialog";
 import {AdvancedOptionSelectionAndText} from "./advanced_selection";
 import {BasicOptionSelection} from "./basic_option_selection";
@@ -53,6 +53,41 @@ export const MainUserDashboard = ({user, userData, setUserData}) => {
                 </div>
             }
             <Typography variant={"h5"} style={{textAlign: "center", margin: 10}}>Welcome {userData.name}</Typography>
+            {userData.admin &&
+                <Card style={{margin: "10px 0 10px 0"}}>
+                    <CardContent>
+                        <Button
+                            style={{"margin": 5}}
+                            variant={"contained"}
+                            onClick={async () => {
+                                await ecessApiCall({
+                                    path: "drive/transform",
+                                    user,
+                                    type: 'POST',
+                                    body: {'force': true}
+                                });
+                            }}
+                        >
+                           Force Drive to Firebase
+                        </Button>
+
+                        <Button
+                            style={{"margin": 5}}
+                            variant={"contained"}
+                            onClick={async () => {
+                                await ecessApiCall({
+                                    path: "drive/transform",
+                                    user,
+                                    type: 'POST',
+                                    body: {'force': false}
+                                });
+                            }}
+                        >
+                            Normal Drive to Firebase
+                        </Button>
+                    </CardContent>
+                </Card>
+            }
             <Card>
                 <CardContent>
                     <div>
