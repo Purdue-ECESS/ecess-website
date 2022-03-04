@@ -10,14 +10,6 @@ export default function AboutPage() {
     useEffect(() => {
         if (members === undefined) {
             getMembersFromOrganization("Ambassadors").then((response) => {
-                response.sort((a, b) => {
-                    if (a.name === "Sara Hui") {
-                        return -1;
-                    } else if (b.name === "Sara Hui") {
-                        return 1;
-                    }
-                    return a.name.localeCompare(b.name);
-                });
                 setMembers(response);
             });
         }
