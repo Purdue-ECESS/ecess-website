@@ -21,7 +21,7 @@ export const COMMITTEES = [
     },
     {
         title: "Ambassadors",
-        leads: ["Sara Hui"],
+        leads: ["Sara Hui", "Gabby Whitis"],
         description: "Ambassadors answer questions from prospective students and families by giving tours and presentations to incoming students. We also help T2M students make the correct decision for which engineering they choose by giving insight to what ECE is and what we learn."
     },
     {
