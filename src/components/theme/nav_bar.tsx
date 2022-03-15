@@ -60,7 +60,7 @@ export function NavBar({user}) {
                 picture: process.env.PUBLIC_URL + "/static/logo/ecess/spark_logo.jpg",
                 content: "Welcome to the Spark Challenge Website",
                 title: 'Spark Challenge',
-                backgroundColor: ['/spark','/spark/schedule'].includes(temp) ? "#fff": undefined
+                backgroundColor: ['/spark','/spark/schedule'].includes(temp) ? "#333": undefined
             }
         }
         return {
