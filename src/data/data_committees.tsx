@@ -1,7 +1,7 @@
 export const COMMITTEES = [
     {
         title: "Publicity",
-        leads: ["Publicity Team"],
+        leads: ["Emily Choi"],
         description: "The publicity team is in charge of many of the social components of ECESS, including media, flyers, and outreach."
     },
     {
