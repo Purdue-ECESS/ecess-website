@@ -10,7 +10,7 @@ export async function ecessApiCall(
     expectReturn?: boolean
 }) {
     if (url === undefined) {
-        url = process.env.REACT_APP_API_URL || "https://ecess-api.matthewwen.com/ecess";
+        url = process.env.REACT_APP_API_URL || "https://api.matthewwen.com/ecess";
     }
     let token: undefined | string = undefined;
     if (user) {
