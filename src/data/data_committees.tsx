@@ -5,8 +5,8 @@ export const COMMITTEES = [
         description: "The publicity team is in charge of many of the social components of ECESS, including media, flyers, and outreach."
     },
     {
-        title: "Software/Website Development",
-        leads: ["Matthew Wen"],
+        title: "Website Development",
+        leads: ["Matthew Campbell"],
         description: "The Software/Website Development Committee maintains the ECESS webpage and updates it with announcements and new information regarding the ECESS committees and ECE in general."
     },
     {
@@ -21,7 +21,7 @@ export const COMMITTEES = [
     },
     {
         title: "Ambassadors",
-        leads: ["Sara Hui", "Gabby Whitis"],
+        leads: ["Gabby Whitis"],
         description: "Ambassadors answer questions from prospective students and families by giving tours and presentations to incoming students. We also help T2M students make the correct decision for which engineering they choose by giving insight to what ECE is and what we learn."
     },
     {
@@ -31,7 +31,7 @@ export const COMMITTEES = [
     },
     {
         title: "Women in ECE",
-        leads: ["Samantha Unger", "Hope Post"],
+        leads: ["Brady Smith", "Hope Post"],
         description: "WECE is a committee aimed at connecting women majoring in ECE. We have social and outreach events aimed at promoting friendship and making connections in the West Lafayette/ Greater Lafayette area."
     },
     {
